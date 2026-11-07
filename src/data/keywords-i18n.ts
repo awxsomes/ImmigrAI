@@ -1,0 +1,42 @@
+/**
+ * Everyday words in Spanish, Vietnamese and Chinese for each subcategory, so instant
+ * suggestions work before the AI is asked. Separated by "|". Anything missed here
+ * still reaches the AI endpoint, which understands any language.
+ */
+export const KEYWORDS_I18N: Record<string, string> = {
+  translators: "traducir|traductor|traducción|menú en inglés|dịch|dịch thuật|phiên dịch|翻译|翻譯|菜单翻译",
+  voiceovers: "voz|locución|grabar voz|audio|lồng tiếng|giọng nói|thu âm|配音|语音",
+  website: "página web|sitio web|tienda en línea|trang web|cửa hàng trực tuyến|网站|网页|网店",
+  social: "redes sociales|publicaciones|instagram|facebook|tiktok|mạng xã hội|đăng bài|社交媒体|发帖",
+  reviews: "reseñas|opiniones|calificaciones|reseñas de google|đánh giá|nhận xét|评价|好评|差评",
+  ads: "anuncios|publicidad|volante|promoción|quảng cáo|tờ rơi|广告|传单|宣传",
+  bookkeeping: "contabilidad|facturas|recibos|gastos|libros|kế toán|sổ sách|hóa đơn|记账|账本|发票|收据",
+  profits: "ganancias|margen|cuánto gano|lợi nhuận|lời lỗ|利润|赚钱",
+  taxes: "impuestos|declarar impuestos|taxes|irs|thuế|khai thuế|报税|税务|交税",
+  budgeting: "presupuesto|flujo de efectivo|ngân sách|dòng tiền|预算|现金流",
+  costs: "reducir costos|ahorrar|gastos altos|giảm chi phí|tiết kiệm|省钱|降低成本",
+  "sales-tracker": "ventas|registro de ventas|doanh số|bán hàng|销售|销量",
+  "payment-methods": "aceptar tarjetas|tarjeta de crédito|pagos|cobrar|zelle|thanh toán|thẻ tín dụng|nhận tiền|收款|刷卡|信用卡",
+  pos: "caja registradora|punto de venta|máy tính tiền|收银|收银机",
+  "product-tracker": "productos|control de productos|sản phẩm|theo dõi hàng|商品|货品",
+  "supplier-comparer": "proveedores|mayorista|comparar precios|nhà cung cấp|bán sỉ|供应商|批发",
+  "inventory-manager": "inventario|existencias|tồn kho|hàng tồn|库存|进货",
+  hiring: "contratar|empleo|buscar trabajadores|tuyển dụng|tuyển người|thuê người|招聘|招人|雇人",
+  scheduling: "horarios|turnos|horario de empleados|lịch làm việc|xếp ca|ca làm|排班|班表|员工排班",
+  payroll: "nómina|pagar empleados|sueldos|trả lương|bảng lương|工资|发工资|薪水",
+  training: "capacitación|entrenar|đào tạo|huấn luyện|培训|训练员工",
+  "phone-ai": "contestar teléfono|llamadas|contestar llamadas|llamadas perdidas|trả lời điện thoại|cuộc gọi|gọi nhỡ|接电话|电话|未接来电",
+  support: "atención al cliente|servicio al cliente|mensajes|whatsapp|hỗ trợ khách hàng|chăm sóc khách hàng|tin nhắn|客服|客户服务",
+  booking: "citas|reservas|agendar|đặt lịch|lịch hẹn|đặt chỗ|预约|订位",
+  "legal-help": "abogado|ayuda legal|contrato|arrendamiento|luật sư|hợp đồng|pháp lý|律师|合同|法律",
+  permits: "permiso|permisos|licencia|registrar negocio|llc|giấy phép|đăng ký kinh doanh|许可证|营业执照|注册公司",
+  "employment-docs": "documentos de empleados|i-9|w-4|carta de oferta|giấy tờ nhân viên|雇佣文件|员工表格",
+  regulations: "regulaciones|reglas|salario mínimo|inspección|quy định|luật lao động|法规|规定|最低工资",
+  "community-alerts": "alertas|crimen|robo|vecindario|cảnh báo|an ninh khu phố|社区警报|治安",
+  "ice-alerts": "ice|migra|inmigración|redada|deportación|mis derechos|nhập cư|trục xuất|quyền của tôi|移民局|移民|突袭|我的权利",
+  cybersecurity: "contraseña|estafa|hackeado|fraude|mật khẩu|lừa đảo|bị hack|密码|诈骗|被盗号|网络安全",
+  "food-health": "seguridad alimentaria|inspección de salud|temperatura|an toàn thực phẩm|kiểm tra y tế|食品安全|卫生检查",
+  "ai-courses": "curso de ia|aprender ia|inteligencia artificial|khóa học ai|học ai|人工智能课程|学习ai",
+  "business-courses": "curso de negocios|clases de negocios|mentor|khóa học kinh doanh|商业课程|导师",
+  "study-tools": "estudiar|examen|licencia|practicar inglés|học bài|luyện thi|học tiếng anh|学习|考试|学英语",
+};
