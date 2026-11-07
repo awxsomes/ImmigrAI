@@ -71,7 +71,7 @@ export const DOCS = {
         h: "ImmigrAI score",
         p: [
           "A high star rating can hide a tool that is expensive, English-only or hard to set up. So the ImmigrAI score (0 to 100) blends: reviews 35%, ease of use 20%, cost 15%, language support 15%, connections to other tools 10%, and environmental impact 5%.",
-          "If we cannot confirm a tool's reviews, we leave reviews out and score the rest. We never fill the gap with an invented number, and the tool's page says so.",
+          "If we cannot confirm a tool's reviews, we leave reviews out and score the rest, and that score cannot go above 70. We never fill the gap with an invented number, and the tool's page says so.",
         ],
         ul: [
           "Ease of use is our estimate, based on setup time, whether it has a phone app, and whether you can sign up without talking to a salesperson.",
@@ -81,12 +81,23 @@ export const DOCS = {
         ],
       },
       {
+        h: "What counts as an AI tool",
+        p: ["ImmigrAI focuses on AI tools, including small and new ones. We check public pages about each tool and label it one of three ways. Results show AI tools first, and tools built around AI before others when sorted by best overall."],
+        ul: [
+          "AI tool: AI does the product's main job, such as answering calls or writing posts.",
+          "Has AI features: normal software with AI you can actually use, and we say what it does.",
+          "No AI: no AI you can use. AI that only runs behind the scenes, such as fraud screening, does not count. These are listed separately, and include free guides and advisors that are useful anyway.",
+          "Small and new tools often have few public reviews. We show that clearly, so try them before you pay.",
+        ],
+      },
+      {
         h: "How we check reviews",
         p: ["We do not write or host reviews. We search public review sites, and a rating only counts if it passes these checks:"],
         ul: [
           "The rating must appear in the text of the exact page we link to.",
           "The page must be on an independent site: Capterra, G2, Trustpilot, the Apple App Store, Google Play, GetApp, Software Advice or TrustRadius. A company's own testimonials never count.",
-          "The page must be about this product. For Apple we only accept the US store, and for Trustpilot the reviewed web address must match the company's.",
+          "The page must be about this product alone, so comparison and category pages do not count. For Apple we only accept the US store, and for Trustpilot the reviewed web address must match the company's.",
+          "Small tools often share a name with another product. For tools we find by searching the web, the review page must also show the tool's own web address. If it does not, we show no rating. No rating is better than the wrong one.",
           "There must be at least 25 reviews in total. Fewer than that, and we show no rating.",
           "Sites with more reviews count more, on a logarithmic scale, so no single site decides the result.",
         ],
@@ -293,26 +304,6 @@ export const DOCS = {
       {
         h: "Changes",
         p: ["We may update these terms. The date at the top of this page shows the latest version. Which state's law governs these terms will be set before this prototype launches publicly.", "{contact}"],
-      },
-    ],
-  },
-
-  refunds: {
-    title: "Refund policy",
-    intro: "ImmigrAI is free. We never ask for payment, so there is nothing to refund.",
-    sections: [
-      {
-        h: "No fees from us",
-        p: ["There are no subscriptions, hidden fees or paid upgrades on this site. If anyone asks you to pay ImmigrAI, it is not us."],
-      },
-      {
-        h: "Refunds for tools you buy",
-        p: ["If you pay for a tool listed here, you are paying that company, and its refund policy applies. We cannot issue refunds or cancel plans for you."],
-        ul: [
-          "Before you pay, look for the contract length, renewal date and cancellation steps.",
-          "If you start a free trial, set a reminder for the day before it ends.",
-          "If you are charged after you cancel, contact the company first and keep the record. Your bank or card company may be able to help you dispute the charge.",
-        ],
       },
     ],
   },

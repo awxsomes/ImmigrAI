@@ -14,7 +14,7 @@ export const DISCOVERED_TOOL_JSON_SCHEMA = {
   additionalProperties: false,
   required: [
     "name", "website", "summary", "helpsWith", "startingMonthlyUsd", "pricingModel", "priceKind", "pricingNote", "extraFees",
-    "languages", "integrations", "platforms", "workload", "setupMinutes", "selfServe", "howToStart", "caution",
+    "languages", "integrations", "platforms", "workload", "aiLevel", "aiFeature", "setupMinutes", "selfServe", "howToStart", "caution",
   ],
   properties: {
     name: { type: "string" },
@@ -35,6 +35,8 @@ export const DISCOVERED_TOOL_JSON_SCHEMA = {
       description:
         "none: no AI. background-ml: small models sort or rank in the background. optional-genai: normal software with AI only when asked. translation: translation models. llm-every-reply: a large language model on every reply. speech: generates voice audio. image-video: generates pictures or video. voice-agent: AI answers phone calls.",
     },
+    aiLevel: { type: "string", enum: ["core", "feature", "none"], description: "core: AI does the product's main job. feature: normal software with named AI features an owner can use. none: no AI an owner can use." },
+    aiFeature: { type: "string", description: "One short plain sentence, starting with a verb, saying what the AI does for a small business. Empty if aiLevel is none." },
     setupMinutes: { type: "integer", description: "Minutes for a first-time, non-technical user to get going" },
     selfServe: { type: "boolean", description: "True if you can sign up alone, false if you must talk to sales" },
     howToStart: { type: "string", description: "One sentence: how to sign up or buy" },
@@ -63,6 +65,8 @@ const DiscoveredTool = z.object({
   integrations: z.array(z.string().max(60)).max(60),
   platforms: z.array(z.string().max(20)).max(8),
   workload: z.enum(WORKLOAD_VALUES),
+  aiLevel: z.enum(["core", "feature", "none"]).optional(),
+  aiFeature: z.string().max(300).optional(),
   setupMinutes: z.number().min(0).max(100_000),
   selfServe: z.boolean(),
   howToStart: z.string().max(400),
@@ -121,7 +125,7 @@ export function toTool(
   const environmental = environmentalEstimate(input.workload as Workload);
   const startingMonthlyUsd = Math.round(input.startingMonthlyUsd * 100) / 100;
   const setupMinutes = Math.round(input.setupMinutes);
-  const priceKind = input.priceKind ?? inferPriceKind(startingMonthlyUsd, input.pricingModel);
+  const priceKind = startingMonthlyUsd > 0 ? "monthly" : input.priceKind && input.priceKind !== "monthly" ? input.priceKind : inferPriceKind(startingMonthlyUsd, input.pricingModel);
 
   return {
     slug,
@@ -129,6 +133,7 @@ export function toTool(
     website,
     summary: plain(input.summary),
     helpsWith: input.helpsWith.map(plain).filter(Boolean).slice(0, 4),
+    ai: { level: input.aiLevel ?? "feature", feature: plain(input.aiFeature ?? "") },
     categoryId,
     subcategoryId,
     pricing: {

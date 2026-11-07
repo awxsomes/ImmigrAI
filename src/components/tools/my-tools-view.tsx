@@ -3,11 +3,14 @@
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { Label } from "@/components/ui/label";
+import { NativeSelect } from "@/components/ui/native-select";
+import { LANGUAGES } from "@/data/languages";
 import { DeleteDataControl } from "@/components/site/delete-data";
-import { compatText, priceText, toolHref } from "@/lib/format";
-import type { CompatLabels } from "@/lib/labels";
-import { bundleFit, compatibility, monthlyTotal } from "@/lib/scoring";
-import { exportUserData, setAlreadyUse, setConsent, toggleSaved, useUserData } from "@/lib/storage";
+import { compatText, displayLanguage, priceText, toolHref } from "@/lib/format";
+import { fmt, type CompatLabels } from "@/lib/labels";
+import { bundleFit, compatibility, monthlyTotal, supportsLanguage } from "@/lib/scoring";
+import { exportUserData, setAlreadyUse, setConsent, setToolLanguage, toggleSaved, useUserData } from "@/lib/storage";
 import { MyRating } from "./tool-actions";
 
 /** Common software owners already run. Tools are matched against these names. */
@@ -18,16 +21,22 @@ type Labels = CompatLabels &
     | "my_title" | "my_sub" | "my_empty" | "my_browse" | "my_export" | "my_delete" | "my_remove" | "my_alreadyTitle" | "my_alreadyD" | "my_listTitle"
     | "my_stackTitle" | "my_total" | "my_fitLabel" | "my_needTwo" | "my_savingOff" | "my_turnOn" | "my_saved" | "my_yourData" | "my_onlyPaper" | "my_seeKit"
     | "card_free" | "card_freePlan" | "card_noMonthlyFee" | "card_youSetBudget" | "card_perReturn" | "card_from" | "card_perMonth" | "tool_ratingLegend" | "tool_star" | "tool_clearRating" | "tool_inUse" | "tool_note" | "tool_rateHelp"
-    | "doc_confirmQ" | "doc_confirmDelete" | "doc_cancel" | "doc_deleted",
+    | "doc_confirmQ" | "doc_confirmDelete" | "doc_cancel" | "doc_deleted"
+    | "my_languageTitle" | "my_languageD" | "my_languageSiteIn" | "my_languageNoSite" | "my_languageWorks" | "my_languageUnknown" | "filter_myLanguage" | "filter_chooseLanguage",
     string
   >;
 
-export function MyToolsView({ lang, t }: { lang: string; t: Labels }) {
+export function MyToolsView({ lang, defaultLanguage, t }: { lang: string; defaultLanguage: string; t: Labels }) {
   const { data, consent, ready } = useUserData();
   const saved = Object.values(data.savedTools);
   const tools = saved.flatMap((s) => (data.toolCache[s.slug] ? [data.toolCache[s.slug]] : []));
   const pairs = tools.flatMap((a, i) => tools.slice(i + 1).map((b) => ({ a, b })));
   const total = Math.round(monthlyTotal(tools) * 100) / 100;
+  const language = data.language || defaultLanguage;
+  const chosen = LANGUAGES.find((l) => l.name === language);
+  const languageName = language ? displayLanguage(language, lang) : "";
+  const speaks = language ? tools.filter((tool) => supportsLanguage(tool, language)) : [];
+  const unconfirmed = language ? tools.filter((tool) => !supportsLanguage(tool, language)) : [];
 
   function toggleSoftware(name: string, on: boolean) {
     setAlreadyUse(on ? [...data.alreadyUse, name] : data.alreadyUse.filter((n) => n !== name));
@@ -57,7 +66,37 @@ export function MyToolsView({ lang, t }: { lang: string; t: Labels }) {
           </div>
         ))}
 
-      <section className="mt-8" aria-labelledby="already-title">
+      <section id="language" className="mt-8 scroll-mt-4" aria-labelledby="language-title">
+        <h2 id="language-title" className="text-2xl font-semibold">{t.my_languageTitle}</h2>
+        <p className="mt-1">{t.my_languageD}</p>
+        <div className="mt-3 max-w-md">
+          <Label htmlFor="my-language">{t.filter_myLanguage}</Label>
+          <NativeSelect id="my-language" className="mt-1" value={language} onChange={(event) => setToolLanguage(event.target.value)}>
+            <option value="">{t.filter_chooseLanguage}</option>
+            {LANGUAGES.map((l) => (
+              <option key={l.code} value={l.name}>
+                {l.native === l.name ? l.name : `${l.native} (${l.name})`}
+              </option>
+            ))}
+          </NativeSelect>
+        </div>
+        {chosen &&
+          (chosen.ui ? (
+            chosen.code !== lang && (
+              <p className="mt-3">
+                <a href={`/${chosen.code}/my-tools#language`} lang={chosen.code} className="font-medium underline underline-offset-2">
+                  {fmt(t.my_languageSiteIn, { language: chosen.native })}
+                </a>
+              </p>
+            )
+          ) : (
+            <p className="mt-3">{fmt(t.my_languageNoSite, { language: languageName })}</p>
+          ))}
+        {speaks.length > 0 && <p className="mt-3 font-medium text-green-dark">{fmt(t.my_languageWorks, { language: languageName, names: speaks.map((tool) => tool.name).join(", ") })}</p>}
+        {unconfirmed.length > 0 && <p className="mt-2">{fmt(t.my_languageUnknown, { language: languageName, names: unconfirmed.map((tool) => tool.name).join(", ") })}</p>}
+      </section>
+
+      <section className="mt-10" aria-labelledby="already-title">
         <h2 id="already-title" className="text-2xl font-semibold">{t.my_alreadyTitle}</h2>
         <p className="mt-1">{t.my_alreadyD}</p>
         <ul className="mt-3 grid gap-x-4 sm:grid-cols-2 lg:grid-cols-3">

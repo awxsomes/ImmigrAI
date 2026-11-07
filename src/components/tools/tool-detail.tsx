@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import { ArrowIcon, CheckIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { displayLanguage, priceText } from "@/lib/format";
+import { aiLabel, displayLanguage, priceText } from "@/lib/format";
 import type { Dict } from "@/lib/i18n";
 import { fmt } from "@/lib/labels";
 import { RatingText } from "./tool-card";
@@ -17,6 +17,7 @@ export const DETAIL_KEYS = [
   "card_reviewCount", "card_new", "card_noConnections", "card_more", "card_worksInLang", "card_notConfirmedLang",
   "card_languageCount", "card_languageOne", "card_seeLanguages", "card_connectsExisting", "card_details", "card_free",
   "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn",
+  "card_aiCore", "card_aiFeature", "card_aiNone", "card_aiDoes", "card_smallTool", "tool_smallNote",
   "card_from", "card_perMonth", "card_fees", "card_needsSales",
   "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",
@@ -69,10 +70,15 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
         <div className="max-w-3xl">
           <h1 className="text-4xl font-bold">{tool.name}</h1>
           <p className="mt-2 flex flex-wrap items-center gap-2">
-            <Badge variant="outline">{t[`wl_${env.workload}`]}</Badge>
+            <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
             {tool.source === "live" && <Badge variant="warm">{t.tool_foundLive}</Badge>}
           </p>
           <p className="mt-3 text-lg">{tool.summary}</p>
+          {tool.ai.level !== "none" && tool.ai.feature && (
+            <p className="mt-3 rounded-lg bg-green-tint p-3">
+              <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
+            </p>
+          )}
         </div>
         <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-24 flex-col items-center justify-center rounded-xl bg-green text-white">
           <span className="text-4xl leading-none font-bold">{tool.scores.overall}</span>
@@ -151,7 +157,10 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
             {tool.publicResource ? (
               <p>{t.tool_publicResourceNote}</p>
             ) : rating === null ? (
-              <p>{t.tool_noReviewsYet}</p>
+              <>
+                <p>{t.tool_noReviewsYet}</p>
+                <p className="mt-2 rounded-lg bg-marigold-tint p-3">{t.tool_smallNote}</p>
+              </>
             ) : (
               <>
                 <p className="flex items-center gap-2 text-xl font-semibold">

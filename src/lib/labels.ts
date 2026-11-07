@@ -18,6 +18,7 @@ export const CARD_KEYS = [
   "card_reviewCount", "card_new", "card_noConnections", "card_more", "card_worksInLang", "card_notConfirmedLang",
   "card_languageCount", "card_languageOne", "card_seeLanguages", "card_connectsExisting", "card_details", "card_free",
   "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn",
+  "card_aiCore", "card_aiFeature", "card_aiNone", "card_aiDoes", "card_smallTool",
   "card_from", "card_perMonth", "card_fees", "card_needsSales",
   "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",
@@ -40,7 +41,7 @@ export type CompatLabels = Pick<Dict, (typeof COMPAT_KEYS)[number]>;
 export const RESULTS_KEYS = [
   ...CARD_KEYS, ...ACTION_KEYS,
   "results_showing", "results_searching", "results_foundNew", "results_foundNone", "results_paused", "results_failed", "results_saveData",
-  "results_searchWeb", "results_none", "results_sort", "results_pick",
+  "results_searchWeb", "results_none", "results_sort", "results_pick", "results_otherTools",
   "sort_overall", "sort_cheapest", "sort_rating", "sort_env", "sort_easiest",
   "filter_title", "filter_price", "filter_rating", "filter_anyRating", "filter_env", "filter_reset", "filter_show", "filter_hide",
   "filter_businessType", "businessType_any", "businessType_restaurant", "businessType_salon", "businessType_retail", "businessType_trades", "businessType_cleaning",

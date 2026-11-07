@@ -38,7 +38,6 @@ export function Footer({ lang, t }: { lang: string; t: Dict }) {
           links: [
             { label: t.footer_privacy, href: at("privacy") },
             { label: t.footer_terms, href: at("terms") },
-            { label: t.footer_refund, href: at("refunds") },
             { label: t.footer_cookies, href: at("cookies") },
             { label: t.footer_delete, href: at("data-deletion") },
           ],

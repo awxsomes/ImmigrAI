@@ -9,9 +9,17 @@ export const BUNDLES: Bundle[] = [
   {
     slug: "startup-essentials",
     name: "Start-up Essentials",
-    tagline: "The basics for a new business, all with a free way to start.",
+    tagline: "The AI basics for a new business, all with a free way to start.",
     forWho: "Any business opening its doors this year",
-    toolSlugs: ["google-business-profile", "square-pos", "wave", "canva", "whatsapp-business", "bitwarden"],
+    toolSlugs: ["google-business-profile", "square-pos", "finch", "canva", "whatsapp-business", "chatgpt"],
+  },
+  {
+    slug: "small-ai-tools",
+    name: "Small AI Tools Worth Trying",
+    tagline: "Smaller AI tools with public reviews and a low-cost way to start.",
+    forWho: "Owners who want to try AI beyond the big brands",
+    toolSlugs: ["finch", "tabby", "sawyer", "wellsaid", "prevail"],
+    note: "Small companies can change quickly. Try each one before you pay, and keep your own copy of anything important.",
   },
   {
     slug: "restaurant-picks",
@@ -26,7 +34,7 @@ export const BUNDLES: Bundle[] = [
     name: "Salon and Barbershop Kit",
     tagline: "Fill the chair and cut down on no-shows.",
     forWho: "Hair, nails, lashes, barbers and spas",
-    toolSlugs: ["fresha", "square-appointments", "canva", "google-business-profile", "homebase"],
+    toolSlugs: ["fresha", "square-appointments", "canva", "replybase", "homebase"],
     note: "You only need one booking tool. Choose Fresha or Square Appointments, and compare their fees first.",
   },
   {
@@ -34,7 +42,7 @@ export const BUNDLES: Bundle[] = [
     name: "Trades on the Go",
     tagline: "Keep up with calls and get paid from the truck.",
     forWho: "HVAC, plumbing, electrical, landscaping, cleaning",
-    toolSlugs: ["openphone", "stripe", "calendly", "sortly", "google-business-profile", "keeper-tax"],
+    toolSlugs: ["openphone", "aviy", "calendly", "sortly", "google-business-profile", "keeper-tax"],
   },
   {
     slug: "corner-store-and-retail",
@@ -48,7 +56,7 @@ export const BUNDLES: Bundle[] = [
     name: "Hiring Your First Employee",
     tagline: "Find someone, schedule them and pay them correctly.",
     forWho: "Owners going from solo to a small team",
-    toolSlugs: ["indeed", "homebase", "gusto", "connecteam", "sba-business-guide"],
+    toolSlugs: ["indeed", "homebase", "gusto", "connecteam", "hrdocket"],
     note: "Homebase and Connecteam overlap. Try one before paying for the other. Ask a professional about the rules in your state.",
   },
   {
@@ -64,8 +72,8 @@ export const BUNDLES: Bundle[] = [
     name: "Safety First",
     tagline: "Protect your people, your accounts and your records.",
     forWho: "Every business",
-    toolSlugs: ["bitwarden", "ilrc-red-cards", "nilc-know-your-rights", "citizen", "fooddocs"],
-    note: "These do not need to connect to each other, because each covers a different risk. Citizen only works in some areas.",
+    toolSlugs: ["prevail", "passmykitchen", "citizen", "bitwarden", "ilrc-red-cards"],
+    note: "These do not need to connect to each other, because each covers a different risk. Bitwarden and the ILRC Red Cards do not use AI, but they are the best free help we found for passwords and knowing your rights. Citizen only works in some areas.",
   },
 ];
 

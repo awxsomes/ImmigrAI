@@ -1,6 +1,7 @@
-import { cleanResearchText, finalizeReviews } from "@/lib/research-core";
+import { cleanResearchText, finalizeReviews, isRealConnection } from "@/lib/research-core";
 import { buildScores, environmentalEstimate, inferPriceKind } from "@/lib/scoring";
-import type { PriceKind, PricingModel, Tool, Workload } from "@/lib/types";
+import type { AiLevel, PriceKind, PricingModel, Tool, Workload } from "@/lib/types";
+import discoveredFile from "./seed-discovered.json";
 import researchFile from "./research.json";
 import { SEED_BASE, type SeedBase } from "./seed-base";
 
@@ -33,6 +34,7 @@ interface ResearchEntry {
   languages: { list: string[]; sourceUrl: string; totalClaim: string | null };
   integrations: string[];
   caution: string | null;
+  ai?: { level: string; feature: string };
   description?: { confirmed: boolean; discontinued?: boolean; summary?: string; helpsWith?: string[]; howToStart?: string };
 }
 
@@ -62,19 +64,24 @@ export const MAX_MONTHLY_USD = 150;
 
 function buildTool(base: SeedBase): Tool {
   const r = research.tools[base.slug];
-  const workload = base.workload as Workload;
+  const aiLevel = (base.aiOverride?.level ?? r?.ai?.level ?? "none") as AiLevel;
+  const aiFeature = aiLevel === "none" ? "" : (base.aiOverride?.feature ?? r?.ai?.feature ?? "");
+  // The footprint follows what research found the tool really does.
+  const declared = base.workload as Workload;
+  const workload: Workload = aiLevel !== "none" && declared === "none" ? "optional-genai" : aiLevel === "none" && declared === "optional-genai" ? "none" : declared;
   const environmental = environmentalEstimate(workload);
 
   const override = base.priceOverride;
   const startingMonthlyUsd = override?.startingMonthlyUsd ?? (r ? r.pricing.startingMonthlyUsd : base.draftPricing.startingMonthlyUsd);
   const model = (override?.model ?? r?.pricing.model ?? base.draftPricing.model) as PricingModel;
-  const priceKind = (override?.kind ?? r?.pricing.kind ?? inferPriceKind(startingMonthlyUsd, model)) as PriceKind;
+  const researchedKind = r?.pricing.kind as PriceKind | undefined;
+  const priceKind = (override?.kind as PriceKind | undefined) ?? (startingMonthlyUsd > 0 ? "monthly" : researchedKind && researchedKind !== "monthly" ? researchedKind : inferPriceKind(startingMonthlyUsd, model));
   const languages = r?.languages.list.length
     ? r.languages.list.includes("English")
       ? r.languages.list
       : ["English", ...r.languages.list]
     : ["English"];
-  const integrations = r?.integrations ?? [];
+  const integrations = (r?.integrations ?? []).filter(isRealConnection);
   // Stored evidence passes through the current rules on every build, so tightening a rule
   // takes effect without paying to research everything again.
   const finalReviews = r && !base.publicResource ? finalizeReviews(r.reviews.sources, [base.website, r.officialUrl]) : { sources: [], rating: null, reviewCount: 0 };
@@ -87,6 +94,7 @@ function buildTool(base: SeedBase): Tool {
     website: r?.officialUrl?.startsWith("https://") ? r.officialUrl : base.website,
     summary: r?.description?.summary || base.summary,
     helpsWith: r?.description?.helpsWith?.length ? r.description.helpsWith : base.helpsWith,
+    ai: { level: aiLevel, feature: aiFeature },
     categoryId: base.categoryId,
     subcategoryId: base.subcategoryId,
     secondary: base.secondary,
@@ -136,12 +144,17 @@ function buildTool(base: SeedBase): Tool {
 function passesConstraints(tool: Tool, base: SeedBase) {
   const r = research.tools[base.slug];
   if (r && (!r.exists || r.description?.discontinued)) return false;
+  // A tool found while looking for AI tools is only here for its AI.
+  if (DISCOVERED_SLUGS.has(base.slug) && tool.ai.level === "none") return false;
   if (tool.pricing.startingMonthlyUsd > MAX_MONTHLY_USD) return false;
   if (tool.reviews.rating !== null && tool.reviews.rating < MIN_RATING) return false;
   return true;
 }
 
-const built = SEED_BASE.map((base) => ({ base, tool: buildTool(base) }));
+const DISCOVERED = discoveredFile as unknown as SeedBase[];
+const DISCOVERED_SLUGS = new Set(DISCOVERED.map((t) => t.slug));
+
+const built = [...SEED_BASE, ...DISCOVERED].map((base) => ({ base, tool: buildTool(base) }));
 
 export const SEED_TOOLS: Tool[] = built.filter(({ tool, base }) => passesConstraints(tool, base)).map(({ tool }) => tool);
 

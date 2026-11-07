@@ -13,6 +13,7 @@ export interface TranslationSet {
     string,
     {
       summary?: string;
+      aiFeature?: string;
       helpsWith?: string[];
       howToStart?: string;
       pricingNote?: string;

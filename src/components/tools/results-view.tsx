@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
+import { ChevronIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { NativeSelect } from "@/components/ui/native-select";
@@ -138,6 +139,37 @@ export function ResultsView({
     failed: t.results_failed,
     "save-data": t.results_saveData,
   }[live];
+
+  const aiTools = shown.filter((tool) => tool.ai.level !== "none");
+  const otherTools = shown.filter((tool) => tool.ai.level === "none");
+
+  const toolList = (list: Tool[]) => (
+    <ul className="mt-4 space-y-4">
+      {list.map((tool) => {
+        const comparing = compare.includes(tool.slug);
+        return (
+          <li key={tool.slug}>
+            <ToolCard
+              tool={tool}
+              lang={lang}
+              t={t}
+              language={ready || defaultLanguage ? language : ""}
+              alreadyUse={data.alreadyUse}
+              actions={
+                <>
+                  <SaveButton tool={tool} saveLabel={t.card_saveTool} savedLabel={t.card_savedTool} />
+                  <Button variant="ghost" aria-pressed={comparing} onClick={() => toggleCompare(tool.slug)}>
+                    {comparing ? t.card_removeCompare : t.card_addCompare}
+                    <span className="sr-only">: {tool.name}</span>
+                  </Button>
+                </>
+              }
+            />
+          </li>
+        );
+      })}
+    </ul>
+  );
 
   const filtersActive = JSON.stringify({ ...filters, language: "" }) !== JSON.stringify(DEFAULT_FILTERS);
 
@@ -282,31 +314,21 @@ export function ResultsView({
         {shown.length === 0 ? (
           <p className="mt-6 rounded-lg border-2 border-line bg-surface p-5">{t.results_none}</p>
         ) : (
-          <ul className="mt-4 space-y-4">
-            {shown.map((tool) => {
-              const comparing = compare.includes(tool.slug);
-              return (
-                <li key={tool.slug}>
-                  <ToolCard
-                    tool={tool}
-                    lang={lang}
-                    t={t}
-                    language={ready || defaultLanguage ? language : ""}
-                    alreadyUse={data.alreadyUse}
-                    actions={
-                      <>
-                        <SaveButton tool={tool} saveLabel={t.card_saveTool} savedLabel={t.card_savedTool} />
-                        <Button variant="ghost" aria-pressed={comparing} onClick={() => toggleCompare(tool.slug)}>
-                          {comparing ? t.card_removeCompare : t.card_addCompare}
-                          <span className="sr-only">: {tool.name}</span>
-                        </Button>
-                      </>
-                    }
-                  />
-                </li>
-              );
-            })}
-          </ul>
+          <>
+            {aiTools.length > 0 && toolList(aiTools)}
+            {otherTools.length > 0 &&
+              (aiTools.length > 0 ? (
+                <details className="group mt-6">
+                  <summary className="flex min-h-12 list-none items-center justify-between gap-2 rounded-lg border-2 border-line-strong bg-surface px-4 font-medium hover:bg-green-tint">
+                    {fmt(t.results_otherTools, { n: otherTools.length })}
+                    <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
+                  </summary>
+                  {toolList(otherTools)}
+                </details>
+              ) : (
+                toolList(otherTools)
+              ))}
+          </>
         )}
       </div>
 

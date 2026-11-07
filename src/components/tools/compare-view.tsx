@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { displayLanguage, compatText, priceText, toolHref } from "@/lib/format";
+import { aiLabel, displayLanguage, compatText, priceText, toolHref } from "@/lib/format";
 import { fmt, type CardLabels, type CompatLabels } from "@/lib/labels";
 import { compatibility, envLabel, supportsLanguage } from "@/lib/scoring";
 import { useUserData } from "@/lib/storage";
@@ -14,7 +14,7 @@ type Labels = CardLabels &
   Record<
     | "compare_title" | "compare_empty" | "compare_feature" | "compare_pairs" | "compare_rowCost" | "compare_rowFees" | "compare_rowRating" | "compare_rowScore"
     | "compare_rowEase" | "compare_rowFootprint" | "compare_rowLanguages" | "compare_rowMyLanguage" | "compare_rowConnections" | "compare_rowSetup"
-    | "compare_outOf5" | "compare_none" | "tool_setupAbout" | "common_yes" | "common_no" | "my_browse",
+    | "compare_outOf5" | "compare_none" | "compare_rowAi" | "tool_setupAbout" | "common_yes" | "common_no" | "my_browse",
     string
   >;
 
@@ -53,6 +53,7 @@ export function CompareView({
 
   const rows: Array<{ label: string; cell: (tool: Tool) => ReactNode }> = [
     { label: t.compare_rowScore, cell: (tool) => <span className="text-lg font-bold">{tool.scores.overall}/100</span> },
+    { label: t.compare_rowAi, cell: (tool) => (tool.ai.level !== "none" && tool.ai.feature ? tool.ai.feature : aiLabel(tool.ai.level, t)) },
     { label: t.compare_rowCost, cell: (tool) => priceText(tool, t) },
     { label: t.compare_rowFees, cell: (tool) => tool.pricing.extraFees ?? t.compare_none },
     { label: t.compare_rowRating, cell: (tool) => <RatingText tool={tool} t={t} /> },

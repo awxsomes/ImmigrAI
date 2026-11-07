@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CheckIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
-import { displayLanguage, priceText, toolHref } from "@/lib/format";
+import { aiLabel, displayLanguage, priceText, toolHref } from "@/lib/format";
 import { fmt, type CardLabels } from "@/lib/labels";
 import { connectsWithExisting, envLabel, supportsLanguage } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
@@ -24,7 +24,14 @@ function Fact({ label, children }: { label: string; children: ReactNode }) {
 export function RatingText({ tool, t }: { tool: Tool; t: CardLabels }) {
   const { rating, sources, reviewCount } = tool.reviews;
   if (tool.publicResource) return <span className="font-normal">{t.card_publicResource}</span>;
-  if (rating === null) return <span className="font-normal">{t.card_noRating}</span>;
+  if (rating === null) {
+    return (
+      <>
+        <span className="font-normal">{t.card_noRating}</span>
+        <span className="block text-sm font-normal text-muted-ink">{t.card_smallTool}</span>
+      </>
+    );
+  }
   return (
     <>
       <span className="inline-flex items-center gap-1">
@@ -73,9 +80,9 @@ export function ToolCard({
               {tool.name}
             </Link>
           </h3>
-          <p className="mt-1 flex flex-wrap items-center gap-2 text-sm text-muted-ink">
-            <span>{t[`wl_${env.workload}`]}</span>
-            {tool.source === "live" && <Badge variant="warm">{t.card_new}</Badge>}
+          <p className="mt-1 flex flex-wrap items-center gap-2">
+            <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
+            {tool.source === "live" && <Badge variant="outline">{t.card_new}</Badge>}
           </p>
         </div>
         <div
@@ -89,6 +96,11 @@ export function ToolCard({
       </div>
 
       <p className="mt-3">{tool.summary}</p>
+      {tool.ai.level !== "none" && tool.ai.feature && (
+        <p className="mt-3 rounded-lg bg-green-tint px-3 py-2">
+          <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
+        </p>
+      )}
 
       <dl className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
         <Fact label={t.card_cost}>

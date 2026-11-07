@@ -1,0 +1,1301 @@
+[
+ {
+  "slug": "wellsaid",
+  "name": "WellSaid",
+  "website": "https://www.wellsaid.io",
+  "summary": "An AI voice generator that turns text into natural speech using voices built with licensed voice actors, with a free plan for small amounts of audio.",
+  "helpsWith": [
+   "Turns scripts into natural-sounding voiceovers in seconds",
+   "Lets you explore voices by tone, accent, language and style",
+   "Lets you adjust pronunciation, pacing and emphasis before downloading"
+  ],
+  "categoryId": "translate",
+  "subcategoryId": "voiceovers",
+  "workload": "speech",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Go to the website, sign up for the free plan, paste your script and generate a voice.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The free plan includes 3 downloadable minutes per month with commercial rights; paid plans start at $33 per month, with a $160 per month team plan and custom enterprise pricing."
+  }
+ },
+ {
+  "slug": "cadu",
+  "name": "Cadu",
+  "website": "https://cadu.app",
+  "summary": "Builds a clean website for your business from a plain-language description sent over WhatsApp, and keeps it updated the same way.",
+  "helpsWith": [
+   "Builds a full site from a short description of your business",
+   "Updates text, prices, menus and opening hours through WhatsApp",
+   "Adds a contact form that sends leads straight to your WhatsApp"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Send a WhatsApp message to Cadu describing your business and it will build your site and give you a link.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free forever on a cadu.page address; Personal is $9 per month and Business is $19 per site per month, billed yearly for the discounted rate."
+  }
+ },
+ {
+  "slug": "postall",
+  "name": "PostAll",
+  "website": "https://postall.io",
+  "summary": "A social media scheduler with built-in AI that writes captions, generates hashtags and images, and picks the best posting times across many platforms.",
+  "helpsWith": [
+   "Writes captions and hashtags with AI",
+   "Schedules posts to Facebook, Instagram, TikTok and more",
+   "Picks best posting times automatically",
+   "Shows analytics to track growth"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A 1-day free trial with all features, then Pro at $9 per month."
+  },
+  "priceOverride": {
+   "startingMonthlyUsd": 9,
+   "model": "paid",
+   "kind": "monthly",
+   "verified": true
+  }
+ },
+ {
+  "slug": "oshaani-social",
+  "name": "Oshaani Social",
+  "website": "https://social.oshaani.com",
+  "summary": "Publishes, schedules and auto-replies across Instagram, Facebook and WhatsApp, and generates posts and short videos with AI.",
+  "helpsWith": [
+   "Generates post drafts and short videos with AI",
+   "Schedules and publishes to Instagram and Facebook",
+   "Auto-replies to messages from one inbox",
+   "Manual posting and scheduling cost no credits"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 12,
+   "model": "paid",
+   "note": "Pay-as-you-go with a $1 monthly platform fee plus AI credits, or a Starter Pack at $12 per month with 1,400 credits."
+  }
+ },
+ {
+  "slug": "forgelo",
+  "name": "Forgelo",
+  "website": "https://forgelo.com",
+  "summary": "Generates a website from a written prompt and lets you refine and publish it without coding.",
+  "helpsWith": [
+   "Generates a site from a text description",
+   "Lets you refine and edit the generated pages",
+   "Publishes the site to a web address"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan costs $0 for one published website; Starter is $9 per month for 3 websites and a custom domain, Pro is $19 per month for 10 websites."
+  }
+ },
+ {
+  "slug": "praising",
+  "name": "Praising",
+  "website": "https://praising.ai",
+  "summary": "Asks customers for reviews on Google and Trustpilot and drafts AI replies to new reviews so your rating keeps growing.",
+  "helpsWith": [
+   "Sends automated review request emails after each service",
+   "Drafts AI replies to every new review for approval",
+   "Embeds review widgets on your website and shares review cards"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Sign up at praising.ai, connect your Google account, and start with the free plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free forever plan with manual replies; Core is $19/mo, Growth is $29/mo, Pro is higher, and paid plans include a 14-day free trial."
+  }
+ },
+ {
+  "slug": "replybase",
+  "name": "ReplyBase",
+  "website": "https://replybase.co",
+  "summary": "Writes AI responses to your Google and Yelp reviews and pulls them into one dashboard in real time.",
+  "helpsWith": [
+   "Pulls Google, Yelp and other reviews automatically",
+   "Generates AI review responses for local businesses",
+   "Manages review responses for agencies across clients"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Visit replybase.co and sign up, then connect your Google and Yelp accounts.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "Plan prices were not listed in the available information, so check the site for current plans."
+  }
+ },
+ {
+  "slug": "starsteady",
+  "name": "StarSteady",
+  "website": "https://starsteady.io",
+  "summary": "Writes personalized, sentiment-aware replies to Google and Yelp reviews and sends SMS review requests.",
+  "helpsWith": [
+   "Detects mismatches between star rating and review text",
+   "Sends SMS review requests with your Google review link",
+   "Writes replies in your chosen brand tone with complaint handling"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 39,
+   "model": "paid",
+   "note": "Starter is $39 per month with 500 AI responses and SMS requests, and Agency is $199 per month for multiple profiles."
+  }
+ },
+ {
+  "slug": "finch",
+  "name": "Finch",
+  "website": "https://www.finchbooks.ai",
+  "summary": "Free accounting software with an AI bookkeeper that produces double-entry books, invoices and reports, and lets you trace every profit and loss line back to its transactions.",
+  "helpsWith": [
+   "Create and send invoices in several languages",
+   "Double-entry books with 21 reports, budgets and cost of goods",
+   "Trace each profit and loss line to its underlying transactions"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Sign up on the Finch website and connect your business information to begin.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Listed as free accounting with an AI bookkeeper; check the site for any paid tiers and their prices."
+  },
+  "secondary": [
+   "money/budgeting"
+  ]
+ },
+ {
+  "slug": "bocads",
+  "name": "Bocads",
+  "website": "https://bocads.com",
+  "summary": "Bocads creates location-aware ads for local businesses to drive foot traffic, calls, and bookings, with no marketing experience needed.",
+  "helpsWith": [
+   "Generates ads with your neighborhood and service area highlighted",
+   "Creates ads for Google Local, Facebook, and Instagram",
+   "Builds review and testimonial ads from your Google reviews",
+   "Publishes or exports ads directly"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "ads",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 2,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan includes 10 ad credits per month; paid plans offer more volume, with exact prices shown in the app."
+  }
+ },
+ {
+  "slug": "bukeep",
+  "name": "BuKeep",
+  "website": "https://bukeep.com",
+  "summary": "AI bookkeeping where you upload receipts, statements and invoices, and the AI extracts transactions and suggests expense categories for accountant-ready reports.",
+  "helpsWith": [
+   "Extract transactions from receipt photos and bank statement PDFs",
+   "Suggest expense classifications by business, job and category",
+   "Export clean reports for your accountant"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Start the free 90-day trial on the BuKeep website without a credit card and upload your first receipt or statement.",
+  "draftPricing": {
+   "startingMonthlyUsd": 9,
+   "model": "freemium",
+   "note": "Free 90-day trial with 15 credits; 50 credits per month costs $9, with annual billing saving up to 10%."
+  }
+ },
+ {
+  "slug": "bonnie",
+  "name": "Bonnie",
+  "website": "https://mybonnie.ai",
+  "summary": "An AI bookkeeper that imports and categorizes transactions, matches receipts, and asks short questions only when a charge needs your judgment, producing a live profit and loss statement.",
+  "helpsWith": [
+   "Import bank transactions via Plaid or uploaded statements",
+   "Categorize transactions and match receipts",
+   "Provide a real-time profit and loss statement exportable to CSV or PDF"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 25,
+  "selfServe": true,
+  "howToStart": "Start the 30-day free trial on the Bonnie website and connect your bank or upload your first statements.",
+  "draftPricing": {
+   "startingMonthlyUsd": 15,
+   "model": "trial",
+   "note": "$15 per month or $150 per year after a 30-day free trial, with no setup fees or per-transaction charges."
+  }
+ },
+ {
+  "slug": "adsimple",
+  "name": "AdSimple",
+  "website": "https://adsimple.ai",
+  "summary": "AdSimple builds custom ads from your website and shows a competitor report in your area before you pay anything.",
+  "helpsWith": [
+   "Generates five custom ads with images, headlines, and copy from your website",
+   "Produces a competitor report with local ratings and gaps",
+   "Launches chosen ads on Google and Instagram with your budget",
+   "Lets you choose trade-specific starting points"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "ads",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 2,
+  "selfServe": true,
+  "howToStart": "Paste your website URL at adsimple.ai/get-started to generate your free ads.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free to see your ads and competitor report with no credit card; paid launch pricing and budget terms are shown at checkout."
+  }
+ },
+ {
+  "slug": "yourprofitbook",
+  "name": "YourProfitBook",
+  "website": "https://yourprofitbook.com",
+  "summary": "Tracks income and expenses, scans receipts, sends cost-spike alerts and explains your profit and loss reports in plain English.",
+  "helpsWith": [
+   "Scans receipts and suggests expense categories",
+   "Sends alerts when costs spike or margins drop",
+   "Explains monthly profit and loss changes in plain language"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "profits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 25,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 4.99,
+   "model": "trial",
+   "note": "Plans start at $4.99 a month with a 30-day free trial; AI profit briefs and alerts are on the Pro plan."
+  },
+  "secondary": [
+   "money/budgeting",
+   "money/costs"
+  ]
+ },
+ {
+  "slug": "dynatax-ai",
+  "name": "DynaTax AI",
+  "website": "https://dynatax.ai",
+  "summary": "An AI bookkeeping and tax assistant that answers small business tax questions and handles bookkeeping, bank feeds and reports.",
+  "helpsWith": [
+   "Answers tax and bookkeeping questions and lists its sources",
+   "Imports bank feeds and reconciles transactions",
+   "Produces basic financial reports"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "taxes",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Sign up on the DynaTax AI website and start the 14-day free trial without a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "trial",
+   "note": "Starter is $29 per month for 1 user and Growth is $49 per month for 3 users, with a 14-day free trial and no credit card required."
+  },
+  "secondary": [
+   "money/costs"
+  ]
+ },
+ {
+  "slug": "jupid",
+  "name": "Jupid",
+  "website": "https://jupid.com",
+  "summary": "AI accounting software that estimates what a small business should set aside for quarterly taxes based on its real income.",
+  "helpsWith": [
+   "Calculates quarterly estimated tax amounts from real income",
+   "Shows what to set aside for the IRS each quarter",
+   "Reduces surprises at tax time"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "taxes",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Visit the Jupid website, create an account and connect your income to start tracking quarterly estimates.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Check the Jupid website for current plans and prices before signing up."
+  }
+ },
+ {
+  "slug": "profitbooks",
+  "name": "ProfitBooks",
+  "website": "https://profitbooks.ai",
+  "summary": "AI bookkeeping that categorizes transactions automatically from bank and card statements, so you don't have to do it by hand.",
+  "helpsWith": [
+   "Categorizes bank and card transactions automatically with confidence scores",
+   "Produces a profit and loss report by month, quarter or year",
+   "Lets your accountant or tax preparer use the books for free"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Sign up on profitbooks.ai, upload a bank statement, and the AI sorts your transactions for review.",
+  "draftPricing": {
+   "startingMonthlyUsd": 20,
+   "model": "paid",
+   "note": "Profit plan is $20 per month and Full Books is $99 per month, with credits charged per finalized transaction (100 free to start and 10 free daily)."
+  },
+  "secondary": [
+   "money/profits"
+  ]
+ },
+ {
+  "slug": "danbooks",
+  "name": "DanBooks",
+  "website": "https://danbooks.ai",
+  "summary": "Free bookkeeping with an AI assistant called Dan that suggests categories, and optional bank and Square or Stripe syncing.",
+  "helpsWith": [
+   "Invoicing, reports and a custom chart of accounts at no cost",
+   "AI auto-categorization of transactions on the Connected plan",
+   "Syncs Shopify, Square and Stripe sales automatically"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Create a free account on danbooks.ai and upgrade to Connected later if you want bank feeds.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan includes core bookkeeping, and the Connected plan is $19 per month with bank feeds and AI categorization."
+  }
+ },
+ {
+  "slug": "tabby",
+  "name": "Tabby",
+  "website": "https://www.usetabby.com",
+  "summary": "AI bookkeeping for solo owners that categorizes expenses, sends invoices and answers questions about your numbers.",
+  "helpsWith": [
+   "AI categorization and automatic vendor recognition",
+   "Invoicing with ACH and card collection",
+   "Tax-ready reports exportable to Excel and PDF"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan covers up to $15K in tracked expenses; Standard is $15 per month with yearly billing, or $30 per month monthly, with 50% off the first 3 months."
+  }
+ },
+ {
+  "slug": "poof",
+  "name": "Poof",
+  "website": "https://www.poofai.com",
+  "summary": "Free bookkeeping software for small businesses, with an optional AI agent that prepares the ledger, invoices, bills, cash plan, and tax deadlines for your approval.",
+  "helpsWith": [
+   "Keeps the ledger, invoices, quotes, and bills",
+   "Tracks tax deadlines, estimated payments, and tax reserve",
+   "Prepares a January tax package for your CPA",
+   "Cash planning and month-end close with approval before posting"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 40,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The bookkeeping software is free; Poof Agent costs $79 per month after a free 30-day trial."
+  }
+ },
+ {
+  "slug": "cpos-pay",
+  "name": "CPOS Pay",
+  "website": "https://cpos.com",
+  "summary": "Turns the phone a business already owns into a card reader for taking tap payments, with digital receipts sent automatically.",
+  "helpsWith": [
+   "Tap to Pay on iPhone or Android with no extra hardware",
+   "Invoices sent by text or email",
+   "Buy buttons on your website"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "payment-methods",
+  "workload": "optional-genai",
+  "platforms": [
+   "ios",
+   "android",
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Download the CPOS Pay app and create your account inside the app, with no credit check needed.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free to start with no hardware, and a flat rate of 2.49% direct to bank per transaction."
+  }
+ },
+ {
+  "slug": "merchantlink",
+  "name": "MerchantLink",
+  "website": "https://www.merchantlink.ai",
+  "summary": "Creates invoices and payment links that customers pay by card, bank transfer or Apple Pay, with AI that drafts, reminds and follows up.",
+  "helpsWith": [
+   "Itemized invoices with due dates and partial payments",
+   "One-time payment links and QR codes for deposits",
+   "Standing open-amount pay link for a counter sign"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "payment-methods",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Sign up on the MerchantLink website, create an invoice in the sandbox, and connect a processor when you are ready to take real payments.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "You can test in a built-in sandbox at no cost, then connect a processor when ready; check the site for the current plan prices."
+  }
+ },
+ {
+  "slug": "aviy",
+  "name": "Aviy",
+  "website": "https://aviy.ai",
+  "summary": "A free invoicing app where you type a sentence to generate an invoice and clients pay online through one of several payment providers.",
+  "helpsWith": [
+   "AI invoice generator from a short sentence",
+   "Online payment buttons on every invoice",
+   "Recurring invoices for repeat customers"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "payment-methods",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Create a free account on the Aviy website or download the mobile app and connect a payment provider.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The AI invoice generator and all six document types are free with no credit card, and paid plans add storage, recurring invoices and team features."
+  }
+ },
+ {
+  "slug": "paybrain",
+  "name": "Paybrain",
+  "website": "https://paybrain.io",
+  "summary": "A point of sale with AI built in that runs promos, memberships and reorders on the register, on the web or on your phone.",
+  "helpsWith": [
+   "Runs promos and memberships automatically",
+   "Handles reorders with AI assistance",
+   "Takes in-person card payments on the register",
+   "Works on the web or your phone"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "pos-hardware"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free to start on your phone, with a 3.0% + 10¢ per payment fee and a $999 Register option that includes the card reader and software with no monthly fee."
+  }
+ },
+ {
+  "slug": "verve-ai",
+  "name": "Verve AI",
+  "website": "https://www.getverveai.com",
+  "summary": "Connects to your order history, builds AI demand forecasts and reorder points for each product, and manages suppliers and purchase orders across locations.",
+  "helpsWith": [
+   "Generates reorder points for every product from sales patterns and lead times",
+   "Manages multiple locations and tracks stock health across them",
+   "Tracks suppliers and creates purchase orders with one-click approval",
+   "Runs built-in inventory reports"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Start the 14-day free trial on the website and connect your sales account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 19.99,
+   "model": "trial",
+   "note": "$19.99 per month flat with a 14-day free trial and no credit card required."
+  }
+ },
+ {
+  "slug": "kova-hr",
+  "name": "Kova HR",
+  "website": "https://kovahr.com",
+  "summary": "An HR platform for growing teams that covers hiring, employee records, leave, performance and payroll add-ons. It uses AI for job posting and screening.",
+  "helpsWith": [
+   "AI-assisted job posting and resume screening",
+   "Employee records, org chart and leave management",
+   "Performance reviews and an optional payroll add-on"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "hiring",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": ""
+  }
+ },
+ {
+  "slug": "jugglehire",
+  "name": "JuggleHire",
+  "website": "https://jugglehire.com",
+  "summary": "Hiring software for small businesses that post a job and get a career page, applicant list and AI that reads resumes and drafts job posts. Pricing is per company rather than per user.",
+  "helpsWith": [
+   "Reads resumes and fills in applicant details automatically",
+   "Writes job posts from a title and must-haves for you to edit",
+   "Interview booking, screening questions and offer letters with e-signature"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "hiring",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 15,
+   "model": "trial",
+   "note": ""
+  }
+ },
+ {
+  "slug": "sonnical",
+  "name": "Sonnical",
+  "website": "https://www.sonnical.com",
+  "summary": "A mobile-first shift scheduling app that uses AI to assign shifts for small teams, with built-in clock in/out and a shift exchange system.",
+  "helpsWith": [
+   "AI-assisted shift assignment with optimal, rotational, or random modes",
+   "Clock in/out time tracking with overtime alerts",
+   "Shift swap requests with admin approval",
+   "Managing staff and freelancers in one place"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Sign up on the Sonnical website with no credit card required and follow the roughly five-minute setup.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free for up to 6 employees, Starter is $29/month for 7-25 employees, Growth is $59/month for 26-50 employees, and Business is $99/month for 51-100 employees."
+  }
+ },
+ {
+  "slug": "manabiq",
+  "name": "manabiQ",
+  "website": "https://manabiq.com",
+  "summary": "Turns your existing manuals and documents into short AI-built training courses with quizzes that new hires can complete on their phone.",
+  "helpsWith": [
+   "Converts PDFs, Word files and SOPs into 5-15 minute courses",
+   "Adds quizzes so you can see who understands the material",
+   "Delivers training by magic link with no app to install",
+   "Supports English, Spanish and Japanese"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "training",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "Create a free account on the website, upload a document and let AI draft your first course.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Generating courses is free, publishing costs $5 per course, and learners cost $2 each with the first 3 free; no monthly fee is required on pay-as-you-go."
+  },
+  "priceOverride": {
+   "kind": "no-monthly-fee"
+  }
+ },
+ {
+  "slug": "rosie",
+  "name": "Rosie",
+  "website": "https://heyrosie.com",
+  "summary": "An AI answering service trained on your business that answers calls around the clock, books appointments, answers common questions, and texts you the details of each call.",
+  "helpsWith": [
+   "Answers calls 24/7 and answers common questions",
+   "Books appointments",
+   "Transfers to a live person when needed",
+   "Summarizes, transcribes and records every call"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "paid",
+   "note": "Professional plan at $49 per month (2 months free when paid annually), including 250 minutes per month."
+  },
+  "secondary": [
+   "calls/support"
+  ]
+ },
+ {
+  "slug": "helpable",
+  "name": "Helpable",
+  "website": "https://www.gethelpable.com",
+  "summary": "An AI course creator for teams of 5 to 50 that drafts training courses from your handbooks, procedures and articles, then tracks who has completed them.",
+  "helpsWith": [
+   "Drafts chapters, lessons and quizzes from your documents",
+   "Lists sources for each lesson and flags outdated content",
+   "Assigns courses with due dates and tracks progress"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "training",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Start the 14-day free trial on the website, which needs no credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "trial",
+   "note": "Business starts at $29 per month for the knowledge base and AI writer, Business Plus at $89 per month includes courses, and there is a 14-day free trial of Business Plus."
+  }
+ },
+ {
+  "slug": "daber-ai",
+  "name": "Daber AI",
+  "website": "https://daber.ai",
+  "summary": "An AI receptionist that answers every call, books appointments into your calendar, and hands callers to you or the right person when needed.",
+  "helpsWith": [
+   "Answers and routes every call with no voicemail",
+   "Books appointments into your calendar during the call",
+   "Hands off to a person or extension when asked"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Enter your website or business name and email on daber.ai to build and test your receptionist, then start the $3 trial.",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "trial",
+   "note": "A $3 trial for 14 days, then the Starter plan at $49 per month with 3.5 hours of calls; Growth is $149 and Scale is $499 per month."
+  }
+ },
+ {
+  "slug": "ahoya",
+  "name": "Ahoya",
+  "website": "https://ahoya.ai",
+  "summary": "An AI voice receptionist that answers calls on your business number, schedules appointments and sends automatic reminder texts.",
+  "helpsWith": [
+   "Answers calls on your existing business number 24/7",
+   "Captures name, service and time to book appointments",
+   "Sends automatic reminder texts an hour before",
+   "Answers questions from your website"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Sign up on the Ahoya.ai website and start the free plan with no card needed.",
+  "draftPricing": {
+   "startingMonthlyUsd": 39,
+   "model": "freemium",
+   "note": "A free plan gives 20 minutes total, and the Starter plan is $39/month billed annually with 250 minutes per month."
+  },
+  "priceOverride": {
+   "startingMonthlyUsd": 39,
+   "model": "paid",
+   "kind": "monthly",
+   "verified": true
+  }
+ },
+ {
+  "slug": "chatpal",
+  "name": "ChatPal",
+  "website": "https://chatpalbot.com",
+  "summary": "An AI receptionist for chats and direct messages that books appointments, sends reminders and saves leads from your website chat and messaging apps.",
+  "helpsWith": [
+   "Answers chats from your website, WhatsApp, Instagram and Messenger",
+   "Books appointments in Google Calendar or Calendly",
+   "Sends reminder messages before appointments",
+   "Saves leads and hands chats to you when needed"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Visit the ChatPal website and sign up to connect your chat channels.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The source page does not state specific plan prices, so check the ChatPal website for current pricing."
+  }
+ },
+ {
+  "slug": "sawyer",
+  "name": "Sawyer",
+  "website": "https://asksawyer.ai",
+  "summary": "An AI legal assistant that answers everyday legal questions and reviews or drafts contracts against the rules that apply in your state.",
+  "helpsWith": [
+   "Answering legal questions with jurisdiction-specific research",
+   "Reviewing uploaded contracts, NDAs, and employment agreements",
+   "Drafting new contracts from a plain-English description"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "legal-help",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Sign up on the website and start the 7-day free trial.",
+  "draftPricing": {
+   "startingMonthlyUsd": 9.99,
+   "model": "paid",
+   "note": "Individual plan is $9.99 per month, organization plan is $49.99 per month, and there is a 7-day free trial."
+  }
+ },
+ {
+  "slug": "justee",
+  "name": "Justee",
+  "website": "https://justee.ai",
+  "summary": "A cited legal chat for small business owners that gives plain-English answers on vendor contracts, contractor agreements, leases and compliance, and reviews uploaded documents clause by clause.",
+  "helpsWith": [
+   "Cited answers on contractor agreements and compliance rules",
+   "Clause-level review of vendor contracts and commercial leases",
+   "Risk cards for uploaded documents"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "legal-help",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Open the small business page and ask your first question free.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Offers a free trial on a real work question, then paid plans; exact plan prices are shown on the site."
+  }
+ },
+ {
+  "slug": "talking-tree",
+  "name": "Talking Tree",
+  "website": "https://talkingtree.app",
+  "summary": "A legal AI platform for startups and small businesses that drafts, analyzes contracts, and offers a template library.",
+  "helpsWith": [
+   "Drafting and analyzing contracts with the Redwood legal companion",
+   "Customizable attorney-drafted contract templates",
+   "Automatic redaction of sensitive information"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "legal-help",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Choose a plan on the website and create an account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 19.99,
+   "model": "paid",
+   "note": "Research plan is $19.99 per month for early stage entrepreneurs, and Business plan is $59.99 per month for small business teams."
+  }
+ },
+ {
+  "slug": "permitsentry-ai",
+  "name": "PermitSentry AI",
+  "website": "https://www.permitsentry.com",
+  "summary": "Tracks business licenses, health permits and operating certificates, reminds you before they expire, and generates pre-filled renewal documents.",
+  "helpsWith": [
+   "Identifies federal, state, county and city permits you likely need",
+   "Sends renewal reminders at 90, 60, 30, 7 and 1 day before expiration",
+   "Generates pre-filled renewal documents"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "permits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "paid",
+   "note": "Starter $49/month (up to 5 permits, 1 location), Professional $99/month, Enterprise $249/month; annual plans save 20%."
+  }
+ },
+ {
+  "slug": "askhrai",
+  "name": "AskHrAI",
+  "website": "https://askhrai.com",
+  "summary": "An AI HR assistant that answers HR questions and generates documents such as offer letters, PIP letters, termination notices and employee handbooks, with legal risk flags.",
+  "helpsWith": [
+   "Answers HR questions grounded in federal and state law",
+   "Generates offer letters and other HR documents in about 30 seconds",
+   "Builds a state-compliant employee handbook",
+   "Flags legal risk and advises when to consult an employment attorney"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "employment-docs",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "paid",
+   "note": "Starter is $49 per month with unlimited AI chat and 5 document templates; Professional is $149 per month with all 8 document types and the Handbook Builder."
+  }
+ },
+ {
+  "slug": "hrdocket",
+  "name": "HRDocket",
+  "website": "https://hrdocket.com",
+  "summary": "An HR document generator with 21 document types covering hiring, onboarding, performance, discipline and offboarding, including offer letters and employment contracts.",
+  "helpsWith": [
+   "Generates offer letters and employment contracts",
+   "Auto-fills employee data into documents",
+   "Provides digital signatures and expiration reminders",
+   "Creates custom HR document templates"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "employment-docs",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan includes 10 AI credits and watermarked PDFs; Starter is $19 per month billed monthly ($15.83 per month annually) and Growth is $49 per month."
+  }
+ },
+ {
+  "slug": "inhouse-ai",
+  "name": "Inhouse AI",
+  "website": "https://www.inhouse.ai",
+  "summary": "An AI compliance tool that finds the licenses, permits and rules for your business, drafts policies and keeps a deadline calendar.",
+  "helpsWith": [
+   "Finds licenses, permits and rules for your city and state",
+   "Drafts privacy policies and compliance policies",
+   "Builds a deadline calendar for filings and renewals"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "regulations",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Visit inhouse.ai and choose the Inhouse AI plan to start the step-by-step compliance setup.",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "paid",
+   "note": "Inhouse AI costs $49 per month for the self-serve option, with lawyer help available separately."
+  }
+ },
+ {
+  "slug": "complystack",
+  "name": "ComplyStack",
+  "website": "https://complystack.ai",
+  "summary": "Generates state-specific compliance documents such as OSHA safety plans and employee handbooks from a short business questionnaire.",
+  "helpsWith": [
+   "Generates OSHA safety plans",
+   "Creates state-specific employee handbooks",
+   "Updates documents when regulations change"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "regulations",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Go to complystack.ai, answer the business questionnaire and generate your first documents.",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "paid",
+   "note": "Professional compliance documents start at $29 per month, with no credit card required to try."
+  }
+ },
+ {
+  "slug": "foundra",
+  "name": "Foundra",
+  "website": "https://www.foundra.us",
+  "summary": "Maps the licenses, permits and renewals a new business needs, using AI to match your description to federal and state requirements with direct.gov application links.",
+  "helpsWith": [
+   "Matches your business description to federal and state requirements",
+   "Provides direct.gov application links and cost estimates",
+   "Sends quarterly emails when regulations change"
+  ],
+  "categoryId": "legal",
+  "subcategoryId": "permits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Describe your business on foundra.us and unlock the full report for $19.",
+  "draftPricing": {
+   "startingMonthlyUsd": 19,
+   "model": "paid",
+   "note": "Full report is a one-time $19 payment with no subscription."
+  }
+ },
+ {
+  "slug": "together-safe",
+  "name": "Together Safe",
+  "website": "https://www.togethersafe.app",
+  "summary": "Sends real-time crime, weather and emergency alerts for a specific address, with a public safety map and community feed.",
+  "helpsWith": [
+   "Real-time crime, weather and emergency alerts for your address",
+   "Public safety map of nearby incidents",
+   "Community feed for sharing verified reports",
+   "Automated neighborhood safety reports for listings"
+  ],
+  "categoryId": "safety",
+  "subcategoryId": "community-alerts",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Sign up on the website, enter your address, and turn on alerts for the free plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan with 1 address and basic alerts, Individual at $7.49 per month, and Family at $11.99 per month, with annual billing saving 20%."
+  }
+ },
+ {
+  "slug": "passmykitchen",
+  "name": "PassMyKitchen",
+  "website": "https://www.passmykitchen.com",
+  "summary": "Food safety compliance software for food trucks, cloud kitchens and small caterers, with an AI-generated HACCP plan, daily temperature and cleaning logs, and an inspection mode for handing your records to inspectors.",
+  "helpsWith": [
+   "Generates a HACCP plan for your state and business type",
+   "Logs temperatures, cleaning and deliveries in under 3 minutes a day",
+   "Shows HACCP plan, logs, staff certifications and documents to inspectors in one view"
+  ],
+  "categoryId": "safety",
+  "subcategoryId": "food-health",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "trial",
+   "note": "Starter is $29 per month for solo operators and Growth is $49 per month for teams, both with a 7-day free trial and no credit card required."
+  }
+ },
+ {
+  "slug": "prevail",
+  "name": "PREVAIL",
+  "website": "https://prevailcyber.com",
+  "summary": "AI-powered threat detection for Microsoft 365 that alerts small businesses to stolen credentials, suspicious logins and unusual file access.",
+  "helpsWith": [
+   "Detects suspicious sign-ins and stolen credentials in Microsoft 365",
+   "Alerts on unusual file access in real time",
+   "Requires no IT team to connect and monitor"
+  ],
+  "categoryId": "safety",
+  "subcategoryId": "cybersecurity",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 3,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 2,
+   "model": "paid",
+   "note": "SMB introductory pricing is $2 per licensed user per month with a free start option."
+  }
+ },
+ {
+  "slug": "lernoa",
+  "name": "Lernoa",
+  "website": "https://lernoa.com",
+  "summary": "Lernoa turns PDFs, lecture notes or a typed topic into structured courses, quizzes and flashcards using spaced repetition.",
+  "helpsWith": [
+   "Builds courses and quizzes from your own PDFs or notes",
+   "Creates flashcards with spaced repetition",
+   "Lets you type a topic and get a personalized study plan"
+  ],
+  "categoryId": "learn",
+  "subcategoryId": "study-tools",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Sign up on the Lernoa website and upload a PDF or type a topic to start.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free to try, with paid plans for more AI generation; check the site for current plan prices."
+  }
+ },
+ {
+  "slug": "studyvisually",
+  "name": "StudyVisually",
+  "website": "https://studyvisually.com",
+  "summary": "StudyVisually turns your course notes, handbooks or documentation into flashcards, diagrams and practice questions for 20-minute daily study sessions.",
+  "helpsWith": [
+   "Makes flashcards and practice questions from your own notes or syllabus",
+   "Provides a daily 20-minute study mission",
+   "Helps prepare for interviews by grading spoken answers on Premium"
+  ],
+  "categoryId": "learn",
+  "subcategoryId": "study-tools",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan includes 5 AI-made decks a month; Basic is $4 a month or $40 a year and Premium is $8 a month or $80 a year."
+  }
+ },
+ {
+  "slug": "neuralearn",
+  "name": "NeuraLearn",
+  "website": "https://www.neuralearnai.com",
+  "summary": "NeuraLearn is an AI study tool for professional certification prep that builds summaries, flashcards and practice questions from your uploaded documents.",
+  "helpsWith": [
+   "Creates summaries from uploaded documents",
+   "Makes flashcards and practice questions for certification exams",
+   "Highlights topics that need more review"
+  ],
+  "categoryId": "learn",
+  "subcategoryId": "study-tools",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan includes 3 document uploads per day, 10 flashcards per document and 10 practice questions; paid plan prices are on the site."
+  }
+ }
+]

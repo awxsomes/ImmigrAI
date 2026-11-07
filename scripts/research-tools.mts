@@ -13,7 +13,7 @@
  */
 import fs from "node:fs";
 import path from "node:path";
-import { SEED_BASE } from "../src/data/seed-base.ts";
+import { SEED_BASE as HAND_WRITTEN } from "../src/data/seed-base.ts";
 import {
   REVIEW_DOMAINS,
   REVIEW_SCHEMA,
@@ -32,6 +32,7 @@ import {
 } from "../src/lib/research-core.ts";
 
 const OUT = path.resolve("src/data/research.json");
+const SEED_BASE = [...HAND_WRITTEN, ...JSON.parse(fs.readFileSync("src/data/seed-discovered.json", "utf8"))];
 const MODEL = process.env.OPENROUTER_SEARCH_MODEL || "anthropic/claude-haiku-5.5";
 const apiKey = process.env.OPENROUTER_API_KEY ?? "";
 const appUrl = process.env.APP_URL || "http://localhost:3000";
@@ -169,11 +170,14 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
   ]);
   totalCost += reviews.cost + facts.cost + langs.cost;
 
+  // Small tools often share a name with another product, so their review pages must show their web address.
+  const strict = !HAND_WRITTEN.includes(tool) || tool.strictReviews;
   const { sources, rating, reviewCount } = finalizeReviews(
-    verifyReviews(tool.name, reviews.data.evidence, reviews.citations),
+    verifyReviews(tool.name, reviews.data.evidence, reviews.citations, strict ? [tool.website] : undefined),
     [tool.website, facts.data.officialUrl],
   );
-  const summary = rating === null ? "" : [reviews.data.praise, reviews.data.complaints].map(plainText).filter(Boolean).join(" ");
+  // The written summary draws on every page found. If one failed the checks, it may describe something else.
+  const summary = rating === null || (strict && sources.length < reviews.data.evidence.length) ? "" : [reviews.data.praise, reviews.data.complaints].map(plainText).filter(Boolean).join(" ");
   const snippetLanguages = verifyLanguages(langs.data.languages, langs.citations);
   const languageSource = trustedSource(langs.data.sourceUrl, tool.website, facts.data.officialUrl);
   const pageLanguages = await readLanguagePage(languageSource);

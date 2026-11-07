@@ -11,7 +11,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { BUNDLES } from "../src/data/bundles.ts";
-import { SEED_BASE } from "../src/data/seed-base.ts";
+import { SEED_BASE as HAND_WRITTEN } from "../src/data/seed-base.ts";
 import { CATEGORIES } from "../src/data/taxonomy.ts";
 import { DOCS } from "../src/content/docs.ts";
 import { TAXONOMY_NAMES } from "../src/content/taxonomy-names.ts";
@@ -28,6 +28,7 @@ const force = process.argv.includes("--force");
 /** Re-translate tool text only, after the research changed it. */
 const forceTools = process.argv.includes("--tools");
 const OUT_DIR = path.resolve("src/content/i18n");
+const SEED_BASE = [...HAND_WRITTEN, ...JSON.parse(fs.readFileSync("src/data/seed-discovered.json", "utf8"))];
 
 const LANGUAGES = {
   es: "Spanish as used by Latin American immigrants in the US. Use the informal 'tú'.",
@@ -166,6 +167,7 @@ function toolSources() {
       pricing: { note: string; extraFees: string | null };
       reviews: { summary: string };
       caution: string | null;
+      ai?: { level: string; feature: string };
       description?: { summary?: string; helpsWith?: string[]; howToStart?: string };
     }
   >;
@@ -177,6 +179,8 @@ function toolSources() {
       helpsWith: r?.description?.helpsWith?.length ? r.description.helpsWith : base.helpsWith,
       howToStart: r?.description?.howToStart || base.howToStart,
     };
+    const aiFeature = base.aiOverride?.level === "none" ? "" : (base.aiOverride?.feature ?? r?.ai?.feature ?? "");
+    if (aiFeature) entry.aiFeature = aiFeature;
     const note = base.priceOverride?.note || (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note;
     if (note) entry.pricingNote = note;
     const fees = r?.pricing.extraFees ? cleanResearchText(r.pricing.extraFees) : undefined;
@@ -195,7 +199,17 @@ async function run(lang: Lang) {
   const store = fs.existsSync(file) && !force ? JSON.parse(fs.readFileSync(file, "utf8")) : { strings: {}, docs: {}, bundles: {}, tools: {} };
   if (forceTools) store.tools = {};
   dropUntranslated(store, lang);
-  const save = () => fs.writeFileSync(file, `${JSON.stringify(store, null, 1)}\n`);
+  const save = () => {
+    for (let attempt = 0; ; attempt++) {
+      try {
+        fs.writeFileSync(file, `${JSON.stringify(store, null, 1)}\n`);
+        return;
+      } catch (err) {
+        if (attempt >= 8) throw err;
+        Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, 250);
+      }
+    }
+  };
 
   const strings = JSON.parse(fs.readFileSync("src/content/strings.en.json", "utf8")) as Record<string, string>;
   const missing = Object.keys(strings).filter((k) => !store.strings[k]);

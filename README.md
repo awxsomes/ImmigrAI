@@ -3,7 +3,7 @@
 *Making AI Accessible to Every Entrepreneur.*
 *Your Guide to AI for Small Businesses.*
 
-An "Angie's List" of AI tools for immigrant-run main street businesses. An owner describes what they need in their own words, in any language, and gets affordable, easy tools with verified ratings, full language lists, environmental estimates and a check of how the tools work together.
+An "Angie's List" of AI tools for immigrant-run main street businesses, including small and new tools that owners would struggle to find. An owner describes what they need in their own words, in any language, and gets affordable, easy tools with verified ratings, full language lists, environmental estimates and a check of how the tools work together.
 
 ## Run it
 
@@ -46,8 +46,11 @@ A model can be confidently wrong, so its claims only count when the text the sea
 
 - A rating must appear in the text of the exact page cited, on an independent review site, on a page naming that product.
 - The Apple App Store must be the US store, and a Trustpilot page's domain must match the vendor's. This caught real errors during development: another app with the same name, and a similarly named company.
+- Comparison and category pages do not count, because they show several products side by side.
+- Tools found by web search must have review pages that show their own web address, because a small tool's name often belongs to other products too. A name match alone gave several new tools the wrong reviews during development, so those reviews were removed. Having no rating is better than having the wrong one.
 - At least 25 reviews are needed, or the tool shows "no confirmed rating".
 - Languages must be named on a cited page. The script also reads the vendor's own language page for the full list.
+- A tool only counts as using AI if a returned page names both the product and its AI. Each tool says what its AI does, and AI that only runs behind the scenes does not count.
 - A tool's Environmental Impact score is calculated from the kind of AI it runs, using the published figures on `/methodology`, not a number a model made up.
 
 ### Keeping the catalog fresh
@@ -57,6 +60,9 @@ npm run research
 ```
 
 This re-researches any tool without data. Add `-- --force` to redo all of them (about $1.30 for 56 tools), or `-- --new` to look for tools launched this year. Research can still misread a price, so a wrong one can be corrected with `priceOverride` in `src/data/seed-base.ts`, which always wins over research. Then translate what changed:
+
+To keep the catalog focused on AI, `npm run research:ai -- --find` looks for small AI tools for every need, and `npm run research:ai -- --check` confirms what each tool's AI does. Read the new tools in `src/data/seed-discovered.json` before publishing them, because small tools have few reviews to check against.
+
 
 ```bash
 npm run translate

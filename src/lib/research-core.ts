@@ -223,9 +223,12 @@ export function verifyReviews(
   toolName: string,
   evidence: EvidenceInput[],
   citations: Citation[],
+  /** For small tools, whose names are often shared: the page must also show one of these web addresses. */
+  vendorUrls?: string[],
 ): VerifiedReviewSource[] {
   const byUrl = new Map(citations.map((c) => [normalizeUrl(c.url), c]));
   const tokens = nameTokens(toolName);
+  const vendorDomains = vendorUrls?.map(rootDomain).filter(Boolean);
   const bySite = new Map<string, VerifiedReviewSource>();
 
   for (const item of evidence) {
@@ -238,6 +241,7 @@ export function verifyReviews(
     const text = `${citation.title}\n${citation.content}`;
     const haystack = `${text}\n${citation.url}`.toLowerCase();
     if (tokens.length > 0 && !tokens.some((t) => haystack.includes(t))) continue;
+    if (vendorDomains && !vendorDomains.some((d) => haystack.includes(d))) continue;
 
     const ratingText = item.rating.toString();
     const pattern = new RegExp(`(^|[^0-9.])${ratingText.replace(".", "[.,]")}(0)?([^0-9]|$)`);
@@ -290,12 +294,22 @@ export function isSameProduct(source: VerifiedReviewSource, officialUrls: string
     return false;
   }
   if (url.hostname.endsWith("apps.apple.com") && !url.pathname.startsWith("/us/")) return false;
+  // Comparison and category pages show several products' ratings side by side.
+  if (/\/(?:compare|categories|vs)\//.test(url.pathname)) return false;
   if (url.hostname.endsWith("trustpilot.com")) {
-    const reviewed = url.pathname.split("/").filter(Boolean).pop() ?? "";
+    const parts = url.pathname.split("/").filter(Boolean);
+    const reviewed = parts[parts.indexOf("review") + 1] ?? "";
     const domain = rootDomain(`https://${reviewed}`);
     return officialUrls.some((official) => rootDomain(official) === domain);
   }
   return true;
+}
+
+/** Services a tool is built on, or ways for programmers to connect. An owner cannot link these to a shop. */
+const NOT_A_CONNECTION = /^(?:anthropic(?: claude)?|clerk|cloudflare|dodo payments|firebase|github|google (?:adsense|admob|analytics|cloud|gemini|oauth)|lemon squeezy|linkedin oauth|neon|resend|rest api|supabase|vercel|webhooks?)$/i;
+
+export function isRealConnection(name: string) {
+  return !NOT_A_CONNECTION.test(name.trim());
 }
 
 /** The final say on a rating: drop wrong-product matches, then require enough reviews. */
@@ -312,7 +326,8 @@ export function cleanResearchText(text: string, maxLength = 320) {
   const cleaned = text
     .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
     .replace(/,?\s*\(?(?:as stated in|as shown in|as listed in|per|according to|based on) the [^.;)]*(?:results?|pages?|site)\b[^.;)]*\)?/gi, "")
-    .replace(/\s*\([a-z0-9.-]+\.(?:com|org|net|io)(?:,\s*[a-z0-9.-]+\.(?:com|org|net|io))*\)/gi, "")
+    .replace(/\s*\([a-z0-9.-]+\.(?:com|org|net|io|ai|app|co|bot|us)(?:,\s*[a-z0-9.-]+\.(?:com|org|net|io|ai|app|co|bot|us))*\)/gi, "")
+    .replace(/^(?:www\.)?(?:[a-z0-9-]+\.)+(?:com|org|net|io|ai|app|co|bot|us)\s+(?=[a-z])/i, "")
     .replace(/\s+([.,;])/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
@@ -325,6 +340,41 @@ export function cleanResearchText(text: string, maxLength = 320) {
     out = out ? `${out} ${sentence}` : sentence;
   }
   return out;
+}
+
+// ---------- AI ----------
+
+const AI_WORDS = /\bAI\b|\bA\.I\.|[Aa]rtificial [Ii]ntelligence|[Mm]achine [Ll]earning|[Gg]enerative|\bGPT\b|[Cc]hatbot|\bLLM\b/;
+
+/** True when one returned page names both this product and AI. Marketing elsewhere does not count. */
+export function mentionsAi(toolName: string, citations: Citation[]) {
+  const tokens = nameTokens(toolName);
+  return citations.some((c) => {
+    const text = `${c.title}\n${c.content}`;
+    const lower = `${text}\n${c.url}`.toLowerCase();
+    return AI_WORDS.test(text) && (tokens.length === 0 || tokens.some((t) => lower.includes(t)));
+  });
+}
+
+/**
+ * Reads a tool's own website for reasons not to list it: it is gone, people cannot use it yet,
+ * or it is priced for another country. A site that blocks automated checks is given the benefit
+ * of the doubt, because that alone says nothing about the product.
+ */
+export async function siteProblem(url: string, timeoutMs = 10_000): Promise<string | null> {
+  let res: Response;
+  try {
+    res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 ImmigrAI-research/0.1", Accept: "text/html" }, signal: AbortSignal.timeout(timeoutMs), redirect: "follow" });
+  } catch {
+    return "site could not be reached";
+  }
+  if (res.status === 401 || res.status === 403 || res.status === 429) return null;
+  if (res.status >= 400) return "site returned an error";
+  const text = htmlToText((await res.text()).slice(0, 800_000));
+  if (/\bjoin (?:the |our )?wait[- ]?list\b|\blaunching (?:soon|in |this |summer|fall|winter|spring)|\bjoin early access\b|\bget early access\b/i.test(text)) return "not available yet";
+  const hasDollars = /\$\s?\d/.test(text);
+  if (!hasDollars && /₹|₦|\bNGN\b|£\s?\d|€\s?\d/.test(text)) return "priced for another country";
+  return null;
 }
 
 // ---------- Facts ----------
@@ -468,5 +518,5 @@ export const REVIEW_SYSTEM =
   "You extract public review data for a software product from web search results. Report only ratings and review counts that appear in the results, on that exact page, for this exact product. Do not estimate, round or recall from memory. If a page shows ratings for other products, ignore those. If you find nothing, return an empty evidence list. Write in plain, simple English with no marketing words.";
 
 export function reviewPrompt(name: string, website: string) {
-  return `${name} (${website}) reviews: star rating, number of reviews, pros and cons, what users like and what users dislike. Capterra, G2, Trustpilot, Apple App Store, Google Play.`;
+  return `${name} (${website}) reviews: star rating, number of reviews, pros and cons, what users like and what users dislike. Capterra, G2, Trustpilot, Apple App Store, Google Play. Use only pages about the product at ${website}. Ignore any other product or company with a similar name.`;
 }

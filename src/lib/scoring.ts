@@ -65,6 +65,9 @@ export function envLabel(score: number) {
  * ImmigrAI score (0-100). Goes beyond reviews because a five-star tool that is
  * expensive, English-only or impossible to set up is still the wrong tool.
  */
+/** With no confirmed reviews a score stops here, so an unknown tool cannot outrank proven ones on score alone. */
+export const UNRATED_SCORE_CAP = 70;
+
 export const OVERALL_WEIGHTS = {
   reviews: 0.35,
   easeOfUse: 0.2,
@@ -93,7 +96,7 @@ export function overallScore(input: {
     (Math.max(0, Math.min(100, input.environment)) / 100) * w.environment;
   if (input.rating === null) {
     // No confirmed reviews: score only what we know, rather than inventing a neutral rating.
-    return Math.round((known / (1 - w.reviews)) * 100);
+    return Math.min(UNRATED_SCORE_CAP, Math.round((known / (1 - w.reviews)) * 100));
   }
   return Math.round((known + fifth(input.rating) * w.reviews) * 100);
 }
@@ -267,6 +270,8 @@ export const DEFAULT_FILTERS: ToolFilters = {
   onlyMyLanguage: false,
 };
 
+const AI_RANK = { core: 0, feature: 1, none: 2 };
+
 export type SortKey = "overall" | "cheapest" | "rating" | "env" | "easiest";
 
 export function filterTools(tools: Tool[], f: ToolFilters) {
@@ -291,6 +296,7 @@ export function sortTools(tools: Tool[], key: SortKey) {
     case "easiest":
       return copy.sort((a, b) => b.scores.easeOfUse - a.scores.easeOfUse || b.scores.overall - a.scores.overall);
     default:
-      return copy.sort((a, b) => b.scores.overall - a.scores.overall);
+      // Tools built around AI come first, because finding AI tools is why people are here.
+      return copy.sort((a, b) => AI_RANK[a.ai.level] - AI_RANK[b.ai.level] || b.scores.overall - a.scores.overall);
   }
 }

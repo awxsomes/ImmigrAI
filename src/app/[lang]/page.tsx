@@ -32,10 +32,14 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         <div className="mt-8">
           <SmartSearch lang={lang} t={pick(t, SEARCH_KEYS)} examples={[t.search_example1, t.search_example2, t.search_example3, t.search_example4]} />
         </div>
-        <p className="mt-4 flex items-center gap-2 font-medium">
-          <CheckIcon className="size-5 shrink-0 text-green" />
-          {t.hero_note}
-        </p>
+        <ul className="mt-4 space-y-1 font-medium">
+          {[t.hero_ai, t.hero_note].map((line) => (
+            <li key={line} className="flex items-center gap-2">
+              <CheckIcon className="size-5 shrink-0 text-green" />
+              {line}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section aria-labelledby="board-title" className="bg-green-dark text-white">
@@ -169,6 +173,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             [t.faq2_q, t.faq2_a],
             [t.faq3_q, t.faq3_a],
             [t.faq4_q, t.faq4_a],
+            [t.faq6_q, t.faq6_a],
             [t.faq5_q, t.faq5_a],
           ].map(([question, answer]) => (
             <details key={question} className="group">

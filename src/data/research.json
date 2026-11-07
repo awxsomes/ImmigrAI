@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-07T01:46:51.048Z",
+ "generatedAt": "2026-11-07T04:31:53.870Z",
  "model": "anthropic/claude-haiku-5.5",
  "tools": {
   "homebase": {
@@ -78,6 +78,11 @@
      "Send messages to individuals or groups and see when staff have read their schedules"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Builds draft weekly staff schedules, flags timecard errors and overtime risk, screens job applicants, and drafts job posts for a small business owner.",
+    "checkedAt": "2026-11-07"
    }
   },
   "google-translate": {
@@ -405,6 +410,11 @@
      "Translate a whole webpage by entering its web address"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Translates text and live speech between many languages, and explains idioms, slang, and alternative phrasings with Gemini-powered context.",
+    "checkedAt": "2026-11-07"
    }
   },
   "wave": {
@@ -493,6 +503,11 @@
     "summary": "Wave is accounting software for small businesses that handles bookkeeping and invoicing. A free Starter Plan covers basic accounting and invoicing, and a paid Pro Plan adds more money tools like receipt scanning and automatic bank imports.",
     "helpsWith": [],
     "howToStart": "Open the Wave sign-up page on a web browser or install the Wave mobile app, enter your email and a password, enter your business information, and choose the free Starter Plan."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "openphone": {
@@ -573,6 +588,11 @@
      "Send auto-replies to incoming messages when no one is available"
     ],
     "howToStart": "Download the Quo app, create an account to start the free seven-day trial, and choose a local or toll-free number."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers missed calls with an AI agent, captures caller details, and summarizes calls and transcripts for follow-up.",
+    "checkedAt": "2026-11-07"
    }
   },
   "ilrc-red-cards": {
@@ -591,7 +611,7 @@
     "startingMonthlyUsd": 0,
     "model": "free",
     "note": "The Red Cards are free to download and print from ILRC's site; small businesses can order printed cards from RedCardOrders.com, a union-run printer where you pay the printer directly, and the results do not list a per-card or per-order price.",
-    "extraFees": "Businesses and private attorneys ordering printed cards pay the printer (RedCardOrders.com) directly; prices are on the printer's site and are not stated in the results.",
+    "extraFees": "Businesses and private attorneys ordering printed cards pay the printer directly; prices are on the printer's site and are not stated in the results.",
     "sourceUrl": "",
     "verified": true
    },
@@ -671,6 +691,11 @@
      "Print your own cards from free artwork in 59 languages, or order them free through the ILRC if you are a nonprofit"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "goodcall": {
@@ -701,8 +726,8 @@
    "pricing": {
     "startingMonthlyUsd": 79,
     "model": "paid",
-    "note": "Goodcall has Starter at $79 per month for 100 unique customers, Growth at $129 per month for 500 unique customers, Scale at $299 per month for 2,000 unique customers, and a custom Enterprise plan, with no free plan beyond a free demo agent that requires a paid plan once you connect a phone number (goodcall.com).",
-    "extraFees": "Overage beyond included unique customers is $0.79 each on Starter, $0.26 each on Growth, and $0.15 each on Scale; minutes and calls are not metered, and no per-minute, transaction or setup fees are listed (goodcall.com).",
+    "note": "Goodcall has Starter at $79 per month for 100 unique customers, Growth at $129 per month for 500 unique customers, Scale at $299 per month for 2,000 unique customers, and a custom Enterprise plan, with no free plan beyond a free demo agent that requires a paid plan once you connect a phone number.",
+    "extraFees": "Overage beyond included unique customers is $0.79 each on Starter, $0.26 each on Growth, and $0.15 each on Scale; minutes and calls are not metered, and no per-minute, transaction or setup fees are listed.",
     "sourceUrl": "https://www.goodcall.com/pricing",
     "verified": true
    },
@@ -734,6 +759,11 @@
      "Books appointments into Google Calendar and transfers to a person when needed"
     ],
     "howToStart": "Build your agent by describing your business, test it with practice calls, then pick a phone number and forward your existing line to it."
+   },
+   "ai": {
+    "level": "core",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "bitwarden": {
@@ -871,6 +901,11 @@
      "Get alerts when a stored password appears in a data breach and needs changing"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Lets AI assistants you connect securely access, generate, and manage your Bitwarden passwords, and lets admins run common account tasks through plain-language commands.",
+    "checkedAt": "2026-11-07"
    }
   },
   "google-business-profile": {
@@ -879,8 +914,8 @@
    "currentName": "Google Business Profile",
    "officialUrl": "https://business.google.com",
    "reviews": {
-    "rating": 3.7,
-    "reviewCount": 447,
+    "rating": 3.6,
+    "reviewCount": 420,
     "summary": "Users like that it is free, easy to use, and helps customers find the business and see photos, reviews, and contact details. Users complain about slow or unclear updates and edits, unpredictable automated suspensions and verification, hard-to-reach or unhelpful customer support, and difficulty removing fake reviews.",
     "sources": [
      {
@@ -893,12 +928,6 @@
       "site": "Trustpilot",
       "url": "https://www.trustpilot.com/review/business.google.com",
       "rating": 1.9,
-      "count": 27
-     },
-     {
-      "site": "Capterra",
-      "url": "https://www.capterra.com/p/186094/Google-My-Business-Pro-Services/reviews/",
-      "rating": 4.6,
       "count": 27
      }
     ],
@@ -938,6 +967,11 @@
      "Show your products, services and menu, and let customers order or book when offered"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Lets owners manage their Business Profile through Gemini, drafting replies to reviews, creating posts, summarizing customer feedback, and checking performance insights.",
+    "checkedAt": "2026-11-07"
    }
   },
   "deepl": {
@@ -1124,6 +1158,11 @@
      "Translate text and images, such as signs or menus"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Translates text, documents, and spoken conversations between languages using its own AI language models, and offers AI writing help and an autonomous agent that handles business tasks.",
+    "checkedAt": "2026-11-07"
    }
   },
   "elevenlabs": {
@@ -1292,6 +1331,11 @@
      "Translate and dub a video into other languages while keeping the speaker's tone"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Answers customer calls, chats, and texts around the clock and books appointments on the business calendar.",
+    "checkedAt": "2026-11-07"
    }
   },
   "canva": {
@@ -1472,6 +1516,11 @@
      "Keep logos, colors and fonts in a Brand Kit so your designs stay consistent, with team collaboration on approvals"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Generates on-brand designs, images, charts, and captions from a text prompt, applying your brand fonts and colors automatically.",
+    "checkedAt": "2026-11-07"
    }
   },
   "wix": {
@@ -1558,6 +1607,11 @@
      "Capture customer inquiries with forms and track them through a sales pipeline"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Lets small business owners manage their site and business through AI agents such as Aria, Kleo, Alfred, and Symphony, covering tasks like marketing, answering calls, design, and scheduling.",
+    "checkedAt": "2026-11-07"
    }
   },
   "square-online": {
@@ -1629,6 +1683,11 @@
      "Use built-in SEO tools and social integrations to promote the store"
     ],
     "howToStart": "Create a free Square account, then use the website builder in Square Dashboard to design your store, add products, set up payments and shipping, and publish it."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Rewrites text on your online store with AI, generating alternate versions of a description you write so you can pick one.",
+    "checkedAt": "2026-11-07"
    }
   },
   "meta-business-suite": {
@@ -1744,6 +1803,11 @@
      "Boost posts and create simple ads, with Ads Manager for full campaigns"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers questions and suggests fixes for your Meta ads, posts, and business data, including ad performance reviews and content planning.",
+    "checkedAt": "2026-11-07"
    }
   },
   "buffer": {
@@ -1857,6 +1921,11 @@
      "Reply to comments and Google Business reviews from one inbox"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Generates social media post ideas, rewrites and reformats posts for each platform, and adjusts tone and length, using OpenAI models.",
+    "checkedAt": "2026-11-07"
    }
   },
   "google-ads": {
@@ -1992,6 +2061,11 @@
      "Let Google's AI pick the best combinations of your headlines, images and keywords"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Writes ad text, suggests keywords and images, and sets bids to reach searches that match your business.",
+    "checkedAt": "2026-11-07"
    }
   },
   "zoho-books": {
@@ -2085,6 +2159,11 @@
      "View 50+ financial reports, such as profit and loss and balance sheet"
     ],
     "howToStart": "Go to the Zoho Books website, click Sign Up Now, enter your company name, email, phone number and a password, then click Create my account; you can start with the free plan or a 14-day trial of the Premium features."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers finance questions and creates invoices, bills, and reports from plain-language prompts, plus drafts reminders and sorts bank transactions.",
+    "checkedAt": "2026-11-07"
    }
   },
   "google-sheets": {
@@ -2183,6 +2262,11 @@
      "Get help writing formulas and fixing formula errors with Gemini AI"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Gemini in Sheets helps you build tables, write formulas, make charts, and get answers from your data by typing plain requests.",
+    "checkedAt": "2026-11-07"
    }
   },
   "quickbooks-online": {
@@ -2265,6 +2349,11 @@
     "summary": "QuickBooks Online is online accounting software that tracks money in and out, sorts transactions, and runs reports for a small business. It can also handle invoices, payments, and payroll in one place.",
     "helpsWith": [],
     "howToStart": "Start the free 30-day trial on the QuickBooks website, connect your bank account, and you can ask your accountant to join you in the software."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Sorts bank transactions, suggests categories and matches payments, and answers plain-language questions about your books via Intuit Intelligence chat.",
+    "checkedAt": "2026-11-07"
    }
   },
   "keeper-tax": {
@@ -2332,6 +2421,11 @@
      "Files your federal return and up to two state returns, reviewed by a tax pro, with 24/7 AI chat help"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers tax questions 24/7 via an AI chatbot, and auto-categorizes business expenses pulled from linked bank accounts and cards.",
+    "checkedAt": "2026-11-07"
    }
   },
   "turbotax": {
@@ -2401,6 +2495,11 @@
     "summary": "TurboTax Self-Employed helps sole proprietors and other self-employed small business owners prepare and file their business taxes online, with access to tax experts who know their industry.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Finds industry-specific deductions and reviews your return for errors, and answers your tax questions with AI-powered Intuit Assist.",
+    "checkedAt": "2026-11-07"
    }
   },
   "stripe": {
@@ -2493,6 +2592,11 @@
      "Refund payments from the Stripe Dashboard without code"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Uses AI to pick payment methods at checkout, block fraud, retry declined payments, and handle disputes automatically.",
+    "checkedAt": "2026-11-07"
    }
   },
   "square-pos": {
@@ -2578,6 +2682,11 @@
      "See sales reports, top-selling items, and customer insights"
     ],
     "howToStart": "Download the Square Point of Sale app from the App Store or Google Play, then sign into your Square account and start taking payments."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Lets owners ask questions about their sales and business data in plain words, and auto-suggests starter catalog items and kitchen categories for their menu setup.",
+    "checkedAt": "2026-11-07"
    }
   },
   "paypal-zettle": {
@@ -2661,6 +2770,11 @@
      "Set up staff accounts and sync with tools like QuickBooks and Shopify"
     ],
     "howToStart": "Sign up for a PayPal business account, download the PayPal POS app, and choose whether to use Tap to Pay on your phone or order a Card Reader or Terminal."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Suggests product recommendations and payment options at checkout, and gives sales trend insights through natural-language requests in the PayPal POS app and developer tools.",
+    "checkedAt": "2026-11-07"
    }
   },
   "ramp": {
@@ -2744,6 +2858,11 @@
      "Sync transactions to QuickBooks, Xero, or NetSuite so books stay current"
     ],
     "howToStart": "Enter your business email on the Ramp sign-up page, complete the application with your business details, EIN, and bank account information, and most businesses are approved within minutes."
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Reads and codes expenses and invoices, flags fraud and policy issues, and recommends bill approvals, with a human confirming every payment.",
+    "checkedAt": "2026-11-07"
    }
   },
   "toast-pos": {
@@ -2752,8 +2871,8 @@
    "currentName": "Toast POS",
    "officialUrl": "https://pos.toasttab.com",
    "reviews": {
-    "rating": 4,
-    "reviewCount": 159438,
+    "rating": 3.6,
+    "reviewCount": 2438,
     "summary": "Reviewers like the easy-to-use interface, strong integrations, fast and accurate reporting, and quick staff training. Reviewers complain about slow and unreliable phone support, frequent glitches, high and hidden fees, and slow refunds.",
     "sources": [
      {
@@ -2779,12 +2898,6 @@
       "url": "https://www.softwareadvice.com/retail/toast-pos-profile/reviews/",
       "rating": 4.1,
       "count": null
-     },
-     {
-      "site": "Apple App Store",
-      "url": "https://apps.apple.com/us/app/toast-local-restaurants/id1362180579?platform=iphone&see-all=reviews",
-      "rating": 4.9,
-      "count": 157000
      }
     ],
     "claimed": 5
@@ -2819,6 +2932,11 @@
     "summary": "Toast is a point-of-sale system built for restaurants, combining hardware, software and payments in one platform. It handles orders, payments, online ordering, delivery and staff payroll for food businesses.",
     "helpsWith": [],
     "howToStart": "Request a free demo on the Toast website or call the number listed there, and a Toast specialist will contact you within 24 hours."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers questions about sales, labor, and menu performance, and makes approved changes to menus, stock, and shifts through a chat assistant.",
+    "checkedAt": "2026-11-07"
    }
   },
   "zoho-inventory": {
@@ -2827,8 +2945,8 @@
    "currentName": "Zoho Inventory",
    "officialUrl": "https://www.zoho.com/us/inventory/",
    "reviews": {
-    "rating": 3.9,
-    "reviewCount": 529,
+    "rating": 4.5,
+    "reviewCount": 516,
     "summary": "Users like the easy setup, user-friendly interface, integration with other Zoho apps and e-commerce platforms, and the free plan with affordable pricing. Users dislike limited customization and reporting, missing features and integrations, monthly order limits, occasional bugs and bulk upload glitches, slow customer support, and rising costs as users or Zoho programs are added.",
     "sources": [
      {
@@ -2842,12 +2960,6 @@
       "url": "https://www.getapp.com/operations-management-software/a/zoho-inventory/",
       "rating": 4.5,
       "count": 423
-     },
-     {
-      "site": "Trustpilot",
-      "url": "https://www.trustpilot.com/review/one.zoho.com",
-      "rating": 2,
-      "count": 13
      },
      {
       "site": "Google Play",
@@ -2927,6 +3039,11 @@
      "Sell across multiple online channels and keep stock in sync"
     ],
     "howToStart": "Go to the Zoho Inventory website, click Sign Up Now, enter your company name, email, password, country, and phone number, then set up your organization details, or use the free 14-day trial."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Lets you ask questions about stock and orders in plain English, get summaries of overdue invoices, and draft or rewrite written text.",
+    "checkedAt": "2026-11-07"
    }
   },
   "faire": {
@@ -2994,6 +3111,11 @@
      "Filter for brands with low or no order minimums to try new products with less commitment"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Suggests products to retailers through AI-powered ranking, natural-language and image search, and a buying assistant that helps them plan orders.",
+    "checkedAt": "2026-11-07"
    }
   },
   "sortly": {
@@ -3081,6 +3203,11 @@
      "Track equipment and tools and attach photos to show their condition"
     ],
     "howToStart": "Go to the App Store or Google Play, search for \"Sortly: Inventory Simplified,\" install it, then create folders and add your first items by scanning or typing them in."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Suggests reorder points and flags unusual inventory discrepancies to help small businesses avoid stockouts and errors.",
+    "checkedAt": "2026-11-07"
    }
   },
   "choco": {
@@ -3158,6 +3285,11 @@
      "Chat with your team and your sales rep in the same app, and see orders across several locations (youtu.be)"
     ],
     "howToStart": "Download Choco from the App Store or Google Play, create a business account with your phone number or email, then add your distributor from the Chats screen and place your first order."
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Reads voicemails, texts, emails, and handwritten orders and turns them into clean orders for the business's system, with optional automatic sending.",
+    "checkedAt": "2026-11-07"
    }
   },
   "7shifts": {
@@ -3247,6 +3379,11 @@
     "summary": "7shifts is a scheduling and HR platform for restaurants that helps owners manage staff schedules, time clocking, tips and payroll in one place. It includes a free plan for basic scheduling and a 14-day trial of all features.",
     "helpsWith": [],
     "howToStart": "Create a free 7shifts account on the website, enter your restaurant information, connect your POS and bank account, then invite your employees."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Auto-generates draft weekly staff schedules from past sales and scheduling data, which the owner can edit and publish, and writes a daily AI summary of the manager log, available with the Log Book add-on or a plan upgrade.",
+    "checkedAt": "2026-11-07"
    }
   },
   "connecteam": {
@@ -3345,6 +3482,11 @@
     "summary": "Connecteam is an all-in-one employee management app for teams who work away from a desk, covering scheduling, time tracking, tasks, training and team communication. For small businesses with up to 10 users, the Small Business Plan is free for life.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers employee questions from the company's own knowledge base, auto-builds shift schedules, creates training courses from a topic, converts paper forms into fillable forms, transcribes spoken input, and translates team updates and chats.",
+    "checkedAt": "2026-11-07"
    }
   },
   "square-payroll": {
@@ -3414,6 +3556,11 @@
     "summary": "Square Payroll runs payroll for your team, calculates and withholds taxes, and files federal and state payroll taxes for you. It also creates W-2 and 1099-NEC forms at year's end.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "roll-by-adp": {
@@ -3478,6 +3625,11 @@
      "Give raises and bonuses or run off-cycle payments through the chat"
     ],
     "howToStart": "Sign up on the Roll by ADP website or app and follow the chat-based setup, which takes about 15 minutes or less, using your EIN, business bank details, and employee information."
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Lets a small business owner run payroll, ask HR and tax questions, and get business advice by chatting with a generative AI assistant, with alerts and reminders sent automatically.",
+    "checkedAt": "2026-11-07"
    }
   },
   "gusto": {
@@ -3564,6 +3716,11 @@
      "Creates job posts, offer letters, and onboarding checklists"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Gus answers payroll and HR questions, runs reports, and completes tasks like PTO approvals and salary changes once the owner confirms each one.",
+    "checkedAt": "2026-11-07"
    }
   },
   "indeed": {
@@ -3641,6 +3798,11 @@
      "Track, message, and schedule interviews with applicants from your employer dashboard"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Drafts job descriptions, sources and ranks candidates, screens applications, and writes outreach messages that the owner reviews and edits.",
+    "checkedAt": "2026-11-07"
    }
   },
   "whatsapp-business": {
@@ -3778,6 +3940,11 @@
      "Organize and find customer chats using labels and lists"
     ],
     "howToStart": "Download WhatsApp Business from the Google Play Store or App Store, then register with a mobile or landline number you own by entering the 6-digit code sent by SMS or phone call."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Replies to customer chats 24/7 using your business info, recommends products, books appointments, and hands complex cases to you.",
+    "checkedAt": "2026-11-07"
    }
   },
   "google-voice": {
@@ -3862,6 +4029,11 @@
      "Forward calls to other phone numbers you link"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Transcribes voicemails to text and blocks spam calls automatically, and can take AI notes on calls with a summary and action items sent to you.",
+    "checkedAt": "2026-11-07"
    }
   },
   "tidio": {
@@ -4000,6 +4172,11 @@
      "Mobile and desktop apps so you get new chats on your phone or computer."
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Answers common customer questions in live chat and email using the business's own FAQ and support content, and hands complex issues to a human agent.",
+    "checkedAt": "2026-11-07"
    }
   },
   "calendly": {
@@ -4102,6 +4279,11 @@
      "Share your booking link on your website, emails and social profiles, and collect payment for your time at booking"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Writes meeting summaries and action items, and schedules meetings through email and chat via its Callie assistant.",
+    "checkedAt": "2026-11-07"
    }
   },
   "square-appointments": {
@@ -4176,6 +4358,11 @@
      "Sync with Google Calendar to block personal time and avoid double-bookings"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Square Assistant answers client texts and lets clients confirm, reschedule, or cancel appointments automatically, syncing changes to your calendar.",
+    "checkedAt": "2026-11-07"
    }
   },
   "fresha": {
@@ -4185,7 +4372,7 @@
    "officialUrl": "https://www.fresha.com",
    "reviews": {
     "rating": 4.7,
-    "reviewCount": 71165,
+    "reviewCount": 9165,
     "summary": "Reviewers like the easy-to-use interface, quick setup, online booking for clients, and responsive customer support. Reviewers complain about unexpected or unclear fees such as new client charges, unreliable app behavior and glitches, and difficulty getting refunds or support when charged unfairly.",
     "sources": [
      {
@@ -4205,12 +4392,6 @@
       "url": "https://play.google.com/store/apps/details?hl=en_US&id=com.fresha.Business",
       "rating": 4.6,
       "count": null
-     },
-     {
-      "site": "Apple App Store",
-      "url": "https://apps.apple.com/us/app/fresha-for-customers/id1297230801?platform=iphone&see-all=reviews",
-      "rating": 4.9,
-      "count": 62000
      },
      {
       "site": "G2",
@@ -4276,6 +4457,11 @@
      "Calculating staff commissions automatically on each sale"
     ],
     "howToStart": "Create a Fresha account, add your business details, services and team members, then turn on online booking and share your booking link."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers calls and client messages, books, reschedules, and cancels appointments, and replies to online reviews, all with AI, around the clock.",
+    "checkedAt": "2026-11-07"
    }
   },
   "chatgpt": {
@@ -4425,6 +4611,11 @@
      "Translate content and help organize plans, projects and presentations"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "core",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "rocket-lawyer": {
@@ -4482,6 +4673,11 @@
     "summary": "Rocket Lawyer is an online legal service that lets small business owners create legal documents, get answers from attorneys, and handle business registration and filings. It is offered through paid membership tiers.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers legal questions, reviews uploaded contracts to flag risky terms, and helps draft names, logos, and legal documents for a small business.",
+    "checkedAt": "2026-11-07"
    }
   },
   "sba-business-guide": {
@@ -4542,6 +4738,11 @@
      "Find free or low-cost counseling from SBDC, SCORE and other local partners: usa.gov"
     ],
     "howToStart": "Open the SBA Business Guide at sba.gov or call SBA's Answer Desk at 1-800-827-5722 to be connected with help."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Helps you find SBA programs and resources through an AI-powered agent on the agency website, and connects you with local small business development centers.",
+    "checkedAt": "2026-11-07"
    }
   },
   "zenbusiness": {
@@ -4598,6 +4799,11 @@
      "Get a business name check, domain name, and website builder"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Velo is an AI guide that files business paperwork, tracks deadlines, creates documents, and builds websites for a small business owner, with the owner approving each action.",
+    "checkedAt": "2026-11-07"
    }
   },
   "citizen": {
@@ -4656,6 +4862,11 @@
      "Monitor incidents by location, category, and severity across your sites"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Filters emergency radio traffic and classifies incidents so you see relevant alerts, and can send AI-suggested alert messages to your employees.",
+    "checkedAt": "2026-11-07"
    }
   },
   "nextdoor": {
@@ -4718,6 +4929,11 @@
     "summary": "Nextdoor is a neighborhood network where verified neighbors share local news, alerts, and recommendations. Local businesses can use a free Business Page to reach nearby customers and build trust through neighbor recommendations.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Writes ad copy for your Nextdoor ads from a short description of your business and offer, and can rewrite it on request.",
+    "checkedAt": "2026-11-07"
    }
   },
   "grow-with-google": {
@@ -4726,36 +4942,11 @@
    "currentName": "Grow with Google",
    "officialUrl": "https://grow.google/ai-for-small-businesses/",
    "reviews": {
-    "rating": 4.3,
-    "reviewCount": 4901827,
-    "summary": "Users say Gemini integrates well with Google services and gives fast, accurate answers that help with drafting emails and summarizing information. Users say Gemini sometimes gives inconsistent answers on complex queries, and Google search results have become harder to get right over the years.",
-    "sources": [
-     {
-      "site": "Trustpilot",
-      "url": "https://www.trustpilot.com/review/getgrowai.com",
-      "rating": 3.8,
-      "count": 75
-     },
-     {
-      "site": "G2",
-      "url": "https://www.g2.com/products/google-gemini/reviews",
-      "rating": 4.4,
-      "count": 1752
-     },
-     {
-      "site": "Apple App Store",
-      "url": "https://apps.apple.com/us/app/google/id284815942?platform=iphone&see-all=reviews",
-      "rating": 4.6,
-      "count": 4900000
-     },
-     {
-      "site": "Capterra",
-      "url": "https://www.capterra.com/p/213341/Google-Marketing-Platform/reviews/",
-      "rating": 4.2,
-      "count": null
-     }
-    ],
-    "claimed": 7
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
    },
    "pricing": {
     "startingMonthlyUsd": 0,
@@ -4795,6 +4986,11 @@
      "Find a local Grow with Google Coach or attend a free in-person Make AI Work for You workshop grow.google"
     ],
     "howToStart": "Go to grow.google and choose a course such as AI Essentials, or find a local coach or workshop near you."
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Helps a small business owner use Gemini to write posts, emails, and proposals, analyze reviews and performance, and plan social media content, as shown in grow.google and blog.google.",
+    "checkedAt": "2026-11-07"
    }
   },
   "fooddocs": {
@@ -4884,6 +5080,11 @@
      "Store food safety documents in the cloud and find past records quickly for inspectors or recalls"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "core",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "khan-academy": {
@@ -5006,6 +5207,11 @@
      "Lesson planning, rubrics and exit tickets for teachers using the free Khanmigo Teacher Tools (khanmigo.ai)"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "score-mentoring": {
@@ -5077,6 +5283,11 @@
      "Use free templates, guides, and articles on starting, growing, and transitioning a business"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "duolingo": {
@@ -5197,6 +5408,11 @@
      "Buy up to 1,000 discounted Super Duolingo accounts through the self-service tool and hand out access codes to employees"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Gives learners AI video call practice, explanations of their mistakes, and roleplay chats, with lessons and exercises built using AI tools behind the scenes.",
+    "checkedAt": "2026-11-07"
    }
   },
   "linkedin-learning": {
@@ -5274,6 +5490,11 @@
     "summary": "LinkedIn Learning is an online platform with thousands of expert-led video courses in business, technology and creative skills, and you can earn certificates of completion to show on your profile. Many public libraries offer free access to it with a library card.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Gives your team an AI coach that answers learning questions with advice pulled from LinkedIn Learning courses, and lets them practice hard conversations with AI role play that gives feedback.",
+    "checkedAt": "2026-11-07"
    }
   },
   "quizlet": {
@@ -5372,6 +5593,11 @@
     "summary": "Quizlet is a study platform with flashcards, practice tests, and AI tools that turn notes, slides, and PDFs into study material. It is built mainly for students and teachers, so a small business would use it mostly for staff training and learning.",
     "helpsWith": [],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Generates practice tests, study guides, flashcards, and summaries from uploaded notes and documents for students and teachers, with edits allowed afterward.",
+    "checkedAt": "2026-11-07"
    }
   },
   "migrawatch": {
@@ -5418,6 +5644,11 @@
      "Send text alerts by texting 877877"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "nakasec-know-your-rights": {
@@ -5463,6 +5694,11 @@
      "Provides contact information for consulates"
     ],
     "howToStart": "Download the free app from the Apple App Store or Google Play, or use the download links on the NAKASEC website, then open it and choose your language."
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-07"
    }
   },
   "nilc-know-your-rights": {
@@ -5503,6 +5739,2303 @@
      "Find information on workers' rights, including fair pay and safe working conditions"
     ],
     "howToStart": ""
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "wellsaid": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "WellSaid AI Voice Studio",
+   "officialUrl": "https://www.wellsaid.io",
+   "reviews": {
+    "rating": 4.1,
+    "reviewCount": 172,
+    "summary": "Users like the realistic, natural-sounding voices, the wide variety of voices, and the ease of use. Users dislike pronunciation errors with names, acronyms and technical terms, the high price and subscription model, limited languages, and weak customer service and refunds.",
+    "sources": [
+     {
+      "site": "G2",
+      "url": "https://www.g2.com/products/wellsaid-studio/reviews",
+      "rating": 4.6,
+      "count": 136
+     },
+     {
+      "site": "Capterra",
+      "url": "https://www.capterra.com/p/238211/Wellsaid/reviews/",
+      "rating": 4.4,
+      "count": 14
+     },
+     {
+      "site": "Trustpilot",
+      "url": "https://www.trustpilot.com/review/www.wellsaid.io",
+      "rating": 3,
+      "count": 22
+     }
+    ],
+    "claimed": 4
+   },
+   "pricing": {
+    "startingMonthlyUsd": 10,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "A free plan gives 3 download minutes a month without commercial rights; Starter is $10/month billed annually ($19 monthly), Pro is $33/month billed annually ($49 monthly), and Business is $160 per user per month billed annually.",
+    "extraFees": "Extra minutes can be bought as add-ons, but the price is not published; the Business plan is priced per user, with a minimum of one seat.",
+    "sourceUrl": "https://www.wellsaid.io/ai-voice-pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "Arabic",
+     "Chinese (Cantonese)",
+     "Chinese (Mandarin)",
+     "Czech",
+     "Danish",
+     "Dutch",
+     "English",
+     "French",
+     "German",
+     "Italian",
+     "Japanese",
+     "Korean",
+     "Persian (Farsi)",
+     "Polish",
+     "Portuguese",
+     "Spanish",
+     "Swedish",
+     "Turkish"
+    ],
+    "claimed": 18,
+    "sourceUrl": "https://help.wellsaid.io/hc/en-us/articles/39079854241299-Exploring-Languages-Accents-and-Styles",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Adobe Express",
+    "Adobe Premiere Pro"
+   ],
+   "caution": "The free plan has no commercial rights, so a small business needs at least the Starter plan to use the audio commercially. Paid plans cap downloaded minutes (20 a month on Starter monthly, 240 a year on Starter annual) with no rollover, and payments are non-refundable.",
+   "ai": {
+    "level": "core",
+    "feature": "Generates realistic AI voiceovers from a pasted script, with voices modeled on licensed recordings from real voice actors.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "cadu": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Cadu",
+   "officialUrl": "https://cadu.app",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 2
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The free plan costs nothing and keeps the site online on a cadu.page address with no time limit; the Personal plan is $9 a month billed yearly ($11 monthly) for a custom domain without Cadu branding, and the Business plan is $19 a month per site billed yearly ($23 monthly) for lead capture, visitor analytics and team seats.",
+    "extraFees": "No per-message or per-transaction fees are listed; Business seats are free, and each extra site is charged at the same per-site rate.",
+    "sourceUrl": "https://cadu.app/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 3,
+    "sourceUrl": "https://cadu.app/",
+    "totalClaim": null
+   },
+   "integrations": [
+    "WhatsApp",
+    "Google Business Profile",
+    "Dodo Payments",
+    "Cloudflare",
+    "Anthropic",
+    "GitHub"
+   ],
+   "caution": "Cadu is not an e-commerce platform and cannot build online shops with carts or payments. Cancelling keeps paid features until the period ends, then the site reverts to the free tier with a 7-day grace period to resubscribe.",
+   "ai": {
+    "level": "core",
+    "feature": "Reads a business owner's plain WhatsApp messages and builds or edits their website accordingly, so they never need a login or technical skills, as described on cadu.app.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "postall": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "PostAll",
+   "officialUrl": "https://postall.io",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "",
+    "extraFees": null,
+    "sourceUrl": "",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "n8n",
+    "Zapier"
+   ],
+   "caution": "",
+   "ai": {
+    "level": "feature",
+    "feature": "Writes captions, generates hashtags, rewrites posts, translates content, and picks the best posting times for your social media posts.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "oshaani-social": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Oshaani Social",
+   "officialUrl": "https://social.oshaani.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 1,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "New accounts get 200 free AI credits, then pay-as-you-go costs a 100-credit ($1.00) monthly platform fee, while monthly plans are $12/mo (Starter Pack, 1,400 credits), $24/mo (Pro Plan, 2,900 credits) and $72/mo (Ultra Pro Plan, 9,000 credits), with the platform fee waived on monthly plans.",
+    "extraFees": "",
+    "sourceUrl": "https://social.oshaani.com/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "LinkedIn",
+    "Facebook",
+    "Instagram",
+    "WhatsApp Business",
+    "YouTube",
+    "X"
+   ],
+   "caution": "Credits are only spent on AI actions and the pay-as-you-go platform fee applies monthly unless you choose a monthly plan; the user guide also lists an X connection and a higher 32-credit per AI action rate, so per-action costs may differ from the pricing page's stated 1.2x rate.",
+   "ai": {
+    "level": "feature",
+    "feature": "Writes social media posts and captions, auto-replies to comments and Instagram or WhatsApp messages, and suggests LinkedIn profile improvements, all using AI credits.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "praising": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Praising.ai",
+   "officialUrl": "https://praising.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 5
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Forever Free plan costs $0 for 1 location with 50 review-request emails a month and manual replies; Core is $19/mo, Growth $29/mo (up to 3 locations), and Pro $49/mo (up to 10 locations), with yearly billing saving about 17%.",
+    "extraFees": "No setup or per-employee fees are mentioned. Paid plans include monthly email and text (SMS) allowances (Core 500 emails and 50 texts; Growth 2,000 and 200; Pro 10,000 and 500). No transaction fees are mentioned.",
+    "sourceUrl": "https://praising.ai/faq",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "Spanish",
+     "Chinese",
+     "Vietnamese",
+     "Korean",
+     "Tagalog",
+     "Portuguese",
+     "French",
+     "Japanese",
+     "German",
+     "Italian",
+     "English"
+    ],
+    "claimed": 11,
+    "sourceUrl": "https://praising.ai/changelog",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Business Profile",
+    "Trustpilot",
+    "Yelp",
+    "Facebook",
+    "Tripadvisor",
+    "Booking.com",
+    "Airbnb",
+    "BBB",
+    "Zillow",
+    "Consumer Affairs",
+    "Glassdoor",
+    "Indeed",
+    "Expedia",
+    "Agoda",
+    "Angi",
+    "App Store",
+    "Capterra",
+    "Cars.com",
+    "Google Play",
+    "OpenTable",
+    "RateMDs"
+   ],
+   "caution": "Only Google and Trustpilot reviews are imported into the dashboard; the other listed sites are only linked, not monitored. Paid plans carry a 14-day free trial that requires a payment method to start, and you are billed if you do not cancel before it ends.",
+   "ai": {
+    "level": "feature",
+    "feature": "Drafts an on-brand reply to each new Google or Trustpilot review for the owner to approve with one click.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "forgelo": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Forgelo",
+   "officialUrl": "https://forgelo.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The Free plan costs $0 and includes one website on a Forgelo subdomain with 5 AI generations or edits per day; paid plans are Starter at $9 per month, Pro at $19 per month, Business at $39 per month, and a custom Agency plan.",
+    "extraFees": null,
+    "sourceUrl": "https://forgelo.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Indonesian"
+    ],
+    "claimed": 2,
+    "sourceUrl": "https://forgelo.com/about",
+    "totalClaim": null
+   },
+   "integrations": [
+    "WhatsApp"
+   ],
+   "caution": "Free plan carries a Made with Forgelo badge and only one site on a Forgelo subdomain; custom domains are purchased separately and start on the Starter plan. Prices are listed in USD, may change, and some plan details vary by country.",
+   "ai": {
+    "level": "core",
+    "feature": "Writes a complete multi-section website from a plain-language business description, then rebuilds any section you describe changes to.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "replybase": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "ReplyBase",
+   "officialUrl": "https://replybase.co",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "trial",
+    "kind": "monthly",
+    "note": "ReplyBase has a 7-day free trial with full Pro features, then paid plans: Starter at $29/mo for 150 AI responses and 1 location, Pro at $49/mo for unlimited responses and up to 3 locations, and Agency at $249/mo for up to 15 businesses; annual billing gives two months free.",
+    "extraFees": null,
+    "sourceUrl": "https://replybase.co/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Business Profile",
+    "Yelp",
+    "Facebook",
+    "Lemon Squeezy",
+    "Anthropic Claude"
+   ],
+   "caution": "The trial requires no credit card, but after 7 days you must choose a plan or the account is paused. Starter has no auto-respond or social graphics studio. Each Google Business Profile or Yelp listing counts as one location. The Agency price is a founders rate locked in for life for those who sign up now.",
+   "ai": {
+    "level": "core",
+    "feature": "Writes review replies in the owner's voice for each new Google, Yelp, or Facebook review, and the owner approves or posts them.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "finch": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Finch",
+   "officialUrl": "https://www.finchbooks.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Finch has a free plan that includes invoicing, bank sync, double-entry books, 21 reports and unlimited businesses, and a paid Superpower AI add-on at $49 a month for unlimited AI, plus $29 a month for each additional business.",
+    "extraFees": "Card payments cost 2.9% + 30¢ on the free plan and 2.7% + 30¢ on Superpower AI. Bank transfers cost 0.8%, never more than $5. Connecting banks through SimpleFIN costs $1.50 a month or $15 a year, paid directly to SimpleFIN.",
+    "sourceUrl": "https://www.finchbooks.ai/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 1,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks Online",
+    "FreshBooks",
+    "Wave",
+    "SimpleFIN Bridge"
+   ],
+   "caution": "Finch does not run payroll or track time yet. Bank connections are made through SimpleFIN, which is a separate paid service.",
+   "ai": {
+    "level": "core",
+    "feature": "Lets an AI bookkeeper sort transactions, match receipts, and close the month, with every change proposed for you to confirm and undo.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "starsteady": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "StarSteady",
+   "officialUrl": "https://starsteady.io",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 39,
+    "model": "paid",
+    "kind": "monthly",
+    "note": "The Starter plan costs $39 per month and includes 500 AI responses, Google and Yelp support, 50 SMS review requests per month, and 1 business profile; the Agency plan costs $199 per month for unlimited use and multiple profiles.",
+    "extraFees": "No per-response or hidden fees.",
+    "sourceUrl": "https://starsteady.io/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Reviews",
+    "Yelp",
+    "Twilio"
+   ],
+   "caution": "The app shows a free trial with 5 AI responses and 5 SMS requests, but the Starter plan is the lowest paid plan listed, so a small business needs to pay $39 per month after the trial.",
+   "ai": {
+    "level": "feature",
+    "feature": "Writes personalized replies to a small business's Google and Yelp reviews, matching the chosen tone and the star rating.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "bocads": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Bocads",
+   "officialUrl": "https://bocads.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The Free plan is $0 forever with 10 ads per month and 1 brand profile, and paid plans are Starter at $19/month, Pro at $49/month, and Agency at $149/month, with annual billing saving 20%.",
+    "extraFees": null,
+    "sourceUrl": "https://bocads.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Facebook & Instagram",
+    "Google Ads",
+    "LinkedIn",
+    "TikTok",
+    "Snapchat Ads",
+    "Pinterest Ads",
+    "The Trade Desk",
+    "DV360",
+    "HubSpot"
+   ],
+   "caution": "All paid plans include a 14-day free trial, and credits reset monthly and do not roll over. Canva, Zapier, Mailchimp, Shopify, Figma, Adobe Creative Cloud and several other integrations are listed as coming soon rather than live.",
+   "ai": {
+    "level": "core",
+    "feature": "Generates complete ads for a small business from a short product description, including headlines, body copy, call-to-action text, and visuals, sized for Facebook, Instagram, TikTok, Google, and LinkedIn.]",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "bukeep": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "BuKeep",
+   "officialUrl": "https://bukeep.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 9,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "A free 90-day trial with 15 credits is offered, then the Starter plan costs $9 per month for 50 credits, with Business and Enterprise plans above it, and annual billing saves up to 10%.",
+    "extraFees": "No hidden fees or per-transaction charges are listed; extra credit packs can be bought anytime, and larger statements use 1 extra credit per 10 pages.",
+    "sourceUrl": "https://bukeep.com/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "",
+   "ai": {
+    "level": "feature",
+    "feature": "Reads uploaded receipts and bank statements to pull out each transaction's date, merchant, and amount, and suggests categories for them.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "bonnie": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Bonnie",
+   "officialUrl": "https://mybonnie.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Bonnie has a Free plan at $0.00 with no card required, which includes bank connections through Plaid, 25 AI categorizations per month, and a cash-basis profit and loss; the paid Monthly plan is $15.00 per month or $150.00 per year after a 30-day free trial.",
+    "extraFees": "",
+    "sourceUrl": "https://mybonnie.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "Dutch",
+     "English",
+     "French",
+     "German",
+     "Italian",
+     "Spanish",
+     "Portuguese",
+     "Turkish",
+     "Arabic",
+     "Polish",
+     "Romanian",
+     "Czech",
+     "Hungarian",
+     "Greek",
+     "Bulgarian",
+     "Japanese",
+     "Korean",
+     "Chinese",
+     "Hindi"
+    ],
+    "claimed": 19,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Plaid",
+    "Stripe"
+   ],
+   "caution": "Bonnie is bookkeeping software, not a licensed professional, so its books should be reviewed before relying on them; paid plans renew automatically until cancelled, and the Free plan includes only 25 AI categorizations per month, with asset tracking limited to paid plans.",
+   "ai": {
+    "level": "core",
+    "feature": "Categorizes bank and card transactions automatically using AI, matches receipts, flags duplicates, and asks the owner only about unclear charges. mybonnie.ai",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "adsimple": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "AdSimple",
+   "officialUrl": "https://adsimple.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 2
+   },
+   "pricing": {
+    "startingMonthlyUsd": 50,
+    "model": "paid",
+    "kind": "you-set-budget",
+    "note": "The Launch plan starts at $50 per month plus your own ad budget, Grow is $99 per month plus your ad budget, and Scale is $149 per month plus your ad budget, and there is no free plan on the pricing page.",
+    "extraFees": "Ad spend is billed on top of the subscription and includes a service margin built into the ad budget you select; new users get $50 in ad credits, and top-ups start at $25.",
+    "sourceUrl": "https://adsimple.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 1,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Ads",
+    "Stripe",
+    "Clerk",
+    "Resend",
+    "Neon",
+    "Vercel",
+    "Anthropic",
+    "OpenAI",
+    "Google Calendar"
+   ],
+   "caution": "Subscription fees are non-refundable for the current billing period, unused ad credits are non-refundable, and ad spend already committed to Meta cannot be reversed. The Grow plan's AI video ads and the Scale plan's AI receptionist are listed as coming soon.",
+   "ai": {
+    "level": "core",
+    "feature": "Builds ad creatives, picks budget shifts, and optimizes campaigns for a small business's Google, Facebook and Instagram ads every 2 hours, with an AI-built website included on higher plans.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "yourprofitbook": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "YourProfitBook",
+   "officialUrl": "https://yourprofitbook.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 4.99,
+    "model": "paid",
+    "kind": "monthly",
+    "note": "Starter is $4.99 per month (or $49 per year), Pro is $9.99 per month (or $99.99 per year), and Business is $24.99 per month (or $249.99 per year); a 30-day Business trial is available with no credit card required, but there is no permanent free plan.",
+    "extraFees": "Individual report purchases cost $4.99 or $9.99 each, and the Gusto payroll service is a separate provider with its own pricing.",
+    "sourceUrl": "https://yourprofitbook.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks Online",
+    "Gusto",
+    "Stripe"
+   ],
+   "caution": "Capterra lists a 'Free Starter' plan with 1 business and 30 lifetime transactions, which conflicts with the vendor's own pricing page that shows no free plan after the 30-day trial. Monthly subscriptions are non-refundable, and if a subscription lapses the account becomes read-only until a plan is chosen.",
+   "ai": {
+    "level": "feature",
+    "feature": "Explains your profit and expense numbers in plain English, flags cost spikes and margin drops, and answers your questions about your finances.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "dynatax-ai": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "DynaTax AI",
+   "officialUrl": "https://dynatax.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "trial",
+    "kind": "monthly",
+    "note": "Paid business plans are Starter at $29 per month, Growth at $49 per month, Pro at $99 per month and Pro Plus at $299 per month, each with a 14-day free trial and no credit card needed; yearly billing gives 12 months for the price of 10.",
+    "extraFees": "Online card payments on invoices cost 2.65% + 25 cents per payment, in-person card payments cost 2.5% + 10 cents, and bank (ACH) payments cost 1% capped at $10 with a 50 cent minimum; a $3.50 monthly regulatory fee and a $20 monthly minimum in processing fees apply in months you take card payments, and processing fees are not refundable.",
+    "sourceUrl": "https://dynatax.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks",
+    "Stripe"
+   ],
+   "caution": "",
+   "ai": {
+    "level": "feature",
+    "feature": "Suggests a bookkeeping account for each bank transaction and reads receipts, which the owner reviews and approves. dynatax.ai dynatax.ai",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "danbooks": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "DanBooks",
+   "officialUrl": "https://danbooks.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The free plan includes invoicing, manual transaction entry, a custom chart of accounts, P&L and expense reports, and read-only accountant sharing for one business, with no card or expiry; the Connected plan is $19 per month, and each additional business is $10 per month.",
+    "extraFees": "Additional businesses cost $10 per month each; prices exclude applicable taxes, which may be added based on location.",
+    "sourceUrl": "https://danbooks.ai/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Shopify",
+    "Square",
+    "Stripe",
+    "Plaid",
+    "Gusto",
+    "QuickBooks",
+    "Claude"
+   ],
+   "caution": "Bank feeds, Square, Stripe and Shopify sync require the $19 Connected plan; Lane 2 and Connected pricing is billed monthly via Stripe with no prorated refunds, and the Terms of Service and the MCP listing describe the service as $29 per month after a free trial, which conflicts with the vendor's own $19 figure.",
+   "ai": {
+    "level": "feature",
+    "feature": "Dan, an AI assistant, categorizes your bank and sales transactions automatically and answers plain-English questions about your books, such as what you spent last month.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "jupid": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Jupid AI Accountant",
+   "officialUrl": "https://jupid.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 50,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Jupid has a Solo plan at $50 per month ($390 per year) for one user, a Team plan at $200 per month ($1,560 per year) for an owner plus five monthly active employees, and custom Company plans for larger teams; the first 100 transactions are free, and LLC formation is free apart from state filing fees.",
+    "extraFees": "",
+    "sourceUrl": "https://jupid.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Plaid",
+    "QuickBooks",
+    "Xero",
+    "Stripe",
+    "PayPal",
+    "Square",
+    "Shopify",
+    "Gusto",
+    "Deel",
+    "Brex",
+    "Ramp",
+    "Google Sheets",
+    "Slack",
+    "WhatsApp",
+    "Telegram",
+    "Gmail",
+    "Google Calendar",
+    "Q2 Platform",
+    "Zapier"
+   ],
+   "caution": "The Jupid pricing page lists QuickBooks and Xero as coming soon, and the Capterra listing names a different set of integrations than Jupid's own page, so check current availability.",
+   "ai": {
+    "level": "core",
+    "feature": "Categorizes transactions to Schedule C lines, remembers vendors, flags missed deductions, and answers money questions from your books.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "profitbooks": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "ProfitBooks",
+   "officialUrl": "https://profitbooks.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 20,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The Profit plan costs $20 a month and the Full Books plan costs $99 a month, both billed monthly with unlimited users and uploads, and there is also a free account that gives 100 categorized transactions at signup and 10 more every day.",
+    "extraFees": "Credits are charged per finalized transaction: bundles range from $50 for 200 credits (25.0 cents each) down to $450 for 2,000 credits (22.5 cents each), and purchased credits never expire.",
+    "sourceUrl": "https://profitbooks.ai/pricing/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 1,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks",
+    "FreshBooks",
+    "Stripe",
+    "Gusto",
+    "Rippling",
+    "Mercury",
+    "Brex",
+    "Ramp",
+    "Etsy",
+    "Amazon",
+    "Shopify",
+    "eBay"
+   ],
+   "caution": "Free daily credits reset rather than accumulate, so a business with many transactions will need to buy credit bundles, and the paid subscription is needed to unlock credit bundle purchases.",
+   "ai": {
+    "level": "core",
+    "feature": "Reads bank statements, receipts and invoices, categorizes each transaction with a confidence score, and builds the books and profit and loss reports, per profitbooks.ai and profitbooks.ai.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "tabby": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Tabby",
+   "officialUrl": "https://www.usetabby.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Tabby has a free plan at $0 for businesses with up to $15,000 a year in expenses, and paid plans are Standard at $30 a month, Pro at $50 a month and Growth at $90 a month, with 20% off if billed yearly.",
+    "extraFees": "No overage fees; bank connection costs and Plaid are included in the plan, and a new subscriber gets 50% off the first 3 months of a monthly plan.",
+    "sourceUrl": "https://help.usetabby.com/en/article/pricing-and-plans-tmhkoo/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 1,
+    "sourceUrl": "https://help.usetabby.com/en/article/countries-currencies-and-international-use-1ormfoc/",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Plaid",
+    "Stripe",
+    "Ramp"
+   ],
+   "caution": "Free plan allows only 1 bank connection, 1 user and 5 invoices a month, and once expenses pass the plan limit new transactions stop being categorized until you upgrade; some pages mention a 14-day free trial while others say there is none, and the company's own pricing page says annual plans are not available.",
+   "ai": {
+    "level": "core",
+    "feature": "Turns plain-English requests into bookkeeping work like sending invoices, chasing late payers, categorizing transactions, and pulling reports, after the owner approves each step.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "poof": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Poof",
+   "officialUrl": "https://www.poofai.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Poof's Free plan costs $0 with no card and no time limit and includes the books, invoices, bills, every report, payroll prep, sales tax and 1099 prep, while Poof Agent costs $79 a month or $790 a year after a 30-day free trial.",
+    "extraFees": "1099 filing is free for the first 3 forms each year, then $2.49 per form; mailed copies to contractors cost $1.79 each, and emailed copies are free. An AI receptionist add-on for service shops costs $99 a month with 1,000 minutes included, then 12 cents a minute.",
+    "sourceUrl": "https://www.poofai.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Plaid",
+    "Stripe",
+    "QuickBooks",
+    "Xero",
+    "Housecall Pro",
+    "Jobber",
+    "Telegram",
+    "Slack",
+    "Claude",
+    "ChatGPT",
+    "Grok"
+   ],
+   "caution": "Free includes only 25 Ask Poof questions, 25 receipt or document reads, 2 connected bank accounts and 100 texts a month, and after the 30-day Poof Agent trial new transactions wait for a person to sort them instead of being sorted overnight.",
+   "ai": {
+    "level": "core",
+    "feature": "Reads bank feeds, categorizes transactions, matches invoices and bills, and drafts month-end close entries for a small business owner to approve; its AI assistant answers questions and creates invoices from plain-language requests.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "cpos-pay": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "CPOS Pay",
+   "officialUrl": "https://cpos.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "CPOS Pay has a Free plan with no monthly subscription, and a Pro plan at $20 a month that lowers the in-person rate to 2.29% plus 10 cents and raises the transaction limit.",
+    "extraFees": "Card-present payments cost 2.49% plus $0.10 per transaction on the Free plan (2.29% plus $0.10 on Pro, per a third-party review). Card-not-present payments and international cards add 1% plus $0.20 per transaction. Freepay on Pro adds a 2.99% plus $0.10 fee to the customer's card total.",
+    "sourceUrl": "https://cpos.com/terms-of-use",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 1,
+    "sourceUrl": "https://cpos.com/terminal/merchant-guide",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe"
+   ],
+   "caution": "Annual billing cannot be cancelled once paid and gets no prorated refund. The Pro plan's 2.29% rate appears only in a third-party review, while CPOS's own terms list 2.49% for all tiers, so confirm the Pro rate before signing up.",
+   "ai": {
+    "level": "feature",
+    "feature": "Sam, an AI assistant, builds a video ad, website, and logo for a small business from a text description, and replies to customer support messages by text.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "merchantlink": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "MerchantLink",
+   "officialUrl": "https://www.merchantlink.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The Starter plan is free forever with 10 invoices or payment links per month, 1 processor, and 20 AI drafts per month; the Pro plan is $24 per month ($288 billed yearly) and the Business plan is $66 per month ($792 billed yearly).",
+    "extraFees": "Processing fees are charged separately by your payment processor. Additional text messages cost $0.02 each beyond what the plan includes.",
+    "sourceUrl": "https://www.merchantlink.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe",
+    "Square",
+    "PayPal",
+    "Adyen",
+    "Checkout.com",
+    "Authorize.net",
+    "NMI",
+    "TSYS TransIT",
+    "Magensa (MagTek)",
+    "Braintree",
+    "Cybersource",
+    "Worldpay",
+    "Fiserv CardPointe",
+    "Global Payments",
+    "Claude",
+    "QuickBooks",
+    "Xero",
+    "NetSuite",
+    "Sage Intacct",
+    "FreshBooks",
+    "Zoho Books"
+   ],
+   "caution": "Accounting sync with QuickBooks and Xero is in development and not yet included in any plan; QuickBooks, Xero, NetSuite, Sage Intacct, FreshBooks and Zoho Books integrations are on the roadmap only. Pricing page notes new accounts get full access while billing is being set up.",
+   "ai": {
+    "level": "feature",
+    "feature": "Drafts invoices from plain words, voice notes or photos, and sends reminders and replies for you to approve.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "paybrain": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Paybrain",
+   "officialUrl": "https://paybrain.io",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 2
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "paid",
+    "kind": "no-monthly-fee",
+    "note": "There is no monthly fee on either the Basic or Premium plan; you pay per payment at 3.0% + 10¢ in person on Basic, and the Register kit costs $999 once.",
+    "extraFees": "Stripe surcharges of +1.5% for international cards and +1% for currency conversion apply on top; Stripe charges $15 per customer dispute; the Register kit is $999 one time, with a Stripe Reader S700 included.",
+    "sourceUrl": "https://paybrain.io/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe",
+    "WooCommerce"
+   ],
+   "caution": "Premium plan rates are higher (4.0% + 15¢ in person), and API integrations such as the Checkout API and WooCommerce are only included on Premium, not Basic.",
+   "ai": {
+    "level": "feature",
+    "feature": "Drafts invoices from your own price list, suggests reorders from sales trends, and writes client briefs and promo pitches for you to review before anything is sent.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "aviy": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Aviy",
+   "officialUrl": "https://aviy.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 2
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Aviy has a free Basic plan at $0 per month, with paid Starter at $9.99 per month, Pro at $19.99 per month, and Business at $39.99 per month, all billed monthly per the aviy.ai pricing page.",
+    "extraFees": "Aviy says it takes no fee on your transactions, and payment processors like Stripe, PayPal or Square charge their own fees; the App Store listing shows the same plan prices, billed through your App Store account.",
+    "sourceUrl": "https://aviy.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Afrikaans",
+     "Albanian",
+     "Arabic",
+     "Azerbaijani",
+     "Basque",
+     "Bengali",
+     "Bosnian",
+     "Bulgarian",
+     "Burmese",
+     "Cambodian",
+     "Catalan",
+     "Croatian",
+     "Czech",
+     "Danish",
+     "Dutch",
+     "Estonian",
+     "Filipino",
+     "Finnish",
+     "French",
+     "Galician",
+     "German",
+     "Greek",
+     "Gujarati",
+     "Hebrew",
+     "Hindi",
+     "Hungarian",
+     "Icelandic",
+     "Indonesian",
+     "Irish",
+     "Italian",
+     "Japanese",
+     "Kazakh",
+     "Korean",
+     "Latvian",
+     "Lithuanian",
+     "Macedonian",
+     "Maltese",
+     "Marathi",
+     "Mongolian",
+     "Norwegian Bokmål",
+     "Norwegian Nynorsk",
+     "Persian",
+     "Polish",
+     "Portuguese",
+     "Romanian",
+     "Russian",
+     "Serbian",
+     "Simplified Chinese",
+     "Singhalese",
+     "Slovak",
+     "Slovenian",
+     "Spanish",
+     "Swahili",
+     "Swedish",
+     "Tamil",
+     "Thai",
+     "Turkish",
+     "Ukrainian",
+     "Uzbek",
+     "Vietnamese",
+     "Welsh"
+    ],
+    "claimed": 62,
+    "sourceUrl": "",
+    "totalClaim": "60+ languages"
+   },
+   "integrations": [
+    "Stripe",
+    "PayPal",
+    "Square",
+    "Mollie",
+    "GoCardless",
+    "Mercado Pago",
+    "Paystack",
+    "Flutterwave",
+    "Razorpay",
+    "WhatsApp",
+    "Telegram",
+    "Slack",
+    "Discord",
+    "Messenger",
+    "ChatGPT",
+    "Claude",
+    "Cursor",
+    "FreshBooks",
+    "Zoho",
+    "Wave"
+   ],
+   "caution": "The free Basic plan does not include online payments, auto payment reminders, or advanced analytics, and it limits saved documents to 4 and adds an Aviy logo to documents, so a small business that needs to get paid online must upgrade to Pro ($19.99 per month) or higher.",
+   "ai": {
+    "level": "feature",
+    "feature": "Turns a one-sentence description into a finished, editable invoice, estimate, or quote with client, items, tax, and dates filled in automatically.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "verve-ai": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Verve AI",
+   "officialUrl": "https://www.getverveai.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 5
+   },
+   "pricing": {
+    "startingMonthlyUsd": 19.99,
+    "model": "trial",
+    "kind": "monthly",
+    "note": "Verve AI has one plan at $19.99 per month USD, with a 14-day free trial that needs no credit card.",
+    "extraFees": null,
+    "sourceUrl": "https://www.getverveai.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "French",
+     "Spanish",
+     "Japanese",
+     "Chinese"
+    ],
+    "claimed": 5,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Shopify",
+    "WooCommerce"
+   ],
+   "caution": "The free trial is only 14 days, and the plan is billed through your Shopify account.",
+   "ai": {
+    "level": "feature",
+    "feature": "Forecasts demand for each product and variant, suggests reorder points, and runs a 24/7 agent that flags low stock, demand spikes, and dead stock.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "kova-hr": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Kova HR",
+   "officialUrl": "https://kovahr.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 3,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Kova HR has a free plan for up to 5 employees, then Core costs $3 per employee per month, Growth costs $7 per employee per month, and Pro costs $9 per employee per month plus a $10 flat monthly charge, with annual billing saving 20%.",
+    "extraFees": "",
+    "sourceUrl": "https://kovahr.com/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Slack",
+    "Zapier",
+    "Google Calendar",
+    "QuickBooks",
+    "Xero"
+   ],
+   "caution": "The free plan is limited to 5 employees, 100 AI credits per month, 3 job postings and 2 leave policies, and the Pro plan adds a $10 flat monthly charge on top of the per-employee price.",
+   "ai": {
+    "level": "feature",
+    "feature": "Screens job applicant resumes against requirements, flags unusual leave patterns, summarizes performance review feedback, suggests OKRs, and answers HR questions using company data.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "sonnical": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Sonnical",
+   "officialUrl": "https://www.sonnical.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The Free plan covers up to 6 employees at one location with manual scheduling, calendar view, clock in/out and reports, while Starter is $29 per month for 7-25 employees, Growth is $59 per month for 26-50 employees, and Business is $99 per month for 51-100 employees.",
+    "extraFees": null,
+    "sourceUrl": "https://www.sonnical.com/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish"
+    ],
+    "claimed": 2,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Cloud",
+    "Firebase"
+   ],
+   "caution": "AI shift assignment and freelancer support are not included in the Free plan and require the Starter plan or higher. The App Store listing shows yearly prices of $290 for Starter, $590 for Growth and $990 for Business.",
+   "ai": {
+    "level": "feature",
+    "feature": "Generates weekly or monthly staff schedules automatically using one of three AI modes (Optimal, Rotational, or Random), respecting availability and quotas.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "jugglehire": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "JuggleHire",
+   "officialUrl": "https://jugglehire.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 15,
+    "model": "trial",
+    "kind": "monthly",
+    "note": "JuggleHire has two paid plans billed monthly for the whole company: Starter at $15 a month (3 open jobs, 5 team members, no automations) and Unlimited at $49 a month (unlimited jobs and team members under fair use, plus automations), with a 14-day free trial that requires a card; there is no free plan after the trial, and a one-time lifetime deal of $149 (Starter) or $399 (Agency) is also offered.",
+    "extraFees": "",
+    "sourceUrl": "https://jugglehire.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "French",
+     "Spanish",
+     "Chinese",
+     "Portuguese"
+    ],
+    "claimed": 6,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Calendar",
+    "Google Meet",
+    "Zoom",
+    "Gmail",
+    "Google Workspace",
+    "Google OAuth",
+    "LinkedIn OAuth",
+    "Stripe"
+   ],
+   "caution": "The 14-day trial requires a credit card and your plan starts automatically when the trial ends unless you cancel first. Starter does not include automations. Unlimited plan limits are fair use, capped at 50 open jobs and 50 team members at once unless JuggleHire raises them.",
+   "ai": {
+    "level": "feature",
+    "feature": "Reads each resume and fills in skills, work history and education, drafts job posts from a short brief, and writes a plain-English summary of each applicant.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "rosie": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Rosie",
+   "officialUrl": "https://heyrosie.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "trial",
+    "kind": "monthly",
+    "note": "Rosie has no free plan, and the Professional plan costs $49 a month for 250 minutes, Scale costs $149 a month for 1,000 minutes, and Growth costs $299 a month for 2,000 minutes, with annual billing at two months free and a 7-day free trial on every plan.",
+    "extraFees": "Website Texting add-on costs $50 a month for 25 conversations, then $1 per extra conversation; sales and use tax is charged on top; a late payment incurs a $10 fee plus 1.5% monthly interest. There is no per-minute overage charge because you are moved up a plan instead.",
+    "sourceUrl": "https://heyrosie.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish"
+    ],
+    "claimed": 2,
+    "sourceUrl": "https://heyrosie.com/pricing",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Calendar",
+    "Calendly",
+    "Acuity Scheduling",
+    "Appointlet",
+    "HubSpot",
+    "GoHighLevel",
+    "Jobber",
+    "Housecall Pro",
+    "Pipedrive",
+    "Zoho CRM",
+    "Zoho Bigin",
+    "ServiceM8",
+    "JobTread",
+    "JobNimbus",
+    "Kickserv",
+    "RepairShopr",
+    "Workiz",
+    "Nutshell",
+    "Kommo",
+    "noCRM.io",
+    "Follow Up Boss",
+    "AgencyZoom",
+    "Shopify",
+    "Zapier"
+   ],
+   "caution": "The terms say the free trial may not be available to everyone and only applies to new subscribers, and your card converts to a paid subscription at the end of the trial unless you cancel first. Calls are rounded up to the next full minute. The Custom plan is priced separately, reported from $999 a month.",
+   "ai": {
+    "level": "core",
+    "feature": "",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "manabiq": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "manabiQ",
+   "officialUrl": "https://manabiq.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "There is a pay-as-you-go plan with no monthly fee: course generation is free, publishing a course costs $5, and each learner costs $2 after the first 3, while paid monthly plans are Starter $5, Standard $15 and Enterprise $40 that lower the per-learner rate.",
+    "extraFees": "Each published course is a one-time charge of $2 to $6 depending on lesson count on pay-as-you-go, and each learner beyond the first 3 is charged per person; extra learners on paid plans cost $7, $5 or $3 each, and extra storage is $10 per month for 100 GB.",
+    "sourceUrl": "https://www.manabiq.com/docs/billing/01-plans",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "Japanese"
+    ],
+    "claimed": 3,
+    "sourceUrl": "https://manabiq.com/",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks",
+    "Gusto",
+    "Google Drive",
+    "OneDrive"
+   ],
+   "caution": "Only the free pay-as-you-go plan has no monthly charge, but it is limited to 5 learners and 3 AI generations, and QuickBooks is live while Gusto is listed as coming soon. Downgrading below plan limits can pause learner access or block uploads.",
+   "ai": {
+    "level": "core",
+    "feature": "Turns a business's own documents, web pages, and SOPs into a training course with quizzes, drafted by AI for the owner to review and approve.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "helpable": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Helpable",
+   "officialUrl": "https://www.gethelpable.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 25,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Helpable has a free plan with 30 AI answers a month and 1 team member, and paid plans start at $25 per month for the Solo plan, with Starter at $49, Pro at $149 and Scale at $299 per month, according to a third-party review citing the vendor's pricing page; the vendor's own page lists the newer Business plans at $29, $89 and $179 per month.",
+    "extraFees": "Add-ons cost extra: more team members from $7 to $9 per person per month, extra help centers $10 per month, and removing the Helpable badge $19 per month on the Business plans. Extra AI credits cost $19 to $99 for one-time top-ups. Annual billing saves about 20%. Prices include VAT in euros or dollars.",
+    "sourceUrl": "https://www.gethelpable.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "French",
+     "German",
+     "Dutch",
+     "Italian",
+     "Portuguese",
+     "Japanese",
+     "Chinese",
+     "Korean",
+     "Arabic",
+     "Hebrew"
+    ],
+    "claimed": 13,
+    "sourceUrl": "https://www.gethelpable.com/features/multilingual",
+    "totalClaim": "50+ languages"
+   },
+   "integrations": [
+    "Slack",
+    "Zapier",
+    "Make",
+    "Shopify",
+    "Webhooks",
+    "REST API",
+    "WhatsApp",
+    "Google Drive",
+    "Notion",
+    "Gmail",
+    "HubSpot",
+    "Airtable"
+   ],
+   "caution": "The sources disagree on plan names and prices, since one lists the older Solo/Starter/Pro/Scale tiers and the vendor page lists Business/Business Plus/Business Max, so confirm current prices on the vendor's pricing page before buying. Also, the free plan is limited to 15 articles and includes Helpable branding.",
+   "ai": {
+    "level": "feature",
+    "feature": "Answers employee questions from the business's own published articles, procedures and documents, with a link to the source; also drafts training courses, articles and roleplay scenarios from that content.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "daber-ai": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Daber AI",
+   "officialUrl": "https://daber.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "paid",
+    "kind": "monthly",
+    "note": "A $3 launch gives a real phone number and 30 call minutes for 14 days, then the Starter plan is $49 a month, with Growth at $149 a month and Scale at $499 a month.",
+    "extraFees": "Calls beyond a plan's included hours are billed per second at $14/hour on Starter, $12/hour on Growth and $10/hour on Scale. Building and testing in the browser is free, but there is no free plan for live phone use. Each plan includes a phone number at no extra charge.",
+    "sourceUrl": "https://daber.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "French",
+     "Arabic",
+     "Russian",
+     "Hebrew"
+    ],
+    "claimed": 6,
+    "sourceUrl": "https://daber.ai/faq",
+    "totalClaim": null
+   },
+   "integrations": [
+    "HubSpot",
+    "Salesforce",
+    "Google Calendar",
+    "Calendly",
+    "Slack",
+    "Twilio"
+   ],
+   "caution": "After the $3 launch the line continues on the chosen plan unless you cancel within 14 days, so the $49 monthly charge starts automatically. Extra call time is billed as it accrues, and you can set a monthly limit on it in the dashboard.",
+   "ai": {
+    "level": "core",
+    "feature": "Answers a small business's phone calls with an AI voice agent that handles questions, books appointments, and transfers callers to a person when needed.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "ahoya": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Ahoya",
+   "officialUrl": "https://ahoya.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "A free trial gives 20 call minutes with no card, then the Starter plan is $39/month billed annually or $49/month billed monthly, with 250 minutes per month; Growth is $143/month billed annually ($179 monthly) with 1,000 minutes, and Scale is $319/month billed annually ($399 monthly) with 2,500 minutes.",
+    "extraFees": "Overage is $0.40 per minute above your plan's included minutes, capped at 2 times your plan's minutes; concierge setup is a one-time $499 add-on to any plan.",
+    "sourceUrl": "https://ahoya.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "Chinese",
+     "French",
+     "German",
+     "Italian",
+     "Japanese",
+     "Portuguese",
+     "Turkish"
+    ],
+    "claimed": 9,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Cal.com",
+    "HubSpot",
+    "Salesforce",
+    "Pipedrive",
+    "Google Sheets",
+    "Slack",
+    "Microsoft Teams",
+    "Clio",
+    "Brevo",
+    "Follow Up Boss",
+    "Cliniko",
+    "Shopmonkey",
+    "Google Tag Manager",
+    "Jobber",
+    "Square",
+    "Notion",
+    "Zapier",
+    "Make",
+    "n8n",
+    "Airtable"
+   ],
+   "caution": "Billing is capped: service pauses at 2 times your plan's minutes instead of charging more, and you get warning emails at 80% and 100% of minutes; the free plan lets a business use website chat and 20 call minutes without a card, but phone calls beyond the trial need a paid plan.",
+   "ai": {
+    "level": "core",
+    "feature": "Answers your business phone 24/7, books appointments, and texts your team summaries of calls.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "chatpal": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "ChatPal",
+   "officialUrl": "https://chatpalbot.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 4
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The free plan costs $0 and includes 100 messages a month across all channels, with paid plans Starter at $20, Standard at $50 and Pro at $120 per month, billed monthly.",
+    "extraFees": null,
+    "sourceUrl": "https://chatpalbot.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "WhatsApp",
+    "Instagram",
+    "Facebook Messenger",
+    "Telegram",
+    "Shopify",
+    "Horoshop",
+    "Zendesk",
+    "Calendly",
+    "Altegio",
+    "Google Calendar"
+   ],
+   "caution": "Once you reach your monthly message limit, the assistant stops replying to customers until you upgrade or the count resets. Each reply the assistant sends counts as one message, so a busy small business may outgrow the free plan quickly.",
+   "ai": {
+    "level": "core",
+    "feature": "Answers customer chats on website, WhatsApp, Instagram, Messenger and Telegram from your price list and policies, and books appointments into Google Calendar, Calendly or Altegio.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "sawyer": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Ask Sawyer",
+   "officialUrl": "https://asksawyer.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 9.99,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The individual plan is $9.99 per month and the organization plan is $49.99 per month, with a free tier of 2 chats per month and up to 4 chats total, and a 7-day free trial on paid plans.",
+    "extraFees": null,
+    "sourceUrl": "https://asksawyer.ai/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "",
+   "ai": {
+    "level": "core",
+    "feature": "Answers small business legal questions in plain English with cited sources, and reviews or drafts contracts against your state's rules.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "justee": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Justee",
+   "officialUrl": "https://justee.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 4
+   },
+   "pricing": {
+    "startingMonthlyUsd": 16,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Free Trial plan with 2 reviews total and no card required; paid plans are Start at $16/month per user billed annually ($192/year), Basic at $79/month per user billed annually ($948/year), Premium at $149/month per user, and Enterprise is custom.",
+    "extraFees": "Prices exclude applicable taxes such as VAT, GST, or sales tax, which are added at checkout based on your location. Each account is for one user, so each team member needs a separate paid seat.",
+    "sourceUrl": "https://justee.ai/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 1,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "The GetApp listing shows different prices (Basic 89 and Professional 189 per month), which conflict with the vendor's own pricing page, so the vendor page was used.",
+   "ai": {
+    "level": "core",
+    "feature": "Uses AI to review contracts for small businesses, flagging risky clauses and suggesting edits, with a chat that answers cited legal questions and a side-by-side comparison of contract versions.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "permitsentry-ai": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "PermitSentry AI",
+   "officialUrl": "https://www.permitsentry.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "paid",
+    "kind": "monthly",
+    "note": "PermitSentry AI has three paid plans: Starter at $49/month (up to 5 permits, 1 location), Professional at $99/month (up to 20 permits, 5 locations), and Enterprise at $249/month (unlimited permits and locations), with annual plans saving 20%.",
+    "extraFees": null,
+    "sourceUrl": "https://www.permitsentry.com/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe",
+    "Supabase",
+    "Vercel",
+    "Anthropic",
+    "Resend",
+    "Twilio"
+   ],
+   "caution": "Subscriptions auto-renew, price changes need 30 days' notice, cancellation gives no prorated refund for partial periods, and the tool is informational only, so permit guidance should be verified with local authorities.",
+   "ai": {
+    "level": "feature",
+    "feature": "Scans a business's type, industry, and location to suggest the permits and licenses it likely needs, and pre-fills renewal forms from the stored business profile.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "talking-tree": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Talking Tree",
+   "officialUrl": "https://talkingtree.app",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 2
+   },
+   "pricing": {
+    "startingMonthlyUsd": 19.99,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "A free tier gives access to educational resources, webinars, and the Find Counsel directory, while Research costs $19.99 per seat per month, Business costs $59.99 per seat per month, and Enterprise costs $149.99 per seat per month, with a Private Instance option for teams needing a fully private setup. talkingtree.app",
+    "extraFees": "",
+    "sourceUrl": "https://talkingtree.app/pricing/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "French",
+     "German",
+     "Chinese",
+     "Japanese",
+     "Vietnamese",
+     "Korean",
+     "Dutch"
+    ],
+    "claimed": 9,
+    "sourceUrl": "",
+    "totalClaim": "30+ languages"
+   },
+   "integrations": [
+    "Microsoft Word",
+    "Microsoft Word add-in"
+   ],
+   "caution": "Advanced AI tools require a paid membership and free trials of AI tools are no longer offered due to computational costs; the plan descriptions also differ slightly between pages, so confirm current pricing on the official pricing page before subscribing.",
+   "ai": {
+    "level": "core",
+    "feature": "Redwood, an AI legal assistant, drafts contracts, reviews documents for risks, answers legal questions in plain English, and searches your stored legal files, as described on talkingtree.app.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "askhrai": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "AskHrAI",
+   "officialUrl": "https://askhrai.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "",
+    "extraFees": null,
+    "sourceUrl": "https://askhrai.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Workday",
+    "BambooHR",
+    "ADP",
+    "Rippling",
+    "Gusto",
+    "HiBob"
+   ],
+   "caution": "",
+   "ai": {
+    "level": "core",
+    "feature": "",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "hrdocket": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "HRDocket",
+   "officialUrl": "https://hrdocket.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "HRDocket has a free plan with 1 employee profile and 10 AI credits, and paid plans of $19 per month (Starter, up to 15 employees), $49 per month (Growth, up to 50 employees) and $99 per month (Business, unlimited employees), with yearly billing at 2 months free.",
+    "extraFees": "Usage pricing of about $0.19 per HR document beyond plan allowances, and top-up credit packs can be bought; subscription fees are non-refundable.",
+    "sourceUrl": "https://hrdocket.com/pricing/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 1,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "The free plan is limited to 1 employee and watermarked PDFs, so a business needing clean PDFs or more than one employee needs a paid plan. Subscription credits do not roll over, and the integration list comes from a third-party listing site rather than the vendor, so confirm it before relying on it.",
+   "ai": {
+    "level": "feature",
+    "feature": "",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "inhouse-ai": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Inhouse AI",
+   "officialUrl": "https://www.inhouse.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 2
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "A free Advice plan gives unlimited AI legal Q&A, Unlimited Documents costs $49 per month, and Lawyer-Backed costs $149 per month with one hour of attorney time.",
+    "extraFees": "Work beyond the included lawyer hours is billed separately, and extra lawyer time is $149 an hour.",
+    "sourceUrl": "https://www.inhouse.ai/",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "",
+   "ai": {
+    "level": "core",
+    "feature": "Drafts contracts, answers legal questions, and reviews other parties' contracts before you sign, with lawyers available to check the work. inhouse.ai",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "complystack": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "ComplyStack",
+   "officialUrl": "https://complystack.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "ComplyStack has a free trial to generate your first document with no credit card, and paid plans start at $29 per month for the Starter plan, with higher-priced plans above it for multi-state and growing businesses.",
+    "extraFees": null,
+    "sourceUrl": "https://complystack.ai/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "French",
+     "Spanish"
+    ],
+    "claimed": 3,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "ComplyStack says it notifies you and updates documents when regulations change, but no integration details were found.",
+   "ai": {
+    "level": "core",
+    "feature": "Generates state-specific compliance documents such as OSHA safety plans, employee handbooks, and privacy policies from a short business questionnaire, citing the regulations each requirement comes from.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "foundra": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Foundra",
+   "officialUrl": "https://www.foundra.us",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "The free plan is always free and covers the full list of licenses and permits, with a $19 one-time Full Report unlocking.gov application links, cost estimates and a downloadable PDF; paid checkout starts in Q3 2026. foundra.us",
+    "extraFees": null,
+    "sourceUrl": "https://www.foundra.us/pricing.html",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "Paid checkout is not live yet and the $19 Full Report is a one-time purchase, not a subscription. A separate SourceForge listing for a different Foundra (an AI startup validation tool) shows a $39/month starting price, which does not match this compliance product.",
+   "ai": {
+    "level": "feature",
+    "feature": "Matches your described business to required licenses and permits, with direct links to.gov applications. foundra.us",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "together-safe": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Together Safe",
+   "officialUrl": "https://www.togethersafe.app",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Together Safe has a free plan with basic neighborhood alerts and community feed access, while paid plans start at $7.49 per month for Individual (monthly billing) and $11.99 per month for Family, and a Realtor tier is listed at $85 per month or $850 per year.",
+    "extraFees": "",
+    "sourceUrl": "https://www.togethersafe.app/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "French",
+     "Spanish",
+     "Portuguese",
+     "Chinese",
+     "Panjabi",
+     "Arabic",
+     "Tagalog",
+     "Hindi",
+     "Urdu",
+     "Vietnamese",
+     "Korean",
+     "Gujarati",
+     "Russian"
+    ],
+    "claimed": 14,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Maps",
+    "Stripe",
+    "Supabase",
+    "Google Gemini",
+    "Google Analytics",
+    "Google AdSense",
+    "Google AdMob"
+   ],
+   "caution": "The platform is also described as a supplement to, not a replacement for, 911 and official emergency services. All paid subscriptions are non-refundable, and paid plans include a 30-day free trial that renews automatically unless cancelled at least 24 hours before renewal.",
+   "ai": {
+    "level": "feature",
+    "feature": "Analyzes local news and weather data to detect threat patterns and send alerts, and generates automated neighborhood safety reports for realtors' property listings.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "passmykitchen": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "PassMyKitchen",
+   "officialUrl": "https://www.passmykitchen.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "trial",
+    "kind": "monthly",
+    "note": "Starter plan is $29 per month for one operator and one location, and Growth plan is $49 per month for up to 5 team members and 5 locations; there is no permanent free plan, only a 7-day free trial with no credit card required.",
+    "extraFees": null,
+    "sourceUrl": "https://www.passmykitchen.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "Annual billing is $290 per year for Starter and $490 per year for Growth, which is about $24.17 and $40.83 per month.",
+   "ai": {
+    "level": "feature",
+    "feature": "Generates a state-specific HACCP food safety plan from your business type, menu, and equipment, and answers food safety questions through an AI assistant.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "prevail": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "PREVAIL Cybersecurity",
+   "officialUrl": "https://prevailcyber.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 2,
+    "model": "paid",
+    "kind": "monthly",
+    "note": "The SMB plan has introductory pricing of $2 per licensed user per month, with a separate Enterprise plan at $5 per licensed user per month and an MSP plan from as little as $1 per licensed user per month, with monthly or yearly commitment options on MSP.",
+    "extraFees": null,
+    "sourceUrl": "https://prevailcyber.com/smb",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Microsoft 365"
+   ],
+   "caution": "",
+   "ai": {
+    "level": "core",
+    "feature": "Learns each user's normal activity in Microsoft 365 and alerts the owner within a minute when something unusual suggests a breach.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "lernoa": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "Lernoa",
+   "officialUrl": "https://lernoa.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 7
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Studying your own documents is free with unlimited reviews, while AI generation, chapter audio and certification unlocks use one-off credit packs starting at US$5 for a small pack, with no subscription.",
+    "extraFees": "Prices are in NZD and other currencies on the pricing page; the Business product is separate, costs US$29 a month for up to 10 people on an annual licence, and adds US$2.50 a month per extra person; prices exclude tax.",
+    "sourceUrl": "https://lernoa.com/pricing/",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "Chinese",
+     "Arabic",
+     "French",
+     "German"
+    ],
+    "claimed": 6,
+    "sourceUrl": "https://lernoa.com/support/",
+    "totalClaim": null
+   },
+   "integrations": [
+    "ChatGPT",
+    "Claude",
+    "Anki",
+    "Quizlet",
+    "Brainscape",
+    "RemNote"
+   ],
+   "caution": "The Lernoa Business product for staff training, which is the plan a small business would likely need, is a separate product with a 14-day free trial and a monthly charge; the consumer credit packs are for individual study and do not include team management.",
+   "ai": {
+    "level": "core",
+    "feature": "Generates structured courses, quizzes, final exams, and flashcards from uploaded documents or a typed topic, and answers questions grounded in the course content.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "neuralearn": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "NeuraLearn",
+   "officialUrl": "https://www.neuralearnai.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 1
+   },
+   "pricing": {
+    "startingMonthlyUsd": 2,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "A free Essential plan is available, with Basic at $2 per month and Pro at $4 per month, though the plans are aimed at students studying rather than business use.",
+    "extraFees": null,
+    "sourceUrl": "https://www.neuralearnai.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Anki"
+   ],
+   "caution": "",
+   "ai": {
+    "level": "feature",
+    "feature": "Turns uploaded lecture notes, textbooks, and course documents into flashcards, practice quizzes, summaries, and study guides, and answers questions using only those uploaded materials.",
+    "checkedAt": "2026-11-07"
+   }
+  },
+  "studyvisually": {
+   "checkedAt": "2026-11-07",
+   "exists": true,
+   "currentName": "StudyVisually",
+   "officialUrl": "https://studyvisually.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "kind": "free-plan",
+    "note": "Free plan costs $0 a month with ready-made subjects, all study modes and saved progress; Basic is $4 a month or $40 a year, and Premium is $8 a month or $80 a year.",
+    "extraFees": null,
+    "sourceUrl": "https://studyvisually.com/pricing",
+    "verified": true
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish",
+     "Portuguese",
+     "French",
+     "Polish",
+     "German",
+     "Italian"
+    ],
+    "claimed": 5,
+    "sourceUrl": "https://studyvisually.com/",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": "Terms describe the service as a consumer study tool for individuals and do not mention business or team plans, so a small business should check whether the Free or paid plans are allowed for commercial use. Paid plans renew automatically until cancelled, and Creem handles payments with its own buyer terms.",
+   "ai": {
+    "level": "feature",
+    "feature": "Turns uploaded notes, PDFs or photos into study decks with AI-written flashcards, quiz questions and diagrams, and grades typed or spoken interview answers.",
+    "checkedAt": "2026-11-07"
    }
   }
  },

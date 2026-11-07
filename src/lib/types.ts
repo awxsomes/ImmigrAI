@@ -22,6 +22,15 @@ export type Workload =
   | "voice-agent"
   | "image-video";
 
+/** core: AI does the main job. feature: normal software with AI an owner can use. none: neither. */
+export type AiLevel = "core" | "feature" | "none";
+
+export interface ToolAi {
+  level: AiLevel;
+  /** One plain sentence on what the AI does, confirmed from public pages. */
+  feature: string;
+}
+
 export interface ToolPricing {
   /**
    * Lowest monthly price in USD that unlocks real business use, used for filters, totals and
@@ -85,6 +94,7 @@ export interface Tool {
   website: string;
   summary: string;
   helpsWith: string[];
+  ai: ToolAi;
   categoryId: string;
   subcategoryId: string;
   /** Other needs it serves, as "categoryId/subcategoryId". */

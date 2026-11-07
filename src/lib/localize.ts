@@ -20,6 +20,7 @@ export function localizeTool(tool: Tool, lang: string): Tool {
   return {
     ...tool,
     summary: x.summary || tool.summary,
+    ai: { ...tool.ai, feature: tool.ai.feature ? x.aiFeature || tool.ai.feature : "" },
     helpsWith: x.helpsWith?.length === tool.helpsWith.length ? x.helpsWith : tool.helpsWith,
     howToStart: x.howToStart || tool.howToStart,
     pricing: { ...tool.pricing, note: x.pricingNote || tool.pricing.note, extraFees: tool.pricing.extraFees ? x.extraFees || tool.pricing.extraFees : undefined },

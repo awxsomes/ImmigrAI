@@ -36,7 +36,7 @@ async function Compare({ params, searchParams }: Props) {
         ...pick(t, [
           "compare_title", "compare_empty", "compare_feature", "compare_pairs", "compare_rowCost", "compare_rowFees", "compare_rowRating", "compare_rowScore",
           "compare_rowEase", "compare_rowFootprint", "compare_rowLanguages", "compare_rowMyLanguage", "compare_rowConnections", "compare_rowSetup",
-          "compare_outOf5", "compare_none", "tool_setupAbout", "common_yes", "common_no", "my_browse",
+          "compare_outOf5", "compare_none", "compare_rowAi", "tool_setupAbout", "common_yes", "common_no", "my_browse",
         ]),
       }}
     />

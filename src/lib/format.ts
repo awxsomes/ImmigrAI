@@ -1,7 +1,7 @@
 import { fmt, type CardLabels } from "./labels";
 import type { CompatibilityResult } from "./scoring";
 import type { CompatLabels } from "./labels";
-import type { Tool } from "./types";
+import type { AiLevel, Tool } from "./types";
 
 export function toolHref(lang: string, slug: string) {
   return `/${lang}/tools/${slug}`;
@@ -65,4 +65,8 @@ export function displayLanguage(name: string, lang: string) {
   } catch {
     return name;
   }
+}
+
+export function aiLabel(level: AiLevel, t: Pick<CardLabels, "card_aiCore" | "card_aiFeature" | "card_aiNone">) {
+  return level === "core" ? t.card_aiCore : level === "feature" ? t.card_aiFeature : t.card_aiNone;
 }

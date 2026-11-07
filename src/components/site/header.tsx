@@ -68,7 +68,7 @@ export function Header({ lang, t }: { lang: string; t: Dict }) {
         </nav>
 
         <div className="sm:ml-auto">
-          <LanguageMenu lang={lang} label={t.nav_language} />
+          <LanguageMenu lang={lang} label={t.nav_language} moreLabel={t.nav_moreLanguages} />
         </div>
       </div>
     </header>

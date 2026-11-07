@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { inferPriceKind } from "./scoring";
 import type { Tool, UserData } from "./types";
 
 /**
@@ -45,12 +46,25 @@ function load() {
   if (consent === "yes") {
     try {
       const parsed = JSON.parse(read(KEY) ?? "null") as UserData | null;
-      if (parsed?.version === 1) data = { ...EMPTY, ...parsed };
+      if (parsed?.version === 1) data = upgrade({ ...EMPTY, ...parsed });
     } catch {
       /* corrupt data: start fresh */
     }
   }
   snapshot = { data, consent, ready: true };
+}
+
+/** Tools saved by an earlier version of the site are missing newer fields. */
+function upgrade(data: UserData): UserData {
+  const toolCache: Record<string, Tool> = {};
+  for (const [slug, tool] of Object.entries(data.toolCache)) {
+    toolCache[slug] = {
+      ...tool,
+      ai: tool.ai ?? { level: "none", feature: "" },
+      pricing: { ...tool.pricing, kind: tool.pricing.kind ?? inferPriceKind(tool.pricing.startingMonthlyUsd, tool.pricing.model) },
+    };
+  }
+  return { ...data, toolCache };
 }
 
 function emit() {

@@ -9,7 +9,8 @@
     "lint": "eslint",
     "research": "node --no-warnings --env-file=.env.local scripts/research-tools.mts",
     "translate": "node --no-warnings --env-file=.env.local scripts/translate-content.mts",
-    "check:contrast": "node scripts/check-contrast.cjs"
+    "check:contrast": "node scripts/check-contrast.cjs",
+    "research:ai": "node --no-warnings --env-file=.env.local scripts/research-ai.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",
