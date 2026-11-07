@@ -1,0 +1,172 @@
+{
+ "translate": {
+  "name": "翻译语言"
+ },
+ "translators": {
+  "name": "翻译工具",
+  "desc": "翻译文字、文件、菜单、招牌和对话。"
+ },
+ "voiceovers": {
+  "name": "配音",
+  "desc": "把文字变成多种语言的自然语音。"
+ },
+ "customers": {
+  "name": "获得更多顾客"
+ },
+ "website": {
+  "name": "建立网站",
+  "desc": "不用编程，就能做一个简单的网站或网上菜单。"
+ },
+ "social": {
+  "name": "社交媒体",
+  "desc": "为 Instagram、Facebook、TikTok 和 WhatsApp 制作并定时发布帖子。"
+ },
+ "reviews": {
+  "name": "网络评价",
+  "desc": "收集、回复和管理 Google 和 Yelp 上的评价。"
+ },
+ "ads": {
+  "name": "广告",
+  "desc": "低预算制作并投放网络或印刷广告。"
+ },
+ "money": {
+  "name": "管理资金与税务"
+ },
+ "bookkeeping": {
+  "name": "记账",
+  "desc": "记录收入、开支、收据和发票。"
+ },
+ "profits": {
+  "name": "利润",
+  "desc": "了解利润率，看看哪些产品赚钱。"
+ },
+ "taxes": {
+  "name": "税务",
+  "desc": "准备、估算和申报生意的税。"
+ },
+ "budgeting": {
+  "name": "预算",
+  "desc": "规划每月开支和现金流。"
+ },
+ "costs": {
+  "name": "降低成本",
+  "desc": "找出可以节省开支的地方，比较各种订阅服务。"
+ },
+ "payments": {
+  "name": "收款"
+ },
+ "sales-tracker": {
+  "name": "销售记录",
+  "desc": "查看每日销售额、畅销产品和趋势。"
+ },
+ "payment-methods": {
+  "name": "支付方式",
+  "desc": "接受刷卡、挥卡付款、网上付款和发票付款。"
+ },
+ "pos": {
+  "name": "收银系统 (POS)",
+  "desc": "用于店内收银的系统，可记录销售、小费和收据。"
+ },
+ "inventory": {
+  "name": "追踪商品与供应商"
+ },
+ "product-tracker": {
+  "name": "商品追踪",
+  "desc": "了解您有什么货、什么卖得好、什么快卖完了。"
+ },
+ "supplier-comparer": {
+  "name": "供应商比较",
+  "desc": "比较价格，找到更好的供应商。"
+ },
+ "inventory-manager": {
+  "name": "库存管理",
+  "desc": "自动补货，并管理多个店面。"
+ },
+ "employees": {
+  "name": "管理员工"
+ },
+ "hiring": {
+  "name": "招聘",
+  "desc": "发布招聘信息，筛选应聘者，录用新员工。"
+ },
+ "scheduling": {
+  "name": "员工排班",
+  "desc": "安排排班，记录工时，方便员工换班。"
+ },
+ "payroll": {
+  "name": "工资发放",
+  "desc": "发工资，处理代扣税款，并申报工资税。"
+ },
+ "training": {
+  "name": "培训",
+  "desc": "用简短的课程和检查清单培训员工。"
+ },
+ "calls": {
+  "name": "接听电话"
+ },
+ "phone-ai": {
+  "name": "自动接听电话",
+  "desc": "AI 接待员，能接电话、留言并预约。"
+ },
+ "support": {
+  "name": "客户服务",
+  "desc": "通过聊天、短信或电子邮件回答顾客的问题。"
+ },
+ "booking": {
+  "name": "预约",
+  "desc": "让顾客在线预约，并自动发送提醒。"
+ },
+ "legal": {
+  "name": "处理法律与营业文件"
+ },
+ "legal-help": {
+  "name": "法律协助",
+  "desc": "用简单的话帮您理解合同、租约和法律问题。"
+ },
+ "permits": {
+  "name": "营业许可",
+  "desc": "查找并申请许可证、执照和登记手续。"
+ },
+ "employment-docs": {
+  "name": "雇佣文件",
+  "desc": "制作录用信、I-9 表、W-4 表和员工手册。"
+ },
+ "regulations": {
+  "name": "法规",
+  "desc": "遵守劳动、卫生和税务方面的规定。"
+ },
+ "safety": {
+  "name": "安全与防护"
+ },
+ "community-alerts": {
+  "name": "社区警报",
+  "desc": "获取本地关于治安、天气和紧急情况的提醒。"
+ },
+ "ice-alerts": {
+  "name": "ICE 警报",
+  "desc": "了解您的权利，并接收社区关于移民执法的通知。"
+ },
+ "cybersecurity": {
+  "name": "网络安全",
+  "desc": "保护账户、密码和设备，防范诈骗。"
+ },
+ "food-health": {
+  "name": "食品与健康安全",
+  "desc": "记录温度、检查清单，并为卫生检查做准备。"
+ },
+ "learn": {
+  "name": "学习新技能"
+ },
+ "ai-courses": {
+  "name": "AI 课程",
+  "desc": "通过简单的课程学习使用 AI 工具。"
+ },
+ "business-courses": {
+  "name": "商业课程",
+  "desc": "免费和低价的商业课程，包括 LinkedIn Learning 和 SBA 的课程。"
+ },
+ "study-tools": {
+  "name": "学习工具",
+  "desc": "用于考取执照和考试的抽认卡、摘要和练习题。"
+ }
+}

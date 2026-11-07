@@ -1,0 +1,1516 @@
+{
+ "strings": {
+  "filter_stars": "{n} estrellas o más",
+  "filter_star": "1 estrella o más",
+  "filter_priceUpTo": "Hasta ${n} al mes",
+  "filter_priceFree": "Solo planes gratis",
+  "filter_envAtLeast": "Al menos {n} de 100",
+  "filter_envAny": "Cualquier puntaje",
+  "filter_onlyMine": "Muestra solo herramientas en este idioma",
+  "filter_myLanguage": "Mi idioma",
+  "filter_chooseLanguage": "Elige un idioma",
+  "card_cost": "Costo",
+  "card_rating": "Calificación",
+  "card_footprint": "Impacto ambiental",
+  "card_language": "Idioma",
+  "card_connects": "Funciona con",
+  "card_score": "Puntaje",
+  "card_scoreOf": "Puntaje de ImmigrAI: {n} de 100",
+  "card_noRating": "Todavía no hay calificación confirmada",
+  "card_publicResource": "Recurso público, sin calificar",
+  "card_priceUnconfirmed": "No pudimos confirmar este precio",
+  "card_ratingLine": "{rating} de 5",
+  "card_fromSites": "{n} sitios de reseñas",
+  "card_fromSite": "1 sitio de reseñas",
+  "card_reviewCount": "{n} reseñas",
+  "card_new": "Encontrada hoy",
+  "card_noConnections": "Ninguna confirmada",
+  "card_more": "y {n} más",
+  "card_worksInLang": "Funciona en {language}",
+  "card_notConfirmedLang": "{language} no confirmado",
+  "card_languageCount": "{n} idiomas confirmados",
+  "card_languageOne": "Inglés confirmado",
+  "card_seeLanguages": "Ver la lista completa",
+  "card_connectsExisting": "Se conecta con lo que usas: {names}",
+  "card_addCompare": "Agregar para comparar",
+  "card_removeCompare": "Quitar de la comparación",
+  "card_saveTool": "Guardar",
+  "card_savedTool": "Guardada",
+  "card_needsSales": "Tienes que hablar con un vendedor",
+  "env_light": "Ligero",
+  "env_moderate": "Moderado",
+  "env_heavy": "Pesado",
+  "wl_none": "Sin IA",
+  "wl_background-ml": "IA pequeña en segundo plano",
+  "wl_optional-genai": "IA solo cuando tú la pides",
+  "wl_translation": "IA de traducción",
+  "wl_llm-every-reply": "IA grande en cada respuesta",
+  "wl_speech": "IA que crea voz",
+  "wl_image-video": "IA que crea imágenes",
+  "wl_voice-agent": "IA en cada llamada telefónica",
+  "wld_none": "Software normal o un recurso para imprimir. No funciona ningún modelo de IA.",
+  "wld_background-ml": "Modelos pequeños ordenan transacciones, bloquean fraudes o acomodan resultados.",
+  "platform_ios": "iPhone",
+  "platform_android": "Teléfono Android",
+  "platform_desktop": "App para computadora",
+  "platform_phone": "Llamadas telefónicas",
+  "platform_pos-hardware": "Equipo de caja registradora",
+  "kit_title": "Paquetes de herramientas listos",
+  "kit_sub": "Grupos de herramientas que le sirven a un tipo de negocio, con el costo y las conexiones ya calculados.",
+  "kit_fit": "Puntaje de ajuste: {n} de 100",
+  "kit_cost": "Desde ${n} al mes",
+  "kit_free": "Gratis para empezar",
+  "kit_toolsCount": "{n} herramientas",
+  "kit_fitHelp": "Cómo lo calculamos",
+  "kit_saved": "Guardado en Mis herramientas",
+  "kit_notice": "Los cargos, como el procesamiento de tarjetas, aparecen en cada herramienta y no están incluidos en este total.",
+  "new_title": "Herramientas nuevas",
+  "new_sub": "Herramientas de IA con una fecha de lanzamiento confirmada en 2026, encontradas en búsquedas por internet. Son muy nuevas y todavía no tienen muchas reseñas, así que no les damos puntaje. Empiece con una prueba gratis y lea las condiciones antes de pagar.",
+  "new_launched": "Lanzada el {date}",
+  "new_readMore": "Leer más",
+  "new_price": "Desde ${n} al mes",
+  "new_free": "Tiene plan gratis",
+  "new_checked": "Última búsqueda el {date}",
+  "compare_rowCost": "Costo inicial",
+  "compare_rowFees": "Cargos extra",
+  "compare_rowRating": "Calificación",
+  "compare_rowScore": "Puntaje de ImmigrAI",
+  "compare_rowEase": "Facilidad de uso",
+  "compare_rowFootprint": "Impacto ambiental",
+  "compare_rowLanguages": "Idiomas confirmados",
+  "compare_rowMyLanguage": "Funciona en {language}",
+  "compare_rowConnections": "Conexiones confirmadas",
+  "compare_rowSetup": "Tiempo de configuración",
+  "compare_outOf5": "{n} de 5",
+  "compare_none": "No se indica ninguno",
+  "my_alreadyTitle": "¿Qué usas hoy?",
+  "my_alreadyD": "Usamos esto para mostrarte qué herramientas se conectan con lo que ya tienes. Se queda en este dispositivo.",
+  "my_listTitle": "Herramientas que guardé",
+  "my_stackTitle": "Cómo trabajan juntas mis herramientas",
+  "my_total": "Costo inicial al mes",
+  "my_fitLabel": "Puntaje de ajuste",
+  "my_needTwo": "Guarda por lo menos dos herramientas para ver cómo trabajan juntas.",
+  "my_savingOff": "El guardado está apagado. Tu lista desaparecerá cuando cierres esta página.",
+  "my_turnOn": "Activar el guardado",
+  "my_saved": "Guardado en este dispositivo. No enviamos nada a nosotros.",
+  "my_yourData": "Tus datos",
+  "consent_q": "¿Guardar tus opciones en este dispositivo?",
+  "consent_yes": "Sí, tengo 18 años o más",
+  "consent_no": "No, no guardar",
+  "footer_privacyChoices": "Opciones de privacidad",
+  "footer_explore": "Explorar",
+  "wld_optional-genai": "Software normal, más un modelo grande en uno de cada cinco trabajos.",
+  "wld_translation": "Modelos especializados de traducción, más pequeños que los de un chatbot.",
+  "wld_llm-every-reply": "Un modelo grande de lenguaje corre en cada respuesta.",
+  "wld_speech": "Un modelo de voz genera cada clip de audio.",
+  "wld_image-video": "Un modelo de imágenes corre por cada foto. El video gasta mucho más.",
+  "wld_voice-agent": "Reconocimiento de voz, un modelo grande y una voz corren en cada llamada.",
+  "compat_direct": "Se conecta directamente",
+  "compat_bridge": "Se conecta a través de {via}",
+  "compat_shared": "Funcionan juntos",
+  "compat_none": "No se conecta",
+  "compat_directD": "Las propias páginas de una herramienta mencionan a la otra como integración.",
+  "compat_bridgeD": "Las dos funcionan con {via}, así que la información puede pasar entre ellas con un poco de configuración.",
+  "compat_sharedD": "No pudimos confirmar una conexión. Quizás tengas que escribir algunos datos dos veces.",
+  "compat_noneD": "No pudimos confirmar nada que compartan. Prepárate para copiar la información a mano.",
+  "compat_title": "Cómo se conectan",
+  "compat_yours": "Con las herramientas que guardaste",
+  "compat_noneSaved": "Guarda otras herramientas para ver cómo funciona esta con ellas.",
+  "tool_whatItUses": "Cómo usa la IA",
+  "tool_ratingBySite": "Calificación en cada sitio",
+  "tool_site": "Sitio",
+  "tool_stars": "Estrellas",
+  "tool_reviewsCol": "Reseñas",
+  "tool_notShown": "No se muestra",
+  "tool_noReviewsYet": "No pudimos confirmar suficientes reseñas públicas (al menos 25) para mostrar una calificación. Preferimos no mostrar nada antes que adivinar.",
+  "tool_publicResourceNote": "Este es un recurso sin fines de lucro o del gobierno. Los sitios de reseñas no lo miden de forma justa, así que no lo calificamos con estrellas.",
+  "tool_reviewCheck": "Cada calificación de arriba se encontró en la página enlazada. El resumen lo escribió la IA a partir de esas reseñas. Nosotros no escribimos ni alojamos reseñas.",
+  "tool_priceSource": "Ve los precios en su sitio",
+  "tool_languageSource": "Ve la lista en su sitio",
+  "tool_statedTotal": "La empresa dice: {total}",
+  "tool_languagesNote": "Estos son los idiomas que pudimos confirmar en páginas públicas. Si el tuyo no aparece, puede que igual esté disponible, así que revisa su sitio.",
+  "tool_perTask": "Uso estimado por tarea",
+  "tool_wattHours": "{n} watt-hora",
+  "tool_waterMl": "{n} mililitros de agua",
+  "tool_co2": "{n} gramos de CO2",
+  "tool_howWeCalc": "Cómo calculamos esto",
+  "tool_scoreParts": "Cómo se suma esta puntuación",
+  "tool_scoreNoReviews": "No pudimos confirmar reseñas, así que esta puntuación usa solo las otras cinco partes.",
+  "tool_estimate": "Nuestra estimación",
+  "tool_startAlone": "Puedes registrarte por tu cuenta",
+  "tool_setupAbout": "Unos {n} minutos para empezar",
+  "tool_runsOn": "Funciona en",
+  "tool_nothingConfirmed": "No pudimos confirmar ninguna integración en páginas públicas. Revisa su sitio, o prepárate para copiar la información a mano.",
+  "tool_checked": "Última revisión {date}",
+  "tool_foundLive": "Encontrado con búsqueda web en vivo",
+  "tool_openSite": "Ve a su sitio web",
+  "tool_leaving": "se abre en una pestaña nueva",
+  "tool_ratingLegend": "¿Qué tan útil es esta herramienta para ti?",
+  "tool_star": "{n} de 5",
+  "tool_clearRating": "Borrar mi calificación",
+  "platform_web": "Navegador web",
+  "nav_freeHelp": "Ayuda gratis",
+  "nav_prompt": "¿En qué necesita ayuda tu negocio?",
+  "nav_seeAllIn": "Todo",
+  "nav_main": "Principal",
+  "nav_breadcrumb": "Estás aquí",
+  "nav_home": "Inicio",
+  "hero_note": "Es gratis. No necesitas cuenta. No te rastreamos.",
+  "search_privacy": "Por favor no escribas nombres, números de Seguro Social ni tu estatus migratorio. Las preguntas largas se envían a nuestro proveedor de IA para entenderlas. No las guardamos.",
+  "search_aiMatch": "Nuestro asistente de IA sugiere",
+  "search_clear": "Borrar",
+  "home_boardTitle": "¿En qué necesitas ayuda?",
+  "home_boardSub": "Elige el problema. Nosotros encontramos las herramientas.",
+  "home_kinds": "{n} tipos de ayuda",
+  "home_newTools": "Herramientas nuevas",
+  "home_newToolsD": "Herramientas de IA lanzadas en 2026 que son demasiado nuevas para tener muchas reseñas.",
+  "home_scoreTitle": "Una calificación necesita más que estrellas",
+  "home_scoreD": "Una herramienta con cinco estrellas todavía puede no servirte si cuesta demasiado, solo está en inglés o tarda una semana en configurarse. Nuestra puntuación toma todo eso en cuenta, y la página de cada herramienta muestra cómo se suma.",
+  "home_scoreLink": "Mira cómo calificamos",
+  "home_alreadyTitle": "¿Ya usas algo?",
+  "home_alreadyD": "Dinos qué usas hoy, como QuickBooks, Square o una hoja de cálculo. Te mostraremos qué herramientas se conectan con ella, para que no tengas que empezar de cero ni escribir todo otra vez.",
+  "home_alreadyCta": "Dinos qué usas",
+  "home_helpTitle": "¿Quieres hablar con una persona?",
+  "home_helpD": "Hay asesores de negocios gratis a través de programas que apoya la Small Business Administration. Sus reglas de préstamos cambiaron en 2026, así que lee nuestro aviso antes de solicitar.",
+  "home_helpCta": "Ver ayuda gratis",
+  "score_reviews": "Reseñas públicas",
+  "score_ease": "Facilidad de uso",
+  "score_cost": "Costo",
+  "score_languages": "Idiomas",
+  "score_connections": "Conexiones con otras herramientas",
+  "score_footprint": "Impacto ambiental",
+  "results_all": "Todas las herramientas de esta área",
+  "results_pick": "Afina la búsqueda",
+  "results_showing": "Mostrando {shown} de {total} herramientas",
+  "results_searching": "Buscando más herramientas en internet. Puede tardar unos 20 segundos. Puedes seguir leyendo.",
+  "results_foundNew": "Encontramos {n} más en internet hoy, y revisamos sus reseñas.",
+  "results_foundNone": "La búsqueda en internet no encontró nada nuevo que pasara nuestras revisiones.",
+  "results_paused": "La búsqueda en internet está pausada en este momento. Estas herramientas se investigaron antes.",
+  "results_failed": "La búsqueda en internet no funcionó esta vez. Estas herramientas se investigaron antes.",
+  "results_saveData": "Tu dispositivo está ahorrando datos, así que no buscamos en internet automáticamente.",
+  "results_searchWeb": "Buscar más herramientas en internet",
+  "results_forQuery": "Resultados para",
+  "results_didYouMean": "¿Quisiste decir una de estas?",
+  "results_otherMatches": "Otras coincidencias",
+  "results_askingAi": "Entendiendo lo que necesitas...",
+  "results_noMatchQuery": "No pudimos relacionar eso con un tipo de herramienta. Prueba con otras palabras o elige de la lista.",
+  "results_researched": "Investigado el {date}",
+  "results_noCategory": "Elige lo que necesitas",
+  "results_legalNote": "Estas herramientas pueden ayudarte a entender los papeles, pero no son abogados. Consulta con un profesional calificado antes de firmar o presentar algo importante.",
+  "footer_trust": "Cómo funciona",
+  "footer_about_link": "Sobre ImmigrAI",
+  "footer_business": "ImmigrAI es un prototipo hecho por estudiantes, todavía no es una empresa registrada.",
+  "footer_independent": "No nos paga ninguna de las herramientas que mostramos, y ninguna herramienta puede pagar para salir mejor posicionada. Los precios y las calificaciones pueden cambiar, así que confírmalos en la página de cada herramienta.",
+  "footer_notAdvice": "No es asesoría legal, de impuestos, de inmigración ni financiera.",
+  "footer_copyright": "ImmigrAI",
+  "doc_updated": "Última actualización: {date}",
+  "doc_translated": "Esta página fue traducida por máquina. La versión en inglés es la que vale.",
+  "doc_readEnglish": "Leer en inglés",
+  "doc_contact": "Contacto: {email}",
+  "doc_contactPending": "Publicaremos una dirección de contacto antes de que este prototipo salga al público.",
+  "doc_deleteButton": "Borrar mis datos de este navegador",
+  "doc_deleted": "Tus datos fueron borrados de este navegador.",
+  "doc_confirmDelete": "Sí, bórralos",
+  "doc_cancel": "Mantener mis datos",
+  "doc_confirmQ": "¿Borramos todas tus herramientas guardadas, calificaciones y notas de este navegador? No se puede deshacer.",
+  "method_tableClass": "Tipo de IA",
+  "method_tableEnergy": "Energía por tarea",
+  "method_tableWater": "Agua por tarea",
+  "method_tableCarbon": "Carbono por tarea",
+  "method_tableCompute": "Puntaje de cómputo",
+  "method_tableScore": "Puntaje total",
+  "method_rubric": "Criterios",
+  "method_part": "Parte",
+  "method_weight": "Peso",
+  "method_measure": "Lo que mide",
+  "method_energy": "Consumo de energía",
+  "method_energyD": "Electricidad por tarea, en watt-hora",
+  "method_water": "Consumo de agua",
+  "method_waterD": "Agua por tarea, en mililitros",
+  "method_carbon": "Emisiones de carbono",
+  "method_carbonD": "Gramos de CO2 equivalente por tarea",
+  "method_compute": "Eficiencia de cómputo",
+  "method_computeD": "Tokens procesados, tamaño del modelo y recursos de cómputo",
+  "notfound_title": "No encontramos esa página.",
+  "notfound_d": "Es posible que el enlace sea viejo. Puedes empezar de nuevo desde la página principal.",
+  "error_title": "Algo salió mal en esta página.",
+  "error_d": "Inténtalo otra vez. No se perdió nada de lo que guardaste.",
+  "error_retry": "Intentar de nuevo",
+  "common_home": "Ir a la página principal",
+  "nav_bundles": "Paquetes de herramientas",
+  "faq3_a": "Buscamos en sitios públicos de reseñas como G2, Capterra, Trustpilot y las tiendas de apps. Una calificación solo cuenta si aparece en la página a la que enlazamos y tiene al menos 25 reseñas. No escribimos ni alojamos reseñas.",
+  "my_onlyPaper": "¿Solo usas papel o un teléfono? No hay problema. El paquete Start-up Essentials es un buen lugar para empezar.",
+  "my_seeKit": "Ver Start-up Essentials",
+  "search_count": "Sugerencias encontradas: {n}. Usa las flechas de arriba y abajo para elegir.",
+  "tool_saveToRate": "Guarda esta herramienta para calificarla, anota tus notas y marca que la usas.",
+  "results_iceNote": "Estos son recursos de seguridad para la comunidad de grupos sin fines de lucro, y la mayoría no usa inteligencia artificial. No agregamos aplicaciones a esta lista de forma automática, porque una app falsa o insegura podría poner en peligro a las personas. No le des tu estatus migratorio a una app en la que no confíes. Esta es información general, no es asesoría legal.",
+  "consent_d": "Sin cookies ni rastreo. Tus herramientas guardadas se quedan en este navegador, y puedes borrarlas cuando quieras."
+ },
+ "docs": {
+  "free-help": {
+   "title": "Ayuda gratis de personas reales",
+   "intro": "El software es solo una parte de la solución. Estos programas ofrecen ayuda gratis o de bajo costo de una persona, y muchos tienen asesores que hablan otros idiomas.",
+   "sections": [
+    {
+     "h": "Importante: las reglas de los préstamos de la SBA cambiaron en 2026",
+     "p": [
+      "Desde el 1 de marzo de 2026, los programas de préstamos 7(a) y 504 de la SBA exigen que cada dueño del negocio sea ciudadano de los EE. UU. o nacional de los EE. UU. Según reportes de noticias, la regla se extendió a los microcréditos y a las fianzas el 1 de abril de 2026. Los tenedores de green card y otros dueños que no son ciudadanos no pueden recibir estos préstamos, aunque tengan una parte pequeña del negocio.",
+      "Esto puede cambiar. Pregúntale a un consejero o a un abogado sobre tu situación y revisa las reglas actuales de la SBA antes de aplicar."
+     ],
+     "links": [
+      [
+       "Reporte de noticias de CBS",
+       "https://www.cbsnews.com/news/sba-loan-rule-change-permanent-residents/"
+      ]
+     ]
+    },
+    {
+     "h": "Consejos de negocio gratis",
+     "p": [
+      "Estos programas apoyados por la SBA ofrecen asesoría gratis. Llama a tu oficina local y pregunta si tienen un asesor en tu idioma y si calificas."
+     ],
+     "ul": [
+      "SCORE: mentoría gratis de dueños de negocios con experiencia, en persona o por video.",
+      "Centros de Desarrollo para Pequeñas Empresas: consejos gratis sobre planificación, dinero y mercadeo, muchas veces en un colegio local.",
+      "Centros de Negocios para Mujeres: capacitación y consejos, enfocados en mujeres dueñas de negocios."
+     ],
+     "links": [
+      [
+       "Encuentra ayuda de la SBA cerca de ti",
+       "https://www.sba.gov/local-assistance"
+      ],
+      [
+       "SCORE",
+       "https://www.score.org"
+      ],
+      [
+       "Centros de Desarrollo para Pequeñas Empresas",
+       "https://americassbdc.org"
+      ],
+      [
+       "Centros de Negocios para Mujeres",
+       "https://www.sba.gov/local-assistance/resource-partners/womens-business-centers"
+      ]
+     ]
+    },
+    {
+     "h": "Otros lugares para buscar financiamiento",
+     "p": [
+      "Las Instituciones Financieras de Desarrollo Comunitario, llamadas CDFI, son prestamistas que atienden a comunidades que los bancos muchas veces no alcanzan. Sus reglas son propias, así que pregunta directamente a cada una qué requiere. No damos consejos financieros y esto no es una recomendación de ningún prestamista."
+     ],
+     "links": [
+      [
+       "Sobre los CDFI",
+       "https://www.cdfifund.gov/programs-training/certification/cdfi"
+      ]
+     ]
+    },
+    {
+     "h": "Papeleo para empezar",
+     "p": [
+      "Un Número de Identificación Patronal (EIN) del IRS es gratis. Nunca deberías tener que pagarle a una empresa para obtenerlo, aunque algunas te ofrezcan cobrártelo."
+     ],
+     "links": [
+      [
+       "Solicita tu EIN en IRS.gov",
+       "https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online"
+      ]
+     ]
+    },
+    {
+     "h": "Conoce tus derechos",
+     "p": [
+      "Si te preocupa que haya operativos de inmigración en tu negocio, estos grupos sin fines de lucro publican guías gratis en muchos idiomas. Esta es información general, no asesoría legal. Habla con un abogado de inmigración sobre tu situación."
+     ],
+     "links": [
+      [
+       "Tarjetas Rojas del Immigrant Legal Resource Center",
+       "https://www.ilrc.org/red-cards"
+      ],
+      [
+       "National Immigration Law Center",
+       "https://www.nilc.org"
+      ]
+     ]
+    }
+   ]
+  },
+  "refunds": {
+   "title": "Política de reembolso",
+   "intro": "ImmigrAI es gratis. Nunca te pedimos pago, así que no hay nada que reembolsar.",
+   "sections": [
+    {
+     "h": "Sin cobros de nuestra parte",
+     "p": [
+      "En este sitio no hay suscripciones, cargos escondidos ni mejoras de pago. Si alguien te pide que le pagues a ImmigrAI, no somos nosotros."
+     ]
+    },
+    {
+     "h": "Reembolsos por herramientas que compras",
+     "p": [
+      "Si pagas por una herramienta de esta lista, le estás pagando a esa empresa, y se aplica su política de reembolso. Nosotros no podemos darte reembolsos ni cancelar planes por ti."
+     ],
+     "ul": [
+      "Antes de pagar, busca la duración del contrato, la fecha de renovación y los pasos para cancelar.",
+      "Si empiezas una prueba gratis, pon un recordatorio para el día antes de que termine.",
+      "Si te cobran después de cancelar, comunícate primero con la empresa y guarda el registro. Tu banco o la compañía de tu tarjeta pueden ayudarte a disputar el cobro."
+     ]
+    }
+   ]
+  },
+  "privacy": {
+   "title": "Política de privacidad",
+   "intro": "En resumen: no tenemos cuentas, no rastreamos a nadie y no guardamos una base de datos de visitantes. Lo que tú guardes se queda en tu propio aparato.",
+   "sections": [
+    {
+     "h": "Lo que no recopilamos",
+     "p": [
+      "No te pedimos tu nombre, correo electrónico, número de teléfono, dirección, número de Seguro Social ni tu estatus migratorio. No usamos herramientas de análisis, publicidad ni rastreo. No vendemos ni compartimos datos personales, porque no guardamos ninguno."
+     ]
+    },
+    {
+     "h": "Lo que se queda en tu aparato",
+     "p": [
+      "Si dices que sí en nuestro aviso, el almacenamiento local de tu navegador guarda las herramientas que guardaste, tus calificaciones y notas, las herramientas que ya usas y tu idioma. Estos datos se quedan en tu aparato y nunca nos los mandan a nosotros. Puedes descargarlos o borrarlos en cualquier momento."
+     ]
+    },
+    {
+     "h": "Lo que pasa por nuestros servidores",
+     "ul": [
+      "Texto de búsqueda. Cuando escribes una pregunta más larga, se manda a nuestro servidor y de ahí a OpenRouter, que lo pasa a un modelo de IA para relacionarlo con una categoría. Por favor no escribas detalles privados como nombres, números de Seguro Social o tu estatus migratorio.",
+      "Si no podemos relacionar tus palabras con una categoría, se convierten en parte de la dirección de la página, que puede aparecer en el historial de tu navegador y en los registros del servidor.",
+      "No guardamos lo que escribes. Le pedimos a OpenRouter que use solo proveedores de IA que no lo guarden ni lo usen para entrenar, y confiamos en que esas empresas lo cumplan.",
+      "Las búsquedas por categoría, como 'herramientas de nómina', no tienen datos personales, y los resultados se pueden compartir con otros visitantes para ahorrar costos.",
+      "Dirección de internet. Para limitar el abuso, guardamos una versión codificada de tu dirección de internet en memoria temporal por unos minutos. Nuestra empresa de hosting, Vercel, también puede guardar registros estándar del servidor por un tiempo corto."
+     ]
+    },
+    {
+     "h": "Empresas involucradas",
+     "ul": [
+      "Vercel aloja este sitio web.",
+      "OpenRouter nos conecta con modelos de IA. La empresa del modelo de IA puede procesar el texto de tu búsqueda.",
+      "Cuando haces clic en un enlace a una herramienta, sales de nuestro sitio. Aplica la política de privacidad de esa empresa."
+     ]
+    },
+    {
+     "h": "Correos electrónicos",
+     "p": [
+      "No mandamos correos ni tenemos una lista de correos. Si algún día agregamos una, tendrías que elegir unirte, y cada correo incluiría un enlace para darte de baja."
+     ]
+    },
+    {
+     "h": "Niños",
+     "p": [
+      "Este sitio es para adultos que manejan negocios. No es para menores de 18 años. No recopilamos a sabiendas información de niños. Si un padre cree que un niño guardó información aquí, puede borrarla usando nuestra página de eliminación de datos en ese aparato."
+     ]
+    },
+    {
+     "h": "Tus opciones y derechos",
+     "p": [
+      "Como no guardamos datos personales tuyos en nuestros servidores, no tenemos nada que buscar, corregir ni borrar según leyes como la California Consumer Privacy Act o el GDPR. Tú controlas los datos en tu aparato desde la página Mis herramientas y la página de eliminación de datos.",
+      "{contact}"
+     ]
+    }
+   ]
+  },
+  "terms": {
+   "title": "Términos de servicio",
+   "intro": "Si usas ImmigrAI, estás de acuerdo con estos términos. Están escritos para que los entiendas fácilmente.",
+   "sections": [
+    {
+     "h": "Qué es ImmigrAI",
+     "p": [
+      "ImmigrAI es una guía gratis sobre programas de software de otras empresas. Es un prototipo, así que las funciones pueden cambiar o dejar de funcionar. No ofrecemos, no vendemos ni damos soporte a las herramientas que mencionamos."
+     ]
+    },
+    {
+     "h": "Quién puede usarlo",
+     "p": [
+      "Tienes que tener 18 años o más, o usar este sitio con permiso de tu padre, madre o tutor. Está pensado para personas que tienen o quieren empezar un negocio."
+     ]
+    },
+    {
+     "h": "No es consejo profesional",
+     "p": [
+      "Nada en este sitio es consejo legal, de impuestos, de inmigración ni financiero. Las páginas sobre derechos, permisos, impuestos y préstamos son información general y pueden estar desactualizadas. Habla con un profesional calificado sobre tu propia situación."
+     ]
+    },
+    {
+     "h": "La información puede estar mal",
+     "p": [
+      "Los precios, las calificaciones, los idiomas y las funciones vienen de búsquedas automáticas en internet y pueden estar mal o desactualizados. Las puntuaciones ambientales son estimados. Parte del texto lo escribe o traduce una IA. Antes de pagar o confiar en algo importante, revísalo en la página oficial de la herramienta."
+     ]
+    },
+    {
+     "h": "Herramientas de otras empresas",
+     "p": [
+      "Cuando uses una herramienta de esta lista, tu acuerdo es con esa empresa. Lee sus términos, sobre todo lo de contratos, renovaciones automáticas y cancelaciones. No somos responsables de sus productos, cobros ni conducta."
+     ]
+    },
+    {
+     "h": "Uso justo",
+     "p": [
+      "Por favor no abuses de este sitio: nada de ataques, nada de intentos de saltarte los límites de uso, y nada de copiar masivamente con programas automáticos. No uses nuestra búsqueda con IA para enviar nada ilegal o dañino."
+     ]
+    },
+    {
+     "h": "Sin garantía y responsabilidad limitada",
+     "p": [
+      "Este sitio se ofrece tal cual, sin garantías. En la medida que la ley lo permita, no somos responsables por pérdidas que resulten de usarlo o de confiar en su información."
+     ]
+    },
+    {
+     "h": "Cambios",
+     "p": [
+      "Podemos actualizar estos términos. La fecha al inicio de esta página muestra la versión más reciente. La ley de qué estado rige estos términos se definirá antes de que este prototipo se lance al público.",
+      "{contact}"
+     ]
+    }
+   ]
+  },
+  "cookies": {
+   "title": "Política de cookies",
+   "intro": "No ponemos ninguna cookie. Usamos el almacenamiento local de tu navegador solo si tú nos das permiso.",
+   "sections": [
+    {
+     "h": "Cookies",
+     "p": [
+      "ImmigrAI no pone cookies. Tu idioma es parte de la dirección de la página, así que no necesitamos una cookie para recordarlo. No hay cookies de publicidad ni de análisis, ni programas de terceros. Nuestras fuentes vienen de este sitio, así que Google no recibe ninguna solicitud cuando visitas la página."
+     ]
+    },
+    {
+     "h": "Almacenamiento local",
+     "p": [
+      "El almacenamiento local es un pequeño espacio en tu navegador. Si dices que sí en nuestro aviso, usamos dos datos:"
+     ],
+     "ul": [
+      "immigrai:consent recuerda tu decisión en el aviso.",
+      "immigrai:v1 guarda tus herramientas, calificaciones, notas, las herramientas que ya usas y tu idioma."
+     ]
+    },
+    {
+     "h": "Si dices que no",
+     "p": [
+      "El sitio sigue funcionando. Tu lista dura hasta que cierres la página, y no guardamos nada de eso. Tu decisión es lo único que recordamos, así que el aviso no te volverá a preguntar."
+     ]
+    },
+    {
+     "h": "Si cambias de opinión",
+     "p": [
+      "Elige 'Privacy choices' (Opciones de privacidad) al final de cualquier página. También puedes borrar los datos de tu navegador o usar la página para eliminar tus datos."
+     ]
+    }
+   ]
+  },
+  "data-deletion": {
+   "title": "Borra mis datos",
+   "intro": "Todo lo que guardas en ImmigrAI está en este dispositivo. Puedes borrarlo tú mismo ahora mismo.",
+   "sections": [
+    {
+     "h": "Qué se borra",
+     "p": [
+      "Esto borra de este navegador tus herramientas guardadas, tus calificaciones, tus notas, las herramientas que ya usas, tu idioma y tu elección del aviso. No se puede deshacer. Si usas ImmigrAI en otro dispositivo, bórralo también ahí."
+     ]
+    },
+    {
+     "h": "Lo que guardamos en nuestros servidores",
+     "p": [
+      "No tenemos cuentas ni una base de datos de visitantes, así que no hay nada que borrar de nuestro lado y no necesitas enviarnos una solicitud. Los datos temporales para prevenir abusos desaparecen solos en cuestión de minutos. Los registros del servidor que guarda nuestra empresa de hosting expiran según su propio calendario, y no los podemos vincular contigo.",
+      "{contact}"
+     ]
+    }
+   ]
+  },
+  "accessibility": {
+   "title": "Accesibilidad",
+   "intro": "Queremos que este sitio funcione para todos, incluidas las personas que usan teclado, un lector de pantalla, un teléfono viejo o una conexión lenta.",
+   "sections": [
+    {
+     "h": "Lo que buscamos",
+     "p": [
+      "Buscamos cumplir con las Pautas de Accesibilidad para el Contenido Web (WCAG) 2.2, nivel AA. Nosotros mismos probamos partes del sitio, pero no lo ha revisado una auditoría independiente ni lo han probado muchas personas con discapacidades."
+     ]
+    },
+    {
+     "h": "Lo que ya tiene el sitio",
+     "ul": [
+      "Todo funciona con el teclado, con un marco visible al enfocar y un enlace de \"saltar al contenido principal\".",
+      "El texto tiene buen contraste con el fondo, y el color nunca es la única señal.",
+      "Los botones y enlaces son lo bastante grandes para tocarlos fácilmente.",
+      "Las páginas tienen títulos y etiquetas claras para los lectores de pantalla.",
+      "Nada parpadea ni se mueve solo.",
+      "La interfaz está disponible en inglés, español, chino y vietnamita."
+     ]
+    },
+    {
+     "h": "Límites que tenemos",
+     "ul": [
+      "Las traducciones se hicieron con máquina y no todas las ha revisado una persona nativa.",
+      "No controlamos las listas de idiomas ni el texto de los sitios web de otras empresas."
+     ]
+    },
+    {
+     "h": "Cuéntanos si hay un problema",
+     "p": [
+      "Si algo es difícil de usar, dinos en qué página estabas y qué pasó.",
+      "{contact}"
+     ]
+    }
+   ]
+  },
+  "about": {
+   "title": "Sobre ImmigrAI",
+   "intro": "ImmigrAI te ayuda a encontrar herramientas de IA que sean económicas, fáciles de usar y disponibles en tu idioma, sobre todo si tienes un negocio de barrio manejado por inmigrantes.",
+   "sections": [
+    {
+     "h": "Quiénes somos",
+     "p": [
+      "ImmigrAI es un prototipo hecho por estudiantes, todavía no es una empresa registrada. Lo creamos para responder una pregunta: ¿cómo puede un dueño de negocio pequeño, con poco tiempo, poco dinero y poco inglés, encontrar las herramientas de IA que le sirven?",
+      "{contact}"
+     ]
+    },
+    {
+     "h": "Cómo se paga",
+     "p": [
+      "ImmigrAI es gratis para usarlo. No vendemos herramientas, no cobramos cuotas, no ponemos anuncios ni cobramos comisiones, y ninguna herramienta paga para salir en la lista o para subir de lugar. El orden de los resultados depende solo de los puntajes que explicamos en nuestra página de método."
+     ]
+    },
+    {
+     "h": "Lo que este sitio no es",
+     "p": [
+      "No somos abogados, contadores ni asesores financieros. Nada de lo que ves aquí es consejo legal, de impuestos, de inmigración ni financiero. Parte del texto lo escribió una IA y lo tradujo una máquina, así que por favor confirma lo que sea importante."
+     ]
+    },
+    {
+     "h": "Letras, imágenes y software",
+     "ul": [
+      "El texto usa la letra Lexend, bajo la licencia SIL Open Font License 1.1. Los archivos de la letra se sirven desde este sitio, no desde Google.",
+      "No hay fotos de archivo. Los íconos y el logo se dibujaron para este sitio.",
+      "Los componentes de la interfaz están adaptados de Watermelon UI y construidos sobre Base UI (MIT).",
+      "Software: Next.js, React, Tailwind CSS y Zod (todos MIT).",
+      "No incluimos programas de análisis, publicidad ni rastreo."
+     ]
+    }
+   ]
+  },
+  "methodology": {
+   "title": "Cómo calculamos nuestras puntuaciones",
+   "intro": "Cada puntuación de este sitio sigue una regla escrita. Esta página te muestra las reglas, de dónde salen los números y lo que no podemos medir.",
+   "sections": [
+    {
+     "h": "Puntuación de impacto ambiental",
+     "p": [
+      "La puntuación va de 0 a 100, y depende de cuánta electricidad, agua y poder de cómputo usa una herramienta para una tarea. Más alto significa que deja menos huella.",
+      "La puntuación tiene cuatro partes: Energía (30%), medida en watts-hora por tarea. Agua (20%), medida en mililitros por tarea. Carbono (20%), medido en gramos de CO2 equivalente por tarea. Eficiencia de cómputo (30%), basada en los tokens procesados, el tamaño del modelo y los recursos de cómputo que necesita.",
+      "Esto es una estimación, no una medición. Casi ninguna empresa publica estos números de su propio producto. Por eso ponemos cada herramienta en una categoría según el tipo de IA que usa, y todas las herramientas de una categoría reciben la misma estimación. La tabla de abajo muestra cada categoría."
+     ]
+    },
+    {
+     "h": "Cómo convertimos la estimación en puntuación",
+     "ul": [
+      "Energía, agua y carbono usan una escala logarítmica. Una tarea que usa 0.01 watts-hora o menos recibe 100 puntos, y 10 watts-hora o más recibe 0, porque las tareas de IA varían por cientos de veces.",
+      "El agua se estima en 1.08 mililitros por watt-hora, a partir de las cifras publicadas por Google: 0.26 mL por una pregunta de 0.24 Wh.",
+      "El carbono se estima en 0.4 gramos por watt-hora, el promedio de la red eléctrica de EE. UU. en 2024, según MIT Technology Review. Muchas herramientas usan energía más limpia que esto, pero rara vez publican suficiente información para confirmarlo.",
+      "La eficiencia de cómputo se asigna a cada categoría, desde 98 para cuando no hay modelo de IA hasta 18 para una IA que funciona durante toda una llamada telefónica."
+     ]
+    },
+    {
+     "h": "De dónde salen las cifras",
+     "ul": [
+      "Una respuesta típica de chatbot: unos 0.3 Wh. Google reportó 0.24 Wh para una pregunta de texto mediana en Gemini en agosto de 2025, y el director ejecutivo de OpenAI dijo unos 0.34 Wh para una pregunta promedio en ChatGPT, sin explicar el método.",
+      "Una imagen: unos 0.63 Wh, según la cifra de MIT Technology Review de mayo de 2025 para Stable Diffusion 3 Medium, incluyendo enfriamiento y otros gastos.",
+      "Nuestros propios supuestos, sin fuente publicada: 0.5 Wh por un clip de voz, 3 Wh por una llamada telefónica completa con IA (unas ocho respuestas del modelo más voz), y las cifras más bajas para herramientas sin IA o con IA pequeña en segundo plano."
+     ],
+     "links": [
+      [
+       "El artículo de Google sobre la huella de Gemini",
+       "https://arxiv.org/abs/2508.15734"
+      ],
+      [
+       "Metodología de MIT Technology Review",
+       "https://www.technologyreview.com/2025/05/20/1116331/ai-energy-demand-methodology/"
+      ]
+     ]
+    },
+    {
+     "h": "Lo que esta puntuación no te puede decir",
+     "ul": [
+      "No incluye la energía usada para entrenar un modelo, ni para fabricar los teléfonos y computadoras que usas.",
+      "Dos herramientas de la misma categoría pueden diferir mucho. Las cifras reales de una empresa podrían ser mejores o peores que las nuestras.",
+      "Las cifras publicadas varían mucho y las empresas las reportan de distintas formas, así que toma la puntuación como una guía aproximada para comparar herramientas."
+     ]
+    },
+    {
+     "h": "Puntuación de ImmigrAI",
+     "p": [
+      "Una calificación alta de estrellas puede esconder una herramienta cara, solo en inglés o difícil de configurar. Por eso la puntuación de ImmigrAI (0 a 100) combina: reseñas 35%, facilidad de uso 20%, costo 15%, soporte de idiomas 15%, conexiones con otras herramientas 10%, e impacto ambiental 5%.",
+      "Si no podemos confirmar las reseñas de una herramienta, las dejamos fuera y calculamos el resto. Nunca llenamos el hueco con un número inventado, y la página de la herramienta lo indica."
+     ],
+     "ul": [
+      "La facilidad de uso es nuestra estimación, basada en el tiempo de configuración, si tiene aplicación para el teléfono y si puedes registrarte sin hablar con un vendedor.",
+      "El costo viene del precio mensual más bajo que te deja usar de verdad la herramienta.",
+      "El soporte de idiomas viene de cuántos idiomas pudimos confirmar.",
+      "Las conexiones vienen de cuántos otros productos pudimos confirmar que funcionan con ella."
+     ]
+    },
+    {
+     "h": "Cómo revisamos las reseñas",
+     "p": [
+      "No escribimos ni alojamos reseñas. Buscamos en sitios públicos de reseñas, y una calificación solo cuenta si pasa estas revisiones:"
+     ],
+     "ul": [
+      "La calificación debe aparecer en el texto de la página exacta que enlazamos.",
+      "La página debe estar en un sitio independiente: Capterra, G2, Trustpilot, la App Store de Apple, Google Play, GetApp, Software Advice o TrustRadius. Los testimonios de la propia empresa nunca cuentan.",
+      "La página debe ser sobre este producto. Para Apple solo aceptamos la tienda de EE. UU., y en Trustpilot la dirección web revisada debe coincidir con la de la empresa.",
+      "Debe haber al menos 25 reseñas en total. Si hay menos, no mostramos calificación.",
+      "Los sitios con más reseñas cuentan más, en una escala logarítmica, para que ningún sitio decida el resultado por sí solo."
+     ]
+    },
+    {
+     "h": "Lo que dejamos fuera",
+     "ul": [
+      "Herramientas con calificación menor de 3.5 de 5, cuando suficientes reseñas lo confirman.",
+      "Herramientas que empiezan en más de $150 al mes.",
+      "Apps de control de inmigración que aparezcan en búsquedas web. Esa lista solo incluye recursos de organizaciones sin fines de lucro que revisamos, porque una app falsa o insegura podría poner en peligro a las personas.",
+      "Los recursos de organizaciones sin fines de lucro y del gobierno no reciben calificación de estrellas, porque los sitios de reseñas no los miden de forma justa. Algunas reseñas de una agencia del gobierno son sobre préstamos, no sobre su guía gratuita."
+     ]
+    },
+    {
+     "h": "Cómo revisamos si las herramientas funcionan juntas",
+     "ul": [
+      "Se conecta directamente: las propias páginas de una herramienta mencionan a la otra como integración.",
+      "Se conecta a través de otro producto: ambas herramientas funcionan con un conector compartido, como Zapier o QuickBooks. Puede requerir un poco de configuración.",
+      "Funciona lado a lado: no encontramos un enlace confirmado, pero ambas funcionan en el mismo tipo de dispositivo. Quizás tengas que escribir cierta información dos veces.",
+      "No se conecta: no encontramos nada en común que pudiéramos confirmar."
+     ],
+     "p": [
+      "La puntuación de compatibilidad de un kit es el promedio de todos los pares de herramientas que contiene. Si existe un enlace pero no pudimos confirmarlo, reportamos el nivel más bajo."
+     ]
+    },
+    {
+     "h": "Límites de la búsqueda en vivo",
+     "p": [
+      "Los precios, las calificaciones y las funciones cambian, y un modelo de IA que lee la web puede leer mal una página. Nuestras revisiones detectan muchos errores, pero no todos. Confirma siempre el precio y los términos en la página oficial de la herramienta antes de pagar."
+     ]
+    }
+   ]
+  }
+ },
+ "bundles": {
+  "startup-essentials": {
+   "name": "Herramientas Básicas para Empezar",
+   "tagline": "Lo esencial para un negocio nuevo, con una forma gratis de empezar.",
+   "forWho": "Cualquier negocio que abre sus puertas este año"
+  },
+  "restaurant-picks": {
+   "name": "Herramientas Especiales para Restaurantes",
+   "tagline": "Toma pedidos, organiza la cocina y prepárate para la inspección.",
+   "forWho": "Restaurantes, food trucks, panaderías y cafeterías",
+   "note": "FoodDocs es la única herramienta de pago aquí. Empieza con las gratis y agrega esta cuando estés listo."
+  },
+  "salon-and-barber": {
+   "name": "Kit para Salones y Barberías",
+   "tagline": "Llena tus sillas y reduce las citas que no llegan.",
+   "forWho": "Peluquería, uñas, pestañas, barberos y spas",
+   "note": "Solo necesitas una herramienta de citas. Elige Fresha o Square Appointments, y compara primero sus cobros."
+  },
+  "trades-on-the-go": {
+   "name": "Oficios en Movimiento",
+   "tagline": "Atiende llamadas y cobra desde tu camioneta.",
+   "forWho": "HVAC, plomería, electricidad, jardinería, limpieza"
+  },
+  "corner-store-and-retail": {
+   "name": "Tienda de Barrio y Comercio",
+   "tagline": "Lleva el control de lo que se vende y haz pedidos antes de quedarte sin producto.",
+   "forWho": "Bodegas, mercados, boutiques, tiendas de regalos"
+  },
+  "first-employee": {
+   "name": "Contratando a tu Primer Empleado",
+   "tagline": "Encuentra a alguien, organiza sus horarios y págale correctamente.",
+   "forWho": "Dueños que pasan de trabajar solos a un equipo pequeño",
+   "note": "Homebase y Connecteam hacen cosas parecidas. Prueba una antes de pagar por la otra. Pregunta a un profesional sobre las reglas de tu estado."
+  },
+  "speak-every-language": {
+   "name": "Habla el Idioma de Cada Cliente",
+   "tagline": "Atiende a tus clientes en más idiomas sin contratar un traductor.",
+   "forWho": "Cualquier tienda en un barrio con varios idiomas",
+   "note": "La traducción automática comete errores. Pide a una persona que revise menús, contratos y todo lo legal."
+  },
+  "safety-first": {
+   "name": "La Seguridad Primero",
+   "tagline": "Protege a tu gente, tus cuentas y tus registros.",
+   "forWho": "Todos los negocios",
+   "note": "Estas no necesitan conectarse entre sí, porque cada una cubre un riesgo distinto. Citizen solo funciona en algunas zonas."
+  }
+ },
+ "tools": {
+  "square-online": {
+   "summary": "Square Online te deja crear un sitio web o una tienda en línea para tu negocio sin saber programar, y vender productos que se sincronizan con tu caja registradora de Square en persona. También incluye pagos, envíos, opciones de recoger en tienda y entrega a domicilio.",
+   "helpsWith": [
+    "Vende productos en línea que se mantienen sincronizados con las ventas y el inventario de la tienda en todas tus ubicaciones",
+    "Ofrece envío, recoger en tienda o entrega local para los pedidos en línea",
+    "Deja que tus clientes creen una cuenta para seguir sus pedidos y recibir recomendaciones de productos",
+    "Usa las herramientas de SEO y las conexiones con redes sociales que ya trae para promocionar tu tienda"
+   ],
+   "howToStart": "Crea una cuenta gratis de Square y luego usa el constructor de sitios web en el Panel de Square para diseñar tu tienda, agregar productos, configurar los pagos y los envíos, y publicarla.",
+   "pricingNote": "Square Free cuesta $0 al mes por ubicación, Square Plus cuesta $49 al mes por ubicación y Square Premium cuesta $149 al mes por ubicación. Square Pro tiene precio personalizado para negocios que procesan más de $250,000 al año.",
+   "extraFees": "Las tarifas de procesamiento del plan gratis son 3.3% + 30¢ para pagos en línea y 2.6% + 15¢ para pagos con tarjeta de chip, deslizada o con tap. Plus cobra 2.9% + 30¢ en línea y 2.5% + 15¢ en persona. Premium cobra 2.9% + 30¢ en línea y 2.4% + 15¢ en persona.",
+   "reviewSummary": "A la gente le gusta que sea fácil de configurar, que el precio sea accesible, que la interfaz sea sencilla y que se conecte con las ventas en persona de Square. Se quejan de que la personalización del sitio web es limitada, de que las tarifas son altas o no están claras, de que el servicio al cliente es difícil de conseguir y de que tiene pocas funciones para negocios que están creciendo.",
+   "caution": "Los planes Plus y Premium se cobran por ubicación, así que si tienes varias ubicaciones, la mensualidad se multiplica. Plus y Premium incluyen una prueba gratis de 30 días, y puedes cancelar o cambiar de plan en cualquier momento, sin contratos que te obliguen a quedarte."
+  },
+  "meta-business-suite": {
+   "summary": "Meta Business Suite es un espacio de trabajo gratis que reúne la actividad de tu negocio en Facebook, Instagram y Messenger en un solo panel. Te ayuda a planear publicaciones, responder mensajes y ver cómo le va a tu contenido.",
+   "helpsWith": [
+    "Programa y publica publicaciones e historias en Facebook e Instagram desde un solo calendario",
+    "Responde mensajes y comentarios de Facebook, Instagram y Messenger en una sola bandeja de entrada, con respuestas guardadas y respuestas automáticas sencillas",
+    "Mira estadísticas básicas sobre cómo les va a tus publicaciones y a tu audiencia",
+    "Impulsa publicaciones y crea anuncios sencillos, o usa el Administrador de anuncios para campañas completas"
+   ],
+   "howToStart": "Crea una Página de Facebook para tu negocio y después entra a business.facebook.com.",
+   "pricingNote": "Meta Business Suite es gratis y no tiene planes de suscripción. Solo pagas los anuncios que corras desde ahí.",
+   "reviewSummary": "A los usuarios les gusta poder manejar Facebook e Instagram desde un solo lugar, programar publicaciones con anticipación y ver en un mismo sitio cómo le va a cada publicación y datos de la audiencia. Se quejan de que la interfaz es confusa y cambia seguido, de que las publicaciones programadas a veces fallan o no salen, de que los mensajes llegan tarde, de que no se pueden buscar mensajes, de que el servicio al cliente tarda mucho y de problemas para iniciar sesión.",
+   "caution": "Usa una contraseña fuerte y activa la verificación en dos pasos, porque las páginas hackeadas son muy comunes."
+  },
+  "buffer": {
+   "summary": "Buffer es una herramienta para redes sociales que te deja planear, programar y publicar en muchas cuentas sociales desde un solo panel, y además te muestra qué contenido funciona bien. También te ayuda a responder comentarios y reseñas desde una sola bandeja de entrada.",
+   "helpsWith": [
+    "Programa publicaciones en plataformas como Instagram, Facebook, TikTok, LinkedIn y Google Business con anticipación",
+    "Usa el Asistente de IA para generar ideas, reescribir contenido y crear publicaciones adaptadas a cada plataforma",
+    "Revisa estadísticas sencillas para saber qué publicaciones funcionan mejor y a qué horas publicar",
+    "Responde comentarios y reseñas de Google Business desde una sola bandeja de entrada"
+   ],
+   "howToStart": "Regístrate gratis y conecta tus cuentas de redes sociales.",
+   "pricingNote": "El plan gratis incluye 3 canales con 10 publicaciones programadas por canal. Essentials cuesta $5 por canal al mes si se paga al año ($6 si se paga mes a mes), y Team cuesta $10 por canal al mes si se paga al año ($12 si se paga mes a mes). Así que un negocio pequeño con 5 canales pagaría unos $25 al mes con Essentials, o $50 con Team si paga al año.",
+   "reviewSummary": "A los usuarios les gusta que la interfaz sea limpia y fácil de usar, que sea sencillo programar en varias plataformas y el tiempo que les ahorra en la administración de redes sociales. No les gusta que a veces las publicaciones o las alertas no funcionen, que fallen las publicaciones con varias imágenes, que las estadísticas sean limitadas, que los precios de las funciones avanzadas sean altos y que den pocos detalles cuando aparece un error.",
+   "caution": "El plan gratis tiene un límite de por vida de 8 canales por red social, y su límite de la API es de 1,000 solicitudes por canal al mes."
+  },
+  "google-ads": {
+   "summary": "Google Ads te deja pagar para que tus anuncios salgan en la búsqueda de Google, en Google Maps y en otros sitios de Google, para que la gente que busca lo que ofreces te pueda encontrar. Pagas los anuncios según los clics o las llamadas, y tú decides el presupuesto.",
+   "helpsWith": [
+    "Muestra un anuncio en el mapa que aparece cuando la gente busca o explora lugares cerca en Google Maps",
+    "Pon un límite de presupuesto diario o mensual para nunca pagar más de lo que decidiste",
+    "Deja que la IA de Google elija las mejores combinaciones de tus títulos, imágenes y palabras clave"
+   ],
+   "howToStart": "Empieza desde tu Perfil de Google Business y elige 'Promocionar'. Pon un presupuesto diario pequeño.",
+   "pricingNote": "Google Ads no tiene plan gratis ni cuota fija mensual. Tú pones tu presupuesto y pagas por clic. Un negocio pequeño típico en EE. UU. gasta unos $500 a $1,000 al mes en anuncios, y según WordStream el presupuesto inicial promedio es de $1,000 a $2,500 al mes.",
+   "extraFees": "Las agencias cobran sus propios honorarios por separado, normalmente una cuota mensual fija de unos $500 a $5,000, o entre 10% y 20% de lo que se gasta en anuncios. Puede haber cargos adicionales según el país.",
+   "reviewSummary": "A los usuarios les gusta su segmentación potente, lo rápido que se configura, que llega a personas que de verdad están buscando, y que las estadísticas y el control del presupuesto son claros. No les gusta la curva de aprendizaje tan empinada, que la interfaz esté saturada y cambie, que los costos por clic suban y puedan gastar más de lo presupuestado, que las campañas con IA no sean confiables, y que el servicio al cliente y la facturación den muchos problemas.",
+   "caution": "Apaga las expansiones automáticas 'Inteligentes' y revisa tus gastos cada semana."
+  },
+  "wave": {
+   "summary": "Wave es un programa de contabilidad para negocios pequeños que se encarga de la contabilidad básica y de las facturas. El Plan Starter es gratis e incluye contabilidad y facturación básicas, y el Plan Pro, de pago, agrega herramientas como escanear recibos e importar movimientos del banco automáticamente.",
+   "helpsWith": [
+    "Envía facturas profesionales y recibe pagos con tarjeta",
+    "Conecta tu banco y organiza los movimientos",
+    "Toma fotos de tus recibos"
+   ],
+   "howToStart": "Abre la página de registro de Wave en una computadora o instala la app de Wave en tu celular, escribe tu correo y una contraseña, pon la información de tu negocio y elige el Plan Starter gratis.",
+   "pricingNote": "La contabilidad y la facturación básicas son gratis. El plan Pro cuesta unos $16 al mes y agrega escaneo de recibos y sincronización bancaria.",
+   "reviewSummary": "Los revisores dicen que Wave es fácil de usar, tiene una interfaz sencilla y maneja bien las facturas y el control de gastos para negocios pequeños, y que la versión básica es gratis. Se quejan de que el servicio al cliente es lento o no existe, de que los pagos se retrasan o se detienen, de que los reportes y las funciones avanzadas son limitados, y de lo que cuestan las mejoras de pago.",
+   "caution": ""
+  },
+  "zoho-books": {
+   "summary": "Zoho Books es un programa de contabilidad en línea que ayuda a un negocio pequeño a enviar facturas, controlar gastos y cuentas bancarias, y ver reportes financieros. Tiene un plan gratis para negocios que están empezando.",
+   "helpsWith": [
+    "Crea y envía facturas y cotizaciones, y configura recordatorios de pago",
+    "Controla los gastos escaneando recibos y conectando tus cuentas bancarias",
+    "Concilia los movimientos del banco y de la tarjeta para llevar registros exactos",
+    "Revisa más de 50 reportes financieros, como el estado de pérdidas y ganancias y el balance general"
+   ],
+   "howToStart": "Ve al sitio de Zoho Books, haz clic en Sign Up Now, escribe el nombre de tu empresa, tu correo, tu teléfono y una contraseña, y luego haz clic en Create my account. Puedes empezar con el plan gratis o con una prueba de 14 días de las funciones Premium.",
+   "pricingNote": "Zoho Books tiene un plan gratis para 1 usuario más un contador. Los planes de pago son Standard a $15 por organización al mes, Professional a $40, Premium a $60, Elite a $120 y Ultimate con precios más altos. Estos precios son anuales. Algunas fuentes dan precios mensuales de $20, $50, $70, $150 y $275.",
+   "extraFees": "Los usuarios adicionales cuestan $3 por usuario al mes, o $2.50 por usuario al mes si se paga al año, según las preguntas frecuentes de precios del proveedor. Zoho Payroll y otras apps de nómina externas son costos aparte.",
+   "reviewSummary": "A los usuarios les parece que la interfaz es intuitiva y fácil de usar, que la configuración es rápida y que tareas comunes como facturar y controlar gastos se automatizan. Dicen que el servicio al cliente es lento y poco útil, que la conexión con el banco y la conciliación no son confiables, y que los reportes y la personalización son rígidos y limitados.",
+   "caution": "El plan gratis sigue siendo gratis solo mientras los ingresos anuales sean menores de $50K, las facturas tengan un límite de 1,000 al año, y las fuentes dan precios mensuales distintos para los planes de pago, así que revisa la página de precios actual del proveedor. Zoho Books no incluye nómina integrada y, comparado con otros competidores, no se conecta con muchas apps de terceros."
+  },
+  "google-translate": {
+   "summary": "Google Translate es una herramienta gratis que traduce texto, fotos de letreros o menús, documentos, sitios web y conversaciones habladas entre idiomas. Funciona en el navegador de la computadora y como app en el celular, y algunas funciones también sirven sin internet.",
+   "helpsWith": [
+    "Tener una conversación de ida y vuelta: cada persona habla y la app traduce en voz alta y en la pantalla",
+    "Subir un documento para traducirlo, y ver el original al lado del resultado para revisarlo",
+    "Traducir una página web completa poniendo su dirección"
+   ],
+   "howToStart": "Abre translate.google.com o instala la app gratis. No necesitas cuenta.",
+   "pricingNote": "Google Translate es gratis para uso personal en la página web y en las apps del celular. La API de Cloud Translation se paga según lo que uses: $20 por millón de caracteres, después de 500,000 caracteres gratis al mes.",
+   "extraFees": "Traducir documentos con la API cuesta $0.08 por página con NMT estándar. Los modelos personalizados cuestan más, desde $80 por millón de caracteres en una fuente y $0.25 por página en otra. Las etiquetas HTML y los espacios también cuentan como caracteres que se cobran.",
+   "reviewSummary": "A los usuarios les gusta que Google Translate es sencillo, rápido y gratis para la mayoría de las necesidades diarias, y que traduce texto, voz, cámara y conversaciones en muchos idiomas. Dicen que las traducciones a veces son incorrectas o suenan poco naturales con modismos, jerga o textos técnicos o complicados. También dicen que algunas funciones, como la voz o el modo de conversación, dan fallas, y que la privacidad y el apoyo técnico son débiles.",
+   "caution": "La página web y las apps gratis no cobran por caracteres, pero la API necesita un proyecto de Google Cloud con facturación activada y no comparte el límite con la página web. Las fuentes no coinciden en el precio de los modelos personalizados, y los subtítulos traducidos en Google Meet solo están disponibles en ciertas ediciones de Workspace."
+  },
+  "deepl": {
+   "summary": "DeepL es una herramienta de traducción con inteligencia artificial para texto y archivos, como documentos de Word, PDF y PowerPoint. Tiene una versión gratis y planes Pro de pago. Mantiene el diseño original de los archivos traducidos.",
+   "helpsWith": [
+    "Traducir archivos de Word, PDF y PowerPoint manteniendo su formato y diseño",
+    "Elegir un tono formal o informal para tu traducción",
+    "Usar un glosario para que los términos de tu producto o de tu industria se traduzcan siempre igual",
+    "Traducir texto e imágenes, como letreros o menús"
+   ],
+   "howToStart": "Úsalo gratis en deepl.com. Crea una cuenta solo si quieres el plan Pro.",
+   "pricingNote": "El plan gratis te da 50,000 caracteres al mes, la traducción de un archivo de hasta 5 MB y un glosario. El plan Individual de pago cuesta $8.74 al mes si se paga por año, el plan Team cuesta $28.74 por usuario al mes si se paga por año, y el plan Business cuesta $57.49 por usuario al mes si se paga por año. Si pagas mes a mes, cuesta alrededor de 16% más.",
+   "extraFees": "El complemento Write Pro cuesta $7.49 por usuario al mes en los planes Individual y Team. La API de DeepL es un producto aparte, con un nivel Developer gratis de 1 millón de caracteres en total. El plan Growth cuesta $26 al mes si se paga por año, más $27.50 por cada millón de caracteres que pases del límite incluido.",
+   "reviewSummary": "A los usuarios les gustan las traducciones precisas y naturales, el buen manejo del contexto y del tono, y la interfaz limpia y sencilla. No les gustan los límites estrictos de la versión gratis, los cierres inesperados de la app y los congelamientos, la calidad de las traducciones que baja después de algunas actualizaciones, el apoyo técnico débil y la mala reproducción de voz.",
+   "caution": "Los planes Business y Enterprise anuncian caracteres ilimitados, pero están sujetos a una política de uso justo sin un límite máximo publicado. La API se cobra por separado de las suscripciones de Translator."
+  },
+  "elevenlabs": {
+   "summary": "ElevenLabs convierte texto escrito en voz de sonido natural para anuncios, videos, audiolibros y mensajes telefónicos. También ofrece efectos de sonido, música y doblaje de video para pequeños negocios.",
+   "helpsWith": [
+    "Convertir un guion escrito en una narración para un anuncio corto o un video de redes sociales",
+    "Crear un mensaje de voz para cuando te llamen en espera o fuera de horario, y descargarlo como archivo de audio",
+    "Traducir y doblar un video a otros idiomas manteniendo el tono de la persona que habla"
+   ],
+   "howToStart": "Regístrate gratis, escribe tu texto, elige una voz y descarga el audio.",
+   "pricingNote": "El plan gratis te da 10,000 créditos al mes (unos 10 minutos de texto a voz) sin licencia comercial. Los planes de pago son Starter a $6 al mes ($5 si se paga por año), Creator a $22 ($18.33 por año), Pro a $99 ($82.50 por año), Scale a $299, Business a $990 y Enterprise con cotización.",
+   "extraFees": "Los precios no incluyen impuestos ni aranceles. El uso de la API se cobra aparte por carácter o por minuto (por ejemplo, $0.08 por cada 1,000 caracteres para texto a voz), y Pay As You Go te deja pagar por adelantado el uso de la API. Los minutos extra de agente en los planes Creator y superiores cuestan $0.08 por minuto.",
+   "reviewSummary": "A los usuarios les gustan las voces de sonido humano y natural, lo fácil que es de usar, la gran biblioteca de voces, la función de clonar voces y el buen valor por el precio. No les gustan el sistema de créditos confuso que se gastan rápido, los costos altos y las suscripciones, los fallos y el trabajo perdido cuando no se guarda automáticamente, la lentitud y los problemas de cobro o de cuenta.",
+   "caution": "El plan gratis no tiene licencia comercial, así que el audio no se puede usar para negocio. Los créditos sin usar solo se acumulan en los planes de pago, y se pierden si bajas de plan o cancelas."
+  },
+  "google-business-profile": {
+   "summary": "Google Business Profile es una herramienta gratis que permite a un negocio controlar cómo aparece en la Búsqueda y en Google Maps, incluyendo horarios, datos de contacto, fotos y reseñas. Ayuda a que los clientes de tu zona te encuentren y te contacten.",
+   "helpsWith": [
+    "Aparecer cuando la gente busca negocios como el tuyo en Google Maps y en la Búsqueda, con tu ubicación, horarios y datos de contacto",
+    "Responder a las reseñas de los clientes, que aparecen como 'Respuesta del propietario'",
+    "Publicar ofertas, promociones, anuncios y fotos nuevas",
+    "Mostrar tus productos, servicios y menú, y dejar que los clientes pidan o reserven cuando lo ofrezcas"
+   ],
+   "howToStart": "Ve a business.google.com, reclama tu negocio y verifícalo.",
+   "pricingNote": "Crear, verificar y administrar un Perfil de Negocio de Google es gratis, sin plan de pago ni versión premium. Google Ads y los Anuncios de Servicios Locales son complementos opcionales que se pagan por clic o por cliente potencial.",
+   "extraFees": "Los Google Ads opcionales se cobran por clic a precios que se definen en una subasta. Los Anuncios de Servicios Locales se cobran por cada cliente potencial calificado. Las herramientas de terceros para administrar tu ficha cobran suscripción. Ninguno de estos es necesario para tener el perfil.",
+   "reviewSummary": "A los usuarios les gusta que es gratis, fácil de usar y que ayuda a los clientes a encontrar el negocio y a ver fotos, reseñas y datos de contacto. Se quejan de actualizaciones y cambios lentos o poco claros, de suspensiones y verificaciones automáticas impredecibles, de un apoyo técnico difícil de contactar o poco útil, y de lo difícil que es quitar reseñas falsas.",
+   "caution": "Si alguien te pide pagar para configurar, verificar, renovar o arreglar tu Perfil de Negocio de Google, no es de Google y probablemente es una estafa."
+  },
+  "canva": {
+   "summary": "Canva es una herramienta de diseño en la web que permite a los pequeños negocios hacer gráficas para redes sociales, volantes, menús, presentaciones y videos usando plantillas y un editor de arrastrar y soltar. Incluye herramientas de inteligencia artificial que ayudan a crear y adaptar contenido.",
+   "helpsWith": [
+    "Crear gráficas, publicaciones y anuncios para redes sociales con plantillas listas, con los tamaños correctos para cada plataforma",
+    "Diseñar cosas para imprimir como volantes, carteles y tarjetas de presentación, y descargar archivos listos para imprenta",
+    "Usar las herramientas de IA para escribir y adaptar contenido con el estilo de tu marca, quitar fondos y cambiar el tamaño de los diseños",
+    "Guardar tu logo, colores y tipos de letra en un Kit de Marca para que tus diseños se vean iguales, y trabajar en equipo para aprobarlos"
+   ],
+   "howToStart": "Regístrate gratis con Google o con tu correo y elige una plantilla.",
+   "pricingNote": "Canva tiene un plan gratis, un plan Pro de US$18 al mes o US$180 al año para una persona, y un plan Business de US$25 al mes o US$250 al año por persona. El plan Enterprise se cotiza con ventas.",
+   "extraFees": "En Estados Unidos se agrega el impuesto de venta cuando corresponde, según la dirección de facturación. En el plan Business se cobra por cada persona que acepta la invitación.",
+   "reviewSummary": "A los usuarios les gusta la interfaz fácil de usar, la gran biblioteca de plantillas y las herramientas de arrastrar y soltar, que permiten a quienes no son diseñadores hacer buenas gráficas rápido. No les gusta que muchas funciones avanzadas, plantillas premium y herramientas de IA estén bloqueadas detrás de una suscripción de pago, que el editor no tenga controles avanzados de vectores y tipografía, y que se trabe con diseños grandes o complejos.",
+   "caution": "Canva Teams ya no está disponible para nuevos registros ni para mejorar de plan, así que un equipo pequeño hoy elegiría Business. El centro de ayuda de Canva dice que el precio depende del lugar, así que los precios fuera de Estados Unidos serán diferentes."
+  },
+  "wix": {
+   "summary": "Wix es un creador de páginas web que usa inteligencia artificial para hacer un sitio completo a partir de una breve descripción de tu negocio. Luego puedes editarlo a mano o con el asistente de IA integrado. También incluye herramientas para negocios, como citas, tiendas en línea y manejo de clientes potenciales.",
+   "helpsWith": [
+    "Generar un sitio web completo con una sola instrucción o con unas cuantas respuestas sobre tu negocio, y luego ajustar textos, imágenes, diseño y colores",
+    "Dejar que tus clientes reserven citas desde el sitio con una herramienta de programación que se sincroniza con las apps de calendario",
+    "Vender productos en línea y administrar inventario, pedidos y pagos desde un solo panel",
+    "Recibir preguntas de clientes con formularios y darles seguimiento en un embudo de ventas"
+   ],
+   "howToStart": "Regístrate, responde las preguntas de la IA sobre tu negocio y luego edita el borrador del sitio.",
+   "pricingNote": "Wix tiene un plan gratis. Los planes de pago son Light a $17 al mes, Core a $29 al mes, Business a $39 al mes y Business Elite a $159 al mes, todos facturados por año.",
+   "extraFees": "Wix Payments cobra 2.9% más $0.30 por transacción con tarjeta en Estados Unidos, 3.7% más $0.30 para American Express y 2.6% para pagos en persona. El correo de negocio funciona con Google Workspace, que cuesta $7 por usuario al mes, facturado por año.",
+   "reviewSummary": "A los usuarios les gusta el editor fácil de arrastrar y soltar, las plantillas que se pueden personalizar y la configuración rápida sin saber programar. No les gustan la carga lenta y los trabados, que no puedas cambiar de plantilla después de publicar, los cargos inesperados y los problemas con la renovación automática, el apoyo técnico débil y los precios confusos.",
+   "caution": "Pagar mes a mes cuesta más que pagar por año: Light cuesta $24, Core $36, Business $46 y Business Elite $172 al mes. El plan gratis muestra la marca de Wix, puede mostrar anuncios y no puede recibir pagos."
+  },
+  "stripe": {
+   "summary": "Stripe es un servicio de pagos en línea que te permite a ti, como pequeño negocio, aceptar pagos con tarjeta y otros métodos sin tener que escribir código. También ofrece facturas y enlaces de pago que puedes compartir por correo electrónico, redes sociales o mensaje de texto.",
+   "helpsWith": [
+    "Crea un enlace de pago y compártelo por correo electrónico, redes sociales o mensaje de texto",
+    "Envía facturas y pide pagos a clientes específicos, con recordatorios automáticos",
+    "Acepta pagos con más de 40 métodos de pago y muchas monedas locales",
+    "Devuelve pagos desde el Panel de Stripe sin necesidad de código"
+   ],
+   "howToStart": "Crea una cuenta y usa 'Payment Links' para enviar tu primera solicitud de pago.",
+   "pricingNote": "Stripe no tiene un plan mensual para un pequeño negocio; usa un precio de pago por uso sin cuota mensual, así que el costo mensual inicial es $0 más las comisiones por transacción. Stripe Billing tiene un plan de suscripción anual desde $620 al mes o un plan de pago por uso de 0.7% del volumen de facturación.",
+   "extraFees": "Los pagos en línea con tarjeta nacional cuestan 2.9% más 30 centavos por transacción; las transacciones en persona cuestan 2.7% más 5 centavos; las tarjetas ingresadas manualmente suman 0.5%; las tarjetas internacionales suman 1.5%; la conversión de moneda suma 1%; ACH Direct Debit cuesta 0.8% con un límite de $5; cada disputa cuesta $15; Radar for Fraud Teams empieza en $0.05 por transacción revisada; Stripe Sigma cuesta $15 al mes; Stripe Atlas es una tarifa única de $500; Stripe Tax cuesta 0.5% por transacción; Workflows incluye 10,000 pasos al mes y luego unos 1.8 centavos por paso.",
+   "reviewSummary": "A los usuarios les gusta la API fácil para desarrolladores, la integración sencilla, la documentación clara, el apoyo para muchos métodos de pago y la interfaz fácil de usar. Los usuarios se quejan de comisiones altas y difíciles de entender, pantallas confusas del panel y de saldo, soporte lento o difícil de contactar, y revisiones repentinas de cuenta o retenciones de fondos."
+  },
+  "paypal-zettle": {
+   "summary": "PayPal Point of Sale (antes Zettle) es un sistema que te permite a ti, como pequeño negocio, aceptar pagos en persona con tarjeta, sin contacto y billeteras digitales usando un teléfono, un lector de tarjetas o una terminal. También te ayuda a llevar el control del inventario y las ventas.",
+   "helpsWith": [
+    "Acepta pagos con chip, sin contacto y billeteras digitales con la aplicación, un lector de tarjetas o una terminal",
+    "Acepta pagos con código QR de PayPal y Venmo",
+    "Administra tu lista de productos, alertas de poco inventario e informes de ventas",
+    "Configura cuentas para tu personal y sincroniza con herramientas como QuickBooks y Shopify"
+   ],
+   "howToStart": "Regístrate en una cuenta de negocio de PayPal, descarga la aplicación PayPal POS y elige si quieres usar Tap to Pay en tu teléfono o pedir un lector de tarjetas o una terminal.",
+   "pricingNote": "PayPal Point of Sale no tiene cuota mensual ni niveles de plan; la aplicación POS es gratis para descargar, y solo pagas por transacción más cualquier equipo que compres (primer lector de tarjetas $29, lectores adicionales $79, terminal $199).",
+   "extraFees": "Pagos con tarjeta en persona y con código QR 2.29% + $0.09; pagos con tarjeta en línea 2.89% + $0.29 (Expanded Checkout) o 2.99% + $0.49 (Checkout); pagos con tarjeta ingresada manualmente 3.49% + $0.09; pagos de facturas de PayPal y Venmo 3.49% + $0.49; pagos por terminal virtual 3.39% + $0.29; las transacciones en efectivo no tienen comisión.",
+   "reviewSummary": "A los usuarios les gusta la interfaz fácil de usar, los pagos rápidos, el registro de ventas y los informes integrados, la aplicación gratis sin cuota mensual y los lectores de tarjetas confiables. Los usuarios no están contentos con las retenciones de cuenta y las demoras en las transferencias de fondos, las comisiones altas por transacción, el soporte al cliente malo o lento, funciones que faltan como el modo sin conexión y la reimpresión de recibos, y fallas con integraciones y equipos.",
+   "caution": "El primer lector de tarjetas de $29 es un precio para nuevos usuarios, limitado a uno por negocio, y PayPal lo puede cambiar en cualquier momento; las tarifas de procesamiento en línea no son sencillas; no ofrecen integraciones de nómina; las ventas pueden retenerse o retrasarse para revisión."
+  },
+  "toast-pos": {
+   "summary": "Toast es un sistema de punto de venta hecho para restaurantes, que combina equipos, programas y pagos en una sola plataforma. Maneja pedidos, pagos, pedidos en línea, entregas y nómina del personal para negocios de comida.",
+   "helpsWith": [
+    "Envía los pedidos directo a la pantalla de la cocina",
+    "Acepta pedidos en línea sin pagar comisiones de apps de entrega",
+    "Administra las propinas y las horas del personal"
+   ],
+   "howToStart": "Pide una demostración gratis en el sitio web de Toast o llama al número que aparece ahí, y un especialista de Toast se comunicará contigo en 24 horas.",
+   "pricingNote": "El Starter Kit cuesta $0 al mes para restaurantes de una sola ubicación con una o dos terminales, con el plan Point of Sale desde $69 al mes y Build Your Own con cotización de ventas, mientras que el plan para tiendas empieza en $90 al mes.",
+   "extraFees": "En el Starter Kit pagas tarifas de tarjeta de 3.09% más 15 centavos (Basic), 3.39% más 15 centavos (Core) o 3.69% más 15 centavos (Growth); en Point of Sale la tarifa de tarjeta es 2.49% más 15 centavos, o 3.5% más 15 centavos si la tarjeta se ingresa manualmente.",
+   "reviewSummary": "A los usuarios les gusta la interfaz fácil de usar, las integraciones sólidas, los informes rápidos y precisos, y la capacitación rápida del personal. Los usuarios se quejan del soporte telefónico lento y poco confiable, de fallas frecuentes, de comisiones altas y ocultas, y de reembolsos lentos.",
+   "caution": "Lee la duración del contrato y las condiciones de cancelación anticipada antes de firmar."
+  },
+  "sortly": {
+   "summary": "Sortly es una aplicación móvil de inventario que te ayuda a ti, como pequeño negocio, a llevar el control de suministros, materiales, herramientas, equipos y productos vendidos a clientes, sin usar hojas de cálculo. Funciona desde un teléfono, tableta o computadora, con sincronización automática para que todo el equipo vea el mismo inventario en tiempo real.",
+   "helpsWith": [
+    "Escanea códigos de barras y códigos QR con la cámara de tu teléfono para agregar artículos y encontrarlos rápido",
+    "Recibe alertas de poco inventario cuando un artículo baja de una cantidad fijada, para saber cuándo volver a pedir",
+    "Organiza los artículos en carpetas por ubicación, como una camioneta y una tienda, y ve dónde están y cuándo se movieron",
+    "Lleva el control de equipos y herramientas y adjunta fotos para mostrar su condición"
+   ],
+   "howToStart": "Ve a App Store o Google Play, busca \"Sortly: Inventory Simplified,\" instálala, luego crea carpetas y agrega tus primeros artículos escaneándolos o escribiéndolos.",
+   "pricingNote": "Sortly tiene un plan gratis con 100 artículos únicos y 1 licencia de usuario; después está Advanced a $24 al mes con pago anual ($49 mensual), Ultra a $74 al mes anual ($149 mensual), Premium a $149 al mes anual ($299 mensual), y Enterprise con cotización.",
+   "extraFees": "En los planes pagos el pago es con tarjeta de crédito; ACH, transferencias bancarias y facturas Net 30 solo están disponibles en Enterprise.",
+   "reviewSummary": "A los usuarios les gusta la interfaz fácil de usar, el control de inventario con fotos, el escaneo de códigos de barras y QR, y la organización por carpetas. Los usuarios no están contentos con los precios altos o inesperados, los informes limitados, las actualizaciones lentas y los errores de sincronización, y la edición masiva débil.",
+   "caution": "Los planes pagos empiezan con una prueba gratis de 14 días que requiere tarjeta de crédito y se renueva automáticamente al terminar la prueba, a menos que la canceles."
+  },
+  "zoho-inventory": {
+   "summary": "Zoho Inventory es una herramienta en línea para manejar inventario que te ayuda a ti, como negocio, a llevar el control de existencias, pedidos y almacenes en un solo lugar. Funciona en el navegador de internet y también tiene aplicaciones para móvil y computadora.",
+   "helpsWith": [
+    "Controla los niveles de existencia en varias ubicaciones de almacén",
+    "Crea órdenes de compra a proveedores y fija puntos de reorden con alertas de poco inventario",
+    "Administra pedidos de venta, empaque, envíos y actualizaciones de rastreo",
+    "Vende en varios canales en línea y mantén el inventario sincronizado"
+   ],
+   "howToStart": "Ve al sitio web de Zoho Inventory, haz clic en Sign Up Now, escribe el nombre de tu empresa, correo electrónico, contraseña, país y número de teléfono, luego configura los datos de tu organización, o usa la prueba gratis de 14 días.",
+   "pricingNote": "Existe un plan Gratis (50 pedidos al mes, 1 usuario, 1 ubicación); los planes pagos son Standard a $29 al mes, Premium a $79 al mes, Plus a $129 al mes y Enterprise a $249 al mes con facturación anual, o $39, $99, $159 y $299 con facturación mensual.",
+   "extraFees": "Los precios no incluyen impuestos locales. Complementos: usuario extra $7.50 al mes, 500 pedidos extra $7.50 al mes, ubicación extra $10 al mes, 50 escaneos automáticos avanzados $8 al mes, Advanced Warehousing $124.17 al mes (facturación anual).",
+   "reviewSummary": "A los usuarios les gusta la configuración fácil, la interfaz sencilla, la integración con otras apps de Zoho y plataformas de comercio electrónico, y el plan gratis con precios accesibles. Los usuarios no están contentos con la personalización y los informes limitados, funciones e integraciones que faltan, límites mensuales de pedidos, errores ocasionales y fallas en las cargas masivas, soporte al cliente lento y costos que suben a medida que se agregan usuarios o programas de Zoho.",
+   "caution": "El plan gratis no incluye generación de códigos de barras, conteo de inventario ni portal de clientes, y un negocio con personal alcanza rápido el límite de 50 pedidos."
+  },
+  "faire": {
+   "summary": "Faire es un mercado mayorista en línea que conecta a minoristas independientes con marcas. Tú, como minorista, puedes buscar y comprar productos al por mayor de muchas marcas en un solo lugar.",
+   "helpsWith": [
+    "Encuentra productos de muchas marcas independientes, con filtros por pedido mínimo y ubicación",
+    "Obtén devoluciones gratis dentro de 60 días en tu primer pedido de cualquier marca nueva",
+    "Paga después con condiciones de pago a 60 días en pedidos elegibles, así puedes surtir tu tienda ahora y pagar hasta dentro de 60 días",
+    "Filtra marcas con pedido mínimo bajo o sin pedido mínimo para probar productos nuevos con menos compromiso"
+   ],
+   "howToStart": "Solicita ser minorista con el nombre de tu negocio y tu certificado de reventa.",
+   "pricingNote": "Faire es gratis para unirse tanto para minoristas como para marcas; las marcas solo pagan una comisión por los pedidos de minoristas nuevos que llegan por el mercado, y los minoristas pueden pagar opcionalmente $19.99 al mes por Insider después de una prueba gratis de 30 días.",
+   "extraFees": "Las marcas pagan una comisión de 15% en pedidos estándar del mercado más una tarifa de $10 por cliente nuevo en el primer pedido de un minorista, y una tarifa de procesamiento de pagos de 3.5% más $0.30 (pago al día siguiente), 2.4% más $0.30 (pago a 30 días) o 1.9% más $0.30 (pago a 60 días); los pedidos de Faire Direct tienen 0% de comisión.",
+   "reviewSummary": "A los usuarios les gusta la gran variedad de marcas y productos, el envío rápido, el uso fácil del sitio web y la aplicación, y el soporte al cliente útil. Los usuarios no están contentos con los requisitos adicionales y pasos de verificación poco claros, las cancelaciones de pedidos sin explicación, el servicio al cliente lento o difícil de contactar, los pedidos mínimos de los proveedores, y las demoras con reembolsos o productos equivocados.",
+   "caution": "La membresía Insider para minoristas se renueva automáticamente después de la prueba gratis a $19.99 al mes, a menos que la canceles, y algunos minoristas pueden tener un plan anual; el programa Insider no está disponible para minoristas en Alaska y Hawái."
+  },
+  "quickbooks-online": {
+   "summary": "QuickBooks Online es un programa de contabilidad en línea que lleva la cuenta del dinero que entra y sale, organiza las transacciones y hace reportes para tu negocio pequeño. También te ayuda con facturas, pagos y nómina, todo en un solo lugar.",
+   "helpsWith": [
+    "Dale tus cuentas limpias a tu preparador de impuestos",
+    "Lleva un registro automático de millas y recibos",
+    "Haz la nómina desde el mismo lugar"
+   ],
+   "howToStart": "Empieza la prueba gratis de 30 días en la página de QuickBooks, conecta tu cuenta de banco, y puedes pedirle a tu contador que se una contigo en el programa.",
+   "pricingNote": "QuickBooks Online tiene un plan gratis de $0 al mes para 1 usuario. Después, Simple Start cuesta $38 al mes normal o $19 al mes de promoción durante los primeros 3 meses, Essentials cuesta $85 normal o $42.50 de promoción, Plus cuesta $140 normal o $70 de promoción, y Advanced cuesta $340 normal o $170 de promoción.",
+   "extraFees": "La nómina empieza en $50 al mes más $7 por empleado. Los pagos con tarjeta en facturas cuestan 2.99% en línea, 2.5% en persona y 3.5% si se escriben a mano. Las transferencias bancarias ACH cuestan 1%. El pago estándar de facturas por ACH cuesta $0.50 por pago después de las cantidades mensuales incluidas. Los cheques de papel cuestan $1.50 cada uno. El complemento de control de tiempo cuesta $20 al mes más $10 por usuario. Bill Pay Premium cuesta $15 al mes.",
+   "reviewSummary": "A los usuarios les parece fácil de usar la interfaz, cómodo el acceso remoto y desde la nube, y útiles las integraciones y las herramientas de gastos. Los usuarios dicen que el costo de la suscripción es alto y sube, que el programa tiene fallas y errores frecuentes, y que el soporte es lento o no ayuda mucho.",
+   "caution": "La promoción del 50% dura solo 3 meses y no cubre las tarifas de nómina por empleado. El plan gratis no tiene acceso para el contador, ni aplicación móvil, ni integración con aplicaciones de terceros."
+  },
+  "google-sheets": {
+   "summary": "Google Sheets es un programa de hojas de cálculo en línea y gratis que te deja crear, actualizar y compartir hojas de cálculo en tiempo real, desde cualquier dispositivo con internet. Incluye ayuda de inteligencia artificial para fórmulas, análisis y para armar hojas.",
+   "helpsWith": [
+    "Lleva un presupuesto mensual con una plantilla gratis o tu propia hoja, usando fórmulas para sumar ingresos y gastos",
+    "Comparte una hoja de cálculo con tu contador o socio para editar juntos sin mandar archivos de un lado a otro",
+    "Crea gráficas, tablas dinámicas y paneles sencillos para ver tendencias en tus ventas y costos",
+    "Recibe ayuda para escribir fórmulas y corregir errores de fórmulas con Gemini AI"
+   ],
+   "howToStart": "Abre sheets.google.com y elige la plantilla 'Presupuesto mensual'.",
+   "pricingNote": "Google Sheets es gratis con una cuenta de Google normal. Los planes de Google Workspace para negocios son: Business Starter a $7.00 por usuario al mes normal (unos $3.50 de promoción durante 12 meses), Business Standard a $14.00 por usuario al mes normal, Business Plus a $22.00 por usuario al mes, y Enterprise a pedido.",
+   "extraFees": "Las funciones de Gemini AI en Sheets se cobran por mes según el uso. Business Starter no incluye Gemini en Sheets, y Business Standard, Business Plus y Enterprise tienen diferentes límites para las funciones de AI y para armar hojas de cálculo.",
+   "reviewSummary": "A los usuarios les gusta trabajar juntos en tiempo real, compartir fácilmente, guardar en la nube y tener acceso desde cualquier dispositivo. No les gustan las lentitudes y los bloqueos con datos grandes, que tenga menos funciones avanzadas que Excel, y que la edición en el celular sea limitada, como las listas desplegables y los saltos de línea.",
+   "caution": "Business Starter no tiene Gemini AI en Sheets para nada, y las funciones de Gemini solo están incluidas desde Business Standard en adelante."
+  },
+  "keeper-tax": {
+   "summary": "Keeper es una aplicación de contabilidad y de impuestos que se conecta a las cuentas de banco y tarjetas de tu negocio, lleva el registro de tus gastos y encuentra deducciones mientras gastas. También te puede ayudar a presentar tus impuestos federales y estatales, con un profesional de impuestos que revisa y firma tu declaración.",
+   "helpsWith": [
+    "Encuentra deducciones de impuestos automáticamente con las transacciones de tu banco y tarjetas conectados",
+    "Lleva el registro de ingresos y gastos y muestra un cálculo al día de cuánto vas a pagar de impuestos",
+    "Programa los pagos trimestrales estimados de impuestos en el plan Premium",
+    "Presenta tu declaración federal y hasta dos declaraciones estatales, revisadas por un profesional de impuestos, con ayuda de chat de AI las 24 horas"
+   ],
+   "howToStart": "Descarga la aplicación y conecta la cuenta de banco que usas para tu negocio.",
+   "pricingNote": "Keeper tiene un plan Solo Contabilidad a $20 al mes, sin presentación de impuestos, y planes anuales con presentación: Standard a $199 al año ($16.58 al mes), Premium a $399 al año ($33.25 al mes), y Business a $1,199 al año ($99.92 al mes) para S-Corps y sociedades, con prueba gratis de 14 días.",
+   "extraFees": "Los servicios adicionales se cobran aparte, por ejemplo, la declaración de S-Corp cuesta $800, el Formulario 941 cuesta $75, el Formulario 940 cuesta $65, la presentación del W-2 cuesta $75, los 1099 cuestan $50 por configuración del cliente más $35 cada uno, y los estados de pérdidas y ganancias cuestan $200. Las declaraciones de años anteriores que no cubre Premium cuestan $200 extra por declaración.",
+   "reviewSummary": "A los usuarios les gusta la aplicación fácil de usar, la conexión automática con el banco y los mensajes de gastos, y el personal de soporte que sí contesta las preguntas. No les gustan las funciones limitadas para varios estados, varias cuentas o impuestos complicados, las respuestas lentas del soporte, tener que pagar una suscripción para presentar la declaración, y la falta de personalización de las categorías del negocio.",
+   "caution": "La prueba gratis no es un plan gratis: después de 14 días te cobran el plan que elegiste, a menos que canceles. La prueba gratis no incluye exportar deducciones ni enviar una declaración al IRS."
+  },
+  "turbotax": {
+   "summary": "TurboTax Self-Employed ayuda a dueños de negocios pequeños que trabajan por su cuenta, como los propietarios únicos y otros trabajadores independientes, a preparar y presentar sus impuestos del negocio en línea, con acceso a expertos en impuestos que conocen su industria.",
+   "helpsWith": [
+    "Presenta el Anexo C para un propietario único o LLC",
+    "Importa datos de QuickBooks o Square",
+    "Hazle preguntas a un experto en vivo"
+   ],
+   "howToStart": "Empieza en línea durante la temporada de impuestos; solo pagas cuando presentas tu declaración.",
+   "pricingNote": "TurboTax se cobra por declaración de impuestos, no por mes. El nivel Do It Yourself Premium (que cubre ingresos por trabajo independiente) cuesta $139 federal, subiendo a $149 al final de la temporada, y la declaración estatal se paga aparte. Existe una versión Free Edition gratis solo para declaraciones simples del Formulario 1040 sin ingresos de negocio.",
+   "extraFees": "Las declaraciones estatales cuestan extra (CNET y Forbes Advisor mencionan unos $64 por estado, no confirmado por Intuit). Hay una tarifa de procesamiento de reembolso de $40 si se descuenta del reembolso. La presentación electrónica estatal en escritorio cuesta $25 por estado. Los precios de la defensa en auditorías y del paquete MAX no están publicados.",
+   "reviewSummary": "Los que lo evalúan dicen que el programa es fácil de usar, les guía paso a paso para presentar, encuentra deducciones y se conecta con QuickBooks. Se quejan del costo alto, de los cargos extra por declaración estatal y por apoyo en auditorías, de errores y cifras de impuestos incorrectas, y de que el servicio al cliente es difícil de contactar.",
+   "caution": "El descuento del paquete de QuickBooks Self-Employed solo aplica si empiezas tu declaración enviando primero los datos desde QuickBooks. Si empiezas en TurboTax, pagas el precio normal de presentación."
+  },
+  "ramp": {
+   "summary": "Ramp es una plataforma de finanzas para negocios que junta tarjetas de crédito corporativas, pago de facturas, registro de gastos y recibos, y sincronización automática con programas de contabilidad. Está hecha para reemplazar varias herramientas separadas que un negocio pequeño usaría de otra manera.",
+   "helpsWith": [
+    "Da tarjetas del negocio a tus empleados con límites de gasto y restricciones de comercios configurados de antemano",
+    "Toma fotos de los recibos con el teléfono y los relaciona con las compras de la tarjeta automáticamente",
+    "Manda las facturas de proveedores para aprobación y programa los pagos según la fecha de vencimiento",
+    "Sincroniza las transacciones con QuickBooks, Xero o NetSuite para que tu contabilidad siempre esté al día"
+   ],
+   "howToStart": "Escribe el correo de tu negocio en la página de registro de Ramp, completa la solicitud con los datos de tu negocio, tu EIN y la información de tu cuenta bancaria. La mayoría de los negocios son aprobados en minutos.",
+   "pricingNote": "El plan gratis cuesta $0 por usuario al mes. Plus cuesta $15 por usuario al mes más una tarifa de plataforma según el tamaño del equipo (ahorras 20% pagando al año). Enterprise tiene precio personalizado y se cobra al año.",
+   "extraFees": "Plus tiene una tarifa de plataforma según el tamaño del equipo que Ramp no publica. La presentación de 1099 cuesta $0.65 por cada una ante el IRS (la presentación estatal es gratis). Procurement es un complemento para Plus o Enterprise.",
+   "reviewSummary": "A los usuarios les parece fácil de usar y de configurar la aplicación, y la captura de recibos y el registro automático de gastos les ahorran tiempo. Los usuarios reportan que la relación de recibos es lenta o poco confiable, la navegación es confusa, hay problemas al conectar con el programa de contabilidad, se cierra la sesión seguido y es difícil entrar, y el servicio al cliente es malo según Trustpilot.",
+   "caution": "Necesitas un EIN y una cuenta bancaria de negocio en Estados Unidos. Los propietarios únicos pueden no calificar."
+  },
+  "square-pos": {
+   "summary": "Square Point of Sale es una aplicación de caja registradora que deja a un negocio pequeño cobrar en persona, en línea o por teléfono, y ver sus ventas e inventario en un solo lugar. Puede funcionar en un teléfono o tableta, y puedes agregar equipo si lo quieres.",
+   "helpsWith": [
+    "Cobra en persona, en línea o por teléfono, incluyendo tarjetas sin contacto y billeteras digitales",
+    "Acepta pagos solo con tu teléfono usando Tap to Pay en iPhone o Tap to Pay en Android",
+    "Maneja el inventario y ve alertas de poco stock en todas tus ubicaciones",
+    "Revisa reportes de ventas, los productos que más se venden y datos de tus clientes"
+   ],
+   "howToStart": "Descarga la aplicación Square Point of Sale de App Store o Google Play, entra a tu cuenta de Square y empieza a cobrar.",
+   "pricingNote": "Square Free cuesta $0 al mes por ubicación, Square Plus cuesta $49 al mes por ubicación, y Square Premium cuesta $149 al mes por ubicación. Los tres planes incluyen todos los modos de punto de venta.",
+   "extraFees": "Se cobran comisiones de procesamiento en cada venta: Square Free cobra 2.6% + 15¢ por pagos con tarjeta de chip, deslizada o tocada, y 3.3% + 30¢ en línea. Square Plus cobra 2.5% + 15¢ en persona. Square Premium cobra 2.4% + 15¢ en persona. Las ventas con tarjeta escritas a mano cuestan 3.5% + 15¢ en el plan gratis.",
+   "reviewSummary": "A los usuarios les gusta que el sistema es fácil de usar, fácil de configurar, y que cobrar y ver las ventas es sencillo. Se quejan de las comisiones altas, de los costos extra de las funciones avanzadas, de que el servicio al cliente es lento o difícil de contactar, y de que los pagos se retienen seguido.",
+   "caution": "Square Payroll y Franchise Suite son solo complementos de pago, y no se pueden mezclar funciones entre planes. Las comisiones de Square Plus y Premium aumentan según el número de ubicaciones activas, así que desactiva las ubicaciones que no uses para evitar cargos."
+  },
+  "zenbusiness": {
+   "summary": "ZenBusiness es un servicio en línea que te ayuda a formar un LLC o corporación y a cumplir con los trámites que pide tu estado. También ofrece herramientas para la página web de tu negocio, la contabilidad y los impuestos.",
+   "helpsWith": [
+    "Forma un LLC, S-Corp o C-Corp con tu estado",
+    "Consigue un EIN (número de identificación fiscal) del IRS para impuestos y bancos",
+    "Lleva el control y presenta los reportes anuales del estado con Worry-Free Compliance",
+    "Revisa si el nombre de tu negocio está libre, consigue un dominio y crea tu página web"
+   ],
+   "howToStart": "Elige tu estado y el nombre de tu negocio en zenbusiness.com.",
+   "pricingNote": "ZenBusiness es sobre todo un servicio para formar tu negocio: el paquete Starter cuesta $0 más las cuotas del estado el primer año, Pro cuesta desde $199 más las cuotas del estado y se renueva por $199 al año, y Premium cuesta $299 más las cuotas del estado y se renueva por $299 al año. La contabilidad Money Pro cuesta $30 al mes y la guía Velo AI es gratis.",
+   "extraFees": "Las cuotas del estado aplican en todos los paquetes.",
+   "reviewSummary": "A la gente le gusta el personal de soporte, que es paciente y rápido, la plataforma en línea que es fácil de usar y la guía clara paso a paso. Las quejas son los cobros de suscripción inesperados que se repiten, la dificultad para pedir reembolsos y cancelar servicios, el soporte lento y una app móvil con fallas.",
+   "caution": "Quita la marca de los servicios adicionales que no necesites antes de pagar."
+  },
+  "sba-business-guide": {
+   "summary": "La Guía para Negocios de la SBA es una guía gratis del gobierno de EE. UU. que acompaña a los dueños de pequeños negocios en la planeación, el inicio y la administración de su negocio, incluyendo impuestos, contratación y cumplimiento de las leyes. También dirige a los dueños a asesoría local gratis o de bajo costo. sba.gov",
+   "helpsWith": [
+    "Descubre qué licencias y permisos necesita tu negocio, según tu actividad y tu ubicación: sba.gov",
+    "Consigue un número de identificación fiscal federal y estatal, y aprende sobre tus obligaciones de impuestos: sba.gov",
+    "Configura la nómina y entiende las reglas básicas de contratación y de empleados: sba.gov",
+    "Encuentra asesoría gratis o de bajo costo con SBDC, SCORE y otros socios locales: usa.gov"
+   ],
+   "howToStart": "Abre la Guía para Negocios de la SBA en sba.gov o llama a la línea de respuestas de la SBA al 1-800-827-5722 para que te conecten con ayuda.",
+   "pricingNote": "Recurso gratuito del gobierno.",
+   "reviewSummary": "Las personas en Trustpilot dicen que el personal de la SBA tarda en responder, pide repetidamente los mismos documentos y es grosero por teléfono."
+  },
+  "nextdoor": {
+   "summary": "Nextdoor es una red de vecindarios donde vecinos verificados comparten noticias locales, alertas y recomendaciones. Los negocios locales pueden usar una Página de Negocio gratis para llegar a clientes cercanos y ganar confianza con las recomendaciones de los vecinos.",
+   "helpsWith": [
+    "Mira alertas de crimen, clima y tráfico de tu cuadra",
+    "Recibe recomendaciones de tus vecinos",
+    "Publica ofertas locales"
+   ],
+   "howToStart": "Crea una página de negocio gratis en business.nextdoor.com.",
+   "pricingNote": "Una Página de Negocio de Nextdoor es gratis, sin suscripción mensual, e incluye Publicaciones de Negocio, recomendaciones y mensajes gratis. Los anuncios pagados de Nextdoor se cobran por campaña según un presupuesto diario y no tienen una cuota fija mensual.",
+   "extraFees": "Los anuncios pagados se cobran según el presupuesto de la campaña. Un punto de referencia aproximado de revendedores fue de unos $20 por cada 1,000 impresiones en 2025, que es un límite y no una tarifa oficial, y Nextdoor no publica una lista de precios fija.",
+   "reviewSummary": "A los usuarios les gusta estar conectados con sus vecinos, encontrar recomendaciones locales y recibir alertas de seguridad y de la comunidad en tiempo real. Las quejas son la moderación de contenido muy estricta, lo difícil que es encontrar publicaciones antiguas, las notificaciones excesivas, los anuncios no deseados, el soporte al cliente débil y las funciones de negocio de pago.",
+   "caution": "Las campañas de anuncios continuas se cobran 31 días por adelantado y se vuelven a cobrar cada 31 días hasta que las canceles, y al cancelar el servicio sigue activo hasta el final del ciclo pagado. Las campañas de duración fija de menos de 31 días no se pueden cancelar una vez iniciadas."
+  },
+  "citizen": {
+   "summary": "Citizen es una app de seguridad pública que envía alertas en tiempo real sobre incidentes cercanos, basadas en datos de agencias públicas e informes verificados. Para negocios, Citizen Enterprise da a las organizaciones alertas de incidentes y visibilidad en varias ciudades, con acceso mediante una API e integraciones.",
+   "helpsWith": [
+    "Recibe alertas de incidentes cerca de tu ubicación en el momento en que ocurren, basadas en datos públicos del 911 y de las agencias",
+    "Mira videos en vivo y lee actualizaciones para entender lo que pasa cerca de tu negocio",
+    "Envía las alertas de incidentes a las herramientas que tu equipo ya usa con Citizen Enterprise",
+    "Monitorea incidentes por ubicación, categoría y gravedad en todas tus sucursales"
+   ],
+   "howToStart": "Instala la app y permite el acceso a tu ubicación para la dirección de tu negocio.",
+   "pricingNote": "Las alertas son gratis; un plan premium de seguridad es opcional.",
+   "reviewSummary": "Los usuarios dicen que la app da alertas rápidas sobre sirenas e incidentes cerca de ellos, y que los videos en vivo les ayudan a ver lo que está pasando. Las quejas son que la app empuja suscripciones de pago, oculta los detalles de los incidentes detrás de un muro de pago, muestra alertas de lugares lejanos en vez de cercanos, y tiene un servicio al cliente débil y comentarios groseros.",
+   "caution": "Solo disponible en ciudades grandes de EE. UU."
+  },
+  "ilrc-red-cards": {
+   "summary": "Las Tarjetas Rojas del ILRC son tarjetas pequeñas de dos caras que ayudan a las personas a decir sus derechos y a protegerse durante encuentros con las autoridades de inmigración, como cuando agentes de ICE llegan a una casa. Son gratis y están disponibles en muchos idiomas.",
+   "helpsWith": [
+    "Dale a tu personal y a tus clientes una tarjeta que muestra sus derechos constitucionales, que aplican a todas las personas sin importar su estatus migratorio",
+    "Usa las tarjetas en talleres de Conozca sus Derechos y en citas con clientes, y deja un montón en la sala de espera o en la recepción",
+    "Imprime tus propias tarjetas con el arte gratis en 59 idiomas, o pídelas gratis al ILRC si eres una organización sin fines de lucro"
+   ],
+   "howToStart": "Descarga el PDF en tu idioma e imprímelo.",
+   "pricingNote": "Descargas gratis en PDF del Immigrant Legal Resource Center.",
+   "caution": "El ILRC advierte que algunas publicaciones en redes sociales venden Tarjetas Rojas; las tarjetas son gratis, así que descárgalas solo desde el sitio del ILRC, que dice que es la única fuente que verifica."
+  },
+  "bitwarden": {
+   "summary": "Bitwarden es un administrador de contraseñas que guarda, crea y completa contraseñas fuertes y únicas para todas tus cuentas, así que solo necesitas recordar una contraseña maestra. Funciona en computadoras y teléfonos, y los negocios pequeños lo pueden usar para compartir accesos de forma segura.",
+   "helpsWith": [
+    "Crea y guarda una contraseña fuerte y diferente para cada página web y app, para que si una cuenta es hackeada no pongas en riesgo las demás",
+    "Comparte accesos con tus compañeros de trabajo o tu equipo de forma segura con los planes para negocios",
+    "Completa automáticamente tus accesos y tarjetas en tu teléfono, computadora y navegador",
+    "Recibe alertas cuando una contraseña guardada aparezca en una filtración de datos y necesite cambiarse"
+   ],
+   "howToStart": "Crea una cuenta gratis e instala la extensión del navegador y la app del teléfono.",
+   "pricingNote": "Bitwarden tiene un plan gratis, un plan individual Premium a $1.65 al mes facturado anualmente, un plan Families a $3.99 al mes facturado anualmente, un plan Teams a $4 por usuario al mes facturado anualmente, y un plan Enterprise facturado por usuario, que Capterra reporta en $6 por usuario al mes, con cotizaciones personalizadas para organizaciones grandes.",
+   "extraFees": "Los impuestos no están incluidos en los precios mostrados. Secrets Manager es un complemento opcional con un costo adicional para organizaciones Teams y Enterprise.",
+   "reviewSummary": "A los usuarios les gusta que es seguro, que se sincroniza bien entre dispositivos, que tiene un buen plan gratis y que es fácil crear y guardar contraseñas complejas. Las quejas son la interfaz anticuada o poco pulida, el autocompletado y el autoguardado inconsistentes, algunas funciones avanzadas limitadas a los planes de pago, y errores al iniciar sesión que reportan algunos usuarios de la App Store.",
+   "caution": "Los precios mostrados se basan en facturación anual, y los planes individual Premium y Families solo se facturan anualmente. Teams y Enterprise se pueden facturar mensual o anualmente."
+  },
+  "choco": {
+   "summary": "Choco es una app gratis que te deja hacer pedidos a tus distribuidores de comida desde un solo lugar, en vez de por teléfono, mensaje o papel. Manda cada pedido al proveedor en el formato que él prefiere, como correo, texto o conexión directa con su sistema.",
+   "helpsWith": [
+    "Haz pedidos con muchos distribuidores en una sola app, en unos tres toques por pedido, en vez de llamadas y hojas de papel",
+    "Guarda una lista digital de productos por proveedor y revisa que los pedidos estén bien, con códigos, cantidades y confirmación de entrega en un solo lugar",
+    "Platica con tu equipo y con tu vendedor en la misma app, y mira los pedidos de varias sucursales (youtu.be)"
+   ],
+   "howToStart": "Descarga Choco desde App Store o Google Play, crea tu cuenta de negocio con tu número de teléfono o correo, luego agrega a tu distribuidor desde la pantalla de Chats y haz tu primer pedido.",
+   "pricingNote": "Gratis para restaurantes; los proveedores pagan.",
+   "extraFees": "Choco CheckOut cobra una comisión por transacción: una cuota fija más un porcentaje en pagos con tarjeta, y solo una cuota fija en pagos ACH. No cobra costos de instalación ni mínimos mensuales.",
+   "reviewSummary": "La gente dice que la app les ahorra tiempo al pedir a los proveedores, que es fácil e intuitiva de usar, y que el personal de ayuda y configuración es útil. Reportan que la app se traba o se cierra después de una actualización, que los proveedores no ven los pedidos, que se confunden al recibir pedidos por varios canales, que el servicio al cliente es malo, que faltan productos en el catálogo y que hay un límite para poner precios y mínimos por cantidad de caja."
+  },
+  "homebase": {
+   "summary": "Homebase es una app para pequeños negocios con equipos que trabajan por hora. Junta en un solo lugar los horarios de los empleados, el reloj de checar, la nómina, la contratación y los mensajes del equipo. Está hecha para negocios como restaurantes, tiendas y servicios para el hogar.",
+   "helpsWith": [
+    "Arma los horarios de tus empleados, maneja los cambios de turno y los días libres, y manda recordatorios a tu equipo",
+    "Lleva el registro de entradas y salidas desde un reloj de checar en el celular o en una tableta, y marca las checadas que faltan, los descansos y las horas extra",
+    "Publica vacantes en sitios como Indeed y Craigslist, y lleva el control de los candidatos en un solo lugar",
+    "Manda mensajes a una persona o a un grupo, y ve cuándo tu equipo ya leyó su horario"
+   ],
+   "howToStart": "Regístrate gratis, agrega a tus empleados con su número de teléfono y arma tu primer horario.",
+   "pricingNote": "Homebase tiene un plan Básico gratis para una sucursal con hasta 10 empleados. Los planes pagados cuestan $30 (Essentials), $70 (Plus) y $120 (All-in-One) por sucursal al mes, o $24, $56 y $96 por sucursal al mes si pagas por año.",
+   "extraFees": "La nómina es un complemento que cuesta $49 al mes más $6 por cada empleado activo pagado al mes; los primeros 6 meses del complemento de nómina son gratis. Las revisiones de antecedentes cuestan $30 cada una, Tip Manager cuesta $25 por sucursal al mes, Task Manager cuesta $13 por sucursal al mes, impulsar una publicación de empleo cuesta desde $50 por publicación, y Hiring Assistant cuesta desde $99 al mes.",
+   "reviewSummary": "A la gente le gustan la interfaz fácil de usar, los horarios de empleados, el registro de horas, los mensajes del equipo y las funciones de nómina integradas. Se quejan de fallas en la app y de que el soporte responde lento, además de funciones limitadas de nómina, problemas con el cobro y fallas en las notificaciones.",
+   "caution": "El plan Básico gratis solo sirve para una sucursal y hasta 10 empleados, no permite programar horarios con más de 10 días de anticipación, no tiene app móvil para empleados ni control de candidatos. Si tienes más de una sucursal o más de 10 empleados, necesitas Essentials o un plan superior."
+  },
+  "7shifts": {
+   "summary": "7shifts es una plataforma de horarios y recursos humanos para restaurantes que ayuda a los dueños a manejar los horarios del personal, el registro de entradas y salidas, las propinas y la nómina en un solo lugar. Tiene un plan gratis para horarios básicos y una prueba de 14 días de todas las funciones.",
+   "helpsWith": [
+    "Haz horarios por estación (cocina, salón) y mándalos al celular",
+    "Deja que el personal cambie turnos con aprobación del gerente",
+    "Reparte y divide las propinas de forma justa"
+   ],
+   "howToStart": "Crea una cuenta gratis de 7shifts en la página web, escribe la información de tu restaurante, conecta tu punto de venta y tu cuenta de banco, y luego invita a tus empleados.",
+   "pricingNote": "El plan Comp gratis cubre 1 sucursal con hasta 15 empleados. El plan pagado Essentials cuesta $44.99 por sucursal al mes ($39.99 si pagas por año), Pro cuesta $89.99 ($79.99 al año) y Premium cuesta $149.99 ($134.99 al año), todos por sucursal.",
+   "extraFees": "La nómina cuesta $39.99 por sucursal al mes más $6 por cada empleado pagado al mes (incluida en Premium). La administración de propinas cuesta $49.99 por sucursal al mes en los planes más bajos. Algunos proveedores de punto de venta, como Toast, cobran sus propias tarifas de API por la conexión. La conexión con el punto de venta Brink tiene un cargo de $10 por sucursal al mes.",
+   "reviewSummary": "A la gente le gustan la interfaz fácil de usar, la mensajería del equipo integrada y el tiempo que ahorran en los horarios. Se quejan de que la app carga lento, se cierra, las notificaciones no siempre llegan, el soporte por teléfono es malo y hay problemas con la nómina o el cobro.",
+   "caution": "Los precios son por sucursal, y si una sucursal pasa de 15, 30 o 60 empleados, sube a un plan más caro. Las cifras cargan de forma dinámica en la página del proveedor y las condiciones pueden cambiar. Se reporta que el pago anual por adelantado no es reembolsable."
+  },
+  "connecteam": {
+   "summary": "Connecteam es una app para manejar empleados que trabajan fuera de una oficina. Junta horarios, registro de horas, tareas, capacitación y comunicación del equipo. Para pequeños negocios con hasta 10 usuarios, el Plan para Pequeños Negocios es gratis para siempre.",
+   "helpsWith": [
+    "Capacita a personal nuevo con lecciones cortas en su celular",
+    "Listas diarias de apertura y cierre",
+    "Programa turnos y lleva el registro de horas"
+   ],
+   "howToStart": "Regístrate gratis e invita a tu equipo por mensaje de texto.",
+   "pricingNote": "El Plan para Pequeños Negocios es gratis para siempre para hasta 10 usuarios, con todas las funciones. Los planes pagados empiezan en $29 al mes para los primeros 30 usuarios en Basic; Advanced cuesta $49 y Expert $99 al mes. Se cobra por año o por mes.",
+   "extraFees": "No se mencionan costos de instalación ni por transacción. Los usuarios extra cuestan de $0.5 a $4.2 por usuario al mes, según la función y el plan. El plan gratis tiene límites de 1 reloj de checar y 1 horario de trabajo, y los usuarios archivados cuentan para el límite de 10.",
+   "reviewSummary": "A los usuarios les gustan lo fácil que es usarla, que junte horarios, registro de horas y comunicación del equipo, y que el equipo de soporte responde rápido. No les gusta que lleguen demasiadas notificaciones, que la configuración inicial del administrador sea difícil, que los planes más caros suban de precio, que haya fallas que se repiten y que la app móvil cargue lento.",
+   "caution": "El Plan gratis para Pequeños Negocios solo cubre hasta 10 usuarios, y el plan gratis Limited cubre de 10 a 30 usuarios solo con las funciones básicas. La integración de nómina con QuickBooks Online no pasa los días pagados de vacaciones, y si vuelves a exportar un periodo de pago se sobrescriben las horas que ya están en QuickBooks Online."
+  },
+  "gusto": {
+   "summary": "Gusto es un servicio de nómina y recursos humanos que paga a los empleados, calcula y presenta los impuestos de nómina, y maneja los papeles de contratación para pequeños negocios.",
+   "helpsWith": [
+    "Hace la nómina y paga a los empleados por depósito directo, con los impuestos calculados y presentados por ti",
+    "Presenta los formularios de impuestos de nómina federales, estatales y locales, como W-2, 1099, 941 y 940",
+    "Deja que los empleados nuevos llenen sus formularios W-4 e I-9 en línea",
+    "Crea anuncios de empleo, cartas de oferta y listas de bienvenida"
+   ],
+   "howToStart": "Regístrate en línea; Gusto te guía en el registro de impuestos de tu estado.",
+   "pricingNote": "Gusto no tiene plan gratis. El plan Simple cuesta $49 al mes más $6 al mes por persona, el plan Plus cuesta $80 al mes más $12 al mes por persona, y el plan Premium cuesta $180 al mes más $22 al mes por persona.",
+   "extraFees": "Los complementos cuestan aparte: pago instantáneo $100 por nómina, pago el mismo día $90 por nómina, pago al día siguiente $15 al mes más $3 al mes por persona, I-9 a distancia $20 por envío, E-Verify $5 por envío, soporte prioritario $30 al mes más $3 al mes por persona, Gusto Business Compliance $85 al mes por estado, integración con corredor de seguro médico $6 al mes por empleado elegible, HSA $2.50 al mes por participante, y pagos a contratistas extranjeros $5 por pago a cuentas bancarias de EE. UU. Hay un cargo anual de servicio de $200 que cubre HSA, FSA, FSA para dependientes y beneficios de transporte.",
+   "reviewSummary": "A los usuarios les gustan la interfaz limpia y fácil de usar, lo simple que es correr la nómina y el tiempo que ahorran en tareas diarias como recibos de pago, beneficios y registro de horas. Se quejan de que el servicio al cliente es lento y tarda en contestar, de fallas en la app y una interfaz desordenada, de que los recibos de pago y los saldos bancarios se actualizan tarde, y de que los planes más caros tienen límites en funciones avanzadas.",
+   "caution": "Tu precio mensual sube conforme agregas empleados activos, y a los contratistas solo se les cobra en los meses en que les pagas. Algunas funciones, como el pago al día siguiente y Time & Attendance Plus, solo vienen en ciertos planes."
+  },
+  "square-payroll": {
+   "summary": "Square Payroll hace la nómina de tu equipo, calcula y retiene los impuestos, y presenta los impuestos de nómina federales y estatales por ti. También crea los formularios W-2 y 1099-NEC al final del año.",
+   "helpsWith": [
+    "Paga a tu personal por horas con los registros de tiempo de Square",
+    "Paga a los contratistas solo unos $6 cada uno, sin cuota base",
+    "Presentación automática de impuestos"
+   ],
+   "howToStart": "Activa Payroll desde tu panel de Square.",
+   "pricingNote": "La nómina solo para contratistas cuesta $6 al mes por cada persona pagada. La nómina de servicio completo cuesta $35 al mes más $6 al mes por persona pagada.",
+   "extraFees": "Enviar por correo los formularios W-2 o 1099-NEC en papel cuesta $3 por formulario al año. El plan 401(k) de Vestwell empieza en $125 al mes más $8 por empleado participante. El acceso anticipado al sueldo cuesta 1.75% del pago neto.",
+   "reviewSummary": "A los usuarios les gustan lo fácil que es usarla, la presentación y retención automática de impuestos, y el proceso simple de nómina que funciona bien con el punto de venta de Square. No les gusta que la personalización y los reportes sean limitados, que tenga menos funciones de recursos humanos que los grandes proveedores de nómina, que el soporte sea lento o difícil de contactar, que los costos sean altos, y que haya problemas con los datos bancarios o con el cálculo de impuestos.",
+   "caution": "No hay un plan totalmente gratis, pero Square muestra un aviso de 'Iniciar prueba gratis' cuya duración y requisitos no están claros. Las primas del seguro médico y los impuestos de nómina son costos separados."
+  },
+  "roll-by-adp": {
+   "summary": "Roll by ADP es una app de nómina para negocios pequeños que usas chateando, así puedes pagarle a tus empleados y hacer tareas de nómina en menos de un minuto. También calcula, presenta y paga los impuestos de nómina por ti.",
+   "helpsWith": [
+    "Haz la nómina chateando en la app, en menos de un minuto",
+    "Los impuestos se calculan, se descuentan, se presentan y se pagan por ti",
+    "Agrega un empleado o contratista nuevo contestando unas preguntas en el chat",
+    "Da aumentos y bonos o haz pagos fuera de fecha por medio del chat"
+   ],
+   "howToStart": "Regístrate en la página web o en la app de Roll by ADP y sigue la configuración por chat, que toma unos 15 minutos o menos. Necesitarás tu EIN, los datos de tu cuenta bancaria del negocio y la información de tus empleados.",
+   "pricingNote": "Roll by ADP tiene un solo plan, con una tarifa base de $39 al mes más $5 por cada empleado o contratista que se le pague en el mes. Para clientes nuevos en EE. UU. hay 3 meses de prueba gratis. Algunas páginas muestran $59 de base más $7 por empleado, así que el precio actual puede ser diferente.",
+   "extraFees": "$5 por cada empleado W-2 activo o contratista 1099 que se le pague cada mes. El depósito directo el mismo día o la transferencia instantánea tiene una tarifa por transacción (no publican el monto). Las empresas adicionales suman cargos mensuales y por empleado.",
+   "reviewSummary": "A los usuarios les gusta que puedan hacer la nómina desde el teléfono en pocos minutos y que la app es fácil de usar. También dicen que los agentes de soporte fueron de ayuda cuando logran comunicarse. A los usuarios no les gusta que les cobren los fondos de nómina en el día equivocado, que los depósitos del mismo día se atrasen hasta el lunes, los errores y congelamientos de la app, el soporte difícil de contactar con esperas largas, y que la configuración de la cuenta fuera confusa.",
+   "caution": "La prueba gratis es solo para clientes nuevos en EE. UU. y el cobro empieza después de 3 meses. Para cancelar tienes que avisar con 30 días de anticipación, y durante la prueba pueden aplicar cargos por servicios adicionales."
+  },
+  "indeed": {
+   "summary": "Indeed es un sitio para buscar empleo y una herramienta de contratación donde los empleadores publican vacantes y reciben solicitudes. También te permite encontrar, enviar mensajes y entrevistar a candidatos en un solo lugar.",
+   "helpsWith": [
+    "Escribe una publicación de empleo con ayuda de un generador de descripciones de puestos con IA, que puedes revisar y editar antes de publicarla",
+    "Agrega preguntas de filtro para elegir a los solicitantes que cumplen con tus requisitos principales",
+    "Da seguimiento, envía mensajes y programa entrevistas con los solicitantes desde tu panel de empleador"
+   ],
+   "howToStart": "Crea una cuenta de empleador gratis y publica tu primera vacante.",
+   "pricingNote": "Los empleadores pueden publicar hasta tres vacantes gratis por mes calendario, y cada una se queda activa hasta 30 días. Los Empleos Patrocinados pagados (Estándar o Premium) no tienen una tarifa fija: se cobra por clic o por solicitud iniciada, según un presupuesto diario que tú defines.",
+   "reviewSummary": "A los revisores les gusta que la publicación de vacantes sea gratis, que reciben muchas solicitudes, que el proceso para publicar es fácil y que se conecta con herramientas de contratación. Se quejan de candidatos de baja calidad o que no cumplen los requisitos, de problemas con el currículum y las plantillas, de errores de la app y de un botón de entrevista difícil de tocar, de solicitudes falsas o hechas por bots, y de que el soporte al cliente es lento."
+  },
+  "goodcall": {
+   "summary": "Goodcall es un agente telefónico con IA que contesta las llamadas de tu negocio las 24 horas, anota los datos de quien llama y agenda citas o le envía el cliente a tu equipo. Lo configuras describiendo tu negocio con tus propias palabras, y también puede funcionar con la información de tu sitio web.",
+   "helpsWith": [
+    "Contesta llamadas de noche, los fines de semana y cuando tu línea principal está ocupada, usando la información de tu negocio",
+    "Anota los datos de quien llama y te manda el cliente por mensaje de texto y correo al terminar la llamada",
+    "Agenda citas en Google Calendar y pasa la llamada a una persona cuando hace falta"
+   ],
+   "howToStart": "Crea tu agente describiendo tu negocio, pruébalo con llamadas de práctica, luego elige un número de teléfono y reenvía tu línea actual hacia él.",
+   "pricingNote": "Goodcall tiene el plan Starter por $79 al mes para 100 clientes únicos, Growth por $129 al mes para 500 clientes únicos, Scale por $299 al mes para 2,000 clientes únicos, y un plan Enterprise personalizado. No hay plan gratis, solo una demostración gratis que requiere un plan de pago cuando conectas un número de teléfono.",
+   "extraFees": "Si pasas de los clientes únicos incluidos, cobran $0.79 por cliente extra en Starter, $0.26 en Growth y $0.15 en Scale. Los minutos y las llamadas no se cobran por separado, y no aparecen cargos por minuto, por transacción ni de configuración.",
+   "reviewSummary": "Una persona dijo que el servicio era fácil de usar, tenía muchas funciones y le ayudó a conseguir nuevos clientes y a bajar los costos de servicio al cliente. Los usuarios se quejan de aumentos de precio inesperados, de cargos que no les reembolsaron después de cancelar, de correos de facturación sin respuesta, y de que al llamar al servicio al cliente les hacen una oferta de venta en vez de ayudarles.",
+   "caution": "Goodcall no tiene por ahora un plan anual, y un cliente único se cuenta una sola vez por número de teléfono al mes."
+  },
+  "openphone": {
+   "summary": "Quo (antes OpenPhone) es un sistema telefónico para negocios que te da un número de trabajo aparte en tu teléfono, con llamadas, mensajes de texto y mensajes de voz en un solo lugar compartido. También tiene una recepcionista con IA que contesta cuando tú no puedes.",
+   "helpsWith": [
+    "Mantén separadas las llamadas y mensajes de trabajo de tu número personal",
+    "Recibe resúmenes y transcripciones automáticas de las llamadas con IA",
+    "Comparte un solo número de negocio para que tu equipo conteste a los clientes juntos",
+    "Envía respuestas automáticas a los mensajes que llegan cuando nadie está disponible"
+   ],
+   "howToStart": "Descarga la app de Quo, crea una cuenta para empezar la prueba gratis de siete días y elige un número local o de línea gratuita.",
+   "pricingNote": "Quo (antes OpenPhone) tiene tres planes por usuario con pago anual: Starter por $15 al mes, Business por $23 al mes y Scale por $35 al mes. Con pago mensual cuestan $19, $33 y $47 por usuario. No hay plan gratis permanente, solo una prueba gratis de 7 días.",
+   "extraFees": "Cada número de teléfono adicional cuesta $5 al mes. Para enviar mensajes de texto en EE. UU. necesitas registrar tu número (10DLC) con un pago único de $19.50 por la revisión, más un cargo mensual de $1.50 a $3 según el tipo de negocio. Si lo rechazan, la reenvío cuesta $15. Las llamadas y mensajes internacionales se cobran según su uso. La recepcionista Sona incluye 10 llamadas al mes, y los planes pagados empiezan en $25 al mes por 50 llamadas. Los mensajes automáticos con Zapier y Make cuestan $0.01 por segmento.",
+   "reviewSummary": "A los usuarios les gusta que sea fácil de usar, que la calidad de las llamadas es confiable, las transcripciones y grabaciones de llamadas, tener varias líneas telefónicas, y las integraciones con Slack y Zapier. Se quejan de llamadas que se caen o no se contestan, de funciones con errores, de una interfaz poco intuitiva, de respuestas lentas del soporte y de transferencias de llamadas y notificaciones poco confiables.",
+   "caution": "Los mensajes de texto no están disponibles durante la prueba gratis y primero tienes que registrar tu número. Las llamadas y mensajes internacionales no están incluidos en la prueba. El plan Starter no se conecta a un CRM, así que las integraciones con HubSpot y Salesforce requieren el plan Business o superior."
+  },
+  "google-voice": {
+   "summary": "Google Voice le da a un negocio un número de teléfono para llamadas, mensajes de texto y buzón de voz, que se puede usar en celulares, laptops y teléfonos de escritorio compatibles. Usa la IA de Google para bloquear llamadas de spam y convertir los mensajes de voz en texto.",
+   "helpsWith": [
+    "Lee tus mensajes de voz como texto, transcritos automáticamente",
+    "Bloquea llamadas de spam con la IA de Google",
+    "Configura un menú automático para mandar a quien llama con la persona o departamento correcto",
+    "Reenvía llamadas a otros números de teléfono que vincules"
+   ],
+   "howToStart": "Regístrate en voice.google.com y elige un número.",
+   "pricingNote": "El plan personal gratis te da un número de EE. UU. para una cuenta personal de Gmail. Los planes para negocios empiezan en $10 por usuario al mes para Starter, $20 para Standard y $30 para Premier. Starter, para hasta 10 usuarios, necesita una suscripción de Google Workspace.",
+   "extraFees": "Google Workspace cuesta $8.40 por usuario al mes, además del precio de Voice, si el negocio todavía no lo tiene. Pasar tu número a Google cuesta $20 y sacarlo cuesta $3 en el plan personal. Las llamadas internacionales se cobran por minuto en Starter y Standard, y solo Premier las incluye.",
+   "reviewSummary": "Los usuarios dicen que es sencillo y fácil de usar, confiable para llamadas y mensajes, y que da un número de teléfono aparte sin costo extra. Reportan que la app se cierra o se congela, notificaciones y mensajes que no llegan, llamadas de spam que suenan para siempre, un límite de 160 caracteres por SMS, y problemas para pagar la factura.",
+   "caution": "Los planes de negocios de Google Voice requieren una suscripción pagada de Google Workspace. El precio del plan y el de Workspace se cobran por separado, así que el costo mensual real de un equipo pequeño es más alto que solo el precio de Voice. Las tarifas de llamadas internacionales pueden cambiar en cualquier momento."
+  },
+  "whatsapp-business": {
+   "summary": "WhatsApp Business es una app gratis para negocios pequeños, hecha para funcionar como WhatsApp Messenger, con herramientas para automatizar, ordenar y responder rápido los mensajes de los clientes. Te permite crear un perfil de negocio y mostrar tus productos.",
+   "helpsWith": [
+    "Envía un mensaje automático de ausencia fuera del horario de atención, con el tiempo estimado de respuesta",
+    "Crea respuestas rápidas para preguntas comunes, que se envían con un atajo corto como /horario",
+    "Muestra tus productos y servicios en un catálogo, con nombre, precio, descripción y foto",
+    "Organiza y encuentra los chats de tus clientes usando etiquetas y listas"
+   ],
+   "howToStart": "Descarga WhatsApp Business desde Google Play Store o App Store, luego regístrate con un número de celular o de casa que sea tuyo. Ingresa el código de 6 dígitos que te llega por SMS o por llamada.",
+   "pricingNote": "La app WhatsApp Business es gratis para descargar y usar. La Plataforma de WhatsApp Business (API) no cobra licencia y cobra por cada mensaje entregado. Los planes de negocio de Meta One empiezan en US$14.99 al mes (Essential), Advanced US$49.99, Expert US$149 y Max US$499.",
+   "extraFees": "Los usuarios de la Plataforma (API) pagan por cada mensaje entregado, con tarifas que dependen de la categoría del mensaje y del país del destinatario. Los primeros 1,000 mensajes de servicio al mes por número de teléfono del negocio son gratis, y la mayoría de las respuestas de servicio empiezan a cobrarse desde el 1 de octubre de 2026. Los Proveedores de Soluciones de Negocio pueden agregar sus propios cargos.",
+   "reviewSummary": "A los usuarios les gusta que WhatsApp Business es fácil de usar, que tiene respuestas rápidas y automatización, y que les permite llegar a los clientes en una app que ya usan. Se quejan de que las funciones avanzadas son limitadas, de que los chats se hacen difíciles de manejar cuando hay mucho volumen, de que la app se cierra, de que los chats con el Agente de IA se quedan trabados, de la mala calidad de archivos y fotos, y de que no se conecta de forma nativa con muchas herramientas de terceros.",
+   "caution": "La capacidad de la app gratis en los dispositivos vinculados y el envío de difusiones es limitado y puede cambiar. Meta dice que los precios y beneficios de los planes Meta One varían según la región y la cuenta. Meta Verified para negocios se vende por separado y tiene funciones parecidas."
+  },
+  "tidio": {
+   "summary": "Tidio es una herramienta de chat en vivo y mensajes para clientes en sitios web y tiendas en línea. Su agente de IA, Lyro, responde preguntas comunes de tus clientes y puede pasar el chat a una persona cuando hace falta.",
+   "helpsWith": [
+    "Lyro responde preguntas comunes de tu sección de preguntas frecuentes y del contenido de tu sitio, en muchos idiomas, y pasa los chats más difíciles a tu equipo.",
+    "Un widget de chat en vivo en tu sitio, con una sola bandeja para mensajes de chat en vivo, Instagram, WhatsApp y Messenger.",
+    "Flujos que mandan mensajes automáticos en momentos clave, como pedir datos de contacto o responder cuando no hay nadie disponible.",
+    "Apps para el celular y la computadora para que recibas los chats nuevos donde estés."
+   ],
+   "howToStart": "Regístrate, pon el widget en tu sitio y escribe tus preguntas más comunes.",
+   "pricingNote": "El plan gratis incluye 10 asientos y 50 conversaciones facturables al mes. El plan Starter cuesta $29 al mes ($24.17 al mes si pagas al año) y cubre 100 conversaciones. El plan Growth cuesta $59 al mes ($49.17 al mes si pagas al año) y cubre de 250 a 2,000 conversaciones.",
+   "extraFees": "El agente de IA Lyro se compra aparte, como paquete prepagado desde $39 al mes ($32.50 al mes si pagas al año) por 50 conversaciones, hasta $583.33 por 1,000. Flujos se cobra según la cantidad de visitantes que alcanzas, desde $24.17 al mes. Quitar la marca de Tidio cuesta $16.67 al mes en el plan Growth. El plan Plus empieza con una cuota mensual de $300 más el uso medido. En los planes de autoservicio no hay cargos extra: si llegas al límite, la bandeja se bloquea, a menos que tengas la actualización automática activada.",
+   "reviewSummary": "A los usuarios les gusta la interfaz fácil de usar, la configuración rápida, el servicio al cliente rápido, los chatbots de IA útiles y poder tener los chats, correos y automatizaciones en una sola herramienta. Los usuarios dicen que Tidio es caro, sobre todo para negocios pequeños y trabajadores independientes, que le faltan algunas funciones y opciones de personalización, que el soporte es malo en los planes más baratos, y que las respuestas de la IA y la app de Google Play pueden ser inconsistentes, lentas o tener errores.",
+   "caution": "El plan gratis solo permite 50 conversaciones facturables al mes y bloquea la bandeja al llegar al límite. La cuota gratis de 50 conversaciones de Lyro es única para toda la vida de la cuenta, no mensual. Los precios que se muestran aplican a los planes Plus y Premium."
+  },
+  "square-appointments": {
+   "summary": "Square Appointments es una herramienta de citas y reservaciones que permite a tus clientes apartar tus servicios en línea a cualquier hora y que te ayuda a manejar en un solo lugar los horarios de tu equipo, tus servicios y tus pagos. Manda recordatorios automáticos por correo y mensaje de texto, y funciona con Google Calendar.",
+   "helpsWith": [
+    "Dale a tus clientes un sitio para reservar en línea las 24 horas, con un botón de Reservar que puedes poner en tu sitio web, tu perfil de Instagram, tu página de Facebook o tu Perfil de Negocio en Google.",
+    "Se sincroniza con Google Calendar para bloquear tu tiempo personal y evitar citas dobles."
+   ],
+   "howToStart": "Activa Appointments desde una cuenta gratis de Square y comparte tu enlace para reservar.",
+   "pricingNote": "Square Free cuesta $0 por ubicación al mes. Square Plus cuesta $49 por ubicación al mes y Square Premium cuesta $149 por ubicación al mes. Además de cada plan, se cobran comisiones por procesar tarjetas.",
+   "extraFees": "En Square Free, procesar tarjetas cuesta 2.6% + 15 centavos si el cliente pasa, inserta o desliza la tarjeta, y 3.3% + 30 centavos en línea. En Plus cuesta 2.5% + 15 centavos en persona y 2.9% + 30 centavos en línea. En Premium cuesta 2.4% + 15 centavos en persona y 2.9% + 30 centavos en línea.",
+   "reviewSummary": "Los que la han usado dicen que es fácil de usar, que mantiene organizadas las citas y los datos de los clientes, que los clientes pueden reservar en línea y que se conecta bien con los pagos de Square y con Google Calendar. También dicen que las funciones avanzadas son limitadas para equipos grandes o citas complicadas, que la app tiene errores y fallas al sincronizar el calendario, que a veces hay problemas con el pago con el celular y con otros pagos, que el modo oscuro no se puede configurar aparte del teléfono, y que es caro para los trabajadores independientes.",
+   "caution": "Square Free no tiene cuota mensual, pero aun así pagas comisiones en cada pago con tarjeta. Para cobrar anticipos de las citas, tu cuenta necesita tener activado el procesamiento de tarjetas de crédito."
+  },
+  "calendly": {
+   "summary": "Calendly es una herramienta en línea para programar citas que te da una página para reservar, así tus clientes pueden ver tus horarios libres y apartar una cita contigo sin estar mandando correos ni llamadas de ida y vuelta. Muestra las horas en la zona horaria de cada persona y agrega la cita a tu calendario automáticamente.",
+   "helpsWith": [
+    "Deja que tus clientes aparten cotizaciones, consultas o citas por su cuenta desde tu enlace de programación.",
+    "Conecta tu calendario de Google, Outlook o Exchange para no tener dos citas al mismo tiempo.",
+    "Manda recordatorios y seguimientos automáticos por correo o mensaje de texto.",
+    "Comparte tu enlace para reservar en tu sitio web, tus correos y tus redes sociales, y cobra tu tiempo al momento de reservar."
+   ],
+   "howToStart": "Regístrate gratis, conecta tu calendario y comparte tu enlace.",
+   "pricingNote": "El plan gratis incluye un tipo de evento y una conexión de calendario. El plan Standard cuesta $10 por asiento al mes si pagas al año ($12 al mes si pagas mensual). El plan Teams cuesta $16 por asiento al mes si pagas al año ($20 al mes si pagas mensual). El plan Enterprise empieza en unos $15,000 al año.",
+   "extraFees": "Se necesita un asiento para cada usuario que conecta un calendario o da reuniones; los invitados no necesitan asiento. El cobro de pagos con Stripe o PayPal está disponible en los planes pagados, y los asientos de Teams a partir del número 30 tienen descuento por volumen si pagas al año.",
+   "reviewSummary": "A los usuarios les gusta que programar sea fácil, que la integración con el calendario evite citas dobles y que los enlaces para compartir sean simples. No les gusta que las funciones avanzadas y la personalización estén solo en los planes pagados, que la pantalla de la app pueda verse desordenada, y algunos reportan problemas al sincronizar la disponibilidad y que el soporte es lento.",
+   "caution": "Notetaker y Callie se venden como complementos para Standard o Teams y solo están disponibles en inglés. Calendly ya no ofrece los planes Essentials o Professional anteriores a clientes nuevos."
+  },
+  "fresha": {
+   "summary": "Fresha es un sistema de reservaciones y administración de negocios para salones, barberías, spas y otros negocios de belleza y bienestar. Permite que tus clientes reserven en línea y te ayuda a manejar tu calendario, tu equipo, tus pagos y tus recordatorios.",
+   "helpsWith": [
+    "Reservaciones en línea a través de enlaces directos, redes sociales y el mercado de Fresha, donde los clientes nuevos pueden encontrarte.",
+    "Recordatorios automáticos por SMS, correo o notificación en la app para reducir las citas que no llegan, además de pagos por adelantado o confirmación con tarjeta.",
+    "Inventario en línea y en tienda sincronizado para no vender más de lo que tienes.",
+    "Cálculo automático de comisiones para tu personal en cada venta."
+   ],
+   "howToStart": "Crea una cuenta en Fresha, agrega los datos de tu negocio, tus servicios y tu equipo, luego activa las reservaciones en línea y comparte tu enlace.",
+   "pricingNote": "No hay plan gratis. El plan Independent cuesta $19.95 al mes para un miembro del equipo que puede recibir citas. El plan Team cuesta $14.95 al mes por cada miembro del equipo que puede recibir citas. El plan Enterprise se cotiza a la medida para negocios con más de 20 miembros del equipo.",
+   "extraFees": "Pagos en línea: 2.79% + $0.20 por transacción. Pagos en persona: 2.29% + $0.20 por transacción, más $0.10 por cada autorización de Tap to Pay. Tarjeta ingresada a mano: 3.30% + $0.20. Klarna (compra ahora, paga después): 5.99% + $0.30. Terminales de tarjeta desde $139 por aparato. Comisión única de 20% (mínimo $6) por clientes nuevos que llegan por el mercado de Fresha. Mensajes automáticos después de 100 gratis al mes cuestan $0.02 cada uno; WhatsApp cuesta de $0.04 a $0.11 cada uno; correos de marketing después de 50 gratis al mes cuestan $0.02 cada uno; mensajes de texto de marketing cuestan $0.08 cada uno. Complementos opcionales como Team Connect a $2.95 por miembro del equipo al mes y Google Rating Boost a $14.95 por ubicación al mes.",
+   "reviewSummary": "A los que la usan les gusta que la interfaz sea fácil, que se configure rápido, que los clientes puedan reservar en línea y que el servicio al cliente responda bien. Se quejan de cargos inesperados o poco claros, como los cargos por clientes nuevos, de que la app a veces no funciona bien o tiene fallas, y de que es difícil conseguir reembolsos o ayuda cuando te cobran de manera injusta.",
+   "caution": "El precio del equipo se cobra por cada miembro que puede recibir citas, así que el costo sube mientras más personas tengas. Se aplica una comisión de 20% por clientes nuevos que llegan por el mercado de Fresha, y los precios no incluyen los impuestos de venta locales."
+  },
+  "chatgpt": {
+   "summary": "ChatGPT es un asistente de IA con el que platicas para que te ayude con tareas diarias como escribir, planear, investigar, traducir y analizar archivos o imágenes. Hay un plan gratis, y los planes de paga ofrecen más capacidad y herramientas extra.",
+   "helpsWith": [
+    "Te explica una carta o un concepto confuso con palabras sencillas, y te ayuda a escribir o corregir correos y mensajes.",
+    "Busca información actual en internet y te da respuestas con fuentes, incluso en el plan gratis.",
+    "Subes un archivo o una imagen y le haces preguntas, o te resume y simplifica documentos largos.",
+    "Traduce contenido y te ayuda a organizar planes, proyectos y presentaciones."
+   ],
+   "howToStart": "Abre chatgpt.com. Con una cuenta gratis puedes guardar tu historial.",
+   "pricingNote": "El plan gratis está disponible para todos. Para negocios pequeños, el plan Business tiene asientos Standard a $25 por usuario al mes si pagas mensual o $20 por usuario al mes si pagas al año, y asientos Premium a $125 al mes o $100 al año. Se necesitan al menos 2 asientos de pago.",
+   "extraFees": "El uso que pase de los límites incluidos se puede comprar como créditos del espacio de trabajo con precios flexibles, según la Tabla de Tarifas de ChatGPT. Los precios pueden cambiar según el país y la moneda.",
+   "reviewSummary": "A los usuarios les gustan sus respuestas rápidas, que sirve para lluvia de ideas y para ayudar con código, el tiempo que ahorra y lo fácil que es de usar. No les gustan las respuestas incorrectas o inventadas, los errores y fallas frecuentes, las limitaciones de la versión gratis, los cargos inesperados de suscripción y que el servicio al cliente no ayude mucho.",
+   "caution": "No soy abogado. No pegues números de Seguro Social ni datos de pasaporte."
+  },
+  "rocket-lawyer": {
+   "summary": "Rocket Lawyer es un servicio legal en línea que permite a los dueños de negocios pequeños crear documentos legales, hacer preguntas a abogados y hacer trámites de registro y papeleo del negocio. Se ofrece con planes de membresía de paga.",
+   "helpsWith": [
+    "Hacer un contrato de arrendamiento, un contrato de servicios o un acuerdo con un contratista independiente.",
+    "Hacerle una pregunta a un abogado.",
+    "Registrar una LLC."
+   ],
+   "howToStart": "Empieza una prueba gratis y elige el documento que necesitas.",
+   "pricingNote": "Rocket Lawyer tiene el plan Standard a $149 al año ($12.41 al mes si pagas al año, o $34.99 al mes), el plan Plus a $249 al año ($20.75 al mes, o $49.99 al mes), y el plan Pro a $349 al año ($29.08 al mes, o $64.99 al mes). Todos incluyen una prueba gratis de 7 días.",
+   "extraFees": "Los servicios legales premium cuestan extra: el primer registro de negocio es gratis y después cuesta $99 más las cuotas del estado; el número EIN cuesta $70; el servicio de agente registrado cuesta $125 al año en los planes Plus y Pro; los servicios de marca registrada empiezan en $350; las sesiones de asesoría legal cuestan desde $149 por 30 minutos; el reporte anual cuesta $100 y el DBA cuesta $100 en el plan Pro.",
+   "reviewSummary": "A los usuarios les gusta que la plataforma sea sencilla y fácil de usar, que las plantillas de documentos por estado sean útiles y que el personal de apoyo ayude. No les gusta el costo de la suscripción mensual, los cargos poco claros después de bajar de plan, las respuestas lentas o que no contesten, y que la firma de documentos sea difícil de seguir.",
+   "caution": "La oferta de primer registro de negocio gratis no incluye las cuotas del gobierno ni de terceros, y requiere una membresía vigente. Los registros adicionales cuestan $99 cada uno. El plan Standard solo incluye 12 preguntas a un abogado al año y no incluye consultas en vivo."
+  },
+  "duolingo": {
+   "summary": "Duolingo es una app y página web gratis para aprender idiomas, con lecciones cortas y divertidas como juegos. Para negocios pequeños, Duolingo for Business le da a tu personal acceso a sus cursos por un precio anual con descuento por cada persona que aprende.",
+   "helpsWith": [
+    "Practicar inglés con lecciones cortas de 5 minutos que cubren lectura, escritura, escuchar y hablar, como se ve en la página del curso de inglés",
+    "Mantener a tu personal motivado con rachas, puntos XP y tablas de posiciones que compiten con otros estudiantes del mundo",
+    "Dejar que tus empleados aprendan a su propio horario con lecciones pequeñas en su teléfono",
+    "Comprar hasta 1,000 cuentas Super Duolingo con descuento por medio de la herramienta de autoservicio y darle a tus empleados códigos de acceso"
+   ],
+   "howToStart": "Instala la app, elige 'Yo hablo ...' y 'Quiero aprender inglés'.",
+   "pricingNote": "Gratis con anuncios; Super cuesta unos $13 al mes.",
+   "reviewSummary": "A los usuarios les gustan las lecciones entretenidas como juegos, las prácticas cortas que caben en horarios ocupados y la interfaz fácil de usar. A los usuarios no les gustan las lecciones repetitivas, los anuncios frecuentes y los límites de corazones en la versión gratis, el soporte al cliente débil y los problemas de facturación, y la práctica limitada de gramática y conversación.",
+   "caution": "Duolingo no publica una lista de precios fija, así que los precios que aparecen al pagar pueden variar según la cuenta, la plataforma y el país, y un plan Lite parece estar solo en prueba."
+  },
+  "nilc-know-your-rights": {
+   "summary": "El National Immigration Law Center es un grupo de defensa sin fines de lucro que lucha por los derechos de inmigrantes de bajos ingresos y de sus seres queridos, incluyendo a los trabajadores. Publica guías gratis sobre tus derechos, incluyendo una guía para patrones sobre qué hacer si agentes de inmigración llegan a un lugar de trabajo.",
+   "helpsWith": [
+    "Leer orientación sobre lo que pueden hacer los patrones si agentes de inmigración llegan a un lugar de trabajo",
+    "Compartir guías y recursos sobre tus derechos con tu personal",
+    "Encontrar información sobre los derechos de los trabajadores, incluyendo pago justo y condiciones de trabajo seguras"
+   ],
+   "howToStart": "Ve a nilc.org y busca los recursos sobre tus derechos.",
+   "pricingNote": "El National Immigration Law Center es una organización sin fines de lucro y no vende planes de software; sus servicios son gratis para la mayoría de las organizaciones, con una posible cuota solo para algunas capacitaciones en persona, y los donantes pueden dar donaciones únicas o montos mensuales desde $5 al mes.",
+   "extraFees": "Puede haber una cuota para capacitaciones en persona; una cuota de transacción puede ser cubierta por el donante si así lo decide.",
+   "caution": "La organización es una entidad sin fines de lucro 501(c)(3) que sirve a inmigrantes de bajos ingresos y a organizaciones comunitarias, no a negocios pequeños, y generalmente no toma casos legales individuales."
+  },
+  "nakasec-know-your-rights": {
+   "summary": "Know Your Rights 4 Immigrants es una app gratis para teléfono de NAKASEC que le da a los inmigrantes información general sobre sus derechos y les ayuda a prepararse para emergencias. No es asesoría legal y NAKASEC no es una agencia del gobierno.",
+   "helpsWith": [
+    "Reproduce tus derechos en voz alta para un agente de ICE o de la policía",
+    "Envía un mensaje de emergencia a tus contactos seleccionados de antemano",
+    "Ofrece un plan de ejemplo para la preparación de tu familia",
+    "Proporciona información de contacto de los consulados"
+   ],
+   "howToStart": "Descarga la app gratis desde la App Store de Apple o Google Play, o usa los enlaces de descarga en la página web de NAKASEC, luego ábrela y elige tu idioma.",
+   "pricingNote": "App gratis de una organización sin fines de lucro.",
+   "caution": "La app no es asesoría legal, y fue desarrollada por HANA Center para NAKASEC, no por una entidad del gobierno."
+  },
+  "migrawatch": {
+   "summary": "MigraWatch es una línea de ayuda a nivel nacional operada por United We Dream, donde la gente puede reportar actividad de ICE o CBP en su comunidad y recibir orientación y apoyo. La atienden voluntarios bilingües que no son abogados y no dan asesoría legal.",
+   "helpsWith": [
+    "Reportar por teléfono actividad de ICE o CBP vista en tu comunidad",
+    "Recibir información sobre tus derechos y referencias a proveedores de servicios legales locales",
+    "Enviar alertas de texto mandando un mensaje al 877877"
+   ],
+   "howToStart": "Busca el número actual de la línea de ayuda en la página web de United We Dream.",
+   "pricingNote": "La línea de ayuda MigraWatch es un teléfono gratis operado por United We Dream, sin planes de pago, así que no hay precio mensual para un negocio pequeño en EE. UU.",
+   "caution": "Esta es una línea comunitaria para reportar actividad de ICE y CBP, no un producto de software para negocios, así que no ofrece planes de negocio ni integraciones con apps."
+  },
+  "fooddocs": {
+   "summary": "FoodDocs es una herramienta de software de seguridad alimentaria que te ayuda a manejar los controles diarios de seguridad alimentaria, los registros y los documentos en un solo lugar. Puede crear un plan HACCP de seguridad alimentaria con IA y dar seguimiento a las tareas de monitoreo en la computadora o el teléfono.",
+   "helpsWith": [
+    "Crea un plan HACCP de seguridad alimentaria en menos de una hora contestando preguntas sencillas sobre tu negocio",
+    "Haz los controles diarios de monitoreo y los registros de temperatura en la app del celular, con recordatorios y notificaciones",
+    "Conecta refrigeradores inteligentes y sensores de temperatura para que las lecturas se guarden solas en tus registros",
+    "Guarda tus documentos de seguridad alimentaria en la nube y encuentra registros viejos rápido para inspectores o retiros de productos"
+   ],
+   "howToStart": "Regístrate gratis y contesta preguntas sobre tu cocina para generar el plan.",
+   "pricingNote": "FoodDocs no tiene plan gratis; los planes de pago son Lite a $99 por sitio al mes ($79 si pagas al año), Standard a $199 ($167 al año) y Professional a $299 ($250 al año), además de un nivel Enterprise con precio personalizado, y una prueba gratis de 14 días.",
+   "extraFees": "Algunos planes tienen cargos de implementación de $999 o $1,249, que se cobran aparte de la suscripción; los precios no incluyen IVA.",
+   "reviewSummary": "Los usuarios dicen que el software es fácil de configurar y usar, y que el servicio al cliente es útil y responde rápido. Dicen que a algunas funciones les faltan cosas o no funcionan como se anuncian, que el precio mensual es alto para negocios pequeños y que al principio el sistema es confuso.",
+   "caution": "Las integraciones y los precios Enterprise requieren contactar a ventas, y el registro de trazabilidad solo está en el plan Professional."
+  },
+  "grow-with-google": {
+   "summary": "Grow with Google ofrece capacitación gratis en IA y herramientas de Google para ayudar a los negocios pequeños a ahorrar tiempo, entender sus datos y encontrar nuevos clientes. Incluye cursos en línea, asesoría práctica y herramientas como Gemini y Pomelli.",
+   "helpsWith": [
+    "Aprende lo básico de IA con el curso Google AI Essentials, que toma menos de 5 horas y lo puedes hacer a tu ritmo grow.google",
+    "Usa la IA para redactar respuestas de correo, hacer lluvia de ideas y organizar información; el curso Make AI Work for You muestra cómo la usan los dueños de negocios pequeños grow.google",
+    "Crea campañas de mercadeo e imágenes de productos a partir de tu sitio web con Pomelli, y sube documentos de tu negocio a Gemini Notebook para sacar ideas grow.google",
+    "Encuentra un Coach de Grow with Google cerca de ti o asiste a un taller gratis en persona de Make AI Work for You grow.google"
+   ],
+   "howToStart": "Entra a grow.google y elige un curso como AI Essentials, o busca un coach o taller cerca de ti.",
+   "pricingNote": "La capacitación en IA de Grow with Google es gratis para negocios pequeños y medianos elegibles de EE. UU. con 500 empleados o menos y un EIN válido, e incluye tres meses gratis de Google Workspace Business Standard y Google AI Pro; el certificado pagado Google AI Professional cuesta $49 al mes en EE. UU. y Canadá después del acceso gratis.",
+   "extraFees": "Google Workspace Business Standard tiene un valor de $14 al mes por usuario después del periodo gratis, más los impuestos locales que apliquen, y se necesita una tarjeta de crédito para activar la cuenta.",
+   "reviewSummary": "Los usuarios dicen que Gemini se integra bien con los servicios de Google y da respuestas rápidas y precisas que ayudan a redactar correos y resumir información.",
+   "caution": "La oferta gratis es solo para clientes nuevos de Google Workspace, requiere un dominio propio, admite un máximo de 300 usuarios durante el periodo sin costo y es solo para negocios elegibles de EE. UU. con 500 empleados o menos; la capacitación sin costo también pide una tarjeta de crédito para verificación."
+  },
+  "khan-academy": {
+   "summary": "Khan Academy es un sitio de aprendizaje gratis y sin fines de lucro, con lecciones, videos y ejercicios de muchos temas. Khanmigo es su tutor y asistente de enseñanza con IA, que te guía para que encuentres las respuestas por tu cuenta en vez de dártelas directamente.",
+   "helpsWith": [
+    "Lecciones y ejercicios gratis de temas como matemáticas, economía y finanzas, que pueden ayudarte con precios y cuentas del negocio",
+    "Tutoría personalizada del tutor de IA Khanmigo sobre el contenido de Khan Academy, con ayuda en cualquier tema (khanmigo.ai)",
+    "Planes de clase, rúbricas y preguntas de salida para maestros con las Herramientas para maestros de Khanmigo, que son gratis (khanmigo.ai)"
+   ],
+   "howToStart": "Crea una cuenta gratis y busca un tema.",
+   "pricingNote": "Los cursos y las herramientas para maestros de Khan Academy son gratis; las suscripciones de Khanmigo para padres y estudiantes cuestan $4 al mes o $44 al año, y Enterprise Starter cuesta $10 por estudiante al año, sin precio publicado para Enterprise.",
+   "extraFees": "El precio de Khanmigo no incluye impuesto sobre ventas, y Enterprise Starter se cobra por estudiante al año.",
+   "reviewSummary": "A los usuarios les gusta que el contenido sea gratis, que cubra muchos temas, que explique los conceptos con claridad y que sea fácil de navegar. Se quejan de que los videos son largos y lentos, de que a veces marcan mal las respuestas por un formato muy estricto, de que la app es difícil de usar y de que algunos textos cuestan trabajo para leerse.",
+   "caution": "Khanmigo para salones de clase solo está disponible por medio de escuelas o distritos, no para que un negocio pequeño lo dé directamente a sus empleados."
+  },
+  "linkedin-learning": {
+   "summary": "LinkedIn Learning es una plataforma en línea con miles de cursos en video dirigidos por expertos en negocios, tecnología y habilidades creativas, y puedes obtener certificados de finalización para mostrar en tu perfil. Muchas bibliotecas públicas ofrecen acceso gratis con tu tarjeta de biblioteca.",
+   "helpsWith": [
+    "Aprende QuickBooks, Canva o Excel paso a paso",
+    "Cursos cortos sobre contratación y servicio al cliente",
+    "Certificados para mostrar en tu perfil"
+   ],
+   "howToStart": "Pregunta en tu biblioteca pública si te dan acceso gratis, o empieza un mes gratis en LinkedIn.",
+   "pricingNote": "LinkedIn Learning no tiene plan gratis más allá de una prueba gratis de 1 mes; el plan mensual cuesta $39.99 al mes y el plan anual cuesta $239.88 al año (unos $19.99 al mes, aunque algunas fuentes citan $323.88 al año o $26.99 al mes), mientras que los cursos individuales cuestan entre $20 y $50 cada uno y los planes para equipos se cotizan según la organización.",
+   "reviewSummary": "A los usuarios les gusta la facilidad de uso, los cursos de alta calidad dados por instructores expertos, la integración fácil de los certificados con LinkedIn y la posibilidad de aprender a su propio ritmo. No les gustan las herramientas de búsqueda y filtrado, que haya poca interactividad y práctica, el precio alto, algunos cursos desactualizados o muy básicos, y fallas de la app como consumo de batería y problemas para iniciar sesión.",
+   "caution": "Los precios citados varían entre fuentes; revisa los precios actuales para nuevos suscriptores en la página de precios de LinkedIn. La prueba gratis pide datos de tarjeta y se convierte en suscripción de pago si no la cancelas."
+  },
+  "score-mentoring": {
+   "summary": "SCORE es un servicio gratis y confidencial donde mentores voluntarios con experiencia dan asesoría personal a dueños de negocios pequeños, además de talleres y recursos gratis y de pago. Es una organización sin fines de lucro y socio de recursos de la Administración de Pequeños Negocios de EE. UU. (SBA).",
+   "helpsWith": [
+    "Recibe orientación personal de mentores voluntarios con experiencia en planes de negocio, financiamiento, ventas, mercadeo, contabilidad, operaciones y contratación",
+    "Encuentra mentores por experiencia, industria y ubicación, o pide que te asignen uno con tu código postal",
+    "Asiste a seminarios web grabados gratis y a algunos talleres en vivo gratis, aunque algunos programas son de pago",
+    "Usa plantillas, guías y artículos gratis sobre cómo empezar, crecer o hacer la transición de un negocio"
+   ],
+   "howToStart": "Pide un mentor en score.org; las reuniones son por video o en persona.",
+   "pricingNote": "La mentoría de SCORE siempre es gratis, sin límite de sesiones; algunos talleres, programas avanzados y cursos de SCORE Academy cobran una tarifa que aparece en la página de cada evento antes de inscribirte.",
+   "reviewSummary": "Algunas personas que opinan dicen que los consejos gratis de los mentores son útiles y que SCORE tiene muchos mentores con distintas habilidades. Otras dicen que los mentores no fueron útiles ni conocedores, que el programa no cubrió sus necesidades y que sus datos de contacto se compartieron con terceros que les mandaron spam.",
+   "caution": "Solo pueden participar dueños, o personas que quieren ser dueñas, de negocios ubicados en EE. UU.; los talleres de pago o los cursos de SCORE Academy son aparte de la mentoría gratis. Las respuestas de los mentores suelen tardar unos cuantos días hábiles y pueden caer en tu carpeta de spam."
+  },
+  "quizlet": {
+   "summary": "Quizlet es una plataforma de estudio con tarjetas de memoria, exámenes de práctica y herramientas de IA que convierten tus notas, presentaciones y PDF en material de estudio. Está hecha principalmente para estudiantes y maestros, así que un negocio pequeño la usaría sobre todo para capacitar y enseñar a su personal.",
+   "helpsWith": [
+    "Estudia para el examen de manipulador de alimentos o de licencia de contratista",
+    "Aprende palabras de inglés de tu industria",
+    "Practica con tu personal desde sus teléfonos"
+   ],
+   "howToStart": "Busca un juego de estudio que ya exista para tu examen, o pega tus notas.",
+   "pricingNote": "Quizlet tiene un plan gratis con tarjetas de memoria, juegos y Learn y Test limitados.",
+   "reviewSummary": "A los usuarios les gusta que sea fácil de usar, la variedad de opciones de estudio y la posibilidad de crear y compartir tarjetas de memoria. No les gusta que muchas funciones ahora estén detrás de un pago, que la opción de Quiz no sea confiable, los anuncios molestos, los fallos de la app y el poco apoyo para desarrollar habilidades para resolver problemas.",
+   "caution": "Las suscripciones se renuevan automáticamente y los precios en las tiendas de apps pueden ser distintos a los de la página web."
+  }
+ }
+}

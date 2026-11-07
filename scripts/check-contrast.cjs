@@ -1,0 +1,7 @@
+// WCAG contrast check for every color pair the site uses. Run with: npm run check:contrast
+const lin=c=>{c/=255;return c<=0.03928?c/12.92:Math.pow((c+0.055)/1.055,2.4)};
+const L=h=>{const n=parseInt(h.slice(1),16);return .2126*lin(n>>16&255)+.7152*lin(n>>8&255)+.0722*lin(n&255)};
+const cr=(a,b)=>{const [x,y]=[L(a),L(b)].sort((p,q)=>q-p);return ((x+.05)/(y+.05)).toFixed(2)};
+const P={paper:'#fbf6ec',surface:'#fffdf8',ink:'#17211d',muted:'#47524c',green:'#0e5a45',greenDark:'#0a4534',greenTint:'#e4efe6',marigold:'#f4b223',mariTint:'#fdf0cf',brick:'#a93a1d',brickTint:'#fae7df',lineStrong:'#7b7464',white:'#ffffff',badgeBrick:'#7a2a14',star:'#a97a0c',accentHover:'#e3a214'};
+const pairs=[['ink','paper',4.5],['ink','surface',4.5],['muted','paper',4.5],['muted','surface',4.5],['muted','mariTint',4.5],['muted','greenTint',4.5],['green','paper',4.5],['greenDark','greenTint',4.5],['white','green',4.5],['white','greenDark',4.5],['marigold','greenDark',4.5],['ink','marigold',4.5],['ink','accentHover',4.5],['ink','mariTint',4.5],['ink','greenTint',4.5],['ink','brickTint',4.5],['brick','surface',4.5],['brick','brickTint',4.5],['badgeBrick','brickTint',4.5],['badgeBrick','surface',4.5],['lineStrong','paper',3],['lineStrong','surface',3],['star','surface',3],['green','surface',3]];
+let bad=0;for(const [a,b,min] of pairs){const r=+cr(P[a],P[b]);const ok=r>=min;if(!ok)bad++;console.log((ok?'ok  ':'FAIL'),a.padEnd(11),'on',b.padEnd(10),String(r).padStart(6),' need',min)}console.log('failures',bad);process.exit(bad?1:0);

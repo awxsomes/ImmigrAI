@@ -1,0 +1,172 @@
+{
+ "translate": {
+  "name": "Traducir idiomas"
+ },
+ "translators": {
+  "name": "Traductores",
+  "desc": "Traduce texto, documentos, menús, letreros y conversaciones."
+ },
+ "voiceovers": {
+  "name": "Voces en off",
+  "desc": "Convierte texto en audio hablado natural en muchos idiomas."
+ },
+ "customers": {
+  "name": "Conseguir más clientes"
+ },
+ "website": {
+  "name": "Crear sitio web",
+  "desc": "Crea una página web sencilla o un menú en línea sin necesidad de programar."
+ },
+ "social": {
+  "name": "Redes sociales",
+  "desc": "Crea y programa publicaciones para Instagram, Facebook, TikTok y WhatsApp."
+ },
+ "reviews": {
+  "name": "Reseñas en línea",
+  "desc": "Recopila, responde y administra las reseñas de Google y Yelp."
+ },
+ "ads": {
+  "name": "Anuncios",
+  "desc": "Haz y publica anuncios baratos en línea o en impresos."
+ },
+ "money": {
+  "name": "Dinero e impuestos"
+ },
+ "bookkeeping": {
+  "name": "Contabilidad",
+  "desc": "Lleva el control de tus ingresos, gastos, recibos y facturas."
+ },
+ "profits": {
+  "name": "Ganancias",
+  "desc": "Entiende tus márgenes y qué productos te dejan dinero."
+ },
+ "taxes": {
+  "name": "Impuestos",
+  "desc": "Prepara, calcula y presenta los impuestos de tu negocio."
+ },
+ "budgeting": {
+  "name": "Presupuesto",
+  "desc": "Planea tus gastos mensuales y el flujo de dinero."
+ },
+ "costs": {
+  "name": "Reducir costos",
+  "desc": "Encuentra dónde recortar gastos y compara suscripciones."
+ },
+ "payments": {
+  "name": "Aceptar pagos"
+ },
+ "sales-tracker": {
+  "name": "Registro de ventas",
+  "desc": "Mira tus ventas diarias, lo que más se vende y las tendencias."
+ },
+ "payment-methods": {
+  "name": "Formas de pago",
+  "desc": "Acepta tarjetas, pagos con el teléfono, pagos en línea y facturas."
+ },
+ "pos": {
+  "name": "Punto de venta (POS)",
+  "desc": "Un sistema de caja para ventas en persona, propinas y recibos."
+ },
+ "inventory": {
+  "name": "Productos y proveedores"
+ },
+ "product-tracker": {
+  "name": "Control de productos",
+  "desc": "Sabe qué tienes, qué se vende y qué se está acabando."
+ },
+ "supplier-comparer": {
+  "name": "Comparar proveedores",
+  "desc": "Compara precios y encuentra mejores proveedores."
+ },
+ "inventory-manager": {
+  "name": "Gestión de inventario",
+  "desc": "Haz pedidos automáticos y administra más de una ubicación."
+ },
+ "employees": {
+  "name": "Administrar empleados"
+ },
+ "hiring": {
+  "name": "Contratar",
+  "desc": "Publica empleos, revisa solicitudes y contrata nuevo personal."
+ },
+ "scheduling": {
+  "name": "Horarios de empleados",
+  "desc": "Haz horarios de turno, lleva el control de horas y cambia turnos."
+ },
+ "payroll": {
+  "name": "Nómina",
+  "desc": "Paga a tus empleados, maneja las retenciones y presenta los impuestos de nómina."
+ },
+ "training": {
+  "name": "Capacitación",
+  "desc": "Capacita a tu personal con lecciones cortas y listas de verificación."
+ },
+ "calls": {
+  "name": "Contestar llamadas"
+ },
+ "phone-ai": {
+  "name": "Llamadas automáticas",
+  "desc": "Una recepcionista con IA que contesta, toma mensajes y hace citas."
+ },
+ "support": {
+  "name": "Atención al cliente",
+  "desc": "Responde las preguntas de tus clientes por chat, texto o correo."
+ },
+ "booking": {
+  "name": "Reservar citas",
+  "desc": "Deja que tus clientes hagan citas y recibe recordatorios automáticos."
+ },
+ "legal": {
+  "name": "Trámites legales y de negocio"
+ },
+ "legal-help": {
+  "name": "Ayuda legal",
+  "desc": "Entiende contratos, arrendamientos y preguntas legales en lenguaje sencillo."
+ },
+ "permits": {
+  "name": "Permisos de negocio",
+  "desc": "Encuentra y solicita permisos, licencias y registros."
+ },
+ "employment-docs": {
+  "name": "Documentos laborales",
+  "desc": "Crea cartas de oferta, formularios I-9, W-4 y manuales para empleados."
+ },
+ "regulations": {
+  "name": "Regulaciones",
+  "desc": "Cumple con las reglas laborales, de salud e impuestos."
+ },
+ "safety": {
+  "name": "Seguridad y protección"
+ },
+ "community-alerts": {
+  "name": "Alertas comunitarias",
+  "desc": "Recibe alertas locales sobre crimen, clima y emergencias."
+ },
+ "ice-alerts": {
+  "name": "Alertas de ICE",
+  "desc": "Conoce tus derechos y recibe notificaciones de la comunidad sobre la aplicación de leyes de inmigración."
+ },
+ "cybersecurity": {
+  "name": "Ciberseguridad",
+  "desc": "Protege tus cuentas, contraseñas y dispositivos contra estafas."
+ },
+ "food-health": {
+  "name": "Seguridad alimentaria y sanitaria",
+  "desc": "Lleva el control de temperaturas, listas de verificación y preparación para inspecciones de salud."
+ },
+ "learn": {
+  "name": "Aprender nuevas habilidades"
+ },
+ "ai-courses": {
+  "name": "Cursos de IA",
+  "desc": "Aprende a usar herramientas de IA con lecciones sencillas."
+ },
+ "business-courses": {
+  "name": "Cursos de negocios",
+  "desc": "Clases de negocios gratis y de bajo costo, incluyendo LinkedIn Learning y la SBA."
+ },
+ "study-tools": {
+  "name": "Herramientas de estudio",
+  "desc": "Tarjetas de estudio, resúmenes y práctica para licencias y exámenes."
+ }
+}
