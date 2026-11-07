@@ -22,7 +22,7 @@ export const CATEGORIES: Category[] = [
       { id: "website", name: "Website Creation", description: "Build a simple website or online menu without coding.", keywords: ["website", "web page", "site", "online menu", "domain", "online store", "shop online", "sell online", "online orders"] },
       { id: "social", name: "Social Media", description: "Create and schedule posts for Instagram, Facebook, TikTok and WhatsApp.", keywords: ["social media", "instagram", "facebook", "tiktok", "posts", "post", "content", "followers", "reels", "photos"] },
       { id: "reviews", name: "Online Reviews", description: "Collect, respond to and manage Google and Yelp reviews.", keywords: ["reviews", "review", "google reviews", "yelp", "reputation", "ratings", "bad review", "stars", "show up on google", "google maps", "near me"] },
-      { id: "ads", name: "Advertisements", description: "Make and run low-budget ads online or in print.", keywords: ["ads", "ad", "advertising", "advertisement", "flyer", "flyers", "promotion", "google ads", "facebook ads", "coupon", "banner", "poster"] },
+      { id: "ads", name: "Advertisements", description: "Make and run low-budget ads online or in print.", keywords: ["ads", "ad", "advertising", "advertisement", "flyer", "flyers", "promotion", "google ads", "facebook ads", "coupon", "banner", "poster", "posters"] },
     ],
   },
   {
@@ -75,7 +75,7 @@ export const CATEGORIES: Category[] = [
     subcategories: [
       { id: "phone-ai", name: "Automated phone calls", description: "An AI receptionist that answers, takes messages and books.", keywords: ["answer the phone", "answer phone", "answer calls", "phone", "receptionist", "missed calls", "voicemail", "call", "calls", "ai phone", "answering service", "when i am busy"] },
       { id: "support", name: "Customer support", description: "Reply to customer questions by chat, text or email.", keywords: ["customer support", "customer service", "chat", "text message", "text messages", "sms", "email replies", "faq", "chatbot", "whatsapp", "answer questions", "customer questions"] },
-      { id: "booking", name: "Appointment booking", description: "Let customers book and get reminders automatically.", keywords: ["appointment", "appointments", "booking", "book online", "book an appointment", "reservation", "reservations", "reminders", "no show", "no shows", "haircut booking"] },
+      { id: "booking", name: "Appointment booking", description: "Let customers book and get reminders automatically.", keywords: ["appointment", "appointments", "booking", "bookings", "book online", "book an appointment", "book a table", "book a haircut", "reservation", "reservations", "reminders", "no show", "no shows", "haircut booking"] },
     ],
   },
   {

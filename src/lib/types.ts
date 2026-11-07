@@ -5,6 +5,12 @@
 
 export type PricingModel = "free" | "freemium" | "paid" | "trial";
 
+/**
+ * How a tool actually charges. A $0 monthly price alone is not "free": Stripe charges on
+ * every sale, Google Ads bills per click and TurboTax charges per tax return.
+ */
+export type PriceKind = "free" | "free-plan" | "no-monthly-fee" | "you-set-budget" | "per-return" | "monthly";
+
 /** The kind of AI a tool runs. Drives the Environmental Impact estimate. */
 export type Workload =
   | "none"
@@ -17,9 +23,15 @@ export type Workload =
   | "image-video";
 
 export interface ToolPricing {
-  /** Lowest monthly price in USD that unlocks real use. 0 means a free plan exists. */
+  /**
+   * Lowest monthly price in USD that unlocks real business use, used for filters, totals and
+   * scoring. A per-return price is converted to its monthly equivalent here.
+   */
   startingMonthlyUsd: number;
   model: PricingModel;
+  kind: PriceKind;
+  /** Set when kind is "per-return". */
+  perReturnUsd?: number;
   note: string;
   /** Transaction, per-employee or hardware fees, shown so nothing is hidden. */
   extraFees?: string;

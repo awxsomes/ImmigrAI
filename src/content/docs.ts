@@ -6,6 +6,8 @@
  * prototype and have not been reviewed by a lawyer; have one review them before launch.
  */
 
+import type { DocPath } from "./doc-paths";
+
 export interface DocSection {
   h: string;
   p?: string[];
@@ -73,7 +75,7 @@ export const DOCS = {
         ],
         ul: [
           "Ease of use is our estimate, based on setup time, whether it has a phone app, and whether you can sign up without talking to a salesperson.",
-          "Cost comes from the lowest monthly price that lets you actually use the tool.",
+          "Cost comes from the lowest monthly price that lets you actually use the tool. Tools with no monthly fee but a charge on each sale score a little lower than fully free tools, and tools where you set your own ad budget score lower still, because the real cost is harder to predict.",
           "Language support comes from how many languages we could confirm.",
           "Connections come from how many other products we could confirm it works with.",
         ],
@@ -389,7 +391,7 @@ export const DOCS = {
       },
     ],
   },
-} satisfies Record<string, Doc>;
+} satisfies Record<DocPath, Doc>;
 
 export type DocKey = keyof typeof DOCS;
 export const DOC_KEYS = Object.keys(DOCS) as DocKey[];

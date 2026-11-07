@@ -17,7 +17,7 @@ type Labels = CompatLabels &
   Record<
     | "my_title" | "my_sub" | "my_empty" | "my_browse" | "my_export" | "my_delete" | "my_remove" | "my_alreadyTitle" | "my_alreadyD" | "my_listTitle"
     | "my_stackTitle" | "my_total" | "my_fitLabel" | "my_needTwo" | "my_savingOff" | "my_turnOn" | "my_saved" | "my_yourData" | "my_onlyPaper" | "my_seeKit"
-    | "card_free" | "card_from" | "card_perMonth" | "tool_ratingLegend" | "tool_star" | "tool_clearRating" | "tool_inUse" | "tool_note" | "tool_rateHelp"
+    | "card_free" | "card_freePlan" | "card_noMonthlyFee" | "card_youSetBudget" | "card_perReturn" | "card_from" | "card_perMonth" | "tool_ratingLegend" | "tool_star" | "tool_clearRating" | "tool_inUse" | "tool_note" | "tool_rateHelp"
     | "doc_confirmQ" | "doc_confirmDelete" | "doc_cancel" | "doc_deleted",
     string
   >;
@@ -130,7 +130,7 @@ export function MyToolsView({ lang, t }: { lang: string; t: Labels }) {
           <dl className="mt-3 flex flex-wrap gap-x-10 gap-y-2">
             <div>
               <dt className="text-sm text-muted-ink">{t.my_total}</dt>
-              <dd className="text-2xl font-bold">{total === 0 ? t.card_free : `$${total}`}</dd>
+              <dd className="text-2xl font-bold">${total}</dd>
             </div>
             {tools.length > 1 && (
               <div>

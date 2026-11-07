@@ -50,13 +50,14 @@ const wantDescribe = args.includes("--describe");
 const FACT_SCHEMA = {
   type: "object",
   additionalProperties: false,
-  required: ["exists", "currentName", "officialUrl", "startingMonthlyUsd", "pricingModel", "pricingNote", "extraFees", "pricingUrl", "integrations", "caution"],
+  required: ["exists", "currentName", "officialUrl", "startingMonthlyUsd", "pricingModel", "priceKind", "pricingNote", "extraFees", "pricingUrl", "integrations", "caution"],
   properties: {
     exists: { type: "boolean", description: "False if the product was shut down or the results do not confirm it exists" },
     currentName: { type: "string", description: "Current product name, which may differ if it was renamed" },
     officialUrl: { type: "string" },
-    startingMonthlyUsd: { type: "number", description: "Lowest monthly US dollar price that unlocks real use, 0 if a usable free plan exists. Yearly prices divided by 12." },
+    startingMonthlyUsd: { type: "number", description: "Lowest monthly US dollar price that unlocks real business use. Yearly prices divided by 12. Use 0 only if the free plan may be used by a business, or if there is no subscription at all." },
     pricingModel: { type: "string", enum: ["free", "freemium", "paid", "trial"] },
+    priceKind: { type: "string", enum: ["free", "free-plan", "no-monthly-fee", "you-set-budget", "monthly"], description: "free: no charge at all. free-plan: a usable free plan for business use, with paid plans above it. no-monthly-fee: no subscription, but it charges per sale or per use. you-set-budget: you choose how much to spend, such as ads. monthly: a paid plan is required." },
     pricingNote: { type: "string", description: "One plain sentence with the real plan names and prices from the results" },
     extraFees: { type: ["string", "null"], description: "Transaction, per-employee, hardware or setup fees from the results, or null" },
     pricingUrl: { type: "string", description: "URL of the result showing the price, or empty" },
@@ -71,6 +72,7 @@ interface FactResponse {
   officialUrl: string;
   startingMonthlyUsd: number;
   pricingModel: "free" | "freemium" | "paid" | "trial";
+  priceKind: "free" | "free-plan" | "no-monthly-fee" | "you-set-budget" | "monthly";
   pricingNote: string;
   extraFees: string | null;
   pricingUrl: string;
@@ -196,6 +198,7 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
     pricing: {
       startingMonthlyUsd: facts.data.startingMonthlyUsd,
       model: facts.data.pricingModel,
+      kind: facts.data.priceKind,
       note: plainText(facts.data.pricingNote),
       extraFees: facts.data.extraFees ? plainText(facts.data.extraFees) : null,
       sourceUrl: trustedSource(facts.data.pricingUrl, tool.website, facts.data.officialUrl),

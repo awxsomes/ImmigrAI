@@ -11,10 +11,25 @@ export function searchHref(lang: string, categoryId: string, subcategoryId?: str
   return `/${lang}/search?cat=${categoryId}${subcategoryId ? `&sub=${subcategoryId}` : ""}`;
 }
 
-export function priceText(tool: Tool, t: Pick<CardLabels, "card_free" | "card_from" | "card_perMonth">) {
+export function priceText(
+  tool: Tool,
+  t: Pick<CardLabels, "card_free" | "card_freePlan" | "card_noMonthlyFee" | "card_youSetBudget" | "card_perReturn" | "card_from" | "card_perMonth">,
+) {
   const p = tool.pricing;
-  if (p.startingMonthlyUsd === 0) return t.card_free;
-  return `${t.card_from} $${p.startingMonthlyUsd}${t.card_perMonth}`;
+  switch (p.kind) {
+    case "free":
+      return t.card_free;
+    case "free-plan":
+      return t.card_freePlan;
+    case "no-monthly-fee":
+      return t.card_noMonthlyFee;
+    case "you-set-budget":
+      return t.card_youSetBudget;
+    case "per-return":
+      return fmt(t.card_perReturn, { n: p.perReturnUsd ?? 0 });
+    default:
+      return `${t.card_from} $${p.startingMonthlyUsd}${t.card_perMonth}`;
+  }
 }
 
 export function compatText(result: CompatibilityResult, t: CompatLabels) {

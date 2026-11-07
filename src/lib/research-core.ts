@@ -417,7 +417,8 @@ export function verifyNames(claimed: string[], citations: Citation[]) {
 /** True when a stated price is visible in the returned text. */
 export function priceAppears(startingMonthlyUsd: number, citations: Citation[]) {
   const text = citations.map((c) => `${c.title}\n${c.content}`).join("\n");
-  if (startingMonthlyUsd === 0) return /\bfree\b|\$0\b/i.test(text);
+  // The word "free" alone proves little: "free trial" or "free demo" also contain it.
+  if (startingMonthlyUsd === 0) return /\bfree (?:plan|tier|version|forever|for life|account|app|to (?:use|join|download|start))\b|\$0\b|no monthly fee/i.test(text);
   const whole = Math.floor(startingMonthlyUsd);
   const cents = Math.round((startingMonthlyUsd - whole) * 100);
   const forms = [`$${whole}`, `$ ${whole}`, `${whole} USD`, `US$${whole}`];

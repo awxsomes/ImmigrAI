@@ -94,6 +94,7 @@ export function ToolCard({
         <Fact label={t.card_cost}>
           {priceText(tool, t)}
           {!tool.pricing.verified && <span className="block text-sm font-normal text-muted-ink">{t.card_priceUnconfirmed}</span>}
+          {tool.pricing.note && <span className="mt-0.5 line-clamp-2 text-sm font-normal text-muted-ink">{tool.pricing.note}</span>}
           {tool.pricing.extraFees && (
             <span className="line-clamp-2 text-sm font-normal text-muted-ink">
               {t.card_fees}: {tool.pricing.extraFees}

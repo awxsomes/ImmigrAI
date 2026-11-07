@@ -3,7 +3,7 @@
   "filter_stars": "{n} sao trở lên",
   "filter_star": "1 sao trở lên",
   "filter_priceUpTo": "Tối đa ${n} mỗi tháng",
-  "filter_priceFree": "Chỉ gói miễn phí",
+  "filter_priceFree": "Chỉ công cụ không mất phí hàng tháng",
   "filter_envAtLeast": "Ít nhất {n} trên 100",
   "filter_envAny": "Mọi điểm",
   "filter_onlyMine": "Chỉ hiện công cụ có tiếng của tôi",
@@ -59,7 +59,7 @@
   "kit_sub": "Nhóm công cụ hợp với một loại hình kinh doanh, đã tính sẵn chi phí và cách kết nối.",
   "kit_fit": "Điểm phù hợp: {n} trên 100",
   "kit_cost": "Từ ${n} mỗi tháng",
-  "kit_free": "Miễn phí để bắt đầu",
+  "kit_free": "Không mất phí hàng tháng khi bắt đầu",
   "kit_toolsCount": "{n} công cụ",
   "kit_fitHelp": "Cách chúng tôi tính toán",
   "kit_saved": "Đã lưu vào Công cụ của tôi",
@@ -244,7 +244,11 @@
   "search_count": "Đã tìm thấy {n} gợi ý. Dùng phím mũi tên lên và xuống để chọn.",
   "tool_saveToRate": "Lưu công cụ này để đánh giá, ghi chú và đánh dấu rằng bạn đang dùng nó.",
   "results_iceNote": "Đây là các nguồn hỗ trợ an toàn cộng đồng từ các tổ chức phi lợi nhuận, và hầu hết không dùng AI. Chúng tôi không tự động thêm ứng dụng vào danh sách này, vì một ứng dụng giả hoặc không an toàn có thể gây nguy hiểm cho mọi người. Đừng đưa tình trạng di trú của bạn cho một ứng dụng mà bạn không tin tưởng. Đây chỉ là thông tin chung, không phải là tư vấn pháp lý.",
-  "consent_d": "Không dùng cookie, không theo dõi. Các công cụ bạn đã lưu sẽ ở lại trong trình duyệt này, và bạn có thể xóa chúng bất cứ lúc nào."
+  "consent_d": "Không dùng cookie, không theo dõi. Các công cụ bạn đã lưu sẽ ở lại trong trình duyệt này, và bạn có thể xóa chúng bất cứ lúc nào.",
+  "card_freePlan": "Gói miễn phí",
+  "card_noMonthlyFee": "Không có phí hàng tháng",
+  "card_youSetBudget": "Bạn tự đặt ngân sách",
+  "card_perReturn": "Khoảng ${n} mỗi tờ khai thuế"
  },
  "docs": {
   "free-help": {
@@ -648,7 +652,7 @@
      ],
      "ul": [
       "Dễ sử dụng là ước tính của chúng tôi, dựa trên thời gian thiết lập, việc có ứng dụng điện thoại hay không, và việc bạn có thể đăng ký mà không cần nói chuyện với nhân viên bán hàng hay không.",
-      "Chi phí lấy từ mức giá hàng tháng thấp nhất cho phép bạn thực sự dùng công cụ.",
+      "Chi phí lấy từ mức giá hàng tháng thấp nhất cho phép bạn thực sự dùng công cụ. Công cụ không có phí hàng tháng nhưng tính phí trên mỗi giao dịch được điểm thấp hơn một chút so với công cụ hoàn toàn miễn phí, còn công cụ mà bạn tự đặt ngân sách quảng cáo được điểm thấp hơn nữa vì chi phí thực tế khó đoán hơn.",
       "Hỗ trợ ngôn ngữ lấy từ số lượng ngôn ngữ chúng tôi xác nhận được.",
       "Kết nối lấy từ số lượng sản phẩm khác mà chúng tôi xác nhận là hoạt động cùng với nó."
      ]
@@ -942,7 +946,7 @@
    "pricingNote": "Gói miễn phí cho 10.000 tín dụng mỗi tháng (khoảng 10 phút chuyển văn bản thành giọng nói) nhưng không có giấy phép thương mại; các gói trả phí là Starter $6 mỗi tháng ($5 nếu đóng tiền theo năm), Creator $22 ($18,33 theo năm), Pro $99 ($82,50 theo năm), Scale $299, Business $990, và Enterprise báo giá riêng.",
    "extraFees": "Giá chưa bao gồm thuế, phí và thuế nhập khẩu. Dùng API được tính tiền riêng theo ký tự hoặc theo phút (ví dụ $0,08 cho mỗi 1.000 ký tự khi chuyển văn bản thành giọng nói), và gói Pay As You Go cho phép trả trước tiền dùng API. Phút dùng thêm cho tác tử ở gói Creator trở lên được tính $0,08 mỗi phút.",
    "reviewSummary": "Người dùng thích giọng người nghe tự nhiên, dễ sử dụng, thư viện giọng đọc phong phú, tính năng sao chép giọng và giá trị so với số tiền bỏ ra. Người dùng không thích hệ thống tín dụng khó hiểu và hết nhanh, chi phí cao và phí đăng ký, lỗi kỹ thuật và mất công việc vì không tự lưu, độ trễ chậm, và các vấn đề về thanh toán hoặc tài khoản.",
-   "caution": "Gói miễn phí không có giấy phép thương mại nên không được dùng âm thanh cho mục đích kinh doanh; tín dụng chưa dùng chỉ được chuyển sang kỳ sau ở các gói trả phí và sẽ mất khi hạ cấp hoặc hủy gói."
+   "caution": "Gói miễn phí không có giấy phép thương mại, nên doanh nghiệp cần dùng gói trả phí."
   },
   "google-business-profile": {
    "summary": "Google Business Profile là công cụ miễn phí giúp doanh nghiệp quản lý cách hiển thị trên Google Tìm kiếm và Google Maps, gồm giờ mở cửa, thông tin liên hệ, hình ảnh và đánh giá. Công cụ giúp khách hàng gần đó tìm thấy bạn và liên lạc với bạn.",
@@ -994,7 +998,7 @@
     "Trả lương nhân viên ngay trong cùng một phần mềm"
    ],
    "howToStart": "Bắt đầu dùng thử miễn phí 30 ngày trên trang web QuickBooks, kết nối tài khoản ngân hàng, và bạn có thể mời kế toán của mình cùng tham gia trong phần mềm.",
-   "pricingNote": "QuickBooks Online có gói miễn phí 0 đô la mỗi tháng cho 1 người dùng. Sau đó, gói Simple Start là 38 đô la mỗi tháng theo giá niêm yết hoặc 19 đô la mỗi tháng khuyến mãi trong 3 tháng đầu, gói Essentials là 85 đô la hoặc 42,50 đô la khuyến mãi, gói Plus là 140 đô la hoặc 70 đô la khuyến mãi, và gói Advanced là 340 đô la hoặc 170 đô la khuyến mãi.",
+   "pricingNote": "Simple Start khoảng $38 mỗi tháng, Essentials khoảng $85, Plus khoảng $140 và Advanced khoảng $340. Intuit thường giảm giá trong vài tháng đầu. Chúng tôi không tìm thấy gói miễn phí.",
    "extraFees": "Lương nhân viên bắt đầu từ 50 đô la mỗi tháng cộng thêm 7 đô la cho mỗi nhân viên. Thanh toán bằng thẻ trên hóa đơn mất 2,99% nếu trả trực tuyến, 2,5% nếu trả trực tiếp và 3,5% nếu nhập số thẻ bằng tay. Chuyển khoản ACH mất 1%. Thanh toán hóa đơn ACH tiêu chuẩn là 0,50 đô la mỗi lần khi vượt hạn mức hàng tháng. Séc giấy mỗi tờ 1,50 đô la. Tiện ích theo dõi giờ làm là 20 đô la mỗi tháng cộng thêm 10 đô la cho mỗi người dùng. Bill Pay Premium là 15 đô la mỗi tháng.",
    "reviewSummary": "Người dùng thấy giao diện dễ dùng, truy cập từ xa và trên mạng tiện lợi, các tính năng kết nối và công cụ quản lý chi phí hữu ích. Người dùng cho rằng chi phí đăng ký cao và ngày càng tăng, phần mềm thường bị trục trặc và lỗi, còn bộ phận hỗ trợ thì chậm hoặc không giúp được gì nhiều.",
    "caution": "Khuyến mãi giảm 50% chỉ kéo dài 3 tháng và không bao gồm phí lương tính theo từng nhân viên. Gói miễn phí không cho kế toán truy cập, không có ứng dụng điện thoại và không kết nối được với ứng dụng bên thứ ba."
@@ -1482,7 +1486,7 @@
     "Chứng chỉ để đưa lên hồ sơ của bạn"
    ],
    "howToStart": "Hỏi thư viện công cộng của bạn về quyền truy cập miễn phí, hoặc bắt đầu một tháng dùng thử miễn phí trên LinkedIn.",
-   "pricingNote": "LinkedIn Learning không có gói miễn phí ngoài bản dùng thử một tháng. Gói Monthly có giá $39.99 mỗi tháng và gói Annual có giá $239.88 mỗi năm (khoảng $19.99 mỗi tháng; một số nguồn ghi $323.88 mỗi năm hoặc $26.99 mỗi tháng). Các khóa học riêng lẻ có giá từ $20 đến $50 mỗi khóa, và gói Team cho tổ chức có giá theo báo giá.",
+   "pricingNote": "Khoảng $39.99 nếu trả theo tháng, hoặc khoảng $19.99 mỗi tháng với gói năm ($239.88 mỗi năm), sau một tháng dùng thử miễn phí.",
    "reviewSummary": "Người dùng thích sự dễ dùng, các khóa học chất lượng cao do chuyên gia giảng dạy, việc tích hợp chứng chỉ với LinkedIn dễ dàng, và được học theo tốc độ riêng. Người dùng không thích công cụ tìm kiếm và lọc kém, ít tương tác và ít thực hành, giá cao, một số khóa học cũ hoặc quá cơ bản, và lỗi ứng dụng như hao pin và lỗi đăng nhập.",
    "caution": "Giá được nêu khác nhau giữa các nguồn, nên cần kiểm tra giá hiện tại dành cho người đăng ký mới tại Mỹ trên trang giá của LinkedIn. Bản dùng thử miễn phí yêu cầu nhập thông tin thẻ và sẽ tự chuyển sang gói trả phí nếu bạn không hủy."
   },

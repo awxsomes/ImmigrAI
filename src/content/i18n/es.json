@@ -3,7 +3,7 @@
   "filter_stars": "{n} estrellas o más",
   "filter_star": "1 estrella o más",
   "filter_priceUpTo": "Hasta ${n} al mes",
-  "filter_priceFree": "Solo planes gratis",
+  "filter_priceFree": "Solo sin costo mensual",
   "filter_envAtLeast": "Al menos {n} de 100",
   "filter_envAny": "Cualquier puntaje",
   "filter_onlyMine": "Muestra solo herramientas en este idioma",
@@ -59,7 +59,7 @@
   "kit_sub": "Grupos de herramientas que le sirven a un tipo de negocio, con el costo y las conexiones ya calculados.",
   "kit_fit": "Puntaje de ajuste: {n} de 100",
   "kit_cost": "Desde ${n} al mes",
-  "kit_free": "Gratis para empezar",
+  "kit_free": "Sin costo mensual para empezar",
   "kit_toolsCount": "{n} herramientas",
   "kit_fitHelp": "Cómo lo calculamos",
   "kit_saved": "Guardado en Mis herramientas",
@@ -244,7 +244,11 @@
   "search_count": "Sugerencias encontradas: {n}. Usa las flechas de arriba y abajo para elegir.",
   "tool_saveToRate": "Guarda esta herramienta para calificarla, anota tus notas y marca que la usas.",
   "results_iceNote": "Estos son recursos de seguridad para la comunidad de grupos sin fines de lucro, y la mayoría no usa inteligencia artificial. No agregamos aplicaciones a esta lista de forma automática, porque una app falsa o insegura podría poner en peligro a las personas. No le des tu estatus migratorio a una app en la que no confíes. Esta es información general, no es asesoría legal.",
-  "consent_d": "Sin cookies ni rastreo. Tus herramientas guardadas se quedan en este navegador, y puedes borrarlas cuando quieras."
+  "consent_d": "Sin cookies ni rastreo. Tus herramientas guardadas se quedan en este navegador, y puedes borrarlas cuando quieras.",
+  "card_freePlan": "Plan gratis",
+  "card_noMonthlyFee": "Sin cuota mensual",
+  "card_youSetBudget": "Tú fijas el presupuesto",
+  "card_perReturn": "Unos ${n} por declaración de impuestos"
  },
  "docs": {
   "free-help": {
@@ -648,7 +652,7 @@
      ],
      "ul": [
       "La facilidad de uso es nuestra estimación, basada en el tiempo de configuración, si tiene aplicación para el teléfono y si puedes registrarte sin hablar con un vendedor.",
-      "El costo viene del precio mensual más bajo que te deja usar de verdad la herramienta.",
+      "El costo viene del precio mensual más bajo que te deja usar de verdad la herramienta. Las herramientas sin cuota mensual pero con un cargo por cada venta puntúan un poco menos que las totalmente gratis, y aquellas donde tú fijas el presupuesto de anuncios puntúan aún menos, porque el costo real es más difícil de prever.",
       "El soporte de idiomas viene de cuántos idiomas pudimos confirmar.",
       "Las conexiones vienen de cuántos otros productos pudimos confirmar que funcionan con ella."
      ]
@@ -861,7 +865,7 @@
    "pricingNote": "El plan gratis te da 10,000 créditos al mes (unos 10 minutos de texto a voz) sin licencia comercial. Los planes de pago son Starter a $6 al mes ($5 si se paga por año), Creator a $22 ($18.33 por año), Pro a $99 ($82.50 por año), Scale a $299, Business a $990 y Enterprise con cotización.",
    "extraFees": "Los precios no incluyen impuestos ni aranceles. El uso de la API se cobra aparte por carácter o por minuto (por ejemplo, $0.08 por cada 1,000 caracteres para texto a voz), y Pay As You Go te deja pagar por adelantado el uso de la API. Los minutos extra de agente en los planes Creator y superiores cuestan $0.08 por minuto.",
    "reviewSummary": "A los usuarios les gustan las voces de sonido humano y natural, lo fácil que es de usar, la gran biblioteca de voces, la función de clonar voces y el buen valor por el precio. No les gustan el sistema de créditos confuso que se gastan rápido, los costos altos y las suscripciones, los fallos y el trabajo perdido cuando no se guarda automáticamente, la lentitud y los problemas de cobro o de cuenta.",
-   "caution": "El plan gratis no tiene licencia comercial, así que el audio no se puede usar para negocio. Los créditos sin usar solo se acumulan en los planes de pago, y se pierden si bajas de plan o cancelas."
+   "caution": "El plan gratis no incluye licencia comercial, así que un negocio necesita un plan de pago."
   },
   "google-business-profile": {
    "summary": "Google Business Profile es una herramienta gratis que permite a un negocio controlar cómo aparece en la Búsqueda y en Google Maps, incluyendo horarios, datos de contacto, fotos y reseñas. Ayuda a que los clientes de tu zona te encuentren y te contacten.",
@@ -995,7 +999,7 @@
     "Haz la nómina desde el mismo lugar"
    ],
    "howToStart": "Empieza la prueba gratis de 30 días en la página de QuickBooks, conecta tu cuenta de banco, y puedes pedirle a tu contador que se una contigo en el programa.",
-   "pricingNote": "QuickBooks Online tiene un plan gratis de $0 al mes para 1 usuario. Después, Simple Start cuesta $38 al mes normal o $19 al mes de promoción durante los primeros 3 meses, Essentials cuesta $85 normal o $42.50 de promoción, Plus cuesta $140 normal o $70 de promoción, y Advanced cuesta $340 normal o $170 de promoción.",
+   "pricingNote": "Simple Start cuesta unos $38 al mes, Essentials unos $85, Plus unos $140 y Advanced unos $340. Intuit suele ofrecer un precio más bajo los primeros meses. No encontramos un plan gratis.",
    "extraFees": "La nómina empieza en $50 al mes más $7 por empleado. Los pagos con tarjeta en facturas cuestan 2.99% en línea, 2.5% en persona y 3.5% si se escriben a mano. Las transferencias bancarias ACH cuestan 1%. El pago estándar de facturas por ACH cuesta $0.50 por pago después de las cantidades mensuales incluidas. Los cheques de papel cuestan $1.50 cada uno. El complemento de control de tiempo cuesta $20 al mes más $10 por usuario. Bill Pay Premium cuesta $15 al mes.",
    "reviewSummary": "A los usuarios les parece fácil de usar la interfaz, cómodo el acceso remoto y desde la nube, y útiles las integraciones y las herramientas de gastos. Los usuarios dicen que el costo de la suscripción es alto y sube, que el programa tiene fallas y errores frecuentes, y que el soporte es lento o no ayuda mucho.",
    "caution": "La promoción del 50% dura solo 3 meses y no cubre las tarifas de nómina por empleado. El plan gratis no tiene acceso para el contador, ni aplicación móvil, ni integración con aplicaciones de terceros."
@@ -1483,7 +1487,7 @@
     "Certificados para mostrar en tu perfil"
    ],
    "howToStart": "Pregunta en tu biblioteca pública si te dan acceso gratis, o empieza un mes gratis en LinkedIn.",
-   "pricingNote": "LinkedIn Learning no tiene plan gratis más allá de una prueba gratis de 1 mes; el plan mensual cuesta $39.99 al mes y el plan anual cuesta $239.88 al año (unos $19.99 al mes, aunque algunas fuentes citan $323.88 al año o $26.99 al mes), mientras que los cursos individuales cuestan entre $20 y $50 cada uno y los planes para equipos se cotizan según la organización.",
+   "pricingNote": "Unos $39.99 si pagas cada mes, o unos $19.99 al mes con el plan anual ($239.88 al año), después de un mes de prueba gratis.",
    "reviewSummary": "A los usuarios les gusta la facilidad de uso, los cursos de alta calidad dados por instructores expertos, la integración fácil de los certificados con LinkedIn y la posibilidad de aprender a su propio ritmo. No les gustan las herramientas de búsqueda y filtrado, que haya poca interactividad y práctica, el precio alto, algunos cursos desactualizados o muy básicos, y fallas de la app como consumo de batería y problemas para iniciar sesión.",
    "caution": "Los precios citados varían entre fuentes; revisa los precios actuales para nuevos suscriptores en la página de precios de LinkedIn. La prueba gratis pide datos de tarjeta y se convierte en suscripción de pago si no la cancelas."
   },

@@ -17,6 +17,7 @@ export const CARD_KEYS = [
   "card_noRating", "card_publicResource", "card_priceUnconfirmed", "card_ratingLine", "card_fromSites", "card_fromSite",
   "card_reviewCount", "card_new", "card_noConnections", "card_more", "card_worksInLang", "card_notConfirmedLang",
   "card_languageCount", "card_languageOne", "card_seeLanguages", "card_connectsExisting", "card_details", "card_free",
+  "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn",
   "card_from", "card_perMonth", "card_fees", "card_needsSales",
   "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",

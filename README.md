@@ -56,7 +56,7 @@ A model can be confidently wrong, so its claims only count when the text the sea
 npm run research
 ```
 
-This re-researches any tool without data. Add `-- --force` to redo all of them (about $1.30 for 56 tools), or `-- --new` to look for tools launched this year. Then translate what changed:
+This re-researches any tool without data. Add `-- --force` to redo all of them (about $1.30 for 56 tools), or `-- --new` to look for tools launched this year. Research can still misread a price, so a wrong one can be corrected with `priceOverride` in `src/data/seed-base.ts`, which always wins over research. Then translate what changed:
 
 ```bash
 npm run translate

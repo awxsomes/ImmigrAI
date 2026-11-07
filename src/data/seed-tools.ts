@@ -1,6 +1,6 @@
 import { cleanResearchText, finalizeReviews } from "@/lib/research-core";
-import { buildScores, environmentalEstimate } from "@/lib/scoring";
-import type { PricingModel, Tool, Workload } from "@/lib/types";
+import { buildScores, environmentalEstimate, inferPriceKind } from "@/lib/scoring";
+import type { PriceKind, PricingModel, Tool, Workload } from "@/lib/types";
 import researchFile from "./research.json";
 import { SEED_BASE, type SeedBase } from "./seed-base";
 
@@ -28,6 +28,7 @@ interface ResearchEntry {
     extraFees: string | null;
     sourceUrl: string;
     verified: boolean;
+    kind?: string;
   };
   languages: { list: string[]; sourceUrl: string; totalClaim: string | null };
   integrations: string[];
@@ -64,7 +65,10 @@ function buildTool(base: SeedBase): Tool {
   const workload = base.workload as Workload;
   const environmental = environmentalEstimate(workload);
 
-  const startingMonthlyUsd = r ? r.pricing.startingMonthlyUsd : base.draftPricing.startingMonthlyUsd;
+  const override = base.priceOverride;
+  const startingMonthlyUsd = override?.startingMonthlyUsd ?? (r ? r.pricing.startingMonthlyUsd : base.draftPricing.startingMonthlyUsd);
+  const model = (override?.model ?? r?.pricing.model ?? base.draftPricing.model) as PricingModel;
+  const priceKind = (override?.kind ?? r?.pricing.kind ?? inferPriceKind(startingMonthlyUsd, model)) as PriceKind;
   const languages = r?.languages.list.length
     ? r.languages.list.includes("English")
       ? r.languages.list
@@ -88,11 +92,13 @@ function buildTool(base: SeedBase): Tool {
     secondary: base.secondary,
     pricing: {
       startingMonthlyUsd,
-      model: (r?.pricing.model ?? base.draftPricing.model) as PricingModel,
-      note: (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note,
+      model,
+      kind: priceKind,
+      perReturnUsd: override?.perReturnUsd,
+      note: override?.note || (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note,
       extraFees: (r ? (r.pricing.extraFees && cleanResearchText(r.pricing.extraFees)) || undefined : base.draftPricing.extraFees),
       sourceUrl: r?.pricing.sourceUrl || undefined,
-      verified: r?.pricing.verified ?? false,
+      verified: override?.verified ?? r?.pricing.verified ?? false,
     },
     languages,
     languagesSourceUrl: r?.languages.sourceUrl || undefined,
@@ -109,6 +115,7 @@ function buildTool(base: SeedBase): Tool {
     scores: buildScores({
       rating,
       startingMonthlyUsd,
+      priceKind,
       languages,
       integrations,
       setupMinutes: base.setupMinutes,

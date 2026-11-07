@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { buildScores, environmentalEstimate } from "./scoring";
+import { buildScores, environmentalEstimate, inferPriceKind } from "./scoring";
 import type { Tool, Workload } from "./types";
 
 /**
@@ -13,7 +13,7 @@ export const DISCOVERED_TOOL_JSON_SCHEMA = {
   type: "object",
   additionalProperties: false,
   required: [
-    "name", "website", "summary", "helpsWith", "startingMonthlyUsd", "pricingModel", "pricingNote", "extraFees",
+    "name", "website", "summary", "helpsWith", "startingMonthlyUsd", "pricingModel", "priceKind", "pricingNote", "extraFees",
     "languages", "integrations", "platforms", "workload", "setupMinutes", "selfServe", "howToStart", "caution",
   ],
   properties: {
@@ -21,7 +21,8 @@ export const DISCOVERED_TOOL_JSON_SCHEMA = {
     website: { type: "string", description: "Official https URL" },
     summary: { type: "string", description: "One or two plain sentences, no jargon, no marketing words" },
     helpsWith: { type: "array", items: { type: "string" }, description: "2 to 4 short, concrete things it does for a small business" },
-    startingMonthlyUsd: { type: "number", description: "Lowest monthly USD price that unlocks real use, 0 if a usable free plan exists" },
+    startingMonthlyUsd: { type: "number", description: "Lowest monthly USD price that unlocks real business use. Use 0 only if the free plan may be used by a business, or if there is no subscription at all." },
+    priceKind: { type: "string", enum: ["free", "free-plan", "no-monthly-fee", "you-set-budget", "monthly"], description: "free: no charge at all. free-plan: a usable free plan for business use, with paid plans above it. no-monthly-fee: no subscription, but it charges per sale or per use. you-set-budget: you choose how much to spend, such as ads. monthly: a paid plan is required." },
     pricingModel: { type: "string", enum: ["free", "freemium", "paid", "trial"] },
     pricingNote: { type: "string", description: "One plain sentence naming the real plans and prices" },
     extraFees: { type: ["string", "null"], description: "Transaction, per-employee, hardware or setup fees, or null" },
@@ -55,6 +56,7 @@ const DiscoveredTool = z.object({
   helpsWith: z.array(z.string().max(160)).max(6),
   startingMonthlyUsd: z.number().min(0).max(100_000),
   pricingModel: z.enum(["free", "freemium", "paid", "trial"]),
+  priceKind: z.enum(["free", "free-plan", "no-monthly-fee", "you-set-budget", "monthly"]).optional(),
   pricingNote: z.string().max(400),
   extraFees: z.string().max(400).nullable(),
   languages: z.array(z.string().max(40)).max(300),
@@ -119,6 +121,7 @@ export function toTool(
   const environmental = environmentalEstimate(input.workload as Workload);
   const startingMonthlyUsd = Math.round(input.startingMonthlyUsd * 100) / 100;
   const setupMinutes = Math.round(input.setupMinutes);
+  const priceKind = input.priceKind ?? inferPriceKind(startingMonthlyUsd, input.pricingModel);
 
   return {
     slug,
@@ -131,6 +134,7 @@ export function toTool(
     pricing: {
       startingMonthlyUsd,
       model: input.pricingModel,
+      kind: priceKind,
       note: plain(input.pricingNote),
       extraFees: input.extraFees ? plain(input.extraFees) : undefined,
       verified: verified.priceVerified,
@@ -143,6 +147,7 @@ export function toTool(
     scores: buildScores({
       rating: verified.reviews.rating,
       startingMonthlyUsd,
+      priceKind,
       languages,
       integrations: verified.integrations,
       setupMinutes,

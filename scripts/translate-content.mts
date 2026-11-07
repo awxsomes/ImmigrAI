@@ -177,7 +177,7 @@ function toolSources() {
       helpsWith: r?.description?.helpsWith?.length ? r.description.helpsWith : base.helpsWith,
       howToStart: r?.description?.howToStart || base.howToStart,
     };
-    const note = (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note;
+    const note = base.priceOverride?.note || (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note;
     if (note) entry.pricingNote = note;
     const fees = r?.pricing.extraFees ? cleanResearchText(r.pricing.extraFees) : undefined;
     if (fees) entry.extraFees = fees;

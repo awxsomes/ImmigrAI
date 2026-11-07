@@ -1,4 +1,4 @@
-import type { EnvironmentalEstimate, Tool, ToolScores, Workload } from "./types";
+import type { EnvironmentalEstimate, PriceKind, PricingModel, Tool, ToolScores, Workload } from "./types";
 
 /**
  * Environmental Impact (0-100, higher = lighter footprint).
@@ -98,7 +98,18 @@ export function overallScore(input: {
   return Math.round((known + fifth(input.rating) * w.reviews) * 100);
 }
 
-export function affordabilityFromPrice(startingMonthlyUsd: number) {
+/** What a price means when research did not say. A $0 price on a paid product is not free. */
+export function inferPriceKind(startingMonthlyUsd: number, model: PricingModel): PriceKind {
+  if (startingMonthlyUsd > 0) return "monthly";
+  if (model === "free") return "free";
+  if (model === "freemium") return "free-plan";
+  return "no-monthly-fee";
+}
+
+export function affordabilityFromPrice(startingMonthlyUsd: number, kind?: PriceKind) {
+  // The real cost of these depends on sales or ad spend, so they cannot score as fully free.
+  if (kind === "no-monthly-fee") return 4.5;
+  if (kind === "you-set-budget") return 2.5;
   if (startingMonthlyUsd <= 0) return 5;
   if (startingMonthlyUsd <= 10) return 4.5;
   if (startingMonthlyUsd <= 25) return 4;
@@ -134,6 +145,7 @@ export function easeFromSignals(input: { setupMinutes: number; platforms: string
 export function buildScores(input: {
   rating: number | null;
   startingMonthlyUsd: number;
+  priceKind?: PriceKind;
   languages: string[];
   integrations: string[];
   setupMinutes: number;
@@ -143,7 +155,7 @@ export function buildScores(input: {
 }): ToolScores {
   const parts = {
     easeOfUse: easeFromSignals(input),
-    affordability: affordabilityFromPrice(input.startingMonthlyUsd),
+    affordability: affordabilityFromPrice(input.startingMonthlyUsd, input.priceKind),
     languageSupport: languageScoreFromList(input.languages),
     compatibility: compatibilityFromList(input.integrations),
   };

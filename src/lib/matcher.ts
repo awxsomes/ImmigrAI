@@ -17,8 +17,11 @@ const STOP = new Set([
 
 const CJK = /[぀-ヿ㐀-鿿가-힯]/;
 
+/** Words that mean something different once a suffix is removed. */
+const KEEP_WHOLE = new Set(["books", "booking", "bookings", "poster", "posters"]);
+
 function stem(word: string) {
-  if (word.length <= 3) return word;
+  if (word.length <= 3 || KEEP_WHOLE.has(word)) return word;
   return word.replace(/(ings|ing|ers|er|es|s|ed)$/u, "");
 }
 
