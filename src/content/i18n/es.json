@@ -55,7 +55,6 @@
   "platform_desktop": "App para computadora",
   "platform_phone": "Llamadas telefónicas",
   "platform_pos-hardware": "Equipo de caja registradora",
-  "kit_fit": "Puntaje de ajuste: {n} de 100",
   "kit_cost": "Desde ${n} al mes",
   "kit_free": "Sin costo mensual para empezar",
   "kit_toolsCount": "{n} herramientas",
@@ -93,7 +92,6 @@
   "my_saved": "Guardado en este dispositivo. No enviamos nada a nosotros.",
   "my_yourData": "Tus datos",
   "consent_q": "¿Guardar tus opciones en este dispositivo?",
-  "consent_yes": "Aceptar todas las cookies",
   "consent_no": "No, no guardar",
   "footer_privacyChoices": "Opciones de privacidad",
   "footer_explore": "Explorar",
@@ -161,8 +159,6 @@
   "home_kinds": "{n} tipos de ayuda",
   "home_newTools": "Herramientas nuevas",
   "home_newToolsD": "Herramientas de IA lanzadas en 2026 que son demasiado nuevas para tener muchas reseñas.",
-  "home_scoreTitle": "Una calificación necesita más que estrellas",
-  "home_scoreD": "Una herramienta con cinco estrellas todavía puede no servirte si cuesta demasiado, solo está en inglés o tarda una semana en configurarse. Nuestra puntuación toma todo eso en cuenta, y la página de cada herramienta muestra cómo se suma.",
   "home_scoreLink": "Mira cómo calificamos",
   "home_alreadyTitle": "¿Ya usas algo?",
   "home_alreadyD": "Dinos qué usas hoy, como QuickBooks, Square o una hoja de cálculo. Te mostraremos qué herramientas se conectan con ella, para que no tengas que empezar de cero ni escribir todo otra vez.",
@@ -241,7 +237,6 @@
   "search_count": "Sugerencias encontradas: {n}. Usa las flechas de arriba y abajo para elegir.",
   "tool_saveToRate": "Guarda esta herramienta para calificarla, anota tus notas y marca que la usas.",
   "results_iceNote": "Estos son recursos de seguridad para la comunidad de grupos sin fines de lucro, y la mayoría no usa inteligencia artificial. No agregamos aplicaciones a esta lista de forma automática, porque una app falsa o insegura podría poner en peligro a las personas. No le des tu estatus migratorio a una app en la que no confíes. Esta es información general, no es asesoría legal.",
-  "consent_d": "No te rastreamos. Tus herramientas guardadas se quedan en este navegador y puedes borrarlas cuando quieras. Al aceptar, confirmas que tienes 18 años o más.",
   "card_freePlan": "Plan gratis",
   "card_noMonthlyFee": "Sin cuota mensual",
   "card_youSetBudget": "Tú fijas el presupuesto",
@@ -257,9 +252,7 @@
   "tool_smallNote": "Esta parece ser una herramienta pequeña o nueva. Primero prueba el plan gratis o la prueba, y lee las condiciones antes de pagar.",
   "results_otherTools": "Herramientas útiles sin IA ({n})",
   "compare_rowAi": "Lo que hace la IA",
-  "hero_ai": "Cada herramienta te muestra lo que su IA realmente hace.",
   "home_bundlesTitle": "Paquetes listos de herramientas de IA",
-  "home_how2_d": "Buscamos en internet herramientas de IA, incluyendo las pequeñas y nuevas, y luego revisamos sus precios y opiniones.",
   "faq6_q": "¿Todas las herramientas usan IA?",
   "faq6_a": "Nos enfocamos en herramientas de IA, incluyendo las pequeñas y nuevas, y cada herramienta dice lo que hace su IA. Algunos recursos útiles sin IA, como guías de tus derechos y asesores gratis, aparecen marcados como \"Sin IA\".",
   "nav_moreLanguages": "Más idiomas",
@@ -268,7 +261,35 @@
   "my_languageSiteIn": "Mostrar esta página en {language}",
   "my_languageNoSite": "Esta página todavía no está traducida al {language}, pero igual revisaremos cada herramienta en ese idioma.",
   "my_languageWorks": "Funciona en {language}: {names}",
-  "my_languageUnknown": "{language} no confirmado: {names}"
+  "my_languageUnknown": "{language} no confirmado: {names}",
+  "consent_yes": "Aceptar",
+  "search_opening": "Abriendo resultados...",
+  "hero_lead": "Describe tu problema con tus propias palabras. Te mostramos herramientas de IA que son baratas, fáciles de empezar y funcionan en tu idioma.",
+  "task_calls": "Contestar llamadas cuando estás ocupado",
+  "task_schedules": "Hacer horarios de empleados",
+  "task_books": "Llevar el control de recibos y gastos",
+  "task_social": "Publicar en redes sociales",
+  "task_reviews": "Conseguir más reseñas en Google",
+  "task_translate": "Traducir menús y letreros",
+  "home_taskCount": "{n} herramientas de IA",
+  "home_browseAll": "Ver todas las necesidades ({n} áreas)",
+  "home_exampleTitle": "Mira una recomendación real",
+  "home_exampleAsked": "Búsqueda de ejemplo",
+  "home_exampleQuery": "Necesito ayuda para hacer horarios de empleados",
+  "home_exampleTop": "Mejor resultado de {n} herramientas",
+  "home_exampleWhy": "Cómo se compone la puntuación de {name}",
+  "home_exampleAll": "Ver las {n} herramientas para {name}",
+  "kit_languages": "Idiomas",
+  "kit_setup": "Configuración",
+  "kit_langAll": "Todas las herramientas funcionan en {list}",
+  "kit_langSome": "{language} en {k} de {n} herramientas",
+  "kit_setupMinutes": "Unos {n} minutos en total",
+  "kit_setupHours": "Unas {n} horas en total",
+  "kit_pairs": "Parejas que se conectan",
+  "kit_pairsValue": "{k} de {n}",
+  "kit_toolsLabel": "Herramientas",
+  "kit_newRating": "Muy nueva para calificar. Pruébala antes de pagar.",
+  "consent_d": "Sin cookies ni rastreo. Debes tener 18 años o más para aceptar."
  },
  "docs": {
   "free-help": {
@@ -1962,241 +1983,241 @@
    "extraFees": "Los precios aparecen en NZD y en otras monedas en la página de precios; el producto Business es aparte, cuesta US$29 al mes para hasta 10 personas con licencia anual y agrega US$2.50 al mes por cada persona adicional; los precios no incluyen impuestos.",
    "caution": "El producto Lernoa Business para capacitación del personal, que es el plan que probablemente necesitaría un pequeño negocio, es un producto aparte con una prueba gratuita de 14 días y un cobro mensual; los paquetes de créditos para consumidores son para estudio individual y no incluyen administración de equipos."
   },
-  "permitsentry-ai": {
-   "summary": "Lleva la cuenta de tus licencias de negocio, permisos de salud y certificados de operación, te avisa antes de que venzan y genera documentos de renovación ya llenos.",
+  "neuralearn": {
+   "summary": "NeuraLearn es una herramienta de estudio con IA para prepararte para certificaciones profesionales. Crea resúmenes, tarjetas de estudio y preguntas de práctica a partir de tus documentos.",
    "helpsWith": [
-    "Identifica los permisos federales, estatales, del condado y de la ciudad que probablemente necesitas",
-    "Te manda recordatorios de renovación 90, 60, 30, 7 y 1 día antes de que venza",
-    "Genera documentos de renovación ya llenos"
+    "Crea resúmenes a partir de los documentos que subes",
+    "Hace tarjetas de estudio y preguntas de práctica para exámenes de certificación",
+    "Te muestra los temas que necesitas repasar más"
    ],
    "howToStart": "",
-   "aiFeature": "Revisa el tipo de negocio, la industria y la ubicación para sugerirte los permisos y licencias que probablemente necesitas, y llena los formularios de renovación con los datos guardados de tu negocio.",
-   "pricingNote": "PermitSentry AI tiene tres planes de pago: Starter a $49 al mes (hasta 5 permisos, 1 ubicación), Professional a $99 al mes (hasta 20 permisos, 5 ubicaciones) y Enterprise a $249 al mes (permisos y ubicaciones ilimitados). Si pagas por año ahorras 20%.",
+   "aiFeature": "Convierte tus apuntes de clase, libros de texto y documentos del curso en tarjetas de estudio, cuestionarios de práctica, resúmenes y guías de estudio. También responde tus preguntas usando solo los materiales que subiste.",
+   "pricingNote": "Hay un plan gratis llamado Essential. También hay un plan Basic por $2 al mes y un plan Pro por $4 al mes. Estos planes son para estudiantes, no para uso de negocio."
+  },
+  "permitsentry-ai": {
+   "summary": "Lleva la cuenta de tus licencias de negocio, permisos de salud y certificados de operación, te avisa antes de que venzan y genera documentos de renovación ya llenados.",
+   "helpsWith": [
+    "Identifica los permisos federales, estatales, del condado y de la ciudad que probablemente necesitas",
+    "Te manda recordatorios de renovación 90, 60, 30, 7 y 1 día antes del vencimiento",
+    "Genera documentos de renovación ya llenados"
+   ],
+   "howToStart": "",
+   "aiFeature": "Revisa el tipo de negocio, la industria y la ubicación para sugerir los permisos y licencias que probablemente necesitas, y llena los formularios de renovación con los datos guardados de tu negocio.",
+   "pricingNote": "PermitSentry AI tiene tres planes de pago: Starter a $49 al mes (hasta 5 permisos, 1 ubicación), Professional a $99 al mes (hasta 20 permisos, 5 ubicaciones) y Enterprise a $249 al mes (permisos y ubicaciones ilimitados). Si pagas por año, ahorras 20%.",
    "caution": "Las suscripciones se renuevan solas, los cambios de precio se avisan con 30 días de anticipación, si cancelas no te devuelven la parte proporcional de un periodo a medias, y la herramienta solo da información, así que confirma los permisos con las autoridades locales."
   },
   "askhrai": {
-   "summary": "Un asistente de RRHH con IA que responde preguntas de recursos humanos y genera documentos como cartas de oferta, cartas de plan de mejora, avisos de despido y manuales del empleado, con alertas de riesgo legal.",
+   "summary": "Un asistente de recursos humanos con IA que responde tus preguntas de RR. HH. y genera documentos como cartas de oferta, cartas de plan de mejora, avisos de despido y manuales del empleado, con alertas de riesgo legal.",
    "helpsWith": [
-    "Responde preguntas de RRHH basadas en la ley federal y estatal",
-    "Genera cartas de oferta y otros documentos de RRHH en unos 30 segundos",
-    "Crea un manual del empleado que cumple con las leyes de tu estado",
-    "Te avisa de riesgos legales y te dice cuándo conviene consultar a un abogado laboral"
+    "Responde preguntas de RR. HH. basadas en las leyes federales y estatales",
+    "Genera cartas de oferta y otros documentos de RR. HH. en unos 30 segundos",
+    "Crea un manual del empleado que cumple con las reglas de tu estado",
+    "Te avisa de riesgos legales y cuándo conviene consultar con un abogado laboral"
    ],
    "howToStart": "",
-   "pricingNote": "Starter cuesta $49 al mes e incluye chat con IA sin límite y 5 plantillas de documentos; Professional cuesta $149 al mes e incluye los 8 tipos de documentos y el Creador de Manuales."
+   "pricingNote": "Starter cuesta $49 al mes e incluye chat con IA ilimitado y 5 plantillas de documentos; Professional cuesta $149 al mes e incluye los 8 tipos de documentos y el Creador de Manuales."
   },
   "hrdocket": {
-   "summary": "Un generador de documentos de RRHH con 21 tipos de documentos para contratación, incorporación, desempeño, disciplina y salida de empleados, incluidas cartas de oferta y contratos de trabajo.",
+   "summary": "Un generador de documentos de RR. HH. con 21 tipos de documentos para contratar, incorporar, evaluar, disciplinar y dar de baja empleados, incluyendo cartas de oferta y contratos de trabajo.",
    "helpsWith": [
     "Genera cartas de oferta y contratos de trabajo",
-    "Llena automáticamente los datos del empleado en los documentos",
+    "Llena los datos del empleado automáticamente en los documentos",
     "Ofrece firmas digitales y recordatorios de vencimiento",
-    "Crea tus propias plantillas de documentos de RRHH"
+    "Crea plantillas de documentos de RR. HH. personalizadas"
    ],
    "howToStart": "",
-   "pricingNote": "HRDocket tiene un plan gratis con 1 perfil de empleado y 10 créditos de IA, y planes de pago de $19 al mes (Starter, hasta 15 empleados), $49 al mes (Growth, hasta 50 empleados) y $99 al mes (Business, empleados ilimitados). Si pagas por año, te regalan 2 meses.",
-   "extraFees": "Hay un cobro por uso de unos $0.19 por documento de RRHH cuando pasas lo que incluye tu plan, y puedes comprar paquetes extra de créditos; las cuotas de suscripción no son reembolsables.",
-   "caution": "El plan gratis solo sirve para 1 empleado y los PDF llevan marca de agua, así que si tu negocio necesita PDF sin marca o más de un empleado, tienes que pagar un plan."
+   "pricingNote": "HRDocket tiene un plan gratis con 1 perfil de empleado y 10 créditos de IA, y planes de pago de $19 al mes (Starter, hasta 15 empleados), $49 al mes (Growth, hasta 50 empleados) y $99 al mes (Business, empleados ilimitados). Si pagas por año, te dan 2 meses gratis.",
+   "extraFees": "Cobran alrededor de $0.19 por cada documento de RR. HH. que pases de lo que incluye tu plan, y puedes comprar paquetes de créditos extra; las cuotas de suscripción no se devuelven.",
+   "caution": "El plan gratis solo permite 1 empleado y los PDF tienen marca de agua, así que si tu negocio necesita PDF limpios o más de un empleado, tienes que pagar un plan."
   },
   "passmykitchen": {
-   "summary": "Software de cumplimiento de seguridad alimentaria para food trucks, cocinas en la nube y pequeños servicios de catering, con un plan HACCP generado con IA, registros diarios de temperatura y limpieza, y un modo de inspección para entregarle tus registros al inspector.",
+   "summary": "Software de cumplimiento de seguridad alimentaria para food trucks, cocinas en la nube y pequeños servicios de catering, con un plan HACCP generado por IA, registros diarios de temperatura y limpieza, y un modo de inspección para entregar tus registros a los inspectores.",
    "helpsWith": [
     "Genera un plan HACCP para tu estado y tipo de negocio",
     "Registra temperaturas, limpieza y entregas en menos de 3 minutos al día",
-    "Muestra el plan HACCP, los registros, las certificaciones del personal y los documentos al inspector en una sola pantalla"
+    "Muestra el plan HACCP, los registros, las certificaciones del personal y los documentos a los inspectores en una sola vista"
    ],
    "howToStart": "",
-   "aiFeature": "Genera un plan HACCP de seguridad alimentaria específico para tu estado según tu tipo de negocio, tu menú y tu equipo, y responde preguntas de seguridad alimentaria con un asistente de IA.",
+   "aiFeature": "Genera un plan HACCP de seguridad alimentaria específico para tu estado, a partir de tu tipo de negocio, menú y equipo, y responde preguntas de seguridad alimentaria con un asistente de IA.",
    "pricingNote": "El plan Starter cuesta $29 al mes para un operador y una ubicación, y el plan Growth cuesta $49 al mes para hasta 5 miembros del equipo y 5 ubicaciones; no hay plan gratis permanente, solo una prueba gratis de 7 días sin tarjeta de crédito.",
-   "caution": "Si pagas por año, Starter cuesta $290 al año y Growth $490 al año, que equivale a unos $24.17 y $40.83 al mes."
+   "caution": "Si pagas por año, el Starter cuesta $290 al año y el Growth $490 al año, lo que equivale a unos $24.17 y $40.83 al mes."
   },
   "prevail": {
    "summary": "Detección de amenazas con IA para Microsoft 365 que avisa a los pequeños negocios sobre credenciales robadas, inicios de sesión sospechosos y acceso raro a archivos.",
    "helpsWith": [
     "Detecta inicios de sesión sospechosos y credenciales robadas en Microsoft 365",
-    "Avisa en tiempo real cuando alguien accede raro a los archivos",
-    "No necesita un equipo de informática para conectarse y vigilar"
+    "Avisa en tiempo real cuando hay acceso raro a archivos",
+    "No necesitas un equipo de informática para conectarlo y vigilarlo"
    ],
    "howToStart": "",
-   "aiFeature": "Aprende la actividad normal de cada usuario en Microsoft 365 y avisa al dueño en menos de un minuto cuando algo raro indica una posible invasión.",
+   "aiFeature": "Aprende la actividad normal de cada usuario en Microsoft 365 y avisa al dueño en menos de un minuto cuando algo raro indica una intrusión.",
    "pricingNote": "El plan para pequeños negocios tiene un precio de introducción de $2 por usuario con licencia al mes; hay un plan Enterprise aparte a $5 por usuario con licencia al mes y un plan MSP desde $1 por usuario con licencia al mes, con opciones de compromiso mensual o anual en el plan MSP."
   },
   "studyvisually": {
-   "summary": "StudyVisually convierte tus apuntes del curso, manuales o documentación en tarjetas de estudio, diagramas y preguntas de práctica para sesiones diarias de 20 minutos.",
+   "summary": "StudyVisually convierte tus apuntes del curso, manuales o documentación en tarjetas de estudio, diagramas y preguntas de práctica para sesiones de estudio de 20 minutos al día.",
    "helpsWith": [
-    "Crea tarjetas de estudio y preguntas de práctica a partir de tus propios apuntes o programa de clase",
+    "Hace tarjetas de estudio y preguntas de práctica con tus propios apuntes o programa de estudios",
     "Te da una misión de estudio diaria de 20 minutos",
     "Te ayuda a prepararte para entrevistas calificando tus respuestas habladas en el plan Premium"
    ],
    "howToStart": "",
-   "aiFeature": "Convierte apuntes, PDF o fotos que subas en paquetes de estudio con tarjetas, preguntas de examen y diagramas escritos con IA, y califica las respuestas de entrevista escritas o habladas.",
-   "pricingNote": "El plan gratis cuesta $0 al mes e incluye temas listos, todos los modos de estudio y tu progreso guardado; Basic cuesta $4 al mes o $40 al año, y Premium cuesta $8 al mes o $80 al año.",
-   "caution": "Los términos describen el servicio como una herramienta de estudio para personas, no mencionan planes para negocios o equipos, así que un pequeño negocio debe verificar si puede usar el plan gratis o los de pago para fines comerciales."
+   "aiFeature": "Convierte apuntes, PDF o fotos que subas en paquetes de estudio con tarjetas, preguntas de quiz y diagramas escritos por IA, y califica tus respuestas de entrevista escritas o habladas.",
+   "pricingNote": "El plan gratis cuesta $0 al mes e incluye materias listas, todos los modos de estudio y tu progreso guardado; Basic cuesta $4 al mes o $40 al año, y Premium cuesta $8 al mes o $80 al año.",
+   "caution": "Los términos describen el servicio como una herramienta de estudio para personas y no mencionan planes para negocios o equipos, así que un pequeño negocio debe revisar si puede usar el plan gratis o los de pago con fines comerciales."
   },
   "postall": {
-   "summary": "Un programador de redes sociales con IA incluida que escribe textos, crea hashtags e imágenes, y elige las mejores horas para publicar en muchas plataformas.",
+   "summary": "Un programador de redes sociales con IA incluida que escribe textos, genera hashtags e imágenes, y elige las mejores horas para publicar en muchas plataformas.",
    "helpsWith": [
     "Escribe textos y hashtags con IA",
     "Programa publicaciones en Facebook, Instagram, TikTok y más",
-    "Elige las mejores horas para publicar automáticamente",
-    "Te muestra estadísticas para ver cómo crece tu negocio"
+    "Elige automáticamente las mejores horas para publicar",
+    "Muestra estadísticas para ver cómo crece tu cuenta"
    ],
    "howToStart": "",
-   "aiFeature": "Escribe textos, crea hashtags, reescribe publicaciones, traduce contenido y elige las mejores horas para tus publicaciones en redes sociales.",
-   "pricingNote": "Tienes 1 día de prueba gratis con todas las funciones, después el plan Pro cuesta $9 al mes."
+   "aiFeature": "Escribe textos, genera hashtags, reescribe publicaciones, traduce contenido y elige las mejores horas para tus publicaciones en redes sociales.",
+   "pricingNote": "Tienes 1 día de prueba gratis con todas las funciones, y después el plan Pro cuesta $9 al mes."
   },
   "oshaani-social": {
-   "summary": "Publica, programa y responde mensajes automáticamente en Instagram, Facebook y WhatsApp, y crea publicaciones y videos cortos con IA.",
+   "summary": "Publica, programa y responde automáticamente en Instagram, Facebook y WhatsApp, y genera publicaciones y videos cortos con IA.",
    "helpsWith": [
-    "Crea borradores de publicaciones y videos cortos con IA",
+    "Genera borradores de publicaciones y videos cortos con IA",
     "Programa y publica en Instagram y Facebook",
-    "Responde mensajes automáticamente desde una sola bandeja",
-    "Publicar y programar a mano no gasta créditos"
+    "Responde mensajes automáticamente desde una sola bandeja de entrada",
+    "Publicar y programar manualmente no gasta créditos"
    ],
    "howToStart": "",
-   "aiFeature": "Escribe publicaciones y textos para redes sociales, responde comentarios y mensajes de Instagram o WhatsApp automáticamente, y te sugiere mejoras para tu perfil de LinkedIn, todo usando créditos de IA.",
-   "pricingNote": "Las cuentas nuevas reciben 200 créditos de IA gratis. Después, si pagas por uso, hay una tarifa mensual de plataforma de 100 créditos ($1.00). Los planes mensuales cuestan $12 al mes (Starter Pack, 1,400 créditos), $24 al mes (Pro Plan, 2,900 créditos) y $72 al mes (Ultra Pro Plan, 9,000 créditos), y en los planes mensuales no se cobra la tarifa de plataforma.",
-   "caution": "Los créditos solo se gastan en acciones de IA, y la tarifa de plataforma por uso se cobra cada mes si no eliges un plan mensual. La guía del usuario también menciona una conexión con X y un costo más alto de 32 créditos por acción de IA, así que el costo real por acción puede ser diferente al 1.2x que dice la página de precios."
+   "aiFeature": "Escribe publicaciones y textos para redes sociales, responde comentarios y mensajes de Instagram o WhatsApp automáticamente, y sugiere mejoras para tu perfil de LinkedIn, todo usando créditos de IA.",
+   "pricingNote": "Las cuentas nuevas reciben 200 créditos de IA gratis. Luego, con el pago por uso, hay una tarifa mensual de plataforma de 100 créditos ($1.00). Los planes mensuales cuestan $12 al mes (Starter Pack, 1,400 créditos), $24 al mes (Pro Plan, 2,900 créditos) y $72 al mes (Ultra Pro Plan, 9,000 créditos), y en estos planes no se cobra la tarifa de plataforma.",
+   "caution": "Los créditos solo se gastan en acciones de IA, y la tarifa mensual de plataforma del pago por uso se aplica salvo que elijas un plan mensual. La guía del usuario también menciona una conexión con X y un costo más alto de 32 créditos por acción de IA, así que el costo por acción puede ser diferente al 1.2x que indica la página de precios."
   },
   "forgelo": {
-   "summary": "Crea un sitio web a partir de una descripción escrita y te deja ajustarlo y publicarlo sin necesidad de programar.",
+   "summary": "Genera un sitio web a partir de una descripción escrita y te permite ajustarlo y publicarlo sin programar.",
    "helpsWith": [
-    "Crea un sitio con una descripción de texto",
-    "Te deja ajustar y editar las páginas creadas",
+    "Genera un sitio a partir de una descripción en texto",
+    "Te deja ajustar y editar las páginas generadas",
     "Publica el sitio en una dirección web"
    ],
    "howToStart": "",
-   "aiFeature": "Escribe un sitio web completo con varias secciones a partir de una descripción sencilla de tu negocio, y luego rehace cualquier sección que le pidas cambiar.",
-   "pricingNote": "El plan gratis cuesta $0 e incluye un sitio web con un subdominio de Forgelo, con 5 generaciones o ediciones con IA al día. Los planes pagados son Starter a $9 al mes, Pro a $19 al mes, Business a $39 al mes, y un plan Agency personalizado.",
+   "aiFeature": "Escribe un sitio web completo de varias secciones a partir de una descripción sencilla de tu negocio, y luego rehace cualquier sección que le pidas cambiar.",
+   "pricingNote": "El plan Gratis cuesta $0 e incluye un sitio web en un subdominio de Forgelo con 5 generaciones o ediciones de IA al día. Los planes de pago son Starter a $9 al mes, Pro a $19 al mes, Business a $39 al mes, y un plan Agency personalizado.",
    "caution": "El plan gratis muestra una insignia de 'Hecho con Forgelo' y solo permite un sitio en un subdominio de Forgelo. Los dominios propios se compran aparte y empiezan en el plan Starter. Los precios están en dólares estadounidenses, pueden cambiar, y algunos detalles de los planes varían según el país."
   },
   "starsteady": {
-   "summary": "Escribe respuestas personalizadas a las reseñas de Google y Yelp según el sentimiento de cada una, y envía mensajes de texto pidiendo reseñas.",
+   "summary": "Escribe respuestas personalizadas a las reseñas de Google y Yelp según el tono de la reseña, y envía mensajes de texto pidiendo reseñas.",
    "helpsWith": [
     "Detecta cuando las estrellas no coinciden con el texto de la reseña",
     "Envía mensajes de texto pidiendo reseñas con tu enlace de reseñas de Google",
     "Escribe respuestas con el tono de tu marca y maneja las quejas"
    ],
    "howToStart": "",
-   "aiFeature": "Escribe respuestas personalizadas a las reseñas de Google y Yelp de tu pequeño negocio, respetando el tono elegido y la cantidad de estrellas.",
-   "pricingNote": "El plan Starter cuesta $39 al mes e incluye 500 respuestas con IA, soporte para Google y Yelp, 50 solicitudes de reseña por mensaje de texto al mes y 1 perfil de negocio. El plan Agency cuesta $199 al mes para uso ilimitado y varios perfiles.",
-   "extraFees": "No hay cargos por respuesta ni cargos ocultos.",
-   "caution": "La aplicación muestra una prueba gratis con 5 respuestas con IA y 5 solicitudes por mensaje de texto, pero el plan Starter es el plan pagado más barato que aparece, así que un pequeño negocio tendrá que pagar $39 al mes después de la prueba."
+   "aiFeature": "Escribe respuestas personalizadas a las reseñas de Google y Yelp de un pequeño negocio, ajustadas al tono elegido y a la cantidad de estrellas.",
+   "pricingNote": "El plan Starter cuesta $39 al mes e incluye 500 respuestas de IA, soporte para Google y Yelp, 50 solicitudes de reseña por mensaje de texto al mes, y 1 perfil de negocio. El plan Agency cuesta $199 al mes e incluye uso ilimitado y varios perfiles.",
+   "extraFees": "No hay cargos por respuesta ni cargos escondidos.",
+   "caution": "La app muestra una prueba gratis con 5 respuestas de IA y 5 solicitudes por mensaje de texto, pero el plan Starter es el plan de pago más barato que aparece, así que un pequeño negocio tendría que pagar $39 al mes después de la prueba."
   },
   "bocads": {
-   "summary": "Bocads crea anuncios con enfoque local para negocios de barrio, para atraer clientes a la tienda, llamadas y citas, sin necesidad de tener experiencia en mercadeo.",
+   "summary": "Bocads crea anuncios según la ubicación para negocios locales, para atraer clientes a la tienda, llamadas y citas, sin necesidad de experiencia en marketing.",
    "helpsWith": [
-    "Crea anuncios que destacan tu vecindario y tu área de servicio",
-    "Crea anuncios para Google Local, Facebook e Instagram",
+    "Crea anuncios que destacan tu barrio y tu zona de servicio",
+    "Hace anuncios para Google Local, Facebook e Instagram",
     "Arma anuncios con reseñas y testimonios de tus reseñas de Google",
     "Publica o exporta los anuncios directamente"
    ],
    "howToStart": "",
-   "aiFeature": "Crea anuncios completos para un pequeño negocio a partir de una descripción corta del producto, incluyendo titulares, texto, llamados a la acción e imágenes, en los tamaños para Facebook, Instagram, TikTok, Google y LinkedIn.",
-   "pricingNote": "El plan Free es gratis para siempre, con 10 anuncios al mes y 1 perfil de marca. Los planes pagados son Starter a $19 al mes, Pro a $49 al mes y Agency a $149 al mes. Si pagas por año ahorras 20%.",
-   "caution": "Todos los planes pagados incluyen una prueba gratis de 14 días. Los créditos se reinician cada mes y no se acumulan. Canva, Zapier, Mailchimp, Shopify, Figma, Adobe Creative Cloud y otras integraciones aparecen como 'próximamente', no como disponibles todavía."
+   "aiFeature": "Crea anuncios completos para un pequeño negocio a partir de una descripción corta del producto, incluyendo títulos, textos, llamados a la acción e imágenes, con los tamaños para Facebook, Instagram, TikTok, Google y LinkedIn.]",
+   "pricingNote": "El plan Gratis cuesta $0 para siempre e incluye 10 anuncios al mes y 1 perfil de marca. Los planes de pago son Starter a $19 al mes, Pro a $49 al mes y Agency a $149 al mes. Si pagas al año, ahorras 20%.",
+   "caution": "Todos los planes de pago incluyen una prueba gratis de 14 días. Los créditos se reinician cada mes y no se acumulan. Canva, Zapier, Mailchimp, Shopify, Figma, Adobe Creative Cloud y otras integraciones aparecen como 'próximamente' y todavía no están disponibles."
   },
   "yourprofitbook": {
-   "summary": "Lleva la cuenta de tus ingresos y gastos, escanea recibos, te avisa cuando los costos suben y te explica tus reportes de ganancias y pérdidas en lenguaje sencillo.",
+   "summary": "Lleva el registro de ingresos y gastos, escanea recibos, envía alertas cuando los costos suben y explica tus reportes de ganancias y pérdidas en lenguaje sencillo.",
    "helpsWith": [
     "Escanea recibos y sugiere categorías de gastos",
-    "Te manda alertas cuando los costos suben o tus márgenes bajan",
-    "Te explica en lenguaje sencillo los cambios mensuales de ganancias y pérdidas"
+    "Envía alertas cuando los costos suben o el margen baja",
+    "Explica los cambios mensuales de ganancias y pérdidas en lenguaje sencillo"
    ],
    "howToStart": "",
-   "aiFeature": "Te explica tus números de ganancias y gastos en lenguaje sencillo, te avisa cuando los costos suben o los márgenes bajan, y responde tus preguntas sobre tus finanzas.",
-   "pricingNote": "El plan Starter cuesta $4.99 al mes (o $49 al año), el plan Pro cuesta $9.99 al mes (o $99.99 al año), y el plan Business cuesta $24.99 al mes (o $249.99 al año). Hay una prueba de 30 días del plan Business sin tarjeta de crédito, pero no hay un plan gratis permanente.",
+   "aiFeature": "Explica tus números de ganancias y gastos en lenguaje sencillo, marca cuando los costos suben o el margen baja, y responde tus preguntas sobre tus finanzas.",
+   "pricingNote": "El plan Starter cuesta $4.99 al mes (o $49 al año), el plan Pro cuesta $9.99 al mes (o $99.99 al año) y el plan Business cuesta $24.99 al mes (o $249.99 al año). Hay una prueba de 30 días del plan Business sin tarjeta de crédito, pero no hay un plan gratis permanente.",
    "extraFees": "Comprar reportes individuales cuesta $4.99 o $9.99 cada uno, y el servicio de nómina Gusto es un proveedor aparte con sus propios precios.",
-   "caution": "Capterra muestra un plan 'Free Starter' con 1 negocio y 30 transacciones de por vida, lo que no coincide con la página de precios del proveedor, que no muestra ningún plan gratis después de la prueba de 30 días."
-  },
-  "neuralearn": {
-   "summary": "NeuraLearn es una herramienta de estudio con IA para prepararte para certificaciones profesionales. Crea resúmenes, tarjetas de estudio y preguntas de práctica a partir de los documentos que tú subes.",
-   "helpsWith": [
-    "Crea resúmenes de los documentos que subes",
-    "Hace tarjetas de estudio y preguntas de práctica para exámenes de certificación",
-    "Te marca los temas que necesitas repasar más"
-   ],
-   "howToStart": "",
-   "aiFeature": "Convierte tus apuntes de clase, libros de texto y documentos del curso en tarjetas de estudio, cuestionarios de práctica, resúmenes y guías de estudio, y responde tus preguntas usando solo los materiales que tú subiste.",
-   "pricingNote": "Hay un plan Essential gratis. El plan Basic cuesta $2 al mes y el plan Pro cuesta $4 al mes. Sin embargo, los planes están pensados para estudiantes, no para uso de negocio."
+   "caution": "Capterra muestra un plan 'Free Starter' con 1 negocio y 30 transacciones en total, lo cual no coincide con la página de precios del proveedor, que no muestra ningún plan gratis después de la prueba de 30 días."
   },
   "tabby": {
-   "summary": "Contabilidad con IA para dueños de negocios de una sola persona. Clasifica los gastos, envía facturas y te responde preguntas sobre tus números.",
+   "summary": "Contabilidad con IA para dueños de negocios de una sola persona. Clasifica los gastos, manda facturas y te responde preguntas sobre tus números.",
    "helpsWith": [
     "Clasificación con IA y reconocimiento automático de proveedores",
-    "Facturación con cobro por ACH y tarjeta",
+    "Facturas con cobro por ACH y tarjeta",
     "Reportes listos para impuestos que puedes exportar a Excel y PDF"
    ],
    "howToStart": "",
-   "aiFeature": "Convierte peticiones en lenguaje sencillo en trabajo de contabilidad, como enviar facturas, cobrar a los que pagan tarde, clasificar transacciones y sacar reportes, después de que tú apruebes cada paso.",
-   "pricingNote": "Tabby tiene un plan gratis de $0 para negocios con hasta $15,000 al año en gastos. Los planes pagados son Standard a $30 al mes, Pro a $50 al mes y Growth a $90 al mes, con 20% de descuento si pagas al año.",
-   "extraFees": "No hay cargos por exceder el límite. La conexión con el banco y Plaid están incluidos en el plan, y si te suscribes por primera vez a un plan mensual, tienes 50% de descuento durante los primeros 3 meses.",
-   "caution": "El plan gratis solo permite 1 conexión bancaria, 1 usuario y 5 facturas al mes. Si tus gastos pasan el límite del plan, las transacciones nuevas dejan de clasificarse hasta que mejores tu plan. Algunas páginas dicen que hay una prueba gratis de 14 días y otras dicen que no hay. La página de precios de la empresa dice que los planes anuales no están disponibles."
+   "aiFeature": "Convierte peticiones en lenguaje sencillo en trabajo de contabilidad, como mandar facturas, cobrar a los que pagan tarde, clasificar transacciones y sacar reportes, después de que tú apruebas cada paso.",
+   "pricingNote": "Tabby tiene un plan gratis de $0 para negocios con hasta $15,000 al año en gastos. Los planes de pago son Standard a $30 al mes, Pro a $50 al mes y Growth a $90 al mes, con 20% de descuento si pagas por año.",
+   "extraFees": "No hay cargos por exceso de uso. El costo de conectar el banco y de Plaid ya está incluido en el plan, y si te suscribes por primera vez a un plan mensual recibes 50% de descuento en los primeros 3 meses.",
+   "caution": "El plan gratis solo permite 1 conexión bancaria, 1 usuario y 5 facturas al mes. Si los gastos pasan el límite del plan, las transacciones nuevas dejan de clasificarse hasta que mejores de plan. Algunas páginas dicen que hay prueba gratis de 14 días y otras dicen que no la hay, y la página de precios de la empresa dice que los planes anuales no están disponibles."
   },
   "poof": {
-   "summary": "Software de contabilidad gratis para pequeños negocios, con un agente de IA opcional que prepara el libro mayor, las facturas, las cuentas por pagar, el plan de efectivo y las fechas de impuestos para que tú las apruebes.",
+   "summary": "Software de contabilidad gratis para negocios pequeños, con un agente de IA opcional que prepara el libro mayor, las facturas, las cuentas por pagar, el plan de efectivo y las fechas de impuestos para que tú las apruebes.",
    "helpsWith": [
     "Lleva el libro mayor, las facturas, las cotizaciones y las cuentas por pagar",
-    "Te avisa de las fechas de impuestos, los pagos estimados y tu reserva para impuestos",
-    "Prepara el paquete de impuestos de enero para tu contador",
+    "Da seguimiento a las fechas de impuestos, los pagos estimados y la reserva para impuestos",
+    "Prepara un paquete de impuestos para enero para tu contador",
     "Planeación de efectivo y cierre de mes con tu aprobación antes de registrar"
    ],
    "howToStart": "",
    "aiFeature": "Lee los movimientos del banco, clasifica transacciones, cruza facturas y cuentas por pagar, y prepara los asientos del cierre de mes para que el dueño los apruebe. Su asistente de IA responde preguntas y crea facturas a partir de peticiones en lenguaje sencillo.",
-   "pricingNote": "El plan gratis de Poof cuesta $0, sin tarjeta y sin límite de tiempo. Incluye los libros, facturas, cuentas por pagar, todos los reportes, preparación de nómina, impuesto de ventas y preparación de 1099. Poof Agent cuesta $79 al mes o $790 al año después de una prueba gratis de 30 días.",
-   "extraFees": "La presentación de 1099 es gratis para los primeros 3 formularios al año; después cuesta $2.49 por formulario. Las copias enviadas por correo a contratistas cuestan $1.79 cada una, y las copias por correo electrónico son gratis. Un complemento de recepcionista con IA para talleres de servicio cuesta $99 al mes con 1,000 minutos incluidos, y después 12 centavos por minuto.",
-   "caution": "El plan gratis incluye solo 25 preguntas a Ask Poof, 25 lecturas de recibos o documentos, 2 cuentas bancarias conectadas y 100 mensajes de texto al mes. Después de la prueba de 30 días de Poof Agent, las transacciones nuevas esperan a que una persona las clasifique en vez de clasificarse de noche."
+   "pricingNote": "El plan gratis de Poof cuesta $0, sin tarjeta y sin límite de tiempo. Incluye los libros, facturas, cuentas por pagar, todos los reportes, preparación de nómina, impuesto sobre ventas y preparación de 1099. Poof Agent cuesta $79 al mes o $790 al año, después de una prueba gratis de 30 días.",
+   "extraFees": "La presentación de 1099 es gratis para los primeros 3 formularios al año, y después cuesta $2.49 por formulario. Las copias enviadas por correo a contratistas cuestan $1.79 cada una, y las enviadas por correo electrónico son gratis. Un complemento de recepcionista con IA para talleres de servicio cuesta $99 al mes con 1,000 minutos incluidos, y luego 12 centavos por minuto.",
+   "caution": "El plan gratis incluye solo 25 preguntas a Ask Poof, 25 lecturas de recibos o documentos, 2 cuentas bancarias conectadas y 100 mensajes de texto al mes. Después de la prueba de 30 días de Poof Agent, las transacciones nuevas esperan a que una persona las clasifique en vez de clasificarse durante la noche."
   },
   "paybrain": {
    "summary": "Un punto de venta con IA integrada que maneja promociones, membresías y pedidos repetidos en la caja, en la web o en tu teléfono.",
    "helpsWith": [
-    "Maneja promociones y membresías de forma automática",
-    "Gestiona pedidos repetidos con ayuda de IA",
+    "Maneja promociones y membresías automáticamente",
+    "Gestiona los pedidos repetidos con ayuda de IA",
     "Cobra con tarjeta en persona en la caja",
     "Funciona en la web o en tu teléfono"
    ],
    "howToStart": "",
-   "aiFeature": "Redacta facturas a partir de tu propia lista de precios, sugiere pedidos repetidos según las tendencias de venta y escribe resúmenes para clientes y propuestas de promociones para que tú los revises antes de enviar cualquier cosa.",
-   "pricingNote": "No hay cuota mensual en el plan Basic ni en el Premium. En Basic pagas por cada pago: 3.0% + 10¢ en persona. El kit de caja Register cuesta $999 una sola vez.",
-   "extraFees": "Se aplican recargos de Stripe de +1.5% en tarjetas internacionales y +1% por conversión de moneda. Stripe cobra $15 por cada disputa de cliente. El kit Register cuesta $999 una vez e incluye un lector Stripe S700.",
-   "caution": "Las tarifas del plan Premium son más altas (4.0% + 15¢ en persona). Las integraciones de API como Checkout API y WooCommerce solo están incluidas en Premium, no en Basic."
+   "aiFeature": "Redacta facturas a partir de tu propia lista de precios, sugiere pedidos repetidos según las tendencias de venta, y escribe resúmenes para clientes y propuestas de promociones para que tú las revises antes de enviarlas.",
+   "pricingNote": "No hay cuota mensual en el plan Basic ni en el Premium. En Basic pagas por cada cobro: 3.0% + 10¢ en persona. El kit de Register cuesta $999 una sola vez.",
+   "extraFees": "Se aplican además recargos de Stripe: +1.5% por tarjetas internacionales y +1% por conversión de moneda. Stripe cobra $15 por cada disputa de cliente. El kit de Register cuesta $999 una sola vez e incluye un lector Stripe S700.",
+   "caution": "Las tarifas del plan Premium son más altas (4.0% + 15¢ en persona). Las integraciones de API, como Checkout API y WooCommerce, solo están incluidas en Premium y no en Basic."
   },
   "kova-hr": {
-   "summary": "Una plataforma de recursos humanos para equipos que crecen. Incluye contratación, expedientes de empleados, licencias, desempeño y un complemento opcional de nómina. Usa IA para publicar vacantes y filtrar candidatos.",
+   "summary": "Una plataforma de recursos humanos para equipos que crecen. Cubre contratación, expedientes de empleados, licencias, evaluaciones de desempeño y complementos de nómina. Usa IA para publicar vacantes y filtrar candidatos.",
    "helpsWith": [
     "Publicación de vacantes y filtrado de currículums con ayuda de IA",
-    "Expedientes de empleados, organigrama y control de licencias",
+    "Expedientes de empleados, organigrama y manejo de licencias",
     "Evaluaciones de desempeño y un complemento opcional de nómina"
    ],
    "howToStart": "",
-   "aiFeature": "Compara los currículums de los candidatos con los requisitos, marca patrones de licencias fuera de lo normal, resume los comentarios de las evaluaciones, sugiere OKRs y responde preguntas de recursos humanos usando los datos de la empresa.",
-   "pricingNote": "Kova HR tiene un plan gratis para hasta 5 empleados. Después, Core cuesta $3 por empleado al mes, Growth cuesta $7 por empleado al mes y Pro cuesta $9 por empleado al mes más un cargo fijo mensual de $10. Si pagas al año, ahorras 20%.",
-   "caution": "El plan gratis tiene límites de 5 empleados, 100 créditos de IA al mes, 3 vacantes publicadas y 2 políticas de licencias. El plan Pro agrega un cargo fijo mensual de $10 además del precio por empleado."
+   "aiFeature": "Compara los currículums de los candidatos contra los requisitos, marca patrones de licencias inusuales, resume los comentarios de las evaluaciones de desempeño, sugiere OKRs y responde preguntas de recursos humanos usando los datos de la empresa.",
+   "pricingNote": "Kova HR tiene un plan gratis para hasta 5 empleados. Después, Core cuesta $3 por empleado al mes, Growth cuesta $7 por empleado al mes y Pro cuesta $9 por empleado al mes más un cargo fijo de $10 al mes. Si pagas por año ahorras 20%.",
+   "caution": "El plan gratis se limita a 5 empleados, 100 créditos de IA al mes, 3 vacantes publicadas y 2 políticas de licencias. El plan Pro agrega un cargo fijo de $10 al mes además del precio por empleado."
   },
   "jugglehire": {
-   "summary": "Software de contratación para pequeños negocios. Publicas una vacante y obtienes una página de empleo, una lista de candidatos y una IA que lee currículums y redacta anuncios. El precio es por empresa, no por usuario.",
+   "summary": "Software de contratación para negocios pequeños. Publicas una vacante y obtienes una página de empleos, una lista de candidatos y una IA que lee currículums y redacta anuncios de trabajo. El precio es por empresa, no por usuario.",
    "helpsWith": [
-    "Lee currículums y llena los datos del candidato automáticamente",
-    "Escribe anuncios de trabajo a partir de un título y los requisitos para que tú los edites",
+    "Lee los currículums y llena los datos del candidato automáticamente",
+    "Escribe anuncios de trabajo a partir de un título y de los requisitos indispensables, para que tú los edites",
     "Agenda entrevistas, preguntas de filtro y cartas de oferta con firma electrónica"
    ],
    "howToStart": "",
-   "aiFeature": "Lee cada currículum y llena habilidades, experiencia laboral y educación. Redacta anuncios de trabajo a partir de una breve descripción y escribe un resumen sencillo de cada candidato.",
-   "pricingNote": "JuggleHire tiene dos planes pagados que se cobran al mes para toda la empresa: Starter a $15 al mes (3 vacantes abiertas, 5 miembros del equipo, sin automatizaciones) y Unlimited a $49 al mes (vacantes y miembros ilimitados según uso razonable, más automatizaciones). Hay una prueba gratis de 14 días que requiere tarjeta. Después de la prueba no hay plan gratis. También ofrecen una oferta de pago único de por vida de $149 (Starter) o $399 (Agency).",
-   "caution": "La prueba de 14 días requiere tarjeta de crédito, y tu plan empieza automáticamente cuando termina la prueba, a menos que canceles antes. Starter no incluye automatizaciones."
+   "aiFeature": "Lee cada currículum y llena habilidades, historial de trabajo y educación. Redacta anuncios de trabajo a partir de una descripción corta y escribe un resumen sencillo de cada candidato.",
+   "pricingNote": "JuggleHire tiene dos planes de pago que se cobran cada mes por toda la empresa. Starter cuesta $15 al mes (3 vacantes abiertas, 5 miembros del equipo, sin automatizaciones). Unlimited cuesta $49 al mes (vacantes y miembros del equipo ilimitados según uso razonable, más automatizaciones). Hay una prueba gratis de 14 días que pide tarjeta. Después de la prueba no hay plan gratis. También ofrecen una oferta de pago único de por vida de $149 (Starter) o $399 (Agency).",
+   "caution": "La prueba de 14 días pide tarjeta de crédito, y tu plan empieza automáticamente cuando termina la prueba, a menos que canceles antes. Starter no incluye automatizaciones."
   },
   "rosie": {
-   "summary": "Un servicio de contestadora con IA entrenado con los datos de tu negocio. Contesta llamadas las 24 horas, agenda citas, responde preguntas comunes y te manda por mensaje de texto los detalles de cada llamada.",
+   "summary": "Un servicio de respuesta con IA entrenado con los datos de tu negocio. Contesta llamadas las 24 horas, agenda citas, responde preguntas comunes y te manda por mensaje de texto los detalles de cada llamada.",
    "helpsWith": [
-    "Contesta llamadas las 24 horas y responde preguntas comunes",
+    "Contesta llamadas 24/7 y responde preguntas comunes",
     "Agenda citas",
     "Pasa la llamada a una persona cuando hace falta",
     "Resume, transcribe y graba cada llamada"
    ],
    "howToStart": "",
-   "pricingNote": "Rosie no tiene plan gratis. El plan Professional cuesta $49 al mes por 250 minutos, Scale cuesta $149 al mes por 1,000 minutos y Growth cuesta $299 al mes por 2,000 minutos. Si pagas al año, te dan dos meses gratis. Todos los planes tienen una prueba gratis de 7 días.",
-   "extraFees": "El complemento Website Texting cuesta $50 al mes por 25 conversaciones y después $1 por cada conversación extra. Se cobra impuesto de ventas encima. Si pagas tarde, hay un cargo de $10 más 1.5% de interés al mes. No hay cargo por minutos extra porque te cambian a un plan más alto.",
-   "caution": "Los términos dicen que la prueba gratis tal vez no esté disponible para todos y solo aplica para suscriptores nuevos. Tu tarjeta se convierte en una suscripción pagada al terminar la prueba, a menos que canceles antes. Las llamadas se redondean al siguiente minuto completo."
+   "pricingNote": "Rosie no tiene plan gratis. El plan Professional cuesta $49 al mes por 250 minutos, Scale cuesta $149 al mes por 1,000 minutos y Growth cuesta $299 al mes por 2,000 minutos. Si pagas por año te regalan dos meses. Todos los planes tienen prueba gratis de 7 días.",
+   "extraFees": "El complemento de mensajes de texto para la web cuesta $50 al mes por 25 conversaciones, y luego $1 por cada conversación extra. Se cobra impuesto sobre ventas además. Si pagas tarde, hay un cargo de $10 más 1.5% de interés al mes. No hay cargo por minutos extra, porque en vez de eso te pasan a un plan más alto.",
+   "caution": "Los términos dicen que la prueba gratis tal vez no esté disponible para todos y solo aplica a suscriptores nuevos. Tu tarjeta se convierte en suscripción de pago al terminar la prueba, a menos que canceles antes. Las llamadas se redondean al siguiente minuto completo."
   }
  }
 }

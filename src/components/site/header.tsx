@@ -18,9 +18,10 @@ export function Header({ lang, t }: { lang: string; t: Dict }) {
   return (
     <header className="relative border-b-2 border-ink bg-paper">
       <div className="awning" aria-hidden="true" />
-      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-4 gap-y-2 px-4 py-3">
-        <Link href={`/${lang}`} className="mr-auto flex min-h-12 items-center gap-2 text-2xl font-bold no-underline lg:mr-2">
-          <ShopMark className="size-9" />
+      <div className="mx-auto flex max-w-6xl flex-wrap items-center gap-x-3 gap-y-2 px-4 py-3 sm:gap-x-4">
+        {/* A little smaller on phones, so the logo and the language button share one row in every language. */}
+        <Link href={`/${lang}`} className="mr-auto flex min-h-12 items-center gap-2 text-xl font-bold no-underline sm:text-2xl lg:mr-2">
+          <ShopMark className="size-8 sm:size-9" />
           {t.brand}
         </Link>
 

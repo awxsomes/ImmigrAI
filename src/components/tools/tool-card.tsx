@@ -129,7 +129,7 @@ export function ToolCard({
           ) : (
             <span>{tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}</span>
           )}
-          <Link href={`${href}#languages`} prefetch={false} className="block text-sm font-normal underline underline-offset-2">
+          <Link href={`${href}#languages`} prefetch={false} className="inline-block py-1 text-sm font-normal underline underline-offset-2">
             {t.card_seeLanguages}
           </Link>
         </Fact>

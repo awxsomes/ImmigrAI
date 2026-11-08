@@ -31,7 +31,7 @@ export type ActionLabels = Pick<Dict, (typeof ACTION_KEYS)[number]>;
 
 export const SEARCH_KEYS = [
   "search_label", "search_placeholder", "search_button", "search_hint", "search_privacy", "search_thinking", "search_noMatch",
-  "search_aiMatch", "search_count", "search_suggestions",
+  "search_aiMatch", "search_count", "search_suggestions", "search_opening",
 ] as const;
 export type SearchLabels = Pick<Dict, (typeof SEARCH_KEYS)[number]>;
 

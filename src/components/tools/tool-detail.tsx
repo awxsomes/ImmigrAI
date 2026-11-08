@@ -55,12 +55,33 @@ function Meter({ label, value, max, display }: { label: string; value: number; m
   );
 }
 
+type ScoreLabels = Pick<Dict, "score_reviews" | "score_ease" | "score_cost" | "score_languages" | "score_connections" | "score_footprint">;
+
+/** The parts of a tool's score, each with its weight. Used on the tool page and the home page example. */
+export function ScoreMeters({ tool, t }: { tool: Tool; t: ScoreLabels }) {
+  const w = OVERALL_WEIGHTS;
+  const { rating } = tool.reviews;
+  const env = tool.environmental;
+  const pct = (weight: number) => Math.round(weight * 100);
+  return (
+    <dl className="space-y-3">
+      {tool.scores.overallIncludesReviews && rating !== null && (
+        <Meter label={`${t.score_reviews} (${pct(w.reviews)}%)`} value={rating} max={5} display={`${rating} / 5`} />
+      )}
+      <Meter label={`${t.score_ease} (${pct(w.easeOfUse)}%)`} value={tool.scores.easeOfUse} max={5} display={`${tool.scores.easeOfUse} / 5`} />
+      <Meter label={`${t.score_cost} (${pct(w.affordability)}%)`} value={tool.scores.affordability} max={5} display={`${tool.scores.affordability} / 5`} />
+      <Meter label={`${t.score_languages} (${pct(w.languageSupport)}%)`} value={tool.scores.languageSupport} max={5} display={`${tool.scores.languageSupport} / 5`} />
+      <Meter label={`${t.score_connections} (${pct(w.compatibility)}%)`} value={tool.scores.compatibility} max={5} display={`${tool.scores.compatibility} / 5`} />
+      <Meter label={`${t.score_footprint} (${pct(w.environment)}%)`} value={env.score} max={100} display={`${env.score} / 100`} />
+    </dl>
+  );
+}
+
 const OUT = { target: "_blank", rel: "noopener noreferrer nofollow" } as const;
 
 export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; lang: string; t: DetailLabels; actions?: ReactNode; sidebar?: ReactNode }) {
   const env = tool.environmental;
   const { rating, sources, reviewCount, summary } = tool.reviews;
-  const w = OVERALL_WEIGHTS;
   const includesReviews = tool.scores.overallIncludesReviews;
   const languages = [...tool.languages].map((l) => displayLanguage(l, lang)).sort((a, b) => a.localeCompare(b, lang));
 
@@ -287,16 +308,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
           </Section>
 
           <Section title={t.tool_scoreParts}>
-            <dl className="space-y-3">
-              {includesReviews && rating !== null && (
-                <Meter label={`${t.score_reviews} (${Math.round(w.reviews * 100)}%)`} value={rating} max={5} display={`${rating} / 5`} />
-              )}
-              <Meter label={`${t.score_ease} (${Math.round(w.easeOfUse * 100)}%)`} value={tool.scores.easeOfUse} max={5} display={`${tool.scores.easeOfUse} / 5`} />
-              <Meter label={`${t.score_cost} (${Math.round(w.affordability * 100)}%)`} value={tool.scores.affordability} max={5} display={`${tool.scores.affordability} / 5`} />
-              <Meter label={`${t.score_languages} (${Math.round(w.languageSupport * 100)}%)`} value={tool.scores.languageSupport} max={5} display={`${tool.scores.languageSupport} / 5`} />
-              <Meter label={`${t.score_connections} (${Math.round(w.compatibility * 100)}%)`} value={tool.scores.compatibility} max={5} display={`${tool.scores.compatibility} / 5`} />
-              <Meter label={`${t.score_footprint} (${Math.round(w.environment * 100)}%)`} value={env.score} max={100} display={`${env.score} / 100`} />
-            </dl>
+            <ScoreMeters tool={tool} t={t} />
             {!includesReviews && <p className="mt-3 text-sm">{t.tool_scoreNoReviews}</p>}
             {tool.lastChecked && <p className="mt-3 text-sm text-muted-ink">{fmt(t.tool_checked, { date: tool.lastChecked })}</p>}
           </Section>

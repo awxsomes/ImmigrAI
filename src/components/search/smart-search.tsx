@@ -1,7 +1,7 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import { useEffect, useId, useRef, useState, type KeyboardEvent } from "react";
+import { useEffect, useId, useRef, useState, useTransition, type KeyboardEvent } from "react";
 import { SearchIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -61,6 +61,11 @@ export function SmartSearch({
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState(-1);
   const [thinking, setThinking] = useState(false);
+  // Pressing Search can take a few seconds on a slow phone: working out the match, then
+  // loading the results. The button says so the whole time, so it never looks broken.
+  const [resolving, setResolving] = useState(false);
+  const [navigating, startNavigation] = useTransition();
+  const pending = resolving || navigating;
   const libs = useRef<Promise<Libs> | null>(null);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const request = useRef<AbortController | null>(null);
@@ -145,7 +150,7 @@ export function SmartSearch({
 
   function go(href: string) {
     setOpen(false);
-    router.push(href);
+    startNavigation(() => router.push(href));
   }
 
   function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
@@ -172,28 +177,35 @@ export function SmartSearch({
    * in a page address, browser history or server log. Only unmatched text does.
    */
   async function submit() {
-    const text = query.trim();
-    if (!text) return;
+    // Read the box itself: on a slow phone, words typed before the page's scripts started
+    // are in the box but were never seen by onChange.
+    const text = (inputRef.current?.value ?? query).trim();
+    if (!text || pending) return;
     if (items[0]) return go(items[active >= 0 ? active : 0].href);
-    const { matcher, text: names } = await loadLibs();
-    const local = matcher.localSuggestions(text);
-    if (local[0]) return go(toItems(local, names, false)[0].href);
-    setThinking(true);
-    setOpen(true);
+    setResolving(true);
     try {
-      const res = await fetch("/api/suggest", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ q: text, lang }),
-      });
-      const json = res.ok ? ((await res.json()) as { suggestions: Suggestion[] }) : { suggestions: [] };
-      if (json.suggestions[0]) return go(toItems(json.suggestions, names, true)[0].href);
-    } catch {
-      /* Offline or the AI is down: fall through to the search page. */
+      const { matcher, text: names } = await loadLibs();
+      const local = matcher.localSuggestions(text);
+      if (local[0]) return go(toItems(local, names, false)[0].href);
+      setThinking(true);
+      setOpen(true);
+      try {
+        const res = await fetch("/api/suggest", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ q: text, lang }),
+        });
+        const json = res.ok ? ((await res.json()) as { suggestions: Suggestion[] }) : { suggestions: [] };
+        if (json.suggestions[0]) return go(toItems(json.suggestions, names, true)[0].href);
+      } catch {
+        /* Offline or the AI is down: fall through to the search page. */
+      } finally {
+        setThinking(false);
+      }
+      go(`/${lang}/search?q=${encodeURIComponent(text)}`);
     } finally {
-      setThinking(false);
+      setResolving(false);
     }
-    go(`/${lang}/search?q=${encodeURIComponent(text)}`);
   }
 
   function tryExample(example: string) {
@@ -216,7 +228,7 @@ export function SmartSearch({
           void submit();
         }}
       >
-        <label htmlFor={id} className={large ? "block text-xl font-semibold" : "block font-semibold"}>
+        <label htmlFor={id} className={large ? "block text-lg font-semibold sm:text-xl" : "block font-semibold"}>
           {t.search_label}
         </label>
         <div className="relative mt-2">
@@ -247,9 +259,9 @@ export function SmartSearch({
               large={large}
               className="border-ink"
             />
-            <Button type="submit" size={large ? "lg" : "default"}>
+            <Button type="submit" size={large ? "lg" : "default"} aria-disabled={pending || undefined}>
               <SearchIcon className="size-5" />
-              {t.search_button}
+              {pending ? t.search_opening : t.search_button}
             </Button>
           </div>
 
@@ -289,7 +301,7 @@ export function SmartSearch({
           {t.search_hint}
         </p>
         <p role="status" className="sr-only">
-          {showList && items.length > 0 ? fmt(t.search_count, { n: items.length }) : ""}
+          {pending ? t.search_opening : showList && items.length > 0 ? fmt(t.search_count, { n: items.length }) : ""}
         </p>
       </form>
 

@@ -1,45 +1,59 @@
 import Link from "next/link";
-import { ArrowIcon, CheckIcon } from "@/components/icons";
+import { ArrowIcon, CheckIcon, SearchIcon } from "@/components/icons";
 import { SmartSearch } from "@/components/search/smart-search";
+import { KitchenArt, SeedlingArt, StorefrontArt } from "@/components/site/kit-art";
 import { KitCard, NewToolsCard } from "@/components/tools/kit-card";
+import { ToolCard } from "@/components/tools/tool-card";
+import { ScoreMeters } from "@/components/tools/tool-detail";
 import { buttonVariants } from "@/components/ui/button";
+import { BUNDLE_BY_SLUG } from "@/data/bundles";
+import { seedToolsFor } from "@/data/seed-tools";
+import { findSubcategory } from "@/data/taxonomy";
 import { searchHref } from "@/lib/format";
 import { getDict } from "@/lib/i18n";
-import { fmt, pick, SEARCH_KEYS } from "@/lib/labels";
-import { localBundles, localTaxonomy } from "@/lib/localize";
-import { OVERALL_WEIGHTS } from "@/lib/scoring";
+import { CARD_KEYS, fmt, pick, SEARCH_KEYS } from "@/lib/labels";
+import { localizeBundle, localizeTool, localTaxonomy, nameOf } from "@/lib/localize";
+import { sortTools } from "@/lib/scoring";
+
+/** Six common needs, in an owner's words. Every other need is one tap away under them. */
+const TASKS = [
+  { key: "task_calls", cat: "calls", sub: "phone-ai" },
+  { key: "task_schedules", cat: "employees", sub: "scheduling" },
+  { key: "task_books", cat: "money", sub: "bookkeeping" },
+  { key: "task_social", cat: "customers", sub: "social" },
+  { key: "task_reviews", cat: "customers", sub: "reviews" },
+  { key: "task_translate", cat: "translate", sub: "translators" },
+] as const;
+
+/** The example on the home page is a real search: its top result is worked out from the same data at build time. */
+const EXAMPLE = { cat: "employees", sub: "scheduling" } as const;
 
 export default async function HomePage({ params }: { params: Promise<{ lang: string }> }) {
   const { lang } = await params;
   const t = getDict(lang);
   const taxonomy = localTaxonomy(lang);
-  const kits = localBundles(lang).slice(0, 5);
-  const scoreRows = [
-    { label: t.score_reviews, weight: OVERALL_WEIGHTS.reviews },
-    { label: t.score_ease, weight: OVERALL_WEIGHTS.easeOfUse },
-    { label: t.score_cost, weight: OVERALL_WEIGHTS.affordability },
-    { label: t.score_languages, weight: OVERALL_WEIGHTS.languageSupport },
-    { label: t.score_connections, weight: OVERALL_WEIGHTS.compatibility },
-    { label: t.score_footprint, weight: OVERALL_WEIGHTS.environment },
-  ];
+  const tasks = TASKS.map((task) => ({
+    ...task,
+    label: t[task.key],
+    count: seedToolsFor(task.cat, task.sub).filter((tool) => tool.ai.level !== "none").length,
+  }));
+  const exampleTools = sortTools(seedToolsFor(EXAMPLE.cat, EXAMPLE.sub), "overall");
+  const top = exampleTools[0] ? localizeTool(exampleTools[0], lang) : undefined;
+  const exampleName = nameOf(lang, EXAMPLE.sub, findSubcategory(EXAMPLE.cat, EXAMPLE.sub)?.name ?? EXAMPLE.sub);
+  const kit = (slug: string) => localizeBundle(BUNDLE_BY_SLUG.get(slug)!, lang);
 
   return (
     <>
-      <section className="mx-auto max-w-6xl px-4 pt-10 pb-12 sm:pt-14">
-        <h1 className="max-w-4xl text-4xl font-bold sm:text-6xl">{t.hero_title}</h1>
-        <p className="mt-3 text-xl font-medium">{t.tagline2}</p>
-        <p className="mt-1 max-w-3xl text-lg text-muted-ink">{t.tagline}</p>
-        <div className="mt-8">
+      <section className="mx-auto max-w-6xl px-4 pt-6 pb-12 sm:pt-14">
+        <h1 className="max-w-4xl text-3xl font-bold sm:text-6xl">{t.hero_title}</h1>
+        <p className="mt-3 max-w-3xl text-lg sm:mt-4 sm:text-xl">{t.hero_lead}</p>
+        <div className="mt-6 sm:mt-8">
           <SmartSearch lang={lang} t={pick(t, SEARCH_KEYS)} examples={[t.search_example1, t.search_example2, t.search_example3, t.search_example4]} />
         </div>
-        <ul className="mt-4 space-y-1 font-medium">
-          {[t.hero_ai, t.hero_note].map((line) => (
-            <li key={line} className="flex items-center gap-2">
-              <CheckIcon className="size-5 shrink-0 text-green" />
-              {line}
-            </li>
-          ))}
-        </ul>
+        <p className="mt-4 flex items-center gap-2 font-medium">
+          <CheckIcon className="size-5 shrink-0 text-green" />
+          {t.hero_note}
+        </p>
       </section>
 
       <section aria-labelledby="board-title" className="bg-green-dark text-white">
@@ -48,105 +62,117 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             {t.home_boardTitle}
           </h2>
           <p className="mt-1 text-lg">{t.home_boardSub}</p>
-          <ul className="mt-6 grid gap-x-12 gap-y-1 md:grid-cols-2">
-            {taxonomy.map((category) => (
-              <li key={category.id} className="border-t border-white/30 py-3">
-                <Link href={searchHref(lang, category.id)} prefetch={false} className="flex items-baseline gap-3 no-underline hover:text-marigold">
-                  <span className="text-xl font-semibold">{category.name}</span>
+          <ul className="mt-6 grid gap-x-12 md:grid-cols-2">
+            {tasks.map((task) => (
+              <li key={task.key} className="border-t border-white/30">
+                <Link href={searchHref(lang, task.cat, task.sub)} prefetch={false} className="flex min-h-14 items-baseline gap-3 py-3 no-underline hover:text-marigold">
+                  <span className="text-xl font-semibold">{task.label}</span>
                   <span className="leader" aria-hidden="true" />
-                  <span className="shrink-0 text-sm">{fmt(t.home_kinds, { n: category.subs.length })}</span>
+                  <span className="shrink-0 text-sm">{fmt(t.home_taskCount, { n: task.count })}</span>
                 </Link>
-                <ul className="mt-1 flex flex-wrap gap-x-4 text-sm">
-                  {category.subs.map((sub) => (
-                    <li key={sub.id}>
-                      <Link href={searchHref(lang, category.id, sub.id)} prefetch={false} className="inline-block py-1 underline underline-offset-2 hover:text-marigold">
-                        {sub.name}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
               </li>
             ))}
+          </ul>
+          <details className="group mt-6 border-t border-white/30 pt-4">
+            <summary className="inline-flex min-h-12 items-center gap-2 text-lg font-semibold underline underline-offset-4 hover:text-marigold">
+              {fmt(t.home_browseAll, { n: taxonomy.length })}
+              <span aria-hidden="true" className="text-2xl leading-none no-underline group-open:hidden">
+                +
+              </span>
+              <span aria-hidden="true" className="hidden text-2xl leading-none no-underline group-open:inline">
+                &minus;
+              </span>
+            </summary>
+            <ul className="mt-4 grid gap-x-12 gap-y-1 md:grid-cols-2">
+              {taxonomy.map((category) => (
+                <li key={category.id} className="border-t border-white/30 py-3">
+                  <Link href={searchHref(lang, category.id)} prefetch={false} className="flex items-baseline gap-3 no-underline hover:text-marigold">
+                    <span className="text-lg font-semibold">{category.name}</span>
+                    <span className="leader" aria-hidden="true" />
+                    <span className="shrink-0 text-sm">{fmt(t.home_kinds, { n: category.subs.length })}</span>
+                  </Link>
+                  <ul className="mt-1 flex flex-wrap gap-x-4 text-sm">
+                    {category.subs.map((sub) => (
+                      <li key={sub.id}>
+                        <Link href={searchHref(lang, category.id, sub.id)} prefetch={false} className="inline-block py-1 underline underline-offset-2 hover:text-marigold">
+                          {sub.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+              ))}
+            </ul>
+          </details>
+        </div>
+      </section>
+
+      {top && (
+        <section aria-labelledby="example-title" className="mx-auto max-w-6xl px-4 py-12">
+          <h2 id="example-title" className="text-3xl font-bold">
+            {t.home_exampleTitle}
+          </h2>
+          <p className="mt-3 inline-flex max-w-full items-center gap-2 rounded-lg border-2 border-line-strong bg-surface px-4 py-2 text-lg">
+            <SearchIcon className="size-5 shrink-0" />
+            <span className="sr-only">{t.home_exampleAsked}: </span>
+            {t.home_exampleQuery}
+          </p>
+          <div className="mt-6 grid items-start gap-6 lg:grid-cols-[3fr_2fr]">
+            <div>
+              <p className="mb-2 font-semibold">{fmt(t.home_exampleTop, { n: exampleTools.length })}</p>
+              <ToolCard tool={top} lang={lang} t={pick(t, CARD_KEYS)} />
+            </div>
+            <div className="rounded-xl bg-green-tint p-5 lg:mt-9">
+              <h3 className="text-xl font-semibold">{fmt(t.home_exampleWhy, { name: top.name })}</h3>
+              <div className="mt-4">
+                <ScoreMeters tool={top} t={t} />
+              </div>
+              <Link href={`/${lang}/methodology`} prefetch={false} className="mt-4 inline-flex min-h-12 items-center gap-2 font-medium underline underline-offset-4">
+                {t.home_scoreLink}
+                <ArrowIcon className="size-4" />
+              </Link>
+            </div>
+          </div>
+          <Link
+            href={searchHref(lang, EXAMPLE.cat, EXAMPLE.sub)}
+            prefetch={false}
+            className={`${buttonVariants({ variant: "outline" })} mt-6`}
+          >
+            {fmt(t.home_exampleAll, { n: exampleTools.length, name: exampleName })}
+            <ArrowIcon className="size-4" />
+          </Link>
+        </section>
+      )}
+
+      <section aria-labelledby="kits-title" className="border-y-2 border-line bg-surface">
+        <div className="mx-auto max-w-6xl px-4 py-12">
+          <div className="flex flex-wrap items-end justify-between gap-3">
+            <div>
+              <h2 id="kits-title" className="text-3xl font-bold">
+                {t.home_bundlesTitle}
+              </h2>
+              <p className="mt-1 text-lg text-muted-ink">{t.kit_sub}</p>
+            </div>
+            <Link href={`/${lang}/bundles`} prefetch={false} className="inline-flex min-h-12 items-center gap-2 font-medium underline underline-offset-4">
+              {t.home_bundlesAll}
+              <ArrowIcon className="size-4" />
+            </Link>
+          </div>
+          <ul className="mt-6 grid gap-4 md:grid-cols-3">
+            <li>
+              <KitCard kit={kit("startup-essentials")} lang={lang} t={t} art={<StorefrontArt />} />
+            </li>
+            <li>
+              <KitCard kit={kit("restaurant-picks")} lang={lang} t={t} art={<KitchenArt />} />
+            </li>
+            <li>
+              <NewToolsCard lang={lang} t={t} art={<SeedlingArt />} />
+            </li>
           </ul>
         </div>
       </section>
 
-      <section aria-labelledby="kits-title" className="mx-auto max-w-6xl px-4 py-12">
-        <div className="flex flex-wrap items-end justify-between gap-3">
-          <div>
-            <h2 id="kits-title" className="text-3xl font-bold">
-              {t.home_bundlesTitle}
-            </h2>
-            <p className="mt-1 text-lg text-muted-ink">{t.kit_sub}</p>
-          </div>
-          <Link href={`/${lang}/bundles`} prefetch={false} className="inline-flex min-h-12 items-center gap-2 font-medium underline underline-offset-4">
-            {t.home_bundlesAll}
-            <ArrowIcon className="size-4" />
-          </Link>
-        </div>
-        <ul className="mt-6 grid gap-4 md:grid-cols-2">
-          {kits.map((kit) => (
-            <li key={kit.slug}>
-              <KitCard kit={kit} lang={lang} t={t} />
-            </li>
-          ))}
-          <li>
-            <NewToolsCard lang={lang} t={t} />
-          </li>
-        </ul>
-      </section>
-
-      <section aria-labelledby="how-title" className="border-y-2 border-line bg-surface">
-        <div className="mx-auto max-w-6xl px-4 py-12">
-          <h2 id="how-title" className="text-3xl font-bold">
-            {t.home_howTitle}
-          </h2>
-          <ol className="mt-6 grid gap-x-10 gap-y-6 md:grid-cols-2">
-            {[
-              [t.home_how1_t, t.home_how1_d],
-              [t.home_how2_t, t.home_how2_d],
-              [t.home_how3_t, t.home_how3_d],
-              [t.home_how4_t, t.home_how4_d],
-            ].map(([title, detail], index) => (
-              <li key={title} className="flex gap-4">
-                <span aria-hidden="true" className="text-4xl leading-none font-bold text-green">
-                  {index + 1}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold">{title}</h3>
-                  <p className="mt-1">{detail}</p>
-                </div>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
-
-      <section aria-labelledby="score-title" className="mx-auto grid max-w-6xl gap-8 px-4 py-12 lg:grid-cols-2">
-        <div>
-          <h2 id="score-title" className="text-3xl font-bold">
-            {t.home_scoreTitle}
-          </h2>
-          <p className="mt-3 text-lg">{t.home_scoreD}</p>
-          <Link href={`/${lang}/methodology`} prefetch={false} className="mt-3 inline-flex min-h-12 items-center gap-2 font-medium underline underline-offset-4">
-            {t.home_scoreLink}
-            <ArrowIcon className="size-4" />
-          </Link>
-        </div>
-        <dl className="space-y-3 self-center">
-          {scoreRows.map((row) => (
-            <div key={row.label} className="grid grid-cols-[1fr_auto] gap-x-3">
-              <dt>{row.label}</dt>
-              <dd className="font-semibold">{Math.round(row.weight * 100)}%</dd>
-              <dd className="col-span-2 mt-1 h-2.5 overflow-hidden rounded-full bg-line" aria-hidden="true">
-                <div className="h-full rounded-full bg-green" style={{ width: `${(row.weight / OVERALL_WEIGHTS.reviews) * 100}%` }} />
-              </dd>
-            </div>
-          ))}
-        </dl>
-      </section>
-
-      <section className="mx-auto grid max-w-6xl gap-4 px-4 pb-12 md:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl gap-4 px-4 py-12 md:grid-cols-2">
         <div className="rounded-xl bg-marigold-tint p-6">
           <h2 className="text-2xl font-bold">{t.home_alreadyTitle}</h2>
           <p className="mt-2">{t.home_alreadyD}</p>

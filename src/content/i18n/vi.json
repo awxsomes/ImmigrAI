@@ -55,7 +55,6 @@
   "platform_desktop": "Ứng dụng máy tính",
   "platform_phone": "Gọi điện thoại",
   "platform_pos-hardware": "Máy thu ngân",
-  "kit_fit": "Điểm phù hợp: {n} trên 100",
   "kit_cost": "Từ ${n} mỗi tháng",
   "kit_free": "Không mất phí hàng tháng khi bắt đầu",
   "kit_toolsCount": "{n} công cụ",
@@ -93,7 +92,6 @@
   "my_saved": "Đã lưu trên thiết bị này. Không có gì được gửi đến chúng tôi.",
   "my_yourData": "Dữ liệu của bạn",
   "consent_q": "Lưu lựa chọn của bạn trên thiết bị này?",
-  "consent_yes": "Chấp nhận tất cả cookie",
   "consent_no": "Không, đừng lưu",
   "footer_privacyChoices": "Lựa chọn quyền riêng tư",
   "footer_explore": "Khám phá",
@@ -161,8 +159,6 @@
   "home_kinds": "{n} loại trợ giúp",
   "home_newTools": "Công cụ mới",
   "home_newToolsD": "Các công cụ AI ra mắt năm 2026, còn quá mới nên chưa có nhiều đánh giá.",
-  "home_scoreTitle": "Đánh giá cần nhiều hơn số sao",
-  "home_scoreD": "Một công cụ năm sao vẫn có thể không hợp với bạn nếu quá đắt, chỉ có tiếng Anh hoặc mất cả tuần để thiết lập. Điểm của chúng tôi tính tất cả những yếu tố này, và trang của mỗi công cụ cho thấy cách tính.",
   "home_scoreLink": "Xem cách chúng tôi chấm điểm",
   "home_alreadyTitle": "Bạn đã dùng gì rồi?",
   "home_alreadyD": "Cho chúng tôi biết bạn đang dùng gì, chẳng hạn QuickBooks, Square hoặc bảng tính. Chúng tôi sẽ chỉ ra công cụ nào kết nối được với nó, để bạn không phải bắt đầu lại hoặc nhập mọi thứ hai lần.",
@@ -241,7 +237,6 @@
   "search_count": "Đã tìm thấy {n} gợi ý. Dùng phím mũi tên lên và xuống để chọn.",
   "tool_saveToRate": "Lưu công cụ này để đánh giá, ghi chú và đánh dấu rằng bạn đang dùng nó.",
   "results_iceNote": "Đây là các nguồn hỗ trợ an toàn cộng đồng từ các tổ chức phi lợi nhuận, và hầu hết không dùng AI. Chúng tôi không tự động thêm ứng dụng vào danh sách này, vì một ứng dụng giả hoặc không an toàn có thể gây nguy hiểm cho mọi người. Đừng đưa tình trạng di trú của bạn cho một ứng dụng mà bạn không tin tưởng. Đây chỉ là thông tin chung, không phải là tư vấn pháp lý.",
-  "consent_d": "Chúng tôi không theo dõi bạn. Các công cụ bạn lưu sẽ ở trong trình duyệt này và bạn có thể xóa bất cứ lúc nào. Khi chấp nhận, bạn xác nhận mình từ 18 tuổi trở lên.",
   "card_freePlan": "Gói miễn phí",
   "card_noMonthlyFee": "Không có phí hàng tháng",
   "card_youSetBudget": "Bạn tự đặt ngân sách",
@@ -257,9 +252,7 @@
   "tool_smallNote": "Đây có vẻ là công cụ nhỏ hoặc mới. Hãy dùng gói miễn phí hoặc bản dùng thử trước, và đọc điều khoản trước khi trả tiền.",
   "results_otherTools": "Công cụ hữu ích không có AI ({n})",
   "compare_rowAi": "AI làm gì",
-  "hero_ai": "Mỗi công cụ cho biết AI của nó thực sự làm gì.",
   "home_bundlesTitle": "Bộ công cụ AI có sẵn",
-  "home_how2_d": "Chúng tôi tìm công cụ AI trên mạng, kể cả công cụ nhỏ và mới, rồi kiểm tra giá và đánh giá của chúng.",
   "faq6_q": "Mọi công cụ có dùng AI không?",
   "faq6_a": "Chúng tôi tập trung vào công cụ AI, kể cả công cụ nhỏ và mới, và mỗi công cụ đều cho biết AI của nó làm gì. Một vài nguồn hữu ích không có AI, như hướng dẫn về quyền lợi của bạn và cố vấn miễn phí, được ghi là \"Không có AI\".",
   "nav_moreLanguages": "Thêm ngôn ngữ",
@@ -268,7 +261,35 @@
   "my_languageSiteIn": "Hiển thị trang web này bằng {language}",
   "my_languageNoSite": "Trang web này chưa được dịch sang {language}, nhưng chúng tôi vẫn sẽ kiểm tra từng công cụ bằng ngôn ngữ đó.",
   "my_languageWorks": "Dùng được bằng {language}: {names}",
-  "my_languageUnknown": "Chưa xác nhận {language}: {names}"
+  "my_languageUnknown": "Chưa xác nhận {language}: {names}",
+  "consent_yes": "Đồng ý và lưu",
+  "search_opening": "Đang mở kết quả...",
+  "hero_lead": "Hãy mô tả vấn đề bằng lời của bạn. Chúng tôi sẽ cho bạn xem các công cụ AI rẻ, dễ bắt đầu và dùng được bằng ngôn ngữ của bạn.",
+  "task_calls": "Trả lời điện thoại khi bạn bận",
+  "task_schedules": "Làm lịch làm việc cho nhân viên",
+  "task_books": "Theo dõi hóa đơn và chi phí",
+  "task_social": "Đăng bài trên mạng xã hội",
+  "task_reviews": "Có thêm đánh giá trên Google",
+  "task_translate": "Dịch thực đơn và biển hiệu",
+  "home_taskCount": "{n} công cụ AI",
+  "home_browseAll": "Xem tất cả nhu cầu ({n} lĩnh vực)",
+  "home_exampleTitle": "Xem một gợi ý thực tế",
+  "home_exampleAsked": "Tìm kiếm mẫu",
+  "home_exampleQuery": "Tôi cần giúp làm lịch làm việc cho nhân viên",
+  "home_exampleTop": "Kết quả đứng đầu trong {n} công cụ",
+  "home_exampleWhy": "{name} được chấm điểm như thế nào",
+  "home_exampleAll": "Xem tất cả {n} công cụ cho {name}",
+  "kit_languages": "Ngôn ngữ",
+  "kit_setup": "Cài đặt",
+  "kit_langAll": "Mọi công cụ đều dùng được bằng {list}",
+  "kit_langSome": "{language} có trong {k} trên {n} công cụ",
+  "kit_setupMinutes": "Tổng cộng khoảng {n} phút",
+  "kit_setupHours": "Tổng cộng khoảng {n} giờ",
+  "kit_pairs": "Các cặp kết nối với nhau",
+  "kit_pairsValue": "{k} trên {n}",
+  "kit_toolsLabel": "Công cụ",
+  "kit_newRating": "Còn quá mới để đánh giá. Hãy thử trước khi trả tiền.",
+  "consent_d": "Không dùng cookie, không theo dõi. Bạn phải từ 18 tuổi trở lên mới được đồng ý."
  },
  "docs": {
   "free-help": {
@@ -1961,241 +1982,241 @@
    "extraFees": "Giá được niêm yết bằng NZD và các loại tiền khác trên trang giá; sản phẩm Business là sản phẩm riêng, có giá 29 đô la Mỹ mỗi tháng cho tối đa 10 người theo giấy phép hằng năm, và cộng thêm 2,50 đô la Mỹ mỗi tháng cho mỗi người thêm; giá chưa bao gồm thuế.",
    "caution": "Sản phẩm Lernoa Business dùng để đào tạo nhân viên, là gói mà doanh nghiệp nhỏ có thể cần, là sản phẩm riêng với 14 ngày dùng thử miễn phí và phí hằng tháng; các gói tín dụng dành cho người dùng cá nhân dùng để học cá nhân và không có tính năng quản lý nhóm."
   },
+  "neuralearn": {
+   "summary": "NeuraLearn là một công cụ học tập bằng AI giúp ôn thi chứng chỉ nghề nghiệp. Công cụ này tạo bản tóm tắt, thẻ học và câu hỏi luyện tập từ các tài liệu bạn tải lên.",
+   "helpsWith": [
+    "Tạo bản tóm tắt từ các tài liệu bạn tải lên",
+    "Làm thẻ học và câu hỏi luyện tập cho kỳ thi chứng chỉ",
+    "Chỉ ra những phần bạn cần ôn lại thêm"
+   ],
+   "howToStart": "",
+   "aiFeature": "Biến ghi chú bài giảng, sách giáo khoa và tài liệu khóa học bạn tải lên thành thẻ học, bài trắc nghiệm luyện tập, bản tóm tắt và hướng dẫn học. Công cụ chỉ trả lời câu hỏi dựa trên những tài liệu bạn đã tải lên.",
+   "pricingNote": "Có gói Essential miễn phí. Gói Basic giá 2 USD mỗi tháng và gói Pro giá 4 USD mỗi tháng. Các gói này dành cho học sinh, sinh viên học tập hơn là cho việc kinh doanh."
+  },
   "permitsentry-ai": {
-   "summary": "Theo dõi giấy phép kinh doanh, giấy phép vệ sinh và chứng chỉ hoạt động, nhắc bạn trước khi hết hạn, và tạo sẵn hồ sơ gia hạn.",
+   "summary": "Theo dõi giấy phép kinh doanh, giấy phép y tế và chứng chỉ hoạt động, nhắc bạn trước khi hết hạn, và tạo sẵn hồ sơ gia hạn.",
    "helpsWith": [
     "Tìm các giấy phép liên bang, tiểu bang, quận và thành phố mà bạn có thể cần",
-    "Gửi nhắc nhở gia hạn trước 90, 60, 30, 7 và 1 ngày khi hết hạn",
+    "Gửi nhắc nhở gia hạn trước 90, 60, 30, 7 và 1 ngày hết hạn",
     "Tạo sẵn hồ sơ gia hạn"
    ],
    "howToStart": "",
-   "aiFeature": "Quét loại hình, ngành nghề và địa điểm kinh doanh để gợi ý các giấy phép có thể cần, và tự điền mẫu gia hạn từ hồ sơ doanh nghiệp đã lưu.",
-   "pricingNote": "PermitSentry AI có ba gói trả phí: Starter 49 USD/tháng (tối đa 5 giấy phép, 1 địa điểm), Professional 99 USD/tháng (tối đa 20 giấy phép, 5 địa điểm), và Enterprise 249 USD/tháng (không giới hạn giấy phép và địa điểm), gói hằng năm tiết kiệm 20%.",
-   "caution": "Đăng ký tự động gia hạn, thay đổi giá cần báo trước 30 ngày, hủy không được hoàn tiền theo tỷ lệ cho các giai đoạn lẻ, và công cụ chỉ mang tính thông tin nên cần kiểm tra hướng dẫn giấy phép với chính quyền địa phương."
+   "aiFeature": "Quét loại hình, ngành nghề và địa điểm kinh doanh của bạn để gợi ý các giấy phép có thể cần, và tự điền mẫu gia hạn từ hồ sơ doanh nghiệp đã lưu.",
+   "pricingNote": "PermitSentry AI có ba gói trả phí: Starter 49 đô la mỗi tháng (tối đa 5 giấy phép, 1 địa điểm), Professional 99 đô la mỗi tháng (tối đa 20 giấy phép, 5 địa điểm), và Enterprise 249 đô la mỗi tháng (không giới hạn giấy phép và địa điểm). Gói hằng năm tiết kiệm 20%.",
+   "caution": "Đăng ký tự động gia hạn, thay đổi giá cần báo trước 30 ngày, hủy đăng ký không được hoàn tiền theo tỷ lệ cho các kỳ chưa dùng hết, và công cụ này chỉ mang tính tham khảo, nên hãy kiểm tra lại hướng dẫn về giấy phép với chính quyền địa phương."
   },
   "askhrai": {
-   "summary": "Trợ lý AI cho nhân sự, trả lời các câu hỏi về nhân sự và tạo văn bản như thư mời làm việc, thư kèm kế hoạch cải thiện (PIP), thông báo chấm dứt hợp đồng và sổ tay nhân viên, có cảnh báo rủi ro pháp lý.",
+   "summary": "Trợ lý nhân sự bằng AI, trả lời các câu hỏi về nhân sự và tạo tài liệu như thư mời làm việc, thư cải thiện hiệu suất (PIP), thông báo chấm dứt hợp đồng và sổ tay nhân viên, có cảnh báo rủi ro pháp lý.",
    "helpsWith": [
     "Trả lời câu hỏi nhân sự dựa trên luật liên bang và tiểu bang",
-    "Tạo thư mời làm việc và các văn bản nhân sự khác trong khoảng 30 giây",
-    "Xây dựng sổ tay nhân viên phù hợp với luật tiểu bang",
+    "Tạo thư mời làm việc và các tài liệu nhân sự khác trong khoảng 30 giây",
+    "Soạn sổ tay nhân viên phù hợp với luật tiểu bang",
     "Cảnh báo rủi ro pháp lý và khuyên khi nào nên hỏi luật sư lao động"
    ],
    "howToStart": "",
-   "pricingNote": "Gói Starter 49 USD mỗi tháng với trò chuyện AI không giới hạn và 5 mẫu văn bản; gói Professional 149 USD mỗi tháng với đủ 8 loại văn bản và công cụ Handbook Builder."
+   "pricingNote": "Gói Starter là 49 đô la mỗi tháng, có trò chuyện AI không giới hạn và 5 mẫu tài liệu; gói Professional là 149 đô la mỗi tháng, có đủ 8 loại tài liệu và công cụ Handbook Builder."
   },
   "hrdocket": {
-   "summary": "Công cụ tạo văn bản nhân sự với 21 loại văn bản bao gồm tuyển dụng, hướng dẫn nhận việc, đánh giá hiệu suất, kỷ luật và nghỉ việc, gồm cả thư mời làm việc và hợp đồng lao động.",
+   "summary": "Công cụ tạo tài liệu nhân sự với 21 loại tài liệu bao gồm tuyển dụng, đào tạo nhận việc, đánh giá hiệu suất, kỷ luật và nghỉ việc, gồm thư mời làm việc và hợp đồng lao động.",
    "helpsWith": [
     "Tạo thư mời làm việc và hợp đồng lao động",
-    "Tự động điền thông tin nhân viên vào văn bản",
-    "Cung cấp chữ ký điện tử và nhắc nhở khi hết hạn",
-    "Tạo mẫu văn bản nhân sự theo yêu cầu riêng"
+    "Tự động điền thông tin nhân viên vào tài liệu",
+    "Cung cấp chữ ký điện tử và nhắc nhở ngày hết hạn",
+    "Tạo mẫu tài liệu nhân sự theo ý bạn"
    ],
    "howToStart": "",
-   "pricingNote": "HRDocket có gói miễn phí với 1 hồ sơ nhân viên và 10 tín dụng AI, và các gói trả phí 19 USD mỗi tháng (Starter, tối đa 15 nhân viên), 49 USD mỗi tháng (Growth, tối đa 50 nhân viên) và 99 USD mỗi tháng (Business, không giới hạn nhân viên), thanh toán hằng năm được tặng 2 tháng miễn phí.",
-   "extraFees": "Phí sử dụng khoảng 0,19 USD cho mỗi văn bản nhân sự vượt mức của gói, có thể mua thêm gói tín dụng; phí đăng ký không được hoàn lại.",
-   "caution": "Gói miễn phí chỉ giới hạn 1 nhân viên và file PDF có hình mờ, nên doanh nghiệp cần file PDF sạch hoặc nhiều hơn một nhân viên phải dùng gói trả phí."
+   "pricingNote": "HRDocket có gói miễn phí với 1 hồ sơ nhân viên và 10 tín dụng AI, cùng các gói trả phí: 19 đô la mỗi tháng (Starter, tối đa 15 nhân viên), 49 đô la mỗi tháng (Growth, tối đa 50 nhân viên) và 99 đô la mỗi tháng (Business, không giới hạn nhân viên). Thanh toán theo năm được tặng 2 tháng miễn phí.",
+   "extraFees": "Phí theo lượng sử dụng khoảng 0,19 đô la cho mỗi tài liệu nhân sự vượt quá hạn mức của gói, và có thể mua thêm gói tín dụng; phí đăng ký không được hoàn lại.",
+   "caution": "Gói miễn phí chỉ giới hạn 1 nhân viên và PDF có hình mờ, nên doanh nghiệp cần PDF sạch hoặc có nhiều hơn một nhân viên thì phải dùng gói trả phí."
   },
   "passmykitchen": {
-   "summary": "Phần mềm tuân thủ an toàn thực phẩm dành cho xe bán đồ ăn, bếp đám mây và đơn vị phục vụ tiệc nhỏ, với kế hoạch HACCP do AI tạo, nhật ký nhiệt độ và vệ sinh hằng ngày, và chế độ kiểm tra để gửi hồ sơ cho thanh tra.",
+   "summary": "Phần mềm tuân thủ an toàn thực phẩm dành cho xe bán đồ ăn, bếp đám mây và đơn vị phục vụ tiệc nhỏ, với kế hoạch HACCP do AI tạo, nhật ký nhiệt độ và vệ sinh hằng ngày, và chế độ kiểm tra để đưa hồ sơ cho thanh tra.",
    "helpsWith": [
     "Tạo kế hoạch HACCP phù hợp với tiểu bang và loại hình kinh doanh của bạn",
-    "Ghi nhiệt độ, vệ sinh và giao hàng trong dưới 3 phút mỗi ngày",
+    "Ghi nhật ký nhiệt độ, vệ sinh và giao hàng trong dưới 3 phút mỗi ngày",
     "Hiển thị kế hoạch HACCP, nhật ký, chứng chỉ nhân viên và tài liệu cho thanh tra trong một màn hình"
    ],
    "howToStart": "",
-   "aiFeature": "Tạo kế hoạch an toàn thực phẩm HACCP theo tiểu bang từ loại hình kinh doanh, thực đơn và thiết bị của bạn, và trả lời câu hỏi về an toàn thực phẩm qua trợ lý AI.",
-   "pricingNote": "Gói Starter 29 USD mỗi tháng cho một người vận hành và một địa điểm, gói Growth 49 USD mỗi tháng cho tối đa 5 thành viên và 5 địa điểm; không có gói miễn phí vĩnh viễn, chỉ có bản dùng thử miễn phí 7 ngày không cần thẻ tín dụng.",
-   "caution": "Thanh toán hằng năm là 290 USD mỗi năm cho gói Starter và 490 USD mỗi năm cho gói Growth, tức khoảng 24,17 USD và 40,83 USD mỗi tháng."
+   "aiFeature": "Tạo kế hoạch an toàn thực phẩm HACCP theo từng tiểu bang dựa trên loại hình kinh doanh, thực đơn và thiết bị của bạn, và trả lời các câu hỏi về an toàn thực phẩm qua trợ lý AI.",
+   "pricingNote": "Gói Starter là 29 đô la mỗi tháng cho một người điều hành và một địa điểm, và gói Growth là 49 đô la mỗi tháng cho tối đa 5 thành viên và 5 địa điểm; không có gói miễn phí vĩnh viễn, chỉ có bản dùng thử miễn phí 7 ngày không cần thẻ tín dụng.",
+   "caution": "Thanh toán theo năm là 290 đô la mỗi năm cho gói Starter và 490 đô la mỗi năm cho gói Growth, tương đương khoảng 24,17 và 40,83 đô la mỗi tháng."
   },
   "prevail": {
-   "summary": "Phát hiện mối đe dọa bằng AI cho Microsoft 365, cảnh báo doanh nghiệp nhỏ về thông tin đăng nhập bị đánh cắp, đăng nhập đáng ngờ và truy cập tệp bất thường.",
+   "summary": "Phát hiện mối đe dọa bằng AI cho Microsoft 365, cảnh báo các doanh nghiệp nhỏ về thông tin đăng nhập bị đánh cắp, đăng nhập đáng ngờ và truy cập tệp bất thường.",
    "helpsWith": [
     "Phát hiện đăng nhập đáng ngờ và thông tin đăng nhập bị đánh cắp trong Microsoft 365",
     "Cảnh báo ngay khi có truy cập tệp bất thường",
-    "Không cần đội IT để kết nối và theo dõi"
+    "Không cần đội ngũ IT để kết nối và theo dõi"
    ],
    "howToStart": "",
-   "aiFeature": "Tìm hiểu hoạt động bình thường của từng người dùng trong Microsoft 365 và báo cho chủ doanh nghiệp trong vòng một phút khi có dấu hiệu bất thường cho thấy bị xâm nhập.",
-   "pricingNote": "Gói SMB có giá giới thiệu 2 USD mỗi người dùng có giấy phép mỗi tháng, gói Enterprise riêng 5 USD mỗi người dùng có giấy phép mỗi tháng và gói MSP từ 1 USD mỗi người dùng có giấy phép mỗi tháng, với tùy chọn cam kết hằng tháng hoặc hằng năm đối với gói MSP."
+   "aiFeature": "Học hoạt động bình thường của từng người dùng trong Microsoft 365 và báo cho chủ doanh nghiệp trong vòng một phút khi có dấu hiệu bất thường cho thấy bị xâm nhập.",
+   "pricingNote": "Gói SMB có giá giới thiệu 2 đô la mỗi người dùng có giấy phép mỗi tháng; gói Enterprise riêng là 5 đô la mỗi người dùng có giấy phép mỗi tháng, và gói MSP từ khoảng 1 đô la mỗi người dùng có giấy phép mỗi tháng, với tùy chọn cam kết theo tháng hoặc theo năm cho gói MSP."
   },
   "studyvisually": {
-   "summary": "StudyVisually biến ghi chú khóa học, sổ tay hoặc tài liệu của bạn thành thẻ học, sơ đồ và câu hỏi luyện tập cho các buổi học 20 phút mỗi ngày.",
+   "summary": "StudyVisually biến ghi chú khóa học, sổ tay hoặc tài liệu của bạn thành thẻ ghi nhớ, sơ đồ và câu hỏi luyện tập cho các buổi học 20 phút mỗi ngày.",
    "helpsWith": [
-    "Tạo thẻ học và câu hỏi luyện tập từ ghi chú hoặc giáo trình của bạn",
-    "Có nhiệm vụ học 20 phút mỗi ngày",
-    "Giúp chuẩn bị phỏng vấn bằng cách chấm điểm câu trả lời bằng giọng nói ở gói Premium"
+    "Tạo thẻ ghi nhớ và câu hỏi luyện tập từ ghi chú hoặc giáo trình của chính bạn",
+    "Cung cấp nhiệm vụ học 20 phút mỗi ngày",
+    "Hỗ trợ chuẩn bị phỏng vấn bằng cách chấm điểm câu trả lời nói ở gói Premium"
    ],
    "howToStart": "",
-   "aiFeature": "Biến ghi chú, PDF hoặc ảnh đã tải lên thành bộ thẻ học với thẻ, câu hỏi trắc nghiệm và sơ đồ do AI viết, và chấm điểm câu trả lời phỏng vấn đã gõ hoặc nói.",
-   "pricingNote": "Gói miễn phí 0 USD mỗi tháng với các môn học có sẵn, tất cả chế độ học và lưu tiến độ; gói Basic 4 USD mỗi tháng hoặc 40 USD mỗi năm, và gói Premium 8 USD mỗi tháng hoặc 80 USD mỗi năm.",
-   "caution": "Điều khoản mô tả dịch vụ là công cụ học tập dành cho cá nhân và không đề cập đến gói dành cho doanh nghiệp hay nhóm, nên doanh nghiệp nhỏ cần kiểm tra xem gói miễn phí hay gói trả phí có được phép dùng cho mục đích thương mại không."
+   "aiFeature": "Biến ghi chú, tệp PDF hoặc ảnh bạn tải lên thành bộ thẻ học với thẻ ghi nhớ, câu hỏi trắc nghiệm và sơ đồ do AI viết, và chấm điểm các câu trả lời phỏng vấn được gõ hoặc nói.",
+   "pricingNote": "Gói miễn phí có giá 0 đô la mỗi tháng, với các môn học có sẵn, đầy đủ chế độ học và lưu tiến độ; gói Basic là 4 đô la mỗi tháng hoặc 40 đô la mỗi năm, và gói Premium là 8 đô la mỗi tháng hoặc 80 đô la mỗi năm.",
+   "caution": "Điều khoản mô tả dịch vụ là công cụ học tập dành cho cá nhân và không nhắc đến gói dành cho doanh nghiệp hay nhóm, nên doanh nghiệp nhỏ cần kiểm tra xem gói miễn phí hay gói trả phí có được phép dùng cho mục đích thương mại hay không."
   },
   "postall": {
-   "summary": "Một công cụ lên lịch mạng xã hội có AI sẵn trong. AI viết chú thích, tạo hashtag và hình ảnh, rồi chọn giờ đăng tốt nhất cho nhiều nền tảng.",
+   "summary": "Một công cụ lên lịch mạng xã hội có AI sẵn, viết chú thích, tạo hashtag và hình ảnh, và chọn giờ đăng tốt nhất trên nhiều nền tảng.",
    "helpsWith": [
-    "AI viết chú thích và hashtag",
-    "Lên lịch đăng bài lên Facebook, Instagram, TikTok và nhiều nơi khác",
-    "Tự chọn giờ đăng tốt nhất",
-    "Xem số liệu để theo dõi sự tăng trưởng"
+    "Viết chú thích và hashtag bằng AI",
+    "Lên lịch bài đăng lên Facebook, Instagram, TikTok và nhiều nơi khác",
+    "Tự động chọn giờ đăng tốt nhất",
+    "Cho xem số liệu để theo dõi sự tăng trưởng"
    ],
    "howToStart": "",
    "aiFeature": "Viết chú thích, tạo hashtag, viết lại bài đăng, dịch nội dung và chọn giờ đăng tốt nhất cho bài đăng mạng xã hội của bạn.",
-   "pricingNote": "Dùng thử miễn phí 1 ngày với đầy đủ tính năng, sau đó gói Pro là 9 đô la mỗi tháng."
+   "pricingNote": "Dùng thử miễn phí 1 ngày với tất cả tính năng, sau đó gói Pro là $9 mỗi tháng."
   },
   "oshaani-social": {
-   "summary": "Đăng bài, lên lịch và tự động trả lời trên Instagram, Facebook và WhatsApp. Có thể tạo bài viết và video ngắn bằng AI.",
+   "summary": "Đăng, lên lịch và tự động trả lời trên Instagram, Facebook và WhatsApp, và tạo bài đăng cùng video ngắn bằng AI.",
    "helpsWith": [
-    "AI tạo bản nháp bài viết và video ngắn",
+    "Tạo bản nháp bài đăng và video ngắn bằng AI",
     "Lên lịch và đăng lên Instagram và Facebook",
-    "Tự động trả lời tin nhắn từ một hộp thư chung",
+    "Tự động trả lời tin nhắn từ một hộp thư",
     "Đăng và lên lịch thủ công không tốn credit"
    ],
    "howToStart": "",
-   "aiFeature": "Viết bài đăng và chú thích mạng xã hội, tự động trả lời bình luận và tin nhắn Instagram hoặc WhatsApp, và gợi ý cách cải thiện hồ sơ LinkedIn. Tất cả đều dùng credit AI.",
-   "pricingNote": "Tài khoản mới được 200 credit AI miễn phí. Nếu trả theo lần dùng, có phí nền tảng 100 credit (1,00 đô la) mỗi tháng. Gói tháng có giá 12 đô la/tháng (Starter Pack, 1.400 credit), 24 đô la/tháng (Pro Plan, 2.900 credit) và 72 đô la/tháng (Ultra Pro Plan, 9.000 credit). Gói tháng được miễn phí nền tảng.",
-   "caution": "Credit chỉ bị trừ khi dùng tính năng AI, và phí nền tảng trả theo lần dùng được tính mỗi tháng trừ khi bạn chọn gói tháng. Hướng dẫn sử dụng cũng có kết nối X và mức 32 credit cho mỗi thao tác AI, cao hơn mức 1,2 lần ghi trên trang giá, nên chi phí mỗi thao tác có thể khác."
+   "aiFeature": "Viết bài đăng và chú thích mạng xã hội, tự động trả lời bình luận cùng tin nhắn Instagram hoặc WhatsApp, và gợi ý cách cải thiện hồ sơ LinkedIn, tất cả đều dùng credit AI.",
+   "pricingNote": "Tài khoản mới được 200 credit AI miễn phí. Sau đó, gói trả theo lần dùng có phí nền tảng 100 credit ($1.00) mỗi tháng. Gói theo tháng là $12/tháng (Starter Pack, 1.400 credit), $24/tháng (Pro Plan, 2.900 credit) và $72/tháng (Ultra Pro Plan, 9.000 credit), và gói theo tháng được miễn phí nền tảng.",
+   "caution": "Credit chỉ bị trừ khi dùng các thao tác AI, và phí nền tảng của gói trả theo lần áp dụng hằng tháng trừ khi bạn chọn gói theo tháng. Hướng dẫn sử dụng cũng ghi có kết nối X và mức 32 credit cho mỗi thao tác AI, cao hơn, nên chi phí mỗi thao tác có thể khác với mức 1,2 lần ghi trên trang giá."
   },
   "forgelo": {
-   "summary": "Tạo trang web từ một mô tả bằng chữ, và cho phép bạn chỉnh sửa rồi đưa lên mạng mà không cần biết lập trình.",
+   "summary": "Tạo một trang web từ mô tả bằng chữ và cho phép bạn chỉnh sửa rồi đăng lên mạng mà không cần viết code.",
    "helpsWith": [
     "Tạo trang web từ mô tả bằng chữ",
     "Cho phép bạn chỉnh sửa các trang đã tạo",
-    "Đưa trang web lên một địa chỉ trên mạng"
+    "Đăng trang web lên một địa chỉ web"
    ],
    "howToStart": "",
-   "aiFeature": "Viết một trang web hoàn chỉnh nhiều phần từ mô tả doanh nghiệp bằng ngôn ngữ đời thường, rồi làm lại bất kỳ phần nào bạn muốn thay đổi.",
-   "pricingNote": "Gói Free miễn phí và gồm một trang web trên địa chỉ phụ của Forgelo, với 5 lần tạo hoặc sửa bằng AI mỗi ngày. Các gói trả phí là Starter 9 đô la mỗi tháng, Pro 19 đô la mỗi tháng, Business 39 đô la mỗi tháng, và gói Agency tùy chỉnh.",
-   "caution": "Gói Free có huy hiệu \"Made with Forgelo\" và chỉ một trang web trên địa chỉ phụ của Forgelo. Tên miền riêng phải mua riêng và bắt đầu từ gói Starter. Giá tính bằng đô la Mỹ, có thể thay đổi, và một số chi tiết gói khác nhau tùy quốc gia."
+   "aiFeature": "Viết một trang web hoàn chỉnh nhiều phần từ mô tả doanh nghiệp bằng ngôn ngữ đời thường, rồi dựng lại bất kỳ phần nào bạn yêu cầu thay đổi.",
+   "pricingNote": "Gói Miễn phí có giá $0 và gồm một trang web trên tên miền phụ của Forgelo, với 5 lần tạo hoặc chỉnh sửa bằng AI mỗi ngày. Các gói trả phí là Starter $9 mỗi tháng, Pro $19 mỗi tháng, Business $39 mỗi tháng, và gói Agency theo yêu cầu.",
+   "caution": "Gói Miễn phí có huy hiệu \"Made with Forgelo\" và chỉ một trang web trên tên miền phụ của Forgelo. Tên miền riêng được mua riêng và bắt đầu từ gói Starter. Giá tính bằng USD, có thể thay đổi, và một số chi tiết gói khác nhau tùy theo quốc gia."
   },
   "starsteady": {
-   "summary": "Viết câu trả lời cá nhân hóa, phù hợp với cảm xúc của khách, cho đánh giá trên Google và Yelp, và gửi tin nhắn SMS yêu cầu khách đánh giá.",
+   "summary": "Viết câu trả lời cá nhân hóa, phù hợp với cảm xúc cho các đánh giá trên Google và Yelp, và gửi yêu cầu đánh giá qua tin nhắn SMS.",
    "helpsWith": [
-    "Phát hiện khi số sao không khớp với nội dung đánh giá",
-    "Gửi tin nhắn SMS yêu cầu đánh giá kèm đường link đánh giá Google của bạn",
-    "Viết câu trả lời theo giọng điệu thương hiệu bạn chọn, và xử lý khiếu nại"
+    "Phát hiện chỗ không khớp giữa số sao và nội dung đánh giá",
+    "Gửi yêu cầu đánh giá qua SMS kèm đường link đánh giá Google của bạn",
+    "Viết câu trả lời theo giọng điệu thương hiệu bạn chọn, có cách xử lý khiếu nại"
    ],
    "howToStart": "",
-   "aiFeature": "Viết câu trả lời cá nhân hóa cho các đánh giá Google và Yelp của doanh nghiệp nhỏ, phù hợp với giọng điệu đã chọn và số sao.",
-   "pricingNote": "Gói Starter có giá 39 đô la mỗi tháng, gồm 500 câu trả lời AI, hỗ trợ Google và Yelp, 50 yêu cầu đánh giá qua SMS mỗi tháng và 1 hồ sơ doanh nghiệp. Gói Agency có giá 199 đô la mỗi tháng, dùng không giới hạn và có nhiều hồ sơ.",
+   "aiFeature": "Viết câu trả lời cá nhân hóa cho các đánh giá Google và Yelp của doanh nghiệp nhỏ, khớp với giọng điệu đã chọn và số sao được đánh giá.",
+   "pricingNote": "Gói Starter có giá $39 mỗi tháng và gồm 500 câu trả lời bằng AI, hỗ trợ Google và Yelp, 50 yêu cầu đánh giá qua SMS mỗi tháng, và 1 hồ sơ doanh nghiệp. Gói Agency có giá $199 mỗi tháng, dùng không giới hạn và có nhiều hồ sơ.",
    "extraFees": "Không có phí theo từng câu trả lời hay phí ẩn.",
-   "caution": "Ứng dụng có bản dùng thử miễn phí với 5 câu trả lời AI và 5 yêu cầu SMS, nhưng gói Starter là gói trả phí thấp nhất được liệt kê, nên doanh nghiệp nhỏ phải trả 39 đô la mỗi tháng sau khi hết thời gian dùng thử."
+   "caution": "Ứng dụng có bản dùng thử miễn phí với 5 câu trả lời AI và 5 yêu cầu SMS, nhưng gói Starter là gói trả phí thấp nhất được liệt kê, nên doanh nghiệp nhỏ phải trả $39 mỗi tháng sau khi hết thời gian dùng thử."
   },
   "bocads": {
-   "summary": "Bocads tạo quảng cáo theo vị trí cho doanh nghiệp địa phương, giúp thu hút khách đến cửa hàng, cuộc gọi và đặt lịch. Bạn không cần kinh nghiệm tiếp thị.",
+   "summary": "Bocads tạo quảng cáo theo vị trí cho doanh nghiệp địa phương để thu hút khách đến cửa hàng, cuộc gọi và đặt hẹn, mà không cần kinh nghiệm tiếp thị.",
    "helpsWith": [
-    "Tạo quảng cáo làm nổi bật khu vực và vùng phục vụ của bạn",
+    "Tạo quảng cáo làm nổi bật khu vực và phạm vi phục vụ của bạn",
     "Tạo quảng cáo cho Google Local, Facebook và Instagram",
     "Tạo quảng cáo đánh giá và lời chứng thực từ các đánh giá Google của bạn",
     "Đăng hoặc xuất quảng cáo trực tiếp"
    ],
    "howToStart": "",
-   "aiFeature": "Tạo quảng cáo hoàn chỉnh cho doanh nghiệp nhỏ từ một mô tả sản phẩm ngắn, gồm tiêu đề, nội dung, lời kêu gọi hành động và hình ảnh, với kích thước phù hợp cho Facebook, Instagram, TikTok, Google và LinkedIn.",
-   "pricingNote": "Gói Free miễn phí mãi mãi, có 10 quảng cáo mỗi tháng và 1 hồ sơ thương hiệu. Các gói trả phí là Starter 19 đô la mỗi tháng, Pro 49 đô la mỗi tháng và Agency 149 đô la mỗi tháng. Trả theo năm được giảm 20%.",
-   "caution": "Tất cả gói trả phí có dùng thử miễn phí 14 ngày. Credit được làm mới mỗi tháng và không cộng dồn. Canva, Zapier, Mailchimp, Shopify, Figma, Adobe Creative Cloud và một số tích hợp khác được ghi là sắp có, chưa hoạt động."
+   "aiFeature": "Tạo quảng cáo hoàn chỉnh cho doanh nghiệp nhỏ từ một mô tả sản phẩm ngắn, gồm tiêu đề, nội dung, chữ kêu gọi hành động và hình ảnh, với kích thước phù hợp cho Facebook, Instagram, TikTok, Google và LinkedIn.]",
+   "pricingNote": "Gói Miễn phí mãi mãi $0 với 10 quảng cáo mỗi tháng và 1 hồ sơ thương hiệu. Các gói trả phí là Starter $19/tháng, Pro $49/tháng và Agency $149/tháng, và thanh toán theo năm tiết kiệm 20%.",
+   "caution": "Tất cả các gói trả phí đều có 14 ngày dùng thử miễn phí. Credit được làm mới mỗi tháng và không được chuyển sang tháng sau. Canva, Zapier, Mailchimp, Shopify, Figma, Adobe Creative Cloud và một số tích hợp khác được ghi là sắp có, chưa hoạt động."
   },
   "yourprofitbook": {
-   "summary": "Theo dõi thu nhập và chi phí, quét hóa đơn, gửi cảnh báo khi chi phí tăng đột ngột, và giải thích báo cáo lãi lỗ bằng ngôn ngữ dễ hiểu.",
+   "summary": "Theo dõi thu nhập và chi phí, quét hóa đơn, gửi cảnh báo khi chi phí tăng đột biến và giải thích báo cáo lãi lỗ của bạn bằng tiếng Anh đơn giản.",
    "helpsWith": [
     "Quét hóa đơn và gợi ý loại chi phí",
     "Gửi cảnh báo khi chi phí tăng mạnh hoặc lợi nhuận giảm",
-    "Giải thích thay đổi lãi lỗ hàng tháng bằng ngôn ngữ đơn giản"
+    "Giải thích thay đổi lãi lỗ hằng tháng bằng ngôn ngữ đơn giản"
    ],
    "howToStart": "",
-   "aiFeature": "Giải thích số liệu lợi nhuận và chi phí bằng tiếng Anh dễ hiểu, báo cho bạn khi chi phí tăng đột ngột hoặc lợi nhuận giảm, và trả lời các câu hỏi của bạn về tài chính.",
-   "pricingNote": "Gói Starter là 4,99 đô la mỗi tháng (hoặc 49 đô la mỗi năm), Pro là 9,99 đô la mỗi tháng (hoặc 99,99 đô la mỗi năm), và Business là 24,99 đô la mỗi tháng (hoặc 249,99 đô la mỗi năm). Có bản dùng thử gói Business 30 ngày, không cần thẻ tín dụng, nhưng không có gói miễn phí lâu dài.",
-   "extraFees": "Mua từng báo cáo riêng có giá 4,99 hoặc 9,99 đô la mỗi báo cáo. Dịch vụ tính lương Gusto là nhà cung cấp riêng với giá riêng.",
-   "caution": "Capterra liệt kê gói \"Free Starter\" với 1 doanh nghiệp và 30 giao dịch trọn đời, điều này mâu thuẫn với trang giá của nhà cung cấp, vì trang đó không có gói miễn phí nào sau 30 ngày dùng thử."
-  },
-  "neuralearn": {
-   "summary": "NeuraLearn là một công cụ học bằng AI để ôn thi chứng chỉ nghề nghiệp, tạo bản tóm tắt, thẻ ghi nhớ và câu hỏi luyện tập từ các tài liệu bạn tải lên.",
-   "helpsWith": [
-    "Tạo bản tóm tắt từ các tài liệu bạn tải lên",
-    "Làm thẻ ghi nhớ và câu hỏi luyện tập cho kỳ thi chứng chỉ",
-    "Chỉ ra những phần cần ôn lại nhiều hơn"
-   ],
-   "howToStart": "",
-   "aiFeature": "Biến ghi chú bài giảng, sách giáo khoa và tài liệu khóa học bạn tải lên thành thẻ ghi nhớ, bài kiểm tra luyện tập, bản tóm tắt và hướng dẫn học tập, và trả lời câu hỏi chỉ dựa trên những tài liệu đã tải lên.",
-   "pricingNote": "Có gói Essential miễn phí, gói Basic giá $2 mỗi tháng và gói Pro giá $4 mỗi tháng, nhưng các gói này dành cho người đang đi học chứ không dành cho việc kinh doanh."
+   "aiFeature": "Giải thích số liệu lợi nhuận và chi phí của bạn bằng tiếng Anh đơn giản, đánh dấu khi chi phí tăng đột biến hoặc lợi nhuận giảm, và trả lời câu hỏi của bạn về tài chính.",
+   "pricingNote": "Gói Starter là $4.99 mỗi tháng (hoặc $49 mỗi năm), gói Pro là $9.99 mỗi tháng (hoặc $99.99 mỗi năm), và gói Business là $24.99 mỗi tháng (hoặc $249.99 mỗi năm). Có bản dùng thử gói Business 30 ngày, không cần thẻ tín dụng, nhưng không có gói miễn phí lâu dài.",
+   "extraFees": "Mua từng báo cáo riêng có giá $4.99 hoặc $9.99 mỗi báo cáo, và dịch vụ tính lương Gusto là nhà cung cấp riêng với giá riêng.",
+   "caution": "Capterra ghi gói \"Free Starter\" với 1 doanh nghiệp và 30 giao dịch trọn đời, điều này mâu thuẫn với trang giá của nhà cung cấp, vốn không có gói miễn phí sau 30 ngày dùng thử."
   },
   "tabby": {
-   "summary": "Sổ sách bằng AI cho chủ doanh nghiệp một mình. Nó tự phân loại chi phí, gửi hóa đơn và trả lời câu hỏi về số liệu của bạn.",
+   "summary": "Sổ sách kế toán bằng AI cho chủ doanh nghiệp một mình. Tự phân loại chi phí, gửi hóa đơn và trả lời câu hỏi về số liệu của bạn.",
    "helpsWith": [
-    "AI tự phân loại và tự nhận ra nhà cung cấp",
-    "Lập hóa đơn và thu tiền qua ACH và thẻ",
-    "Báo cáo sẵn sàng cho thuế, xuất ra Excel và PDF"
+    "AI tự phân loại và nhận ra nhà cung cấp",
+    "Gửi hóa đơn và nhận thanh toán bằng ACH và thẻ",
+    "Báo cáo thuế xuất ra Excel và PDF"
    ],
    "howToStart": "",
-   "aiFeature": "Biến yêu cầu bằng tiếng Anh đơn giản thành công việc sổ sách như gửi hóa đơn, nhắc người trả tiền trễ, phân loại giao dịch và lấy báo cáo, sau khi chủ doanh nghiệp đồng ý từng bước.",
-   "pricingNote": "Tabby có gói miễn phí 0 đô la cho doanh nghiệp có chi phí tối đa 15.000 đô la một năm. Các gói trả phí là Standard 30 đô la một tháng, Pro 50 đô la một tháng và Growth 90 đô la một tháng. Nếu trả theo năm thì được giảm 20%.",
-   "extraFees": "Không có phí vượt mức. Phí kết nối ngân hàng và Plaid đã nằm trong gói. Người đăng ký mới được giảm 50% cho 3 tháng đầu của gói hằng tháng.",
-   "caution": "Gói miễn phí chỉ cho 1 kết nối ngân hàng, 1 người dùng và 5 hóa đơn một tháng. Khi chi phí vượt giới hạn của gói, các giao dịch mới sẽ không được phân loại cho đến khi bạn nâng cấp. Một số trang ghi có dùng thử miễn phí 14 ngày, trong khi trang khác nói không có. Trang giá của công ty ghi là không có gói theo năm."
+   "aiFeature": "Biến yêu cầu viết bằng tiếng Anh đơn giản thành việc kế toán như gửi hóa đơn, nhắc người trả chậm, phân loại giao dịch và lấy báo cáo, sau khi chủ doanh nghiệp duyệt từng bước.",
+   "pricingNote": "Tabby có gói miễn phí $0 cho doanh nghiệp có chi phí tối đa $15,000 một năm. Các gói trả phí là Standard $30 một tháng, Pro $50 một tháng và Growth $90 một tháng, giảm 20% nếu trả theo năm.",
+   "extraFees": "Không có phí vượt mức. Phí kết nối ngân hàng và Plaid đã nằm trong gói. Người đăng ký mới được giảm 50% cho 3 tháng đầu của gói hàng tháng.",
+   "caution": "Gói miễn phí chỉ cho 1 kết nối ngân hàng, 1 người dùng và 5 hóa đơn một tháng. Khi chi phí vượt giới hạn của gói, các giao dịch mới sẽ không được phân loại cho đến khi bạn nâng cấp. Một số trang ghi có bản dùng thử miễn phí 14 ngày, còn trang khác nói không có. Trang giá của công ty nói gói hằng năm không có sẵn."
   },
   "poof": {
-   "summary": "Phần mềm sổ sách miễn phí cho doanh nghiệp nhỏ, có thêm tùy chọn trợ lý AI chuẩn bị sổ cái, hóa đơn, hóa đơn mua hàng, kế hoạch tiền mặt và hạn nộp thuế để bạn duyệt.",
+   "summary": "Phần mềm kế toán miễn phí cho doanh nghiệp nhỏ, có thêm trợ lý AI tùy chọn chuẩn bị sổ cái, hóa đơn, hóa đơn mua vào, kế hoạch tiền mặt và hạn nộp thuế để bạn duyệt.",
    "helpsWith": [
-    "Giữ sổ cái, hóa đơn, báo giá và hóa đơn mua hàng",
-    "Theo dõi hạn nộp thuế, tiền thuế tạm tính và khoản dành riêng cho thuế",
-    "Chuẩn bị hồ sơ thuế tháng Một cho kế toán của bạn",
-    "Lập kế hoạch tiền mặt và khóa sổ cuối tháng, có duyệt trước khi ghi"
+    "Giữ sổ cái, hóa đơn, báo giá và hóa đơn mua vào",
+    "Theo dõi hạn nộp thuế, tiền thuế tạm nộp và quỹ dự phòng thuế",
+    "Chuẩn bị hồ sơ thuế tháng Một cho kế toán thuế (CPA) của bạn",
+    "Lập kế hoạch tiền mặt và chốt sổ cuối tháng, chỉ ghi sổ sau khi bạn duyệt"
    ],
    "howToStart": "",
-   "aiFeature": "Đọc dữ liệu từ ngân hàng, phân loại giao dịch, khớp hóa đơn và hóa đơn mua hàng, rồi soạn các bút toán khóa sổ cuối tháng để chủ doanh nghiệp duyệt. Trợ lý AI trả lời câu hỏi và tạo hóa đơn từ yêu cầu bằng ngôn ngữ đời thường.",
-   "pricingNote": "Gói Miễn phí của Poof là 0 đô la, không cần thẻ và không giới hạn thời gian. Gói này gồm sổ sách, hóa đơn, hóa đơn mua hàng, mọi báo cáo, chuẩn bị bảng lương, chuẩn bị thuế bán hàng và 1099. Poof Agent có giá 79 đô la một tháng hoặc 790 đô la một năm, sau 30 ngày dùng thử miễn phí.",
-   "extraFees": "Nộp mẫu 1099 miễn phí cho 3 mẫu đầu mỗi năm, sau đó là 2,49 đô la mỗi mẫu. Bản giấy gửi qua bưu điện cho nhà thầu là 1,79 đô la mỗi bản, còn bản gửi qua email thì miễn phí. Tiện ích bổ sung là nhân viên tiếp tân AI cho cửa hàng dịch vụ có giá 99 đô la một tháng, gồm 1.000 phút, sau đó là 12 xu mỗi phút.",
-   "caution": "Gói Miễn phí chỉ gồm 25 câu hỏi Ask Poof, 25 lần đọc biên lai hoặc tài liệu, 2 tài khoản ngân hàng được kết nối và 100 tin nhắn văn bản một tháng. Sau 30 ngày dùng thử Poof Agent, các giao dịch mới sẽ chờ người thật phân loại thay vì được phân loại qua đêm."
+   "aiFeature": "Đọc dữ liệu từ ngân hàng, phân loại giao dịch, khớp hóa đơn và hóa đơn mua vào, và soạn bút toán chốt sổ cuối tháng để chủ doanh nghiệp duyệt. Trợ lý AI trả lời câu hỏi và tạo hóa đơn từ yêu cầu viết bằng tiếng Anh đơn giản.",
+   "pricingNote": "Gói Miễn phí của Poof là $0, không cần thẻ và không giới hạn thời gian. Gói này gồm sổ sách, hóa đơn, hóa đơn mua vào, mọi báo cáo, chuẩn bị bảng lương, chuẩn bị thuế bán hàng và 1099. Poof Agent có giá $79 một tháng hoặc $790 một năm, sau 30 ngày dùng thử miễn phí.",
+   "extraFees": "Nộp mẫu 1099 miễn phí cho 3 mẫu đầu mỗi năm, sau đó $2.49 cho mỗi mẫu. Gửi bản giấy cho nhà thầu có phí $1.79 mỗi bản, còn gửi qua email thì miễn phí. Tiện ích bổ sung nhân viên tiếp tân AI cho cửa hàng dịch vụ có giá $99 một tháng, gồm 1,000 phút, sau đó 12 xu một phút.",
+   "caution": "Gói Miễn phí chỉ gồm 25 câu hỏi Ask Poof, 25 lần đọc biên lai hoặc tài liệu, 2 tài khoản ngân hàng được kết nối và 100 tin nhắn một tháng. Sau 30 ngày dùng thử Poof Agent, các giao dịch mới sẽ chờ người thật phân loại thay vì được phân loại qua đêm."
   },
   "paybrain": {
-   "summary": "Máy bán hàng có AI tích hợp, chạy khuyến mãi, thẻ thành viên và đặt hàng lại trên máy tính tiền, trên web hoặc trên điện thoại của bạn.",
+   "summary": "Máy bán hàng có tích hợp AI, chạy khuyến mãi, thẻ thành viên và đặt hàng lại trên máy thu ngân, trên web hoặc trên điện thoại.",
    "helpsWith": [
     "Tự động chạy khuyến mãi và thẻ thành viên",
-    "Xử lý đặt hàng lại có AI hỗ trợ",
-    "Nhận thanh toán thẻ trực tiếp trên máy tính tiền",
+    "Xử lý đặt hàng lại với sự hỗ trợ của AI",
+    "Nhận thanh toán thẻ trực tiếp tại quầy",
     "Hoạt động trên web hoặc điện thoại"
    ],
    "howToStart": "",
-   "aiFeature": "Soạn hóa đơn từ bảng giá của bạn, gợi ý đặt hàng lại dựa trên xu hướng bán hàng, và viết bản tóm tắt cho khách hàng cùng nội dung khuyến mãi để bạn xem lại trước khi gửi đi.",
-   "pricingNote": "Cả gói Basic và gói Premium đều không có phí hằng tháng. Trên gói Basic, bạn trả theo từng giao dịch là 3,0% + 10¢ khi thanh toán trực tiếp. Bộ máy Register có giá 999 đô la, chỉ trả một lần.",
-   "extraFees": "Phí phụ của Stripe là +1,5% cho thẻ quốc tế và +1% cho chuyển đổi tiền tệ, được cộng thêm vào. Stripe thu 15 đô la cho mỗi khiếu nại của khách hàng. Bộ Register là 999 đô la trả một lần, đã kèm đầu đọc thẻ Stripe Reader S700.",
-   "caution": "Mức phí của gói Premium cao hơn (4,0% + 15¢ khi thanh toán trực tiếp). Các kết nối API như Checkout API và WooCommerce chỉ có trên gói Premium, không có trên gói Basic."
+   "aiFeature": "Soạn hóa đơn từ bảng giá của bạn, gợi ý đặt hàng lại dựa trên xu hướng bán hàng, và viết bản tóm tắt khách hàng cùng nội dung quảng cáo khuyến mãi để bạn xem lại trước khi gửi đi.",
+   "pricingNote": "Cả gói Basic lẫn Premium đều không thu phí hằng tháng. Trên gói Basic, bạn trả theo từng giao dịch: 3.0% + 10¢ khi quẹt tại chỗ. Bộ máy thu ngân Register có giá $999 một lần.",
+   "extraFees": "Stripe cộng thêm phụ phí +1.5% với thẻ quốc tế và +1% khi đổi tiền tệ. Stripe thu $15 cho mỗi khiếu nại của khách hàng. Bộ Register giá $999 một lần, đã kèm máy đọc thẻ Stripe Reader S700.",
+   "caution": "Mức phí của gói Premium cao hơn (4.0% + 15¢ khi quẹt tại chỗ). Các kết nối API như Checkout API và WooCommerce chỉ có trên gói Premium, không có trên gói Basic."
   },
   "kova-hr": {
-   "summary": "Nền tảng nhân sự cho đội nhóm đang phát triển, gồm tuyển dụng, hồ sơ nhân viên, nghỉ phép, đánh giá hiệu suất và tiện ích bổ sung cho bảng lương. Nền tảng dùng AI để đăng tin tuyển dụng và sàng lọc hồ sơ.",
+   "summary": "Nền tảng nhân sự cho đội nhóm đang phát triển, gồm tuyển dụng, hồ sơ nhân viên, nghỉ phép, đánh giá hiệu suất và tiện ích bổ sung cho bảng lương. Nền tảng dùng AI để đăng tin tuyển dụng và sàng lọc.",
    "helpsWith": [
-    "Đăng tin tuyển dụng và sàng lọc sơ yếu lý lịch có AI hỗ trợ",
+    "Đăng tin tuyển dụng và sàng lọc hồ sơ có AI hỗ trợ",
     "Hồ sơ nhân viên, sơ đồ tổ chức và quản lý nghỉ phép",
-    "Đánh giá hiệu suất và tiện ích bổ sung cho bảng lương (tùy chọn)"
+    "Đánh giá hiệu suất và tiện ích bổ sung cho bảng lương tùy chọn"
    ],
    "howToStart": "",
-   "aiFeature": "Sàng lọc sơ yếu lý lịch ứng viên theo yêu cầu, đánh dấu các mẫu nghỉ phép bất thường, tóm tắt góp ý từ đánh giá hiệu suất, gợi ý OKR, và trả lời câu hỏi về nhân sự bằng dữ liệu của công ty.",
-   "pricingNote": "Kova HR có gói miễn phí cho tối đa 5 nhân viên. Sau đó, gói Core là 3 đô la mỗi nhân viên một tháng, gói Growth là 7 đô la mỗi nhân viên một tháng, và gói Pro là 9 đô la mỗi nhân viên một tháng cộng thêm 10 đô la phí cố định mỗi tháng. Trả theo năm được giảm 20%.",
-   "caution": "Gói miễn phí giới hạn ở 5 nhân viên, 100 điểm AI mỗi tháng, 3 tin tuyển dụng và 2 chính sách nghỉ phép. Gói Pro cộng thêm 10 đô la phí cố định mỗi tháng ngoài giá theo từng nhân viên."
+   "aiFeature": "Sàng lọc hồ sơ ứng viên theo yêu cầu công việc, đánh dấu các kiểu nghỉ phép bất thường, tóm tắt nhận xét đánh giá hiệu suất, gợi ý OKR và trả lời câu hỏi về nhân sự dựa trên dữ liệu của công ty.",
+   "pricingNote": "Kova HR có gói miễn phí cho tối đa 5 nhân viên. Sau đó, gói Core là $3 mỗi nhân viên mỗi tháng, gói Growth là $7 mỗi nhân viên mỗi tháng và gói Pro là $9 mỗi nhân viên mỗi tháng cộng thêm $10 phí cố định hằng tháng. Trả theo năm được giảm 20%.",
+   "caution": "Gói miễn phí giới hạn ở 5 nhân viên, 100 tín dụng AI mỗi tháng, 3 tin tuyển dụng và 2 chính sách nghỉ phép. Gói Pro cộng thêm $10 phí cố định hằng tháng ngoài giá theo từng nhân viên."
   },
   "jugglehire": {
-   "summary": "Phần mềm tuyển dụng cho doanh nghiệp nhỏ. Bạn đăng một tin tuyển dụng và có ngay trang tuyển dụng, danh sách ứng viên, cùng AI đọc sơ yếu lý lịch và soạn tin tuyển dụng. Giá tính theo công ty chứ không theo người dùng.",
+   "summary": "Phần mềm tuyển dụng cho doanh nghiệp nhỏ: đăng tin tuyển dụng và có trang tuyển dụng, danh sách ứng viên, cùng AI đọc hồ sơ và soạn tin tuyển dụng. Giá tính theo công ty chứ không theo người dùng.",
    "helpsWith": [
-    "Tự động đọc sơ yếu lý lịch và điền thông tin ứng viên",
-    "Viết tin tuyển dụng từ tên vị trí và yêu cầu chính để bạn chỉnh sửa",
+    "Đọc hồ sơ và tự điền thông tin ứng viên",
+    "Viết tin tuyển dụng từ chức danh và yêu cầu chính để bạn chỉnh sửa",
     "Đặt lịch phỏng vấn, câu hỏi sàng lọc và thư mời làm việc có chữ ký điện tử"
    ],
    "howToStart": "",
-   "aiFeature": "Đọc từng sơ yếu lý lịch và điền kỹ năng, quá trình làm việc và học vấn. Soạn tin tuyển dụng từ một bản tóm tắt ngắn, và viết bản tóm tắt dễ hiểu về từng ứng viên.",
-   "pricingNote": "JuggleHire có hai gói trả phí, tính theo tháng cho cả công ty. Gói Starter là 15 đô la một tháng (3 tin tuyển dụng đang mở, 5 thành viên nhóm, không có tự động hóa). Gói Unlimited là 49 đô la một tháng (không giới hạn tin tuyển dụng và thành viên theo mức sử dụng hợp lý, có tự động hóa). Có bản dùng thử 14 ngày cần thẻ. Sau thời gian dùng thử không có gói miễn phí. Cũng có gói trọn đời trả một lần là 149 đô la (Starter) hoặc 399 đô la (Agency).",
-   "caution": "Bản dùng thử 14 ngày cần thẻ tín dụng. Gói của bạn sẽ tự bắt đầu khi hết thời gian dùng thử, trừ khi bạn hủy trước. Gói Starter không có tự động hóa."
+   "aiFeature": "Đọc từng hồ sơ và điền kỹ năng, kinh nghiệm làm việc và học vấn. Soạn tin tuyển dụng từ một bản tóm tắt ngắn, và viết phần tóm tắt dễ hiểu cho từng ứng viên.",
+   "pricingNote": "JuggleHire có hai gói trả phí, thu theo tháng cho cả công ty. Starter là $15 một tháng (3 tin tuyển dụng đang mở, 5 thành viên nhóm, không có tự động hóa). Unlimited là $49 một tháng (không giới hạn tin tuyển dụng và thành viên trong mức sử dụng hợp lý, có tự động hóa). Có bản dùng thử miễn phí 14 ngày và cần thẻ. Sau thời gian dùng thử không có gói miễn phí. Cũng có gói trọn đời trả một lần: $149 (Starter) hoặc $399 (Agency).",
+   "caution": "Bản dùng thử 14 ngày cần thẻ tín dụng. Gói sẽ tự động bắt đầu khi bản dùng thử kết thúc, trừ khi bạn hủy trước đó. Gói Starter không có tự động hóa."
   },
   "rosie": {
-   "summary": "Dịch vụ trả lời điện thoại bằng AI, được huấn luyện theo doanh nghiệp của bạn. Dịch vụ trả lời cuộc gọi suốt ngày đêm, đặt lịch hẹn, trả lời các câu hỏi thường gặp, và nhắn tin cho bạn chi tiết từng cuộc gọi.",
+   "summary": "Dịch vụ trả lời điện thoại bằng AI được huấn luyện theo doanh nghiệp của bạn. Dịch vụ trả lời cuộc gọi suốt ngày đêm, đặt lịch hẹn, trả lời các câu hỏi thường gặp và nhắn tin chi tiết từng cuộc gọi cho bạn.",
    "helpsWith": [
-    "Trả lời cuộc gọi 24/7 và giải đáp các câu hỏi thường gặp",
+    "Trả lời cuộc gọi 24/7 và trả lời các câu hỏi thường gặp",
     "Đặt lịch hẹn",
-    "Chuyển sang người thật khi cần",
-    "Tóm tắt, ghi chép và ghi âm mọi cuộc gọi"
+    "Chuyển cho người thật khi cần",
+    "Tóm tắt, chép lời và ghi âm mọi cuộc gọi"
    ],
    "howToStart": "",
-   "pricingNote": "Rosie không có gói miễn phí. Gói Professional là 49 đô la một tháng cho 250 phút, gói Scale là 149 đô la một tháng cho 1.000 phút, và gói Growth là 299 đô la một tháng cho 2.000 phút. Trả theo năm được tặng hai tháng miễn phí, và mọi gói đều có bản dùng thử miễn phí 7 ngày.",
-   "extraFees": "Tiện ích bổ sung nhắn tin trên web là 50 đô la một tháng cho 25 cuộc trò chuyện, sau đó là 1 đô la cho mỗi cuộc trò chuyện thêm. Thuế bán hàng và thuế sử dụng được cộng thêm. Thanh toán trễ bị phạt 10 đô la cộng 1,5% lãi mỗi tháng. Không có phí vượt phút theo từng phút vì bạn sẽ được chuyển lên gói cao hơn.",
-   "caution": "Điều khoản ghi rằng bản dùng thử miễn phí có thể không dành cho tất cả mọi người và chỉ áp dụng cho khách hàng mới. Thẻ của bạn sẽ chuyển thành gói trả phí khi hết thời gian dùng thử, trừ khi bạn hủy trước. Cuộc gọi được làm tròn lên đến phút trọn gần nhất."
+   "pricingNote": "Rosie không có gói miễn phí. Gói Professional là $49 một tháng cho 250 phút, Scale là $149 một tháng cho 1,000 phút, và Growth là $299 một tháng cho 2,000 phút. Trả theo năm được tặng 2 tháng miễn phí, và mọi gói đều có bản dùng thử miễn phí 7 ngày.",
+   "extraFees": "Tiện ích nhắn tin trên web có giá $50 một tháng cho 25 cuộc trò chuyện, sau đó $1 cho mỗi cuộc trò chuyện thêm. Thuế bán hàng và thuế sử dụng được tính thêm. Thanh toán trễ bị phạt $10 cộng 1.5% lãi hằng tháng. Không có phí vượt phút theo từng phút, vì khi vượt bạn sẽ được chuyển lên gói cao hơn.",
+   "caution": "Điều khoản nói rằng bản dùng thử miễn phí có thể không dành cho tất cả mọi người và chỉ áp dụng cho khách hàng mới. Thẻ của bạn sẽ chuyển thành gói trả phí khi bản dùng thử kết thúc, trừ khi bạn hủy trước đó. Cuộc gọi được làm tròn lên đến phút đầy kế tiếp."
   }
  }
 }

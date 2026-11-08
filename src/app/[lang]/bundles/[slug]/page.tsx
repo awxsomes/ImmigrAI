@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { kitCost, kitTools } from "@/components/tools/kit-card";
+import { kitCost, kitLanguages, kitSetup, kitTools } from "@/components/tools/kit-card";
 import { SaveAllButton, SaveButton } from "@/components/tools/tool-actions";
 import { ToolCard } from "@/components/tools/tool-card";
 import { BUNDLE_BY_SLUG, BUNDLES } from "@/data/bundles";
@@ -11,7 +11,7 @@ import { getDict, UI_LANGS, type Dict } from "@/lib/i18n";
 import { ACTION_KEYS, CARD_KEYS, COMPAT_KEYS, fmt, pick } from "@/lib/labels";
 import { localizeBundle, localizeTool } from "@/lib/localize";
 import { safeUrl } from "@/lib/normalize";
-import { bundleFit, compatibility } from "@/lib/scoring";
+import { compatibility } from "@/lib/scoring";
 
 interface Props {
   params: Promise<{ lang: string; slug: string }>;
@@ -81,6 +81,7 @@ export default async function KitPage({ params }: Props) {
   const pairs = tools.flatMap((a, i) => tools.slice(i + 1).map((b) => ({ a, b, result: compatibility(a, b) })));
   const rank = { direct: 0, bridge: 1, shared: 2, none: 3 };
   pairs.sort((x, y) => rank[x.result.level] - rank[y.result.level]);
+  const linked = pairs.filter((p) => p.result.level === "direct" || p.result.level === "bridge").length;
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
@@ -90,19 +91,18 @@ export default async function KitPage({ params }: Props) {
         {t.bundle_for}: {kit.forWho}
       </p>
 
-      <dl className="mt-5 flex flex-wrap gap-x-10 gap-y-2">
-        <div>
-          <dt className="text-sm text-muted-ink">{t.bundle_total}</dt>
-          <dd className="text-2xl font-bold">{kitCost(tools, t)}</dd>
-        </div>
-        <div>
-          <dt className="text-sm text-muted-ink">{t.bundle_fit}</dt>
-          <dd className="text-2xl font-bold">{bundleFit(tools)}/100</dd>
-        </div>
-        <div>
-          <dt className="text-sm text-muted-ink">{t.bundle_tools}</dt>
-          <dd className="text-2xl font-bold">{tools.length}</dd>
-        </div>
+      <dl className="mt-5 grid max-w-5xl gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          [t.bundle_total, kitCost(tools, t)],
+          [t.kit_languages, kitLanguages(tools, lang, t)],
+          [t.kit_setup, kitSetup(tools, t)],
+          [t.kit_pairs, fmt(t.kit_pairsValue, { k: linked, n: pairs.length })],
+        ].map(([label, value]) => (
+          <div key={label}>
+            <dt className="text-sm text-muted-ink">{label}</dt>
+            <dd className="text-xl font-bold">{value}</dd>
+          </div>
+        ))}
       </dl>
       <p className="mt-2 text-sm text-muted-ink">{t.kit_notice}</p>
       {kit.note && <p className="mt-3 max-w-3xl rounded-lg bg-marigold-tint p-3">{kit.note}</p>}
