@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { fmt, type SearchLabels } from "@/lib/labels";
 import type { Suggestion } from "@/lib/types";
+import { isSpecificNeed, setPendingNeed } from "./pending-need";
 
 type TaxonomyText = Record<string, { name: string; desc?: string }>;
 
@@ -173,15 +174,33 @@ export function SmartSearch({
   }
 
   /**
-   * Pressing Search goes straight to the best match, so a question usually never appears
-   * in a page address, browser history or server log. Only unmatched text does.
+   * A specific need goes to the results page with the owner's words held in memory, so
+   * the tools can be matched to exactly what they asked and the words never appear in a
+   * page address, browser history or server log. A short search goes to its category.
    */
   async function submit() {
     // Read the box itself: on a slow phone, words typed before the page's scripts started
     // are in the box but were never seen by onChange.
     const text = (inputRef.current?.value ?? query).trim();
     if (!text || pending) return;
-    if (items[0]) return go(items[active >= 0 ? active : 0].href);
+    if (active >= 0 && items[active]) return go(items[active].href);
+    if (isSpecificNeed(text)) {
+      setResolving(true);
+      try {
+        // The category is only what a reload falls back to. The match works out its own.
+        let base = items[0]?.href;
+        if (!base) {
+          const { matcher, text: names } = await loadLibs();
+          const local = matcher.localSuggestions(text);
+          base = local[0] ? toItems(local, names, false)[0].href : `/${lang}/search?`;
+        }
+        setPendingNeed(text);
+        return go(`${base}${base.endsWith("?") ? "" : "&"}need=1`);
+      } finally {
+        setResolving(false);
+      }
+    }
+    if (items[0]) return go(items[0].href);
     setResolving(true);
     try {
       const { matcher, text: names } = await loadLibs();

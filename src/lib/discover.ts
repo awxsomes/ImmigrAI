@@ -4,7 +4,7 @@ import { MAX_MONTHLY_USD, MIN_RATING, SEED_BY_SLUG, seedToolsFor } from "@/data/
 import { findCategory, findSubcategory, flatTaxonomy, NO_LIVE_DISCOVERY } from "@/data/taxonomy";
 import { cacheGet, cacheSet, DAY, HOUR } from "./cache";
 import { aiEnabled, env } from "./env";
-import { DISCOVERY_RESPONSE_SCHEMA, DiscoveryResponse, slugify, toTool, type DiscoveredToolInput } from "./normalize";
+import { DISCOVERY_RESPONSE_SCHEMA, DiscoveryResponse, safeUrl, slugify, toTool, type DiscoveredToolInput } from "./normalize";
 import { reserveDailyCalls } from "./ratelimit";
 import {
   cleanResearchText,
@@ -33,9 +33,9 @@ import type { Suggestion, Tool } from "./types";
  *   lookupTool: research one named tool
  */
 
-const AUDIENCE = `You help immigrant-owned main street businesses in the United States (restaurants, salons, corner stores, HVAC, landscaping, cleaning, trades) choose AI tools and apps. Many owners are not comfortable with technology and may have limited English. Write in plain, short sentences with no marketing words.`;
+export const AUDIENCE = `You help immigrant-owned main street businesses in the United States (restaurants, salons, corner stores, HVAC, landscaping, cleaning, trades) choose AI tools and apps. Many owners are not comfortable with technology and may have limited English. Write in plain, short sentences with no marketing words.`;
 
-const CONSTRAINTS = `Rules for every tool you return:
+export const CONSTRAINTS = `Rules for every tool you return:
 - AI: the product must really use AI to do useful work, such as writing, answering, predicting, translating or reading documents. Small and new products are welcome, and preferred over big-company products.
 - Cheap: a free plan or a starting price under $50 per month is preferred. Never over $${MAX_MONTHLY_USD} per month.
 - Easy: usable by a non-technical owner without a developer.
@@ -243,7 +243,15 @@ export async function discoverTools(input: DiscoverInput): Promise<DiscoverResul
       .slice(0, CANDIDATES);
 
     // A tool that is gone, not out yet or priced for another country should not reach an owner.
-    const usable = (await Promise.all(candidates.map(async (c) => ((await siteProblem(c.website, 6_000)) ? null : c)))).filter((c) => c !== null);
+    // The address came from a model reading the open web, so it is checked before anything opens it.
+    const usable = (
+      await Promise.all(
+        candidates.map(async (c) => {
+          const site = safeUrl(c.website);
+          return site && !(await siteProblem(site, 6_000)) ? c : null;
+        }),
+      )
+    ).filter((c) => c !== null);
     const checked = await Promise.allSettled(usable.map((c) => verifyCandidate(c, citations, category.id, sub?.id ?? category.subcategories[0].id)));
     const tools = checked.flatMap((r) => (r.status === "fulfilled" && r.value ? [r.value] : []));
 

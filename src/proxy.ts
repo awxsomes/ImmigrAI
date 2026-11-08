@@ -3,7 +3,7 @@ import { DOC_PATHS } from "@/content/doc-paths";
 import { BUNDLES } from "@/data/bundles";
 
 const LOCALES = ["en", "es", "zh", "vi"];
-const PAGES = new Set<string>(["search", "compare", "my-tools", "bundles", "tools", ...DOC_PATHS]);
+const PAGES = new Set<string>(["search", "compare", "my-tools", "bundles", "tools", "checkup", ...DOC_PATHS]);
 const KITS = new Set<string>([...BUNDLES.map((b) => b.slug), "new-tools"]);
 
 /** Pick the first language in the browser's list that the site is translated into. */

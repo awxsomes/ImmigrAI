@@ -2,7 +2,7 @@
 
 import { useSyncExternalStore } from "react";
 import { inferPriceKind } from "./scoring";
-import type { Tool, UserData } from "./types";
+import type { BusinessProfile, Subscription, Tool, UserData } from "./types";
 
 /**
  * Everything a visitor saves lives in their own browser. Nothing is sent to a server.
@@ -13,7 +13,7 @@ import type { Tool, UserData } from "./types";
 const KEY = "immigrai:v1";
 const CONSENT_KEY = "immigrai:consent";
 
-const EMPTY: UserData = { version: 1, language: "", savedTools: {}, alreadyUse: [], toolCache: {} };
+const EMPTY: UserData = { version: 1, language: "", savedTools: {}, business: { type: "", size: "" }, alreadyUse: [], toolCache: {} };
 
 export type ConsentState = "unknown" | "yes" | "no";
 
@@ -60,6 +60,8 @@ function upgrade(data: UserData): UserData {
   for (const [slug, tool] of Object.entries(data.toolCache)) {
     toolCache[slug] = {
       ...tool,
+      focus: tool.focus ?? "task",
+      trades: tool.trades ?? [],
       ai: tool.ai ?? { level: "none", feature: "" },
       pricing: { ...tool.pricing, kind: tool.pricing.kind ?? inferPriceKind(tool.pricing.startingMonthlyUsd, tool.pricing.model) },
     };
@@ -181,11 +183,15 @@ export function saveAll(tools: Tool[]) {
   });
 }
 
-export function updateSaved(slug: string, change: { myRating?: number; note?: string; inUse?: boolean }) {
+export function updateSaved(slug: string, change: { myRating?: number; note?: string; inUse?: boolean; subscription?: Subscription }) {
   updateUserData((d) => {
     const existing = d.savedTools[slug] ?? { slug, addedAt: new Date().toISOString(), inUse: false };
     return { ...d, savedTools: { ...d.savedTools, [slug]: { ...existing, ...change } } };
   });
+}
+
+export function setBusiness(change: Partial<BusinessProfile>) {
+  updateUserData((d) => ({ ...d, business: { ...d.business, ...change } }));
 }
 
 export function setToolLanguage(language: string) {

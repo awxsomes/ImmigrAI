@@ -131,12 +131,25 @@ function dropUntranslated(store: { strings: Record<string, string>; tools: Recor
   for (const [slug, entry] of Object.entries(store.tools)) {
     const source = tools[slug];
     if (!source) continue;
-    if (["summary", "howToStart", "pricingNote", "reviewSummary"].some((f) => looksEnglish(entry[f], source[f]))) {
-      delete store.tools[slug];
-      dropped++;
+    for (const field of ["summary", "howToStart", "pricingNote", "reviewSummary", "trial", "paywall"]) {
+      if (looksEnglish(entry[field], source[field])) {
+        delete entry[field];
+        dropped++;
+      }
     }
   }
-  if (dropped) console.log(`${lang}: re-translating ${dropped} tools that came back untranslated`);
+  if (dropped) console.log(`${lang}: re-translating ${dropped} fields that came back untranslated`);
+}
+
+/** Only the fields this language does not have yet, so a new field does not re-translate a whole tool. */
+function missingFields(source: Record<string, Json>, have: Record<string, unknown> | undefined) {
+  const out: Record<string, Json> = {};
+  for (const [field, value] of Object.entries(source)) {
+    const existing = have?.[field];
+    const complete = Array.isArray(value) ? Array.isArray(existing) && existing.length === value.length : typeof existing === "string" && existing.length > 0;
+    if (!complete) out[field] = value;
+  }
+  return out;
 }
 
 function chunks<T>(items: T[], size: number) {
@@ -169,6 +182,14 @@ function toolSources() {
       caution: string | null;
       ai?: { level: string; feature: string };
       description?: { summary?: string; helpsWith?: string[]; howToStart?: string };
+      guide?: {
+        plans: Array<{ monthlyUsd: number; includes: string }>;
+        accountSteps: string[];
+        connectSteps: string[];
+        trial: string;
+        paywall: string;
+        policies: Array<{ say: string }>;
+      };
     }
   >;
   const out: Record<string, Record<string, Json>> = {};
@@ -189,6 +210,17 @@ function toolSources() {
     if (summary) entry.reviewSummary = summary;
     const caution = base.caution ?? (r?.caution ? cleanResearchText(r.caution, 240) : "");
     if (caution) entry.caution = caution;
+    const g = r?.guide;
+    if (g) {
+      // Same order as the site shows them, so each translation lines up with its plan.
+      const includes = [...g.plans].sort((a, b) => a.monthlyUsd - b.monthlyUsd).map((plan) => plan.includes);
+      if (includes.length) entry.planIncludes = includes;
+      if (g.accountSteps.length) entry.accountSteps = g.accountSteps;
+      if (g.connectSteps.length) entry.connectSteps = g.connectSteps;
+      if (g.trial) entry.trial = g.trial;
+      if (g.paywall) entry.paywall = g.paywall;
+      if (g.policies.length) entry.policySay = g.policies.map((policy) => policy.say);
+    }
     out[base.slug] = entry;
   }
   return out;
@@ -239,11 +271,16 @@ async function run(lang: Lang) {
     });
   }
   const tools = toolSources();
-  const missingTools = Object.keys(tools).filter((slug) => !store.tools[slug]);
-  for (const slugs of chunks(missingTools, 6)) {
+  const missingTools = Object.entries(tools).flatMap(([slug, source]) => {
+    const fields = missingFields(source, store.tools[slug]);
+    return Object.keys(fields).length ? [[slug, fields] as const] : [];
+  });
+  for (const group of chunks(missingTools, 5)) {
     tasks.push(async () => {
-      const source = Object.fromEntries(slugs.map((s) => [s, tools[s]]));
-      Object.assign(store.tools, await translate(source, lang));
+      const translated = await translate(Object.fromEntries(group), lang);
+      for (const [slug, fields] of Object.entries(translated)) {
+        store.tools[slug] = { ...(store.tools[slug] ?? {}), ...(fields as Record<string, unknown>) };
+      }
       save();
     });
   }

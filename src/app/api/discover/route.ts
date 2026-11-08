@@ -1,6 +1,6 @@
 import { discoverTools } from "@/lib/discover";
 import { allowRequest, clientKey } from "@/lib/ratelimit";
-import { assertSameOrigin, cleanId, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
+import { assertSameOrigin, cleanId, cleanLang, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 
 export const maxDuration = 60;
 
@@ -25,7 +25,7 @@ export async function GET(req: Request) {
     assertSameOrigin(req);
     const params = new URL(req.url).searchParams;
     const input = validate(cleanId(params.get("cat")), cleanId(params.get("sub")), cleanId(params.get("biz"), 20));
-    const lang = cleanId(params.get("lang"), 5) || "en";
+    const lang = cleanLang(params.get("lang"));
 
     if (!allowRequest(clientKey(req), 6)) throw new HttpError(429, "Too many searches. Please wait a minute.");
 
@@ -42,7 +42,7 @@ export async function POST(req: Request) {
     assertSameOrigin(req);
     const body = await readJson<Record<string, unknown>>(req);
     const input = validate(cleanId(body.cat), cleanId(body.sub), cleanId(body.biz, 20));
-    const lang = cleanId(body.lang, 5) || "en";
+    const lang = cleanLang(body.lang);
     const query = cleanText(body.q, 200);
 
     if (!allowRequest(clientKey(req), 6)) throw new HttpError(429, "Too many searches. Please wait a minute.");

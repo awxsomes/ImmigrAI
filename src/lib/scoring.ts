@@ -1,4 +1,5 @@
-import type { EnvironmentalEstimate, PriceKind, PricingModel, Tool, ToolScores, Workload } from "./types";
+import { SYSTEM_NAMES } from "@/data/systems";
+import type { BusinessProfile, EnvironmentalEstimate, PriceKind, PricePlan, PricingModel, TeamSize, Tool, ToolFocus, ToolScores, Workload } from "./types";
 
 /**
  * Environmental Impact (0-100, higher = lighter footprint).
@@ -65,21 +66,33 @@ export function envLabel(score: number) {
  * ImmigrAI score (0-100). Goes beyond reviews because a five-star tool that is
  * expensive, English-only or impossible to set up is still the wrong tool.
  */
-/** With no confirmed reviews a score stops here, so an unknown tool cannot outrank proven ones on score alone. */
-export const UNRATED_SCORE_CAP = 70;
+/** With no confirmed reviews a score stops here. High enough that a new specialist can beat a famous generalist. */
+export const UNRATED_SCORE_CAP = 85;
 
+/**
+ * Being made for the job counts for more than being famous. Star ratings are capped at
+ * a fifth of the score, and review counts are not used at all.
+ */
 export const OVERALL_WEIGHTS = {
-  reviews: 0.35,
+  focus: 0.25,
+  reviews: 0.2,
   easeOfUse: 0.2,
   affordability: 0.15,
-  languageSupport: 0.15,
-  compatibility: 0.1,
+  languageSupport: 0.1,
+  compatibility: 0.05,
   environment: 0.05,
 } as const;
 
 const fifth = (n: number) => Math.max(0, Math.min(5, Number.isFinite(n) ? n : 0)) / 5;
 
+const FOCUS_POINTS: Record<ToolFocus, number> = { trade: 5, task: 4, suite: 2.5, general: 1 };
+
+export function focusScore(focus: ToolFocus) {
+  return FOCUS_POINTS[focus];
+}
+
 export function overallScore(input: {
+  focus: number;
   rating: number | null;
   easeOfUse: number;
   affordability: number;
@@ -89,6 +102,7 @@ export function overallScore(input: {
 }) {
   const w = OVERALL_WEIGHTS;
   const known =
+    fifth(input.focus) * w.focus +
     fifth(input.easeOfUse) * w.easeOfUse +
     fifth(input.affordability) * w.affordability +
     fifth(input.languageSupport) * w.languageSupport +
@@ -121,18 +135,25 @@ export function affordabilityFromPrice(startingMonthlyUsd: number, kind?: PriceK
   return 1;
 }
 
+/** Languages most spoken by immigrant owners. A list of 200 languages earns nothing extra. */
+const OWNER_LANGUAGES = ["spanish", "chinese", "vietnamese", "korean", "tagalog", "filipino", "arabic", "haitian creole", "portuguese", "russian", "french", "hindi"];
+
 export function languageScoreFromList(languages: string[]) {
-  const n = languages.length;
-  if (n >= 30) return 5;
-  if (n >= 15) return 4.5;
-  if (n >= 8) return 4;
-  if (n >= 4) return 3.5;
-  if (n >= 2) return 3;
+  const n = languages.filter((l) => OWNER_LANGUAGES.some((o) => l.toLowerCase().startsWith(o))).length;
+  if (n >= 4) return 5;
+  if (n === 3) return 4.5;
+  if (n === 2) return 4;
+  if (n === 1) return 3;
   return 1.5;
 }
 
+/** Only software owners really run counts. Fifty obscure connections earn nothing extra. */
 export function compatibilityFromList(integrations: string[]) {
-  return Math.min(5, 1.5 + integrations.length * 0.5);
+  const n = SYSTEM_NAMES.filter((name) => mentions(integrations, name)).length;
+  if (n >= 3) return 5;
+  if (n === 2) return 4;
+  if (n === 1) return 3;
+  return 1.5;
 }
 
 /** Estimated from setup time, whether there is a phone app and whether you can start alone. */
@@ -146,6 +167,7 @@ export function easeFromSignals(input: { setupMinutes: number; platforms: string
 }
 
 export function buildScores(input: {
+  focus: ToolFocus;
   rating: number | null;
   startingMonthlyUsd: number;
   priceKind?: PriceKind;
@@ -157,6 +179,7 @@ export function buildScores(input: {
   environment: number;
 }): ToolScores {
   const parts = {
+    focus: focusScore(input.focus),
     easeOfUse: easeFromSignals(input),
     affordability: affordabilityFromPrice(input.startingMonthlyUsd, input.priceKind),
     languageSupport: languageScoreFromList(input.languages),
@@ -270,7 +293,33 @@ export const DEFAULT_FILTERS: ToolFilters = {
   onlyMyLanguage: false,
 };
 
-const AI_RANK = { core: 0, feature: 1, none: 2 };
+/** Specialists first, then AI features in broad software, then blank-box tools, then no AI. */
+function rankGroup(tool: Tool) {
+  if (tool.ai.level === "none") return 3;
+  if (tool.focus === "general") return 2;
+  return tool.ai.level === "core" ? 0 : 1;
+}
+
+/** Points that lift a tool for this particular owner. Never shown as part of its score. */
+export function fitBonus(tool: Tool, profile: BusinessProfile, alreadyUse: string[], language: string) {
+  let bonus = 0;
+  if (profile.type && tool.trades.includes(profile.type)) bonus += 15;
+  bonus += Math.min(connectsWithExisting(tool, alreadyUse).length, 2) * 6;
+  if (language && supportsLanguage(tool, language)) bonus += 5;
+  return bonus;
+}
+
+/** How many people a price is multiplied by. A guess from the size the owner picked. */
+export function seatsFor(size: TeamSize) {
+  return { "": 0, "1": 1, "2-5": 4, "6-20": 12, "21+": 25 }[size];
+}
+
+/** What a plan would come to per month for this team, when that can be worked out. */
+export function planMonthly(plan: PricePlan, size: TeamSize) {
+  if (plan.per !== "person") return plan.monthlyUsd;
+  const seats = seatsFor(size);
+  return seats ? Math.round(plan.monthlyUsd * seats * 100) / 100 : plan.monthlyUsd;
+}
 
 export type SortKey = "overall" | "cheapest" | "rating" | "env" | "easiest";
 
@@ -284,7 +333,7 @@ export function filterTools(tools: Tool[], f: ToolFilters) {
   });
 }
 
-export function sortTools(tools: Tool[], key: SortKey) {
+export function sortTools(tools: Tool[], key: SortKey, bonus: (tool: Tool) => number = () => 0) {
   const copy = [...tools];
   switch (key) {
     case "cheapest":
@@ -296,7 +345,7 @@ export function sortTools(tools: Tool[], key: SortKey) {
     case "easiest":
       return copy.sort((a, b) => b.scores.easeOfUse - a.scores.easeOfUse || b.scores.overall - a.scores.overall);
     default:
-      // Tools built around AI come first, because finding AI tools is why people are here.
-      return copy.sort((a, b) => AI_RANK[a.ai.level] - AI_RANK[b.ai.level] || b.scores.overall - a.scores.overall);
+      // Specialists come first, because a tool that already knows the job is why people are here.
+      return copy.sort((a, b) => rankGroup(a) - rankGroup(b) || b.scores.overall + bonus(b) - (a.scores.overall + bonus(a)));
   }
 }

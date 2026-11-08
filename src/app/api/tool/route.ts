@@ -2,7 +2,7 @@ import { SEED_BY_SLUG, SEED_TOOLS } from "@/data/seed-tools";
 import { lookupTool } from "@/lib/discover";
 import { slugify } from "@/lib/normalize";
 import { allowRequest, clientKey } from "@/lib/ratelimit";
-import { assertSameOrigin, cleanId, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
+import { assertSameOrigin, cleanId, cleanLang, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 
 export const maxDuration = 60;
 
@@ -13,7 +13,7 @@ export async function POST(req: Request) {
     const body = await readJson<Record<string, unknown>>(req);
     const slug = cleanId(body.slug, 60);
     const name = cleanText(body.name, 80);
-    const lang = cleanId(body.lang, 5) || "en";
+    const lang = cleanLang(body.lang);
     if (!slug && !name) throw new HttpError(400, "Tool name missing.");
 
     const known = (slug && SEED_BY_SLUG.get(slug)) || SEED_TOOLS.find((t) => slugify(t.name) === slugify(name || slug));

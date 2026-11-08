@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { GlobeIcon } from "@/components/icons";
 import { Disclosure } from "./disclosure";
 
 const NAMES: Array<[string, string]> = [
@@ -22,6 +23,7 @@ export function LanguageMenu({ lang, label, moreLabel }: { lang: string; label: 
       rootClassName="relative"
       label={
         <>
+          <GlobeIcon className="size-5 shrink-0" />
           <span className="sr-only">{label}: </span>
           {current}
         </>

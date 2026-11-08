@@ -149,7 +149,10 @@ export function toTool(
     platforms,
     reviews: verified.reviews,
     environmental,
+    focus: "task",
+    trades: [],
     scores: buildScores({
+      focus: "task",
       rating: verified.reviews.rating,
       startingMonthlyUsd,
       priceKind,

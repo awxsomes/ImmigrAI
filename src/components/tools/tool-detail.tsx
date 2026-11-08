@@ -3,11 +3,13 @@ import type { ReactNode } from "react";
 import { ArrowIcon, CheckIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
-import { aiLabel, displayLanguage, priceText } from "@/lib/format";
+import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText } from "@/lib/format";
 import type { Dict } from "@/lib/i18n";
-import { fmt } from "@/lib/labels";
+import { ADOPT_KEYS, fmt, PROMPT_KEYS, type AdoptionLabels, type PromptLabels } from "@/lib/labels";
+import { AdoptionGuide, TeamEstimate } from "./adoption-guide";
+import { PromptHelper } from "./prompt-helper";
 import { RatingText } from "./tool-card";
-import { envLabel, ENV_WEIGHTS, OVERALL_WEIGHTS } from "@/lib/scoring";
+import { envLabel, ENV_WEIGHTS, focusScore, OVERALL_WEIGHTS } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
 
 /** Every word the tool page uses, so the same page can render on the server or in the browser. */
@@ -18,7 +20,11 @@ export const DETAIL_KEYS = [
   "card_languageCount", "card_languageOne", "card_seeLanguages", "card_connectsExisting", "card_details", "card_free",
   "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn",
   "card_aiCore", "card_aiFeature", "card_aiNone", "card_aiDoes", "card_smallTool", "tool_smallNote",
-  "card_from", "card_perMonth", "card_fees", "card_needsSales",
+  "card_fees", "card_needsSales",
+  "price_amount", "price_amountPerson", "price_amountLocation", "price_amountUse", "price_plan", "price_next", "price_estimate", "price_plansUnconfirmed", "price_paywall", "price_trial",
+  "tool_plansTitle", "tool_planName", "tool_planPrice", "tool_planIncludes", "per_business", "per_person", "per_location", "per_use",
+  "card_builtFor", "card_generalNote", "trade_restaurant", "trade_salon", "trade_retail", "trade_trades", "trade_cleaning",
+  ...ADOPT_KEYS, ...PROMPT_KEYS,
   "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",
   "wld_none", "wld_background-ml", "wld_optional-genai", "wld_translation", "wld_llm-every-reply", "wld_speech", "wld_image-video", "wld_voice-agent",
@@ -28,8 +34,7 @@ export const DETAIL_KEYS = [
   "tool_reviewCheck", "tool_priceSource", "tool_languageSource", "tool_statedTotal", "tool_languagesNote", "tool_perTask", "tool_wattHours", "tool_waterMl",
   "tool_co2", "tool_howWeCalc", "tool_scoreParts", "tool_scoreNoReviews", "tool_startAlone", "tool_setupAbout", "tool_runsOn", "tool_nothingConfirmed",
   "tool_checked", "tool_openSite", "tool_leaving", "tool_estimate",
-  "score_reviews", "score_ease", "score_cost", "score_languages", "score_connections", "score_footprint",
-  "platform_web", "platform_ios", "platform_android", "platform_desktop", "platform_phone", "platform_pos-hardware",
+  "score_focus", "score_reviews", "score_ease", "score_cost", "score_languages", "score_connections", "score_footprint",
 ] as const;
 
 export type DetailLabels = Pick<Dict, (typeof DETAIL_KEYS)[number]>;
@@ -55,7 +60,7 @@ function Meter({ label, value, max, display }: { label: string; value: number; m
   );
 }
 
-type ScoreLabels = Pick<Dict, "score_reviews" | "score_ease" | "score_cost" | "score_languages" | "score_connections" | "score_footprint">;
+type ScoreLabels = Pick<Dict, "score_focus" | "score_reviews" | "score_ease" | "score_cost" | "score_languages" | "score_connections" | "score_footprint">;
 
 /** The parts of a tool's score, each with its weight. Used on the tool page and the home page example. */
 export function ScoreMeters({ tool, t }: { tool: Tool; t: ScoreLabels }) {
@@ -63,8 +68,11 @@ export function ScoreMeters({ tool, t }: { tool: Tool; t: ScoreLabels }) {
   const { rating } = tool.reviews;
   const env = tool.environmental;
   const pct = (weight: number) => Math.round(weight * 100);
+  // A tool saved on this device by an earlier version has no focus score yet.
+  const focus = tool.scores.focus ?? focusScore(tool.focus ?? "task");
   return (
     <dl className="space-y-3">
+      <Meter label={`${t.score_focus} (${pct(w.focus)}%)`} value={focus} max={5} display={`${focus} / 5`} />
       {tool.scores.overallIncludesReviews && rating !== null && (
         <Meter label={`${t.score_reviews} (${pct(w.reviews)}%)`} value={rating} max={5} display={`${rating} / 5`} />
       )}
@@ -79,11 +87,50 @@ export function ScoreMeters({ tool, t }: { tool: Tool; t: ScoreLabels }) {
 
 const OUT = { target: "_blank", rel: "noopener noreferrer nofollow" } as const;
 
+/** Client components get only the words they use, so the page stays light. */
+function only<K extends keyof DetailLabels>(t: DetailLabels, keys: readonly K[]) {
+  return Object.fromEntries(keys.map((key) => [key, t[key]])) as Pick<DetailLabels, K>;
+}
+
+function PlanTable({ tool, t }: { tool: Tool; t: DetailLabels }) {
+  const plans = tool.pricing.plans ?? [];
+  if (plans.length === 0) return null;
+  return (
+    <table className="mt-3 w-full text-left">
+      <caption className="mb-1 text-left font-medium">{t.tool_plansTitle}</caption>
+      <thead>
+        <tr className="border-b-2 border-line-strong">
+          <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_planName}</th>
+          <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_planPrice}</th>
+          <th scope="col" className="py-2 font-semibold">{t.tool_planIncludes}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {plans.map((plan) => (
+          <tr key={plan.name} className="border-b border-line align-top">
+            <td className="py-2 pr-3 font-medium">{plan.name}</td>
+            <td className="py-2 pr-3">
+              {plan.monthlyUsd === 0 ? t.card_free : fmt(t.price_amount, { n: plan.monthlyUsd })}
+              {plan.monthlyUsd > 0 && <span className="block text-sm text-muted-ink">{t[`per_${plan.per}`]}</span>}
+            </td>
+            <td className="py-2">{plan.includes}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  );
+}
+
 export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; lang: string; t: DetailLabels; actions?: ReactNode; sidebar?: ReactNode }) {
   const env = tool.environmental;
   const { rating, sources, reviewCount, summary } = tool.reviews;
   const includesReviews = tool.scores.overallIncludesReviews;
   const languages = [...tool.languages].map((l) => displayLanguage(l, lang)).sort((a, b) => a.localeCompare(b, lang));
+  const next = nextPlanText(tool, t);
+  const confirmation = priceConfirmation(tool, t);
+  const hasPlans = Boolean(tool.pricing.plans?.length);
+  const adoptLabels: AdoptionLabels = only(t, ADOPT_KEYS);
+  const promptLabels: PromptLabels = only(t, PROMPT_KEYS);
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6">
@@ -93,6 +140,11 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
           <p className="mt-2 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
             {tool.source === "live" && <Badge variant="warm">{t.tool_foundLive}</Badge>}
+            {tool.trades?.map((trade) => (
+              <Badge key={trade} variant="warm">
+                {fmt(t.card_builtFor, { trade: t[`trade_${trade}`] })}
+              </Badge>
+            ))}
           </p>
           <p className="mt-3 text-lg">{tool.summary}</p>
           {tool.ai.level !== "none" && tool.ai.feature && (
@@ -100,6 +152,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
               <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
             </p>
           )}
+          {tool.focus === "general" && <p className="mt-3 rounded-lg bg-marigold-tint p-3 font-medium">{t.card_generalNote}</p>}
         </div>
         <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-24 flex-col items-center justify-center rounded-xl bg-green text-white">
           <span className="text-4xl leading-none font-bold">{tool.scores.overall}</span>
@@ -143,6 +196,13 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
         {actions}
       </div>
 
+      {!tool.publicResource && <AdoptionGuide tool={tool} lang={lang} t={adoptLabels} />}
+      {tool.source === "catalog" && tool.ai.level !== "none" && (
+        <div className="mt-4 rounded-xl border-2 border-line bg-surface p-5">
+          <PromptHelper slug={tool.slug} problem="" lang={lang} t={promptLabels} />
+        </div>
+      )}
+
       <div className="mt-8 grid gap-8 lg:grid-cols-2">
         <div className="space-y-8">
           <Section title={t.tool_helps}>
@@ -158,8 +218,21 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
 
           <Section title={t.tool_cost}>
             <p className="text-xl font-semibold">{priceText(tool, t)}</p>
-            {!tool.pricing.verified && <p className="text-sm text-muted-ink">{t.card_priceUnconfirmed}</p>}
-            <p className="mt-1">{tool.pricing.note}</p>
+            {next && <p className="text-muted-ink">{next}</p>}
+            <TeamEstimate tool={tool} template={t.price_estimate} />
+            {confirmation && <p className="text-sm text-muted-ink">{confirmation}</p>}
+            {!hasPlans && <p className="mt-1">{tool.pricing.note}</p>}
+            <PlanTable tool={tool} t={t} />
+            {tool.guide?.trial && (
+              <p className="mt-3">
+                <span className="font-semibold">{t.price_trial}:</span> {tool.guide.trial}
+              </p>
+            )}
+            {tool.guide?.paywall && (
+              <p className="mt-2">
+                <span className="font-semibold">{t.price_paywall}:</span> {tool.guide.paywall}
+              </p>
+            )}
             {tool.pricing.extraFees && (
               <p className="mt-2">
                 <span className="font-semibold">{t.card_fees}:</span> {tool.pricing.extraFees}
@@ -222,21 +295,23 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
             )}
           </Section>
 
-          <Section title={t.tool_start}>
-            <p>{tool.howToStart}</p>
-            <ul className="mt-2 space-y-1 text-sm">
-              <li>{fmt(t.tool_setupAbout, { n: tool.setupMinutes })} ({t.tool_estimate})</li>
-              <li>{tool.selfServe ? t.tool_startAlone : t.card_needsSales}</li>
-              <li>
-                {t.tool_runsOn}: {tool.platforms.map((p) => t[`platform_${p}` as keyof DetailLabels] ?? p).join(", ")}
-              </li>
-            </ul>
-            {tool.caution && (
-              <p className="mt-3 rounded-lg bg-marigold-tint p-3">
-                <span className="font-semibold">{t.tool_caution}:</span> {tool.caution}
-              </p>
-            )}
-          </Section>
+          {tool.publicResource && (
+            <Section title={t.tool_start}>
+              <p>{tool.howToStart}</p>
+              <ul className="mt-2 space-y-1 text-sm">
+                <li>{fmt(t.tool_setupAbout, { n: tool.setupMinutes })} ({t.tool_estimate})</li>
+                <li>{tool.selfServe ? t.tool_startAlone : t.card_needsSales}</li>
+                <li>
+                  {t.tool_runsOn}: {tool.platforms.map((p) => t[`platform_${p}` as keyof DetailLabels] ?? p).join(", ")}
+                </li>
+              </ul>
+              {tool.caution && (
+                <p className="mt-3 rounded-lg bg-marigold-tint p-3">
+                  <span className="font-semibold">{t.tool_caution}:</span> {tool.caution}
+                </p>
+              )}
+            </Section>
+          )}
         </div>
 
         <div className="space-y-8">

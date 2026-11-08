@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Suspense } from "react";
 import { AiSuggestions } from "@/components/search/ai-suggestions";
+import { MatchResults } from "@/components/search/match-results";
 import { ResultsView } from "@/components/tools/results-view";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEED_TOOLS, seedToolsFor } from "@/data/seed-tools";
 import { findCategory, findSubcategory, NO_LIVE_DISCOVERY } from "@/data/taxonomy";
 import { searchHref } from "@/lib/format";
 import { getDict } from "@/lib/i18n";
-import { pick, RESULTS_KEYS } from "@/lib/labels";
+import { fmt, MATCH_KEYS, pick, RESULTS_KEYS } from "@/lib/labels";
 import { localizeTool, localTaxonomy, nameOf, pageLanguageName } from "@/lib/localize";
 import { localSuggestions } from "@/lib/matcher";
 
@@ -38,6 +39,8 @@ async function Results({ params, searchParams }: Props) {
   const sp = await searchParams;
   const t = getDict(lang);
   const q = one(sp.q).trim();
+  // Set when the owner described a specific need. Their words stay in the browser, never in this address.
+  const matching = one(sp.need) === "1";
 
   let categoryId = one(sp.cat);
   let subcategoryId = one(sp.sub);
@@ -63,7 +66,11 @@ async function Results({ params, searchParams }: Props) {
     const named = needle.length >= 2 ? SEED_TOOLS.filter((tool) => tool.name.toLowerCase().includes(needle)) : [];
     return (
       <div className="mx-auto max-w-6xl px-4 py-8">
-        <h1 className="text-3xl font-bold">{q ? `${t.results_forQuery}: "${q}"` : t.results_noCategory}</h1>
+        {matching ? (
+          <MatchResults lang={lang} t={pick(t, MATCH_KEYS)} fallbackTitle={t.results_noCategory} browseTitle={t.match_browseNeeds} defaultLanguage={pageLanguageName(lang)} />
+        ) : (
+          <h1 className="text-3xl font-bold">{q ? `${t.results_forQuery}: "${q}"` : t.results_noCategory}</h1>
+        )}
         {others.length > 0 && (
           <div className="mt-4">
             <h2 className="text-xl font-semibold">{t.results_didYouMean}</h2>
@@ -145,7 +152,19 @@ async function Results({ params, searchParams }: Props) {
         </ol>
       </nav>
 
-      <h1 className="mt-2 text-3xl font-bold sm:text-4xl">{sub ? `${categoryName} → ${subName}` : categoryName}</h1>
+      {matching ? (
+        <MatchResults
+          lang={lang}
+          t={pick(t, MATCH_KEYS)}
+          fallbackTitle={sub ? `${categoryName} → ${subName}` : categoryName}
+          browseTitle={fmt(t.match_browseCategory, { name: subName || categoryName })}
+          defaultLanguage={pageLanguageName(lang)}
+          currentCategory={category.id}
+          currentSub={sub?.id}
+        />
+      ) : (
+        <h1 className="mt-2 text-3xl font-bold sm:text-4xl">{sub ? `${categoryName} → ${subName}` : categoryName}</h1>
+      )}
       {q && (
         <p className="mt-1 text-muted-ink">
           {t.results_forQuery}: &quot;{q}&quot;
@@ -193,7 +212,7 @@ async function Results({ params, searchParams }: Props) {
           tools={tools}
           categoryId={category.id}
           subcategoryId={sub?.id}
-          liveSearch={!sub || !NO_LIVE_DISCOVERY.has(sub.id)}
+          liveSearch={!matching && (!sub || !NO_LIVE_DISCOVERY.has(sub.id))}
           defaultLanguage={pageLanguageName(lang)}
           t={pick(t, RESULTS_KEYS)}
         />

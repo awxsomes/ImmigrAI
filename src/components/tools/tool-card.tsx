@@ -2,10 +2,11 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CheckIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
-import { aiLabel, displayLanguage, priceText, toolHref } from "@/lib/format";
+import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText, toolHref } from "@/lib/format";
 import { fmt, type CardLabels } from "@/lib/labels";
 import { connectsWithExisting, envLabel, supportsLanguage } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
+import { TeamEstimate } from "./adoption-guide";
 
 /**
  * One tool, with the same facts in the same order every time, so tools are easy to
@@ -70,6 +71,9 @@ export function ToolCard({
   const existing = alreadyUse?.length ? connectsWithExisting(tool, alreadyUse) : [];
   const languageName = language ? displayLanguage(language, lang) : "";
   const speaks = language ? supportsLanguage(tool, language) : false;
+  const next = nextPlanText(tool, t);
+  const confirmation = priceConfirmation(tool, t);
+  const hasPlans = Boolean(tool.pricing.plans?.length);
 
   return (
     <article className="rounded-xl border-2 border-line bg-surface p-5">
@@ -83,6 +87,11 @@ export function ToolCard({
           <p className="mt-1 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
             {tool.source === "live" && <Badge variant="outline">{t.card_new}</Badge>}
+            {tool.trades?.map((trade) => (
+              <Badge key={trade} variant="warm">
+                {fmt(t.card_builtFor, { trade: t[`trade_${trade}`] })}
+              </Badge>
+            ))}
           </p>
         </div>
         <div
@@ -101,12 +110,20 @@ export function ToolCard({
           <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
         </p>
       )}
+      {tool.focus === "general" && <p className="mt-3 rounded-lg bg-marigold-tint px-3 py-2 font-medium">{t.card_generalNote}</p>}
 
       <dl className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
         <Fact label={t.card_cost}>
           {priceText(tool, t)}
-          {!tool.pricing.verified && <span className="block text-sm font-normal text-muted-ink">{t.card_priceUnconfirmed}</span>}
-          {tool.pricing.note && <span className="mt-0.5 line-clamp-2 text-sm font-normal text-muted-ink">{tool.pricing.note}</span>}
+          {next && <span className="block text-sm font-normal text-muted-ink">{next}</span>}
+          <TeamEstimate tool={tool} template={t.price_estimate} />
+          {confirmation && <span className="block text-sm font-normal text-muted-ink">{confirmation}</span>}
+          {!hasPlans && tool.pricing.note && <span className="mt-0.5 line-clamp-2 text-sm font-normal text-muted-ink">{tool.pricing.note}</span>}
+          {tool.guide?.paywall && (
+            <span className="line-clamp-2 text-sm font-normal text-muted-ink">
+              {t.price_paywall}: {tool.guide.paywall}
+            </span>
+          )}
           {tool.pricing.extraFees && (
             <span className="line-clamp-2 text-sm font-normal text-muted-ink">
               {t.card_fees}: {tool.pricing.extraFees}

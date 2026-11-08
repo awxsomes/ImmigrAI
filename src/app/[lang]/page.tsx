@@ -1,6 +1,9 @@
 import Link from "next/link";
 import { ArrowIcon, CheckIcon, SearchIcon } from "@/components/icons";
+import { CheckupForm } from "@/components/checkup/checkup-form";
+import { BUSINESS_QUESTION_KEYS, CHECKUP_FORM_KEYS } from "@/components/checkup/labels";
 import { SmartSearch } from "@/components/search/smart-search";
+import { BusinessQuestion } from "@/components/site/business-question";
 import { KitchenArt, SeedlingArt, StorefrontArt } from "@/components/site/kit-art";
 import { KitCard, NewToolsCard } from "@/components/tools/kit-card";
 import { ToolCard } from "@/components/tools/tool-card";
@@ -46,14 +49,30 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
     <>
       <section className="mx-auto max-w-6xl px-4 pt-6 pb-12 sm:pt-14">
         <h1 className="max-w-4xl text-3xl font-bold sm:text-6xl">{t.hero_title}</h1>
-        <p className="mt-3 max-w-3xl text-lg sm:mt-4 sm:text-xl">{t.hero_lead}</p>
-        <div className="mt-6 sm:mt-8">
+        {/* Left out on phones, so the question and the search box both fit above the cookie banner. */}
+        <p className="mt-4 hidden max-w-3xl text-xl sm:block">{t.hero_lead}</p>
+        <div className="mt-3 sm:mt-6">
+          <BusinessQuestion t={pick(t, BUSINESS_QUESTION_KEYS)} />
+        </div>
+        <div className="mt-1 sm:mt-3">
           <SmartSearch lang={lang} t={pick(t, SEARCH_KEYS)} examples={[t.search_example1, t.search_example2, t.search_example3, t.search_example4]} />
         </div>
         <p className="mt-4 flex items-center gap-2 font-medium">
           <CheckIcon className="size-5 shrink-0 text-green" />
           {t.hero_note}
         </p>
+      </section>
+
+      <section aria-labelledby="checkup-title" className="border-y-2 border-line bg-marigold-tint">
+        <div className="mx-auto grid max-w-6xl gap-6 px-4 py-10 md:grid-cols-[2fr_3fr] md:gap-10">
+          <div>
+            <h2 id="checkup-title" className="text-3xl font-bold">
+              {t.checkup_homeTitle}
+            </h2>
+            <p className="mt-2 text-lg">{t.checkup_homeD}</p>
+          </div>
+          <CheckupForm lang={lang} t={pick(t, CHECKUP_FORM_KEYS)} idPrefix="home-checkup" />
+        </div>
       </section>
 
       <section aria-labelledby="board-title" className="bg-green-dark text-white">
@@ -174,10 +193,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
       <section className="mx-auto grid max-w-6xl gap-4 px-4 py-12 md:grid-cols-2">
         <div className="rounded-xl bg-marigold-tint p-6">
-          <h2 className="text-2xl font-bold">{t.home_alreadyTitle}</h2>
-          <p className="mt-2">{t.home_alreadyD}</p>
-          <Link href={`/${lang}/my-tools`} prefetch={false} className={`${buttonVariants({ variant: "outline" })} mt-4`}>
-            {t.home_alreadyCta}
+          <h2 className="text-2xl font-bold">{t.home_subsTitle}</h2>
+          <p className="mt-2">{t.home_subsD}</p>
+          <Link href={`/${lang}/my-tools#subscriptions`} prefetch={false} className={`${buttonVariants({ variant: "outline" })} mt-4`}>
+            {t.home_subsCta}
           </Link>
         </div>
         <div className="rounded-xl bg-green-tint p-6">

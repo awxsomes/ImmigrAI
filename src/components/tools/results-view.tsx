@@ -10,14 +10,13 @@ import { Slider } from "@/components/ui/slider";
 import { LANGUAGES } from "@/data/languages";
 import type { DiscoverResult } from "@/lib/discover";
 import { fmt, type ResultsLabels } from "@/lib/labels";
-import { DEFAULT_FILTERS, filterTools, sortTools, type SortKey, type ToolFilters } from "@/lib/scoring";
+import { connectsWithExisting, DEFAULT_FILTERS, filterTools, fitBonus, sortTools, type SortKey, type ToolFilters } from "@/lib/scoring";
 import { cacheTools, setToolLanguage, useUserData } from "@/lib/storage";
-import type { Tool } from "@/lib/types";
+import { BUSINESS_TYPES, type BusinessType, type Tool } from "@/lib/types";
 import { SaveButton } from "./tool-actions";
 import { ToolCard } from "./tool-card";
 
 const COMPARE_MAX = 4;
-const BUSINESS_TYPES = ["restaurant", "salon", "retail", "trades", "cleaning"] as const;
 
 type LiveState = "idle" | "searching" | "done" | "paused" | "failed" | "save-data";
 
@@ -58,7 +57,10 @@ export function ResultsView({
   const [filters, setFilters] = useState<ToolFilters>(DEFAULT_FILTERS);
   const [sort, setSort] = useState<SortKey>("overall");
   const [showFilters, setShowFilters] = useState(false);
-  const [business, setBusiness] = useState("");
+  // Starts from what the owner told us about their business, until they pick something else here.
+  const [businessChoice, setBusinessChoice] = useState<string | null>(null);
+  const business = businessChoice ?? data.business.type;
+  const [onlyConnected, setOnlyConnected] = useState(false);
   const [liveTools, setLiveTools] = useState<Tool[]>([]);
   const [liveRun, setLive] = useState<LiveState>("idle");
   const [lowData] = useState(() => typeof navigator !== "undefined" && prefersLowData());
@@ -117,7 +119,11 @@ export function ResultsView({
     return [...tools, ...liveTools.filter((tool) => !known.has(tool.slug))];
   }, [tools, liveTools]);
 
-  const shown = useMemo(() => sortTools(filterTools(all, { ...filters, language }), sort), [all, filters, language, sort]);
+  const shown = useMemo(() => {
+    const profile = { type: business as BusinessType | "", size: data.business.size };
+    const filtered = filterTools(all, { ...filters, language }).filter((tool) => !onlyConnected || connectsWithExisting(tool, data.alreadyUse).length > 0);
+    return sortTools(filtered, sort, (tool) => fitBonus(tool, profile, data.alreadyUse, language));
+  }, [all, filters, language, sort, business, data.business.size, data.alreadyUse, onlyConnected]);
 
   function toggleCompare(slug: string) {
     setCompareNotice(false);
@@ -140,7 +146,8 @@ export function ResultsView({
     "save-data": t.results_saveData,
   }[live];
 
-  const aiTools = shown.filter((tool) => tool.ai.level !== "none");
+  const aiTools = shown.filter((tool) => tool.ai.level !== "none" && tool.focus !== "general");
+  const generalTools = shown.filter((tool) => tool.ai.level !== "none" && tool.focus === "general");
   const otherTools = shown.filter((tool) => tool.ai.level === "none");
 
   const toolList = (list: Tool[]) => (
@@ -171,7 +178,7 @@ export function ResultsView({
     </ul>
   );
 
-  const filtersActive = JSON.stringify({ ...filters, language: "" }) !== JSON.stringify(DEFAULT_FILTERS);
+  const filtersActive = onlyConnected || JSON.stringify({ ...filters, language: "" }) !== JSON.stringify(DEFAULT_FILTERS);
 
   return (
     <div className="grid gap-6 lg:grid-cols-[18rem_minmax(0,1fr)] lg:gap-8">
@@ -261,10 +268,17 @@ export function ResultsView({
             </label>
           </div>
 
+          {data.alreadyUse.length > 0 && (
+            <label className="flex min-h-11 cursor-pointer items-center gap-3">
+              <input type="checkbox" className="size-6 shrink-0 accent-[#0e5a45]" checked={onlyConnected} onChange={(e) => setOnlyConnected(e.target.checked)} />
+              {t.filter_onlyConnect}
+            </label>
+          )}
+
           {categoryId && liveSearch && (
             <div>
               <Label htmlFor="business-filter">{t.filter_businessType}</Label>
-              <NativeSelect id="business-filter" className="mt-1" value={business} onChange={(e) => setBusiness(e.target.value)}>
+              <NativeSelect id="business-filter" className="mt-1" value={business} onChange={(e) => setBusinessChoice(e.target.value)}>
                 <option value="">{t.businessType_any}</option>
                 {BUSINESS_TYPES.map((b) => (
                   <option key={b} value={b}>
@@ -276,7 +290,14 @@ export function ResultsView({
           )}
 
           {filtersActive && (
-            <Button variant="ghost" className="w-full" onClick={() => setFilters({ ...DEFAULT_FILTERS, language: filters.language })}>
+            <Button
+              variant="ghost"
+              className="w-full"
+              onClick={() => {
+                setFilters({ ...DEFAULT_FILTERS, language: filters.language });
+                setOnlyConnected(false);
+              }}
+            >
               {t.filter_reset}
             </Button>
           )}
@@ -316,6 +337,16 @@ export function ResultsView({
         ) : (
           <>
             {aiTools.length > 0 && toolList(aiTools)}
+            {generalTools.length > 0 && (
+              <details className="group mt-6" open={aiTools.length === 0}>
+                <summary className="flex min-h-12 list-none items-center justify-between gap-2 rounded-lg border-2 border-line-strong bg-surface px-4 font-medium hover:bg-green-tint">
+                  {fmt(t.results_generalTools, { n: generalTools.length })}
+                  <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
+                </summary>
+                <p className="mt-3">{t.results_generalNote}</p>
+                {toolList(generalTools)}
+              </details>
+            )}
             {otherTools.length > 0 &&
               (aiTools.length > 0 ? (
                 <details className="group mt-6">

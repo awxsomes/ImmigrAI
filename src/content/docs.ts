@@ -22,7 +22,7 @@ export interface Doc {
   sections: DocSection[];
 }
 
-export const DOC_UPDATED = "2026-11-06";
+export const DOC_UPDATED = "2026-11-08";
 
 export const DOCS = {
   methodology: {
@@ -70,24 +70,35 @@ export const DOCS = {
       {
         h: "ImmigrAI score",
         p: [
-          "A high star rating can hide a tool that is expensive, English-only or hard to set up. So the ImmigrAI score (0 to 100) blends: reviews 35%, ease of use 20%, cost 15%, language support 15%, connections to other tools 10%, and environmental impact 5%.",
-          "If we cannot confirm a tool's reviews, we leave reviews out and score the rest, and that score cannot go above 70. We never fill the gap with an invented number, and the tool's page says so.",
+          "A high star rating can hide a tool that is expensive, English-only, hard to set up or made for someone else. So the ImmigrAI score (0 to 100) blends: made for the job 25%, public reviews 20%, ease of use 20%, cost 15%, language support 10%, connections to software owners use 5%, and environmental impact 5%.",
+          "How famous a tool is does not count. The number of reviews is never part of the score. We only use it to decide whether there are enough reviews to show a rating at all, and to weigh one review site against another.",
+          "If we cannot confirm a tool's reviews, we leave reviews out and score the rest, and that score cannot go above 85. We never fill the gap with an invented number, and the tool's page says so.",
         ],
         ul: [
+          "Made for the job: 5 out of 5 if it is built for one kind of business, 4 if it does one job without being told how, 2.5 if it is broad business software, and 1 if it is a blank box where you have to write the instructions yourself.",
           "Ease of use is our estimate, based on setup time, whether it has a phone app, and whether you can sign up without talking to a salesperson.",
           "Cost comes from the lowest monthly price that lets you actually use the tool. Tools with no monthly fee but a charge on each sale score a little lower than fully free tools, and tools where you set your own ad budget score lower still, because the real cost is harder to predict.",
-          "Language support comes from how many languages we could confirm.",
-          "Connections come from how many other products we could confirm it works with.",
+          "Language support counts the languages most spoken by immigrant owners, such as Spanish, Chinese, Vietnamese, Korean, Tagalog, Arabic, Haitian Creole, Portuguese, Russian, French and Hindi. Four or more earns full marks. A long list of other languages earns nothing extra.",
+          "Connections count only software small businesses really run, such as QuickBooks, Square, Toast, Google Calendar or WhatsApp. Three or more earns full marks. A long list of other connections earns nothing extra.",
         ],
       },
       {
         h: "What counts as an AI tool",
-        p: ["ImmigrAI focuses on AI tools, including small and new ones. We check public pages about each tool and label it one of three ways. Results show AI tools first, and tools built around AI before others when sorted by best overall."],
+        p: ["ImmigrAI focuses on AI tools, including small and new ones. We check public pages about each tool and label it. When sorted by best overall, tools built around AI come first, then normal software with AI features, then general tools you have to write prompts for, then tools with no AI."],
         ul: [
           "AI tool: AI does the product's main job, such as answering calls or writing posts.",
           "Has AI features: normal software with AI you can actually use, and we say what it does.",
+          "General tool: a blank box or all-purpose app, such as a chatbot or a design app, where you have to work out what to ask. We list these last among AI tools.",
           "No AI: no AI you can use. AI that only runs behind the scenes, such as fraud screening, does not count. These are listed separately, and include free guides and advisors that are useful anyway.",
           "Small and new tools often have few public reviews. We show that clearly, so try them before you pay.",
+        ],
+      },
+      {
+        h: "How we check plans, setup steps and rules",
+        ul: [
+          "A plan only appears if its price is on a page the search returned, and we prefer the company's own pricing page. If we cannot confirm the plans, the page says so.",
+          "Setup steps only appear if they came from a page on the company's own site.",
+          "A rule, such as how to cancel or whether your data is used to train AI, only appears if the exact words are on a page we read. If we cannot find it, the page says it is not stated, so ask before you pay.",
         ],
       },
       {
@@ -226,19 +237,22 @@ export const DOCS = {
       {
         h: "What we do not collect",
         p: [
-          "We do not ask for your name, email, phone number, address, Social Security number or immigration status. We do not use analytics, advertising or tracking tools. We do not sell or share personal data, because we do not keep any.",
+          "We do not ask for your personal name, email, phone number, home address, Social Security number or immigration status. We do not use analytics, advertising or tracking tools. We do not sell or share personal data, because we do not keep any.",
         ],
       },
       {
         h: "What stays on your device",
-        p: ["If you say yes on our banner, your browser's local storage keeps the tools you saved, your ratings and notes, the tools you already use, and your language. This data stays on your device and is never sent to us. You can download it or delete it at any time."],
+        p: ["If you say yes on our banner, your browser's local storage keeps the tools you saved, your ratings and notes, what you pay for them and when, the kind of business you run, your team size, the software you already use, and your language. We do not keep a copy of any of this. Details only leave your device for the searches described below. You can download it or delete it at any time."],
       },
       {
         h: "What passes through our servers",
         ul: [
           "Search text. When you type a longer question, it is sent to our server and on to OpenRouter, which passes it to an AI model that matches it to a category. Please do not type private details such as names, Social Security numbers or immigration status.",
           "If we cannot match your words to a category, they become part of the page address, which can appear in your browser history and in server logs.",
-          "We do not store what you type. We ask OpenRouter to use only AI providers that do not keep or train on it, and we rely on those companies to honor that.",
+          "Business details. When you run a business checkup or search for one specific need, the business name, city, website, kind of business, team size and the software you use are sent to our server and on to OpenRouter, so an AI model can look for reviews and match tools to you. Please do not add the names of customers or employees.",
+          "Your business's website. If you give us a website or we find one, our server reads that public page to look for things such as online booking. We do not keep a copy.",
+          "Prompt help. When you ask us to write prompts, the problem you described and your kind of business are sent to our server and on to OpenRouter.",
+          "We do not write what you type to a database. Our server may hold a search result in temporary memory for up to a day, so the same search does not cost again. We ask OpenRouter to use only AI providers that do not keep or train on it, and we rely on those companies to honor that.",
           "Category searches, such as 'payroll tools', contain no personal details, and the results may be shared with other visitors to save cost.",
           "Internet address. To limit abuse, we keep a scrambled version of your internet address in temporary memory for a few minutes. Our hosting company, Vercel, may also keep standard server logs for a short time.",
         ],
@@ -247,7 +261,7 @@ export const DOCS = {
         h: "Companies involved",
         ul: [
           "Vercel hosts this website.",
-          "OpenRouter connects us to AI models. The AI model company may process the text of your search.",
+          "OpenRouter connects us to AI models. The AI model company may process the text of your search and the business details described above.",
           "When you click a link to a tool, you leave our site. That company's own privacy policy applies.",
         ],
       },
@@ -321,7 +335,7 @@ export const DOCS = {
         p: ["Local storage is a small space in your browser. If you say yes on our banner, we use two entries:"],
         ul: [
           "immigrai:consent remembers your choice on the banner.",
-          "immigrai:v1 holds your saved tools, ratings, notes, the tools you already use and your language.",
+          "immigrai:v1 holds your saved tools, ratings, notes, what you pay for them and when, the kind of business you run, your team size, the software you already use and your language.",
         ],
       },
       {
@@ -374,7 +388,7 @@ export const DOCS = {
     sections: [
       {
         h: "What gets deleted",
-        p: ["This removes your saved tools, ratings, notes, the tools you already use, your language and your banner choice from this browser. It cannot be undone. If you use ImmigrAI on another device, delete it there too."],
+        p: ["This removes your saved tools, ratings, notes, what you pay for them and when, your business details, the software you already use, your language and your banner choice from this browser. It cannot be undone. If you use ImmigrAI on another device, delete it there too."],
       },
       {
         h: "What we hold on our servers",

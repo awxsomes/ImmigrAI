@@ -93,7 +93,7 @@ export default async function KitPage({ params }: Props) {
 
       <dl className="mt-5 grid max-w-5xl gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
         {[
-          [t.bundle_total, kitCost(tools, t)],
+          [t.card_cost, kitCost(tools, t)],
           [t.kit_languages, kitLanguages(tools, lang, t)],
           [t.kit_setup, kitSetup(tools, t)],
           [t.kit_pairs, fmt(t.kit_pairsValue, { k: linked, n: pairs.length })],
@@ -104,7 +104,9 @@ export default async function KitPage({ params }: Props) {
           </div>
         ))}
       </dl>
-      <p className="mt-2 text-sm text-muted-ink">{t.kit_notice}</p>
+      <p className="mt-2 text-sm text-muted-ink">
+        {t.kit_notice} {t.kit_costNote}
+      </p>
       {kit.note && <p className="mt-3 max-w-3xl rounded-lg bg-marigold-tint p-3">{kit.note}</p>}
       <div className="mt-4">
         <SaveAllButton tools={tools} label={t.bundle_saveAll} doneLabel={t.kit_saved} />

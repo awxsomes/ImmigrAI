@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { aiLabel, displayLanguage, compatText, priceText, toolHref } from "@/lib/format";
+import { aiLabel, displayLanguage, compatText, nextPlanText, priceText, toolHref } from "@/lib/format";
 import { fmt, type CardLabels, type CompatLabels } from "@/lib/labels";
 import { compatibility, envLabel, supportsLanguage } from "@/lib/scoring";
 import { useUserData } from "@/lib/storage";
@@ -54,7 +54,15 @@ export function CompareView({
   const rows: Array<{ label: string; cell: (tool: Tool) => ReactNode }> = [
     { label: t.compare_rowScore, cell: (tool) => <span className="text-lg font-bold">{tool.scores.overall}/100</span> },
     { label: t.compare_rowAi, cell: (tool) => (tool.ai.level !== "none" && tool.ai.feature ? tool.ai.feature : aiLabel(tool.ai.level, t)) },
-    { label: t.compare_rowCost, cell: (tool) => priceText(tool, t) },
+    {
+      label: t.compare_rowCost,
+      cell: (tool) => (
+        <>
+          {priceText(tool, t)}
+          <span className="block text-sm text-muted-ink">{nextPlanText(tool, t)}</span>
+        </>
+      ),
+    },
     { label: t.compare_rowFees, cell: (tool) => tool.pricing.extraFees ?? t.compare_none },
     { label: t.compare_rowRating, cell: (tool) => <RatingText tool={tool} t={t} /> },
     ...(language

@@ -1,7 +1,7 @@
 import { fmt, type CardLabels } from "./labels";
-import type { CompatibilityResult } from "./scoring";
+import { planMonthly, seatsFor, type CompatibilityResult } from "./scoring";
 import type { CompatLabels } from "./labels";
-import type { AiLevel, Tool } from "./types";
+import type { AiLevel, PricePlan, TeamSize, Tool } from "./types";
 
 export function toolHref(lang: string, slug: string) {
   return `/${lang}/tools/${slug}`;
@@ -11,10 +11,24 @@ export function searchHref(lang: string, categoryId: string, subcategoryId?: str
   return `/${lang}/search?cat=${categoryId}${subcategoryId ? `&sub=${subcategoryId}` : ""}`;
 }
 
-export function priceText(
-  tool: Tool,
-  t: Pick<CardLabels, "card_free" | "card_freePlan" | "card_noMonthlyFee" | "card_youSetBudget" | "card_perReturn" | "card_from" | "card_perMonth">,
-) {
+type AmountLabels = Pick<CardLabels, "price_amount" | "price_amountPerson" | "price_amountLocation" | "price_amountUse">;
+
+export type PriceLabels = AmountLabels &
+  Pick<CardLabels, "card_free" | "card_freePlan" | "card_noMonthlyFee" | "card_youSetBudget" | "card_perReturn" | "price_plan">;
+
+/** "$30 a month, per location" */
+export function planPrice(plan: PricePlan, t: AmountLabels) {
+  const template = { business: t.price_amount, person: t.price_amountPerson, location: t.price_amountLocation, use: t.price_amountUse }[plan.per];
+  return fmt(template, { n: plan.monthlyUsd });
+}
+
+/** The plan matching the price everything else is worked out from. */
+function entryPlan(tool: Tool) {
+  return tool.pricing.plans?.find((plan) => plan.monthlyUsd === tool.pricing.startingMonthlyUsd);
+}
+
+/** The one line that answers "what will I pay?". Names the real plan, never "starting at". */
+export function priceText(tool: Tool, t: PriceLabels) {
   const p = tool.pricing;
   switch (p.kind) {
     case "free":
@@ -27,9 +41,37 @@ export function priceText(
       return t.card_youSetBudget;
     case "per-return":
       return fmt(t.card_perReturn, { n: p.perReturnUsd ?? 0 });
-    default:
-      return `${t.card_from} $${p.startingMonthlyUsd}${t.card_perMonth}`;
+    default: {
+      const plan = entryPlan(tool);
+      return plan ? fmt(t.price_plan, { plan: plan.name, price: planPrice(plan, t) }) : fmt(t.price_amount, { n: p.startingMonthlyUsd });
+    }
   }
+}
+
+/** "Next plan: Plus, $70 a month, per location", or nothing when there is no plan above this one. */
+export function nextPlanText(tool: Tool, t: AmountLabels & Pick<CardLabels, "price_next">) {
+  const plans = tool.pricing.plans ?? [];
+  const entry = tool.pricing.kind === "monthly" ? entryPlan(tool) : undefined;
+  const next = entry ? plans[plans.indexOf(entry) + 1] : plans.find((plan) => plan.monthlyUsd > 0);
+  return next ? fmt(t.price_next, { plan: next.name, price: planPrice(next, t) }) : "";
+}
+
+/** What the first paid plan comes to for this team, when it is charged per person. */
+export function teamEstimate(tool: Tool, size: TeamSize, template: string) {
+  const plan = tool.pricing.plans?.find((p) => p.monthlyUsd > 0);
+  if (!plan || plan.per !== "person" || !seatsFor(size)) return "";
+  return fmt(template, { n: planMonthly(plan, size), plan: plan.name });
+}
+
+/** Says plainly when we could not confirm the price, and adds nothing when we could. */
+export function priceConfirmation(tool: Tool, t: Pick<CardLabels, "card_priceUnconfirmed" | "price_plansUnconfirmed">) {
+  if (tool.pricing.plans?.length || tool.pricing.kind === "free" || tool.publicResource) return "";
+  return tool.pricing.verified ? t.price_plansUnconfirmed : t.card_priceUnconfirmed;
+}
+
+/** What the first paid plan costs, or the only price we know. */
+export function paidMonthly(tool: Tool) {
+  return tool.pricing.plans?.find((plan) => plan.monthlyUsd > 0)?.monthlyUsd ?? tool.pricing.startingMonthlyUsd;
 }
 
 export function compatText(result: CompatibilityResult, t: CompatLabels) {

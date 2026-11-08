@@ -1,6 +1,6 @@
 import { cleanResearchText, finalizeReviews, isRealConnection } from "@/lib/research-core";
 import { buildScores, environmentalEstimate, inferPriceKind } from "@/lib/scoring";
-import type { AiLevel, PriceKind, PricingModel, Tool, Workload } from "@/lib/types";
+import type { AiLevel, BusinessType, PriceKind, PricePlan, PricingModel, Tool, ToolFocus, ToolPolicy, Workload } from "@/lib/types";
 import discoveredFile from "./seed-discovered.json";
 import researchFile from "./research.json";
 import { SEED_BASE, type SeedBase } from "./seed-base";
@@ -33,10 +33,41 @@ interface ResearchEntry {
   };
   languages: { list: string[]; sourceUrl: string; totalClaim: string | null };
   integrations: string[];
+  integrationSources?: Record<string, string>;
   caution: string | null;
   ai?: { level: string; feature: string };
   description?: { confirmed: boolean; discontinued?: boolean; summary?: string; helpsWith?: string[]; howToStart?: string };
+  guide?: {
+    checkedAt: string;
+    focus: ToolFocus;
+    trades: BusinessType[];
+    plans: PricePlan[];
+    trial: string;
+    paywall: string;
+    accountSteps: string[];
+    connectSteps: string[];
+    stepsUrl: string;
+    policies: ToolPolicy[];
+  };
 }
+
+/**
+ * Checked by hand, because a page that mentions restaurants does not make a product a
+ * restaurant product. Wins over research.
+ */
+const FOCUS_OVERRIDE: Record<string, { focus: ToolFocus; trades?: BusinessType[] }> = {
+  chatgpt: { focus: "general", trades: [] },
+  canva: { focus: "general", trades: [] },
+  "google-sheets": { focus: "general", trades: [] },
+  "google-translate": { focus: "task", trades: [] },
+  deepl: { focus: "task", trades: [] },
+  homebase: { focus: "task", trades: [] },
+  connecteam: { focus: "task", trades: [] },
+  buffer: { focus: "task", trades: [] },
+  "7shifts": { focus: "trade", trades: ["restaurant"] },
+  "toast-pos": { focus: "trade", trades: ["restaurant"] },
+  fresha: { focus: "trade", trades: ["salon"] },
+};
 
 export interface NewToolEntry {
   name: string;
@@ -72,10 +103,18 @@ function buildTool(base: SeedBase): Tool {
   const environmental = environmentalEstimate(workload);
 
   const override = base.priceOverride;
-  const startingMonthlyUsd = override?.startingMonthlyUsd ?? (r ? r.pricing.startingMonthlyUsd : base.draftPricing.startingMonthlyUsd);
+  const g = r?.guide;
+  const plans = g?.plans.length ? [...g.plans].sort((a, b) => a.monthlyUsd - b.monthlyUsd) : undefined;
+  const focusOverride = FOCUS_OVERRIDE[base.slug];
+  const focus: ToolFocus = focusOverride?.focus ?? g?.focus ?? (base.trades?.length ? "trade" : "task");
+  const trades = focusOverride?.trades ?? [...new Set([...(g?.trades ?? []), ...((base.trades ?? []) as BusinessType[])])];
+  // Plans were read from the company's pricing page most recently, so they win over the older single price.
+  const planPrice = plans?.[0]?.monthlyUsd;
+  const startingMonthlyUsd = override?.startingMonthlyUsd ?? planPrice ?? (r ? r.pricing.startingMonthlyUsd : base.draftPricing.startingMonthlyUsd);
   const model = (override?.model ?? r?.pricing.model ?? base.draftPricing.model) as PricingModel;
   const researchedKind = r?.pricing.kind as PriceKind | undefined;
-  const priceKind = (override?.kind as PriceKind | undefined) ?? (startingMonthlyUsd > 0 ? "monthly" : researchedKind && researchedKind !== "monthly" ? researchedKind : inferPriceKind(startingMonthlyUsd, model));
+  const planKind: PriceKind | undefined = planPrice === 0 && (!researchedKind || researchedKind === "monthly") ? "free-plan" : undefined;
+  const priceKind = (override?.kind as PriceKind | undefined) ?? (startingMonthlyUsd > 0 ? "monthly" : (planKind ?? (researchedKind && researchedKind !== "monthly" ? researchedKind : inferPriceKind(startingMonthlyUsd, model))));
   const languages = r?.languages.list.length
     ? r.languages.list.includes("English")
       ? r.languages.list
@@ -95,6 +134,9 @@ function buildTool(base: SeedBase): Tool {
     summary: r?.description?.summary || base.summary,
     helpsWith: r?.description?.helpsWith?.length ? r.description.helpsWith : base.helpsWith,
     ai: { level: aiLevel, feature: aiFeature },
+    focus,
+    trades,
+    guide: g ? { accountSteps: g.accountSteps, connectSteps: g.connectSteps, stepsUrl: g.stepsUrl, policies: g.policies, trial: g.trial, paywall: g.paywall } : undefined,
     categoryId: base.categoryId,
     subcategoryId: base.subcategoryId,
     secondary: base.secondary,
@@ -102,6 +144,7 @@ function buildTool(base: SeedBase): Tool {
       startingMonthlyUsd,
       model,
       kind: priceKind,
+      plans,
       perReturnUsd: override?.perReturnUsd,
       note: override?.note || (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note,
       extraFees: (r ? (r.pricing.extraFees && cleanResearchText(r.pricing.extraFees)) || undefined : base.draftPricing.extraFees),
@@ -112,6 +155,7 @@ function buildTool(base: SeedBase): Tool {
     languagesSourceUrl: r?.languages.sourceUrl || undefined,
     languagesTotal: r?.languages.totalClaim ?? undefined,
     integrations,
+    integrationSources: r?.integrationSources,
     platforms: base.platforms,
     reviews: {
       rating,
@@ -121,6 +165,7 @@ function buildTool(base: SeedBase): Tool {
     },
     environmental,
     scores: buildScores({
+      focus,
       rating,
       startingMonthlyUsd,
       priceKind,

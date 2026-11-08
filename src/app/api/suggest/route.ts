@@ -1,7 +1,7 @@
 import { suggestCategories } from "@/lib/discover";
 import { localSuggestions } from "@/lib/matcher";
 import { allowRequest, clientKey } from "@/lib/ratelimit";
-import { assertSameOrigin, cleanId, cleanText, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
+import { assertSameOrigin, cleanLang, cleanText, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 
 export const maxDuration = 20;
 
@@ -14,7 +14,7 @@ export async function POST(req: Request) {
     assertSameOrigin(req);
     const body = await readJson<{ q?: unknown; lang?: unknown }>(req);
     const q = cleanText(body.q, 200);
-    const lang = cleanId(body.lang, 5) || "en";
+    const lang = cleanLang(body.lang);
     if (q.length < 3) return Response.json({ suggestions: [], source: "local" }, { headers: NO_STORE_HEADERS });
 
     const local = localSuggestions(q, 5);

@@ -7,6 +7,11 @@
  * text is thrown away, however confident the model sounded.
  */
 
+import dns from "node:dns";
+import https from "node:https";
+import { isIP, type LookupFunction } from "node:net";
+import zlib from "node:zlib";
+
 const ENDPOINT = "https://openrouter.ai/api/v1/chat/completions";
 
 export interface Citation {
@@ -29,6 +34,8 @@ export interface WebJsonOptions {
   maxResults?: number;
   maxTokens?: number;
   timeoutMs?: number;
+  /** How many times to try. A search with a deadline uses 1. */
+  attempts?: number;
 }
 
 export interface WebJsonResult<T> {
@@ -89,8 +96,9 @@ export async function webJson<T>(opts: WebJsonOptions): Promise<WebJsonResult<T>
   }
 
   const timeoutMs = opts.timeoutMs ?? 40_000;
+  const attempts = opts.attempts ?? 2;
   let lastError: unknown;
-  for (let attempt = 0; attempt < 2; attempt++) {
+  for (let attempt = 0; attempt < attempts; attempt++) {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
     try {
@@ -107,7 +115,7 @@ export async function webJson<T>(opts: WebJsonOptions): Promise<WebJsonResult<T>
       });
       if (res.status === 429 || res.status >= 500) {
         lastError = new Error(`OpenRouter ${res.status}`);
-        await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
+        if (attempt + 1 < attempts) await new Promise((r) => setTimeout(r, 1500 * (attempt + 1)));
         continue;
       }
       if (!res.ok) {
@@ -132,8 +140,7 @@ export async function webJson<T>(opts: WebJsonOptions): Promise<WebJsonResult<T>
       return { data: JSON.parse(stripFences(raw)) as T, citations, cost: json.usage?.cost ?? 0 };
     } catch (err) {
       lastError = err;
-      if (attempt === 0 && err instanceof Error && err.name === "AbortError") continue;
-      if (attempt === 1) break;
+      if (attempt + 1 >= attempts) break;
     } finally {
       clearTimeout(timer);
     }
@@ -274,7 +281,7 @@ export function averageRating(sources: VerifiedReviewSource[]) {
 /** Fewer reviews than this across all sites is an anecdote, not a rating. */
 export const MIN_REVIEWS_FOR_RATING = 25;
 
-function rootDomain(url: string) {
+export function rootDomain(url: string) {
   try {
     return new URL(url).hostname.replace(/^www\./, "").split(".").slice(-2).join(".");
   } catch {
@@ -356,25 +363,157 @@ export function mentionsAi(toolName: string, citations: Citation[]) {
   });
 }
 
+// ---------- Reading other people's websites ----------
+
+function privateV4(ip: string) {
+  const [a, b, c] = ip.split(".").map(Number);
+  return (
+    a === 0 || a === 10 || a === 127 || a >= 224 ||
+    (a === 100 && b >= 64 && b <= 127) ||
+    (a === 169 && b === 254) ||
+    (a === 172 && b >= 16 && b <= 31) ||
+    (a === 192 && b === 168) ||
+    (a === 192 && b === 0 && (c === 0 || c === 2)) ||
+    (a === 198 && (b === 18 || b === 19 || (b === 51 && c === 100))) ||
+    (a === 203 && b === 0 && c === 113)
+  );
+}
+
+function privateV6(ip: string) {
+  const v = ip.toLowerCase();
+  if (v.startsWith("::")) return true; // Loopback, unspecified and IPv4-mapped addresses.
+  const first = parseInt(v.split(":")[0], 16);
+  return (first & 0xfe00) === 0xfc00 || (first & 0xffc0) === 0xfe80 || (first & 0xff00) === 0xff00 || first === 0x64 || first === 0x2002 || first === 0;
+}
+
+/** True for any address that is not on the public internet, including cloud metadata addresses. */
+export function isPrivateAddress(ip: string) {
+  return isIP(ip) === 4 ? privateV4(ip) : privateV6(ip);
+}
+
+/** Checks the address at the moment of connecting, so a name cannot change to a private address after a check. */
+const publicOnlyLookup = ((hostname: string, options: dns.LookupOptions, callback: (err: Error | null, address: string | dns.LookupAddress[], family?: number) => void) => {
+  dns.lookup(hostname, { ...options, all: true }, (err, addresses) => {
+    if (err) return callback(err, "");
+    if (addresses.length === 0 || addresses.some((a) => isPrivateAddress(a.address))) return callback(new Error("Address not allowed"), "");
+    if (options.all) return callback(null, addresses);
+    callback(null, addresses[0].address, addresses[0].family);
+  });
+}) as LookupFunction;
+
+function allowedUrl(url: URL) {
+  const host = url.hostname.toLowerCase().replace(/^\[|\]$/g, "");
+  if (url.protocol !== "https:" || url.username || url.password) return false;
+  if (isIP(host) || !host.includes(".") || /\.(?:local|internal|localhost)$/.test(host)) return false;
+  return !url.port || url.port === "443";
+}
+
+export interface SafePage {
+  status: number;
+  url: string;
+  text: string;
+}
+
+function requestOnce(url: URL, signal: AbortSignal, maxBytes: number, headers: Record<string, string>) {
+  return new Promise<SafePage & { location?: string }>((resolve, reject) => {
+    const req = https.get(url, { headers, signal, lookup: publicOnlyLookup, agent: false }, (res) => {
+      const status = res.statusCode ?? 0;
+      const location = res.headers.location;
+      const type = String(res.headers["content-type"] ?? "");
+      if ((status >= 300 && status < 400) || (type && !/html|text|xml/i.test(type))) {
+        res.destroy();
+        return resolve({ status, url: url.href, text: "", location });
+      }
+      const encoding = String(res.headers["content-encoding"] ?? "").toLowerCase();
+      const stream = encoding === "gzip" ? res.pipe(zlib.createGunzip()) : encoding === "br" ? res.pipe(zlib.createBrotliDecompress()) : encoding === "deflate" ? res.pipe(zlib.createInflate()) : res;
+      const chunks: Buffer[] = [];
+      let size = 0;
+      const finish = () => resolve({ status, url: url.href, text: Buffer.concat(chunks).toString("utf8"), location });
+      stream.on("data", (chunk: Buffer) => {
+        chunks.push(chunk);
+        size += chunk.length;
+        // Counted after unpacking, so a small compressed file cannot grow without limit.
+        if (size >= maxBytes) {
+          res.destroy();
+          finish();
+        }
+      });
+      stream.on("end", finish);
+      stream.on("error", reject);
+      res.on("error", reject);
+    });
+    req.on("error", reject);
+  });
+}
+
 /**
- * Reads a tool's own website for reasons not to list it: it is gone, people cannot use it yet,
- * or it is priced for another country. A site that blocks automated checks is given the benefit
- * of the doubt, because that alone says nothing about the product.
+ * Fetches a page from a web address we did not choose ourselves. Public https addresses only.
+ * A company's site can redirect anywhere, so each hop is checked again.
  */
-export async function siteProblem(url: string, timeoutMs = 10_000): Promise<string | null> {
-  let res: Response;
-  try {
-    res = await fetch(url, { headers: { "User-Agent": "Mozilla/5.0 ImmigrAI-research/0.1", Accept: "text/html" }, signal: AbortSignal.timeout(timeoutMs), redirect: "follow" });
-  } catch {
-    return "site could not be reached";
+export async function safeFetch(address: string, options: { timeoutMs?: number; maxBytes?: number } = {}): Promise<SafePage> {
+  const signal = AbortSignal.timeout(options.timeoutMs ?? 8_000);
+  const maxBytes = options.maxBytes ?? 800_000;
+  const headers = { "User-Agent": "Mozilla/5.0 ImmigrAI-research/0.1", Accept: "text/html", "Accept-Encoding": "gzip, br" };
+  let url = new URL(address);
+  for (let hop = 0; hop <= 3; hop++) {
+    if (!allowedUrl(url)) throw new Error("Address not allowed");
+    const page = await requestOnce(url, signal, maxBytes, headers);
+    if (page.status < 300 || page.status >= 400 || !page.location) return page;
+    url = new URL(page.location, url);
   }
-  if (res.status === 401 || res.status === 403 || res.status === 429) return null;
-  if (res.status >= 400) return "site returned an error";
-  const text = htmlToText((await res.text()).slice(0, 800_000));
-  if (/\bjoin (?:the |our )?wait[- ]?list\b|\blaunching (?:soon|in |this |summer|fall|winter|spring)|\bjoin early access\b|\bget early access\b/i.test(text)) return "not available yet";
+  throw new Error("Too many redirects");
+}
+
+/**
+ * Reads a tool's own website, including for reasons not to list it: it is gone, people cannot
+ * use it yet, or it is priced for another country. A site that blocks automated checks is given
+ * the benefit of the doubt, because that alone says nothing about the product.
+ */
+export async function readSite(url: string, timeoutMs = 10_000): Promise<{ problem: string | null; text: string; url: string }> {
+  let page: SafePage;
+  try {
+    page = await safeFetch(url, { timeoutMs });
+  } catch {
+    return { problem: "site could not be reached", text: "", url };
+  }
+  if (page.status === 401 || page.status === 403 || page.status === 429) return { problem: null, text: "", url: page.url };
+  if (page.status >= 400) return { problem: "site returned an error", text: "", url: page.url };
+  const text = htmlToText(page.text);
+  if (/\bjoin (?:the |our )?wait[- ]?list\b|\blaunching (?:soon|in |this |summer|fall|winter|spring)|\bjoin early access\b|\bget early access\b/i.test(text)) return { problem: "not available yet", text, url: page.url };
   const hasDollars = /\$\s?\d/.test(text);
-  if (!hasDollars && /₹|₦|\bNGN\b|£\s?\d|€\s?\d/.test(text)) return "priced for another country";
-  return null;
+  if (!hasDollars && /₹|₦|\bNGN\b|£\s?\d|€\s?\d/.test(text)) return { problem: "priced for another country", text, url: page.url };
+  return { problem: null, text, url: page.url };
+}
+
+export async function siteProblem(url: string, timeoutMs = 10_000): Promise<string | null> {
+  return (await readSite(url, timeoutMs)).problem;
+}
+
+/** Blank-box assistants and all-purpose apps. An owner still has to work out what to ask them. */
+const GENERAL_ASSISTANT = /^(?:chatgpt|chat gpt|openai|claude|gemini|google gemini|(?:microsoft )?copilot|perplexity|canva|notion(?: ai)?|grammarly|jasper|copy\.ai|writesonic|zapier|make|adobe express|adobe firefly|meta ai|deepseek|grok|poe)\b/i;
+
+export function isGeneralAssistant(name: string) {
+  return GENERAL_ASSISTANT.test(name.trim());
+}
+
+/** Sites that write about products or host them. A tool's own site is required. */
+const NOT_PRODUCT_SITES = [
+  "g2.com", "capterra.com", "getapp.com", "softwareadvice.com", "trustpilot.com", "trustradius.com", "sourceforge.net", "alternativeto.net", "slashdot.org",
+  "producthunt.com", "theresanaiforthat.com", "futurepedia.io", "toolify.ai", "aitools.fyi", "stork.ai", "topai.tools", "aixploria.com", "medium.com",
+  "linkedin.com", "youtube.com", "reddit.com", "facebook.com", "instagram.com", "x.com", "twitter.com", "tiktok.com", "prnewswire.com", "yelp.com",
+  "businesswire.com", "globenewswire.com", "prlog.org", "forbes.com", "nerdwallet.com", "techcrunch.com", "github.com", "zapier.com",
+  "apple.com", "google.com", "wikipedia.org", "substack.com", "ghost.io", "wordpress.com", "blogspot.com", "wixsite.com",
+];
+
+export function isProductSite(url: string) {
+  return !NOT_PRODUCT_SITES.includes(rootDomain(url));
+}
+
+/** Compares words only, because a page's punctuation and line breaks rarely survive being quoted. */
+export function quoteAppears(quote: string, text: string) {
+  const squeeze = (s: string) => s.toLowerCase().replace(/[^\p{L}\p{N}]+/gu, " ").trim();
+  const needle = squeeze(quote);
+  return needle.length > 0 && squeeze(text).includes(needle);
 }
 
 // ---------- Facts ----------

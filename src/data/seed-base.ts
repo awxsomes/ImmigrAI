@@ -17,6 +17,8 @@ export interface SeedBase {
   platforms: string[];
   setupMinutes: number;
   selfServe: boolean;
+  /** The kinds of business a niche search confirmed it is built for. */
+  trades?: string[];
   /** Nonprofit or government help. Review sites do not measure these fairly, so they get no stars. */
   publicResource?: boolean;
   /** The name matches bigger products' reviews, so a review page must show this tool's web address. */

@@ -22,7 +22,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "The free plan includes 3 downloadable minutes per month with commercial rights; paid plans start at $33 per month, with a $160 per month team plan and custom enterprise pricing."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "cadu",
@@ -48,7 +49,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free forever on a cadu.page address; Personal is $9 per month and Business is $19 per site per month, billed yearly for the discounted rate."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "postall",
@@ -80,7 +82,8 @@
    "model": "paid",
    "kind": "monthly",
    "verified": true
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "oshaani-social",
@@ -106,7 +109,8 @@
    "startingMonthlyUsd": 12,
    "model": "paid",
    "note": "Pay-as-you-go with a $1 monthly platform fee plus AI credits, or a Starter Pack at $12 per month with 1,400 credits."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "forgelo",
@@ -131,7 +135,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan costs $0 for one published website; Starter is $9 per month for 3 websites and a custom domain, Pro is $19 per month for 10 websites."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "praising",
@@ -157,7 +162,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free forever plan with manual replies; Core is $19/mo, Growth is $29/mo, Pro is higher, and paid plans include a 14-day free trial."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "replybase",
@@ -182,7 +188,8 @@
    "startingMonthlyUsd": 0,
    "model": "paid",
    "note": "Plan prices were not listed in the available information, so check the site for current plans."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "starsteady",
@@ -208,7 +215,8 @@
    "startingMonthlyUsd": 39,
    "model": "paid",
    "note": "Starter is $39 per month with 500 AI responses and SMS requests, and Agency is $199 per month for multiple profiles."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "finch",
@@ -236,7 +244,8 @@
   },
   "secondary": [
    "money/budgeting"
-  ]
+  ],
+  "lane": "open-web"
  },
  {
   "slug": "bocads",
@@ -262,7 +271,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan includes 10 ad credits per month; paid plans offer more volume, with exact prices shown in the app."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "bukeep",
@@ -287,7 +297,8 @@
    "startingMonthlyUsd": 9,
    "model": "freemium",
    "note": "Free 90-day trial with 15 credits; 50 credits per month costs $9, with annual billing saving up to 10%."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "bonnie",
@@ -312,7 +323,8 @@
    "startingMonthlyUsd": 15,
    "model": "trial",
    "note": "$15 per month or $150 per year after a 30-day free trial, with no setup fees or per-transaction charges."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "adsimple",
@@ -338,7 +350,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free to see your ads and competitor report with no credit card; paid launch pricing and budget terms are shown at checkout."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "yourprofitbook",
@@ -369,7 +382,8 @@
   "secondary": [
    "money/budgeting",
    "money/costs"
-  ]
+  ],
+  "lane": "open-web"
  },
  {
   "slug": "dynatax-ai",
@@ -397,7 +411,8 @@
   },
   "secondary": [
    "money/costs"
-  ]
+  ],
+  "lane": "open-web"
  },
  {
   "slug": "jupid",
@@ -422,7 +437,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Check the Jupid website for current plans and prices before signing up."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "profitbooks",
@@ -450,7 +466,8 @@
   },
   "secondary": [
    "money/profits"
-  ]
+  ],
+  "lane": "open-web"
  },
  {
   "slug": "danbooks",
@@ -475,7 +492,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan includes core bookkeeping, and the Connected plan is $19 per month with bank feeds and AI categorization."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "tabby",
@@ -502,7 +520,14 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan covers up to $15K in tracked expenses; Standard is $15 per month with yearly billing, or $30 per month monthly, with 50% off the first 3 months."
-  }
+  },
+  "secondary": [
+   "money/profits"
+  ],
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
  },
  {
   "slug": "poof",
@@ -528,7 +553,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "The bookkeeping software is free; Poof Agent costs $79 per month after a free 30-day trial."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "cpos-pay",
@@ -555,7 +581,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free to start with no hardware, and a flat rate of 2.49% direct to bank per transaction."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "merchantlink",
@@ -581,7 +608,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "You can test in a built-in sandbox at no cost, then connect a processor when ready; check the site for the current plan prices."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "aviy",
@@ -608,7 +636,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "The AI invoice generator and all six document types are free with no credit card, and paid plans add storage, recurring invoices and team features."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "paybrain",
@@ -637,7 +666,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free to start on your phone, with a 3.0% + 10¢ per payment fee and a $999 Register option that includes the card reader and software with no monthly fee."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "verve-ai",
@@ -663,7 +693,8 @@
    "startingMonthlyUsd": 19.99,
    "model": "trial",
    "note": "$19.99 per month flat with a 14-day free trial and no credit card required."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "kova-hr",
@@ -688,7 +719,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": ""
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "jugglehire",
@@ -713,7 +745,8 @@
    "startingMonthlyUsd": 15,
    "model": "trial",
    "note": ""
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "sonnical",
@@ -741,7 +774,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free for up to 6 employees, Starter is $29/month for 7-25 employees, Growth is $59/month for 26-50 employees, and Business is $99/month for 51-100 employees."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "manabiq",
@@ -771,7 +805,8 @@
   },
   "priceOverride": {
    "kind": "no-monthly-fee"
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "rosie",
@@ -801,6 +836,16 @@
   },
   "secondary": [
    "calls/support"
+  ],
+  "lane": "open-web",
+  "alsoFoundBy": [
+   "directory"
+  ],
+  "listedIn": [
+   {
+    "system": "Zapier",
+    "url": "https://zapier.com/apps/jobber/integrations/rosie/255600797/create-new-clients-in-jobber-from-new-calls-in-rosie"
+   }
   ]
  },
  {
@@ -826,7 +871,8 @@
    "startingMonthlyUsd": 29,
    "model": "trial",
    "note": "Business starts at $29 per month for the knowledge base and AI writer, Business Plus at $89 per month includes courses, and there is a 14-day free trial of Business Plus."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "daber-ai",
@@ -852,7 +898,11 @@
    "startingMonthlyUsd": 49,
    "model": "trial",
    "note": "A $3 trial for 14 days, then the Starter plan at $49 per month with 3.5 hours of calls; Growth is $149 and Scale is $499 per month."
-  }
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
  },
  {
   "slug": "ahoya",
@@ -885,7 +935,8 @@
    "model": "paid",
    "kind": "monthly",
    "verified": true
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "chatpal",
@@ -911,7 +962,8 @@
    "startingMonthlyUsd": 0,
    "model": "paid",
    "note": "The source page does not state specific plan prices, so check the ChatPal website for current pricing."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "sawyer",
@@ -936,7 +988,8 @@
    "startingMonthlyUsd": 9.99,
    "model": "paid",
    "note": "Individual plan is $9.99 per month, organization plan is $49.99 per month, and there is a 7-day free trial."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "justee",
@@ -961,7 +1014,8 @@
    "startingMonthlyUsd": 0,
    "model": "trial",
    "note": "Offers a free trial on a real work question, then paid plans; exact plan prices are shown on the site."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "talking-tree",
@@ -986,7 +1040,8 @@
    "startingMonthlyUsd": 19.99,
    "model": "paid",
    "note": "Research plan is $19.99 per month for early stage entrepreneurs, and Business plan is $59.99 per month for small business teams."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "permitsentry-ai",
@@ -1011,7 +1066,8 @@
    "startingMonthlyUsd": 49,
    "model": "paid",
    "note": "Starter $49/month (up to 5 permits, 1 location), Professional $99/month, Enterprise $249/month; annual plans save 20%."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "askhrai",
@@ -1037,7 +1093,8 @@
    "startingMonthlyUsd": 49,
    "model": "paid",
    "note": "Starter is $49 per month with unlimited AI chat and 5 document templates; Professional is $149 per month with all 8 document types and the Handbook Builder."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "hrdocket",
@@ -1063,7 +1120,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan includes 10 AI credits and watermarked PDFs; Starter is $19 per month billed monthly ($15.83 per month annually) and Growth is $49 per month."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "inhouse-ai",
@@ -1088,7 +1146,8 @@
    "startingMonthlyUsd": 49,
    "model": "paid",
    "note": "Inhouse AI costs $49 per month for the self-serve option, with lawyer help available separately."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "complystack",
@@ -1113,7 +1172,8 @@
    "startingMonthlyUsd": 29,
    "model": "paid",
    "note": "Professional compliance documents start at $29 per month, with no credit card required to try."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "foundra",
@@ -1138,7 +1198,8 @@
    "startingMonthlyUsd": 19,
    "model": "paid",
    "note": "Full report is a one-time $19 payment with no subscription."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "together-safe",
@@ -1166,7 +1227,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan with 1 address and basic alerts, Individual at $7.49 per month, and Family at $11.99 per month, with annual billing saving 20%."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "passmykitchen",
@@ -1192,7 +1254,8 @@
    "startingMonthlyUsd": 29,
    "model": "trial",
    "note": "Starter is $29 per month for solo operators and Growth is $49 per month for teams, both with a 7-day free trial and no credit card required."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "prevail",
@@ -1217,7 +1280,8 @@
    "startingMonthlyUsd": 2,
    "model": "paid",
    "note": "SMB introductory pricing is $2 per licensed user per month with a free start option."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "lernoa",
@@ -1244,7 +1308,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free to try, with paid plans for more AI generation; check the site for current plan prices."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "studyvisually",
@@ -1271,7 +1336,8 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan includes 5 AI-made decks a month; Basic is $4 a month or $40 a year and Premium is $8 a month or $80 a year."
-  }
+  },
+  "lane": "open-web"
  },
  {
   "slug": "neuralearn",
@@ -1296,6 +1362,4009 @@
    "startingMonthlyUsd": 0,
    "model": "freemium",
    "note": "Free plan includes 3 document uploads per day, 10 flashcards per document and 10 practice questions; paid plan prices are on the site."
-  }
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "forkjury",
+  "name": "ForkJury",
+  "website": "https://www.forkjury.com",
+  "summary": "Brings Google, Facebook and Yelp reviews into one dashboard and suggests AI-written replies that you approve and send in seconds.",
+  "helpsWith": [
+   "Pulls Google and Facebook reviews in automatically",
+   "Adds Yelp reviews by pasting them in to get AI replies",
+   "Suggests a reply for every review for you to approve"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 2,
+  "selfServe": true,
+  "howToStart": "Sign up on the ForkJury website, then connect your Google Business and Facebook Page.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Offers 30 days free on its Starter plan with no credit card needed, then paid plans; check the site for current prices."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "platepost",
+  "name": "PlatePost",
+  "website": "https://getplatepost.com",
+  "summary": "Turns food photos into Instagram captions, reel and TikTok scripts, a weekly posting calendar, menu promos and review replies for restaurants and cafes.",
+  "helpsWith": [
+   "Writes Instagram captions from a dish photo",
+   "Drafts reel and TikTok scripts with hooks and calls to action",
+   "Builds a 7-day posting calendar",
+   "Writes replies to Google and Yelp reviews"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Offers 5 free generations to start with no credit card required; paid plan prices are not stated in the source."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "darva",
+  "name": "Darva",
+  "website": "https://darva.ai",
+  "summary": "A voice AI receptionist for restaurants that answers calls, manages reservations, and sends confirmations by SMS and WhatsApp.",
+  "helpsWith": [
+   "Answers calls in multiple languages and handles bookings",
+   "Checks real-time table availability and suggests alternative times",
+   "Sends instant WhatsApp and SMS confirmations"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 1440,
+  "selfServe": true,
+  "howToStart": "Go to darva.ai and request access to set up your restaurant's phone line and reservation settings, live in under 24 hours.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "secondary": [
+   "calls/phone-ai"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "fonitix",
+  "name": "Fonitix",
+  "website": "https://fonitix.ai",
+  "summary": "An AI receptionist that answers restaurant phone calls around the clock, takes orders from your menu and sends them to your kitchen.",
+  "helpsWith": [
+   "Answers calls at the dinner rush",
+   "Takes orders priced from your menu",
+   "Books appointments and reservations",
+   "Sends orders to your kitchen board"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Pick restaurant on the site, fill in your menu and hours, then forward your restaurant phone line to the agent.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "zestia",
+  "name": "Zestia",
+  "website": "https://zestiapos.com",
+  "summary": "Restaurant POS with a social media scheduler that writes, schedules and publishes posts to Facebook, Instagram, TikTok and Google Business Profile, with AI captions and comment replies.",
+  "helpsWith": [
+   "Writes AI captions for posts",
+   "Schedules posts to Facebook, Instagram and TikTok from one calendar",
+   "Uses reusable templates",
+   "Replies to comments on social posts"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "pos-hardware"
+  ],
+  "setupMinutes": 45,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "Pricing plans are not stated in the source; this is part of a point-of-sale product."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "nueve",
+  "name": "Nueve",
+  "website": "https://nueveapp.com",
+  "summary": "Turns a restaurant's photos into short videos and posts them automatically to TikTok, Instagram, Facebook and other networks, with the owner able to approve each post first.",
+  "helpsWith": [
+   "Turns dish photos into short videos",
+   "Plans and schedules posts on a calendar with suggested time slots",
+   "Publishes to TikTok, Instagram, Facebook and YouTube",
+   "Lets the owner approve each post before it goes public"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Offers a 7-day free trial; paid plan prices are not stated in the source."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "opinas",
+  "name": "OPINAS",
+  "website": "https://opinas.app",
+  "summary": "Helps restaurants get more Google reviews with NFC and QR stands, creates AI replies, and lets you handle unhappy guests privately first.",
+  "helpsWith": [
+   "Collects reviews with NFC and QR stands at end of service",
+   "Sends private feedback forms before a negative public review",
+   "Generates AI replies and can automate replies by star rating"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Sign up free on the OPINAS website and connect your Google Business profile.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Advertised as free forever with no credit card needed for the basic plan; paid plans are available on the site."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "anchops",
+  "name": "AnchOps",
+  "website": "https://anchops.com",
+  "summary": "AnchOps drafts restaurant schedules from your history, messages qualified staff to fill open shifts, and lets employees swap shifts through a free phone app.",
+  "helpsWith": [
+   "Drafts the week's schedule and fills open shifts by message",
+   "Tracks reliability and shows only available, qualified staff",
+   "Lets employees view shifts and swap them peer-to-peer in the app"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Sign up on the AnchOps website, add your employees and roles, then build your first template.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": ""
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "yes-chef-os",
+  "name": "Yes Chef OS",
+  "website": "https://yeschefos.com",
+  "summary": "An AI inventory and forecasting platform for restaurants that uses a phone scan to count walk-in stock and forecasts what to reorder from sales and invoices.",
+  "helpsWith": [
+   "Scans walk-in and storage shelves with a phone to detect stock",
+   "Forecasts recommended order quantities from sales and usage",
+   "Connects to Toast POS and recipe library",
+   "Manages multiple locations with role-based permissions"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Visit the website and sign up for an account on the web or mobile app.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "mays",
+  "name": "Mays",
+  "website": "https://www.mays.app",
+  "summary": "Mays is an operations app for restaurants, cafes and bakeries that includes drag-and-drop scheduling, a time clock, and in-app shift swaps, with labor forecasts from production data.",
+  "helpsWith": [
+   "Drag-and-drop staff scheduling with labor forecasts",
+   "Built-in time clock and in-app shift swaps",
+   "Checklists, inventory and team chat in one app"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 90,
+  "selfServe": true,
+  "howToStart": "Sign up on the Mays website and add your location and staff.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": ""
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "secondary": [
+   "safety/food-health"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "quickstok",
+  "name": "quickstok",
+  "website": "https://www.quickstok.ai",
+  "summary": "AI inventory management built for independent cafés that tracks stock, learns usage, reads supplier receipts and builds order sheets automatically.",
+  "helpsWith": [
+   "Auto-generates supplier orders from usage",
+   "Extracts line items from emailed or uploaded receipts with AI",
+   "Alerts when stock is low based on lead times",
+   "Supports multiple locations on the Pro plan"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone",
+   "desktop"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "Go to the website and sign up to start tracking inventory for your café.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Pro plan is listed with additional locations at $9 per month each; check the website for the base plan price."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "ledgend",
+  "name": "Ledgend",
+  "website": "https://ledgend.ai",
+  "summary": "AI finance and accounting software that syncs sales, fees and taxes to bank deposits and turns supplier bills into records. It shows margins by location, menu item and labor.",
+  "helpsWith": [
+   "Matches Stripe, PayPal and bank deposits to sales, fees and taxes",
+   "Reads supplier invoices into financial records",
+   "Shows menu item margins and location profitability",
+   "Produces tax estimates and deduction suggestions"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "profits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "Visit ledgend.ai, sign up, and connect your payment processors and bank account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing plans are not listed in the source; check the website for current plans."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "netta",
+  "name": "netta",
+  "website": "https://getnetta.ai",
+  "summary": "An AI CFO for restaurants that builds a P&L from real bank activity, names your prime cost (food plus labor as a share of sales), and flags problems such as duplicate charges.",
+  "helpsWith": [
+   "Calculates prime cost from bank activity",
+   "Produces a P&L with benchmarks",
+   "Flags duplicate and unusual charges",
+   "Categorizes most transactions automatically"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "profits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Visit getnetta.ai, sign up, and connect your business bank account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing plans are not listed in the source; check the website for current plans."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "pincer",
+  "name": "Pincer",
+  "website": "https://www.pincerlabs.ai",
+  "summary": "A back office for independent restaurants and cafes that tracks costs, inventory, waste and labor per item, reading invoices and showing what each plate costs and its margin.",
+  "helpsWith": [
+   "Reads invoices line by line and updates ingredient costs",
+   "Calculates plate cost and margin for each item",
+   "Flags sudden ingredient price increases",
+   "Answers plain-English questions about margins"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "profits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 120,
+  "selfServe": false,
+  "howToStart": "Visit pincerlabs.ai and request access to the pilot, then send invoices and connect your register.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "Currently in pilot with hands-on setup; pricing is not listed in the source."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "bakeonyx",
+  "name": "BakeOnyx",
+  "website": "https://www.bakeonyx.ai",
+  "summary": "Bakery management software with inventory, purchase orders and AI inventory predictions that can create draft reorders automatically.",
+  "helpsWith": [
+   "Tracks ingredients and sends low-stock alerts",
+   "Creates purchase orders and auto-reorder draft POs",
+   "Predicts stockout risk from usage patterns",
+   "Supports up to three bakery locations"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 90,
+  "selfServe": true,
+  "howToStart": "Visit the website and sign up for a bakery account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": ""
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "resst",
+  "name": "Resst",
+  "website": "https://resst.io",
+  "summary": "Creates multilingual restaurant menus by translating your dishes into 24 languages from an uploaded PDF or typed entries.",
+  "helpsWith": [
+   "Translates a full menu into 24 languages in seconds",
+   "Upload a PDF or enter dishes manually to build the menu",
+   "Produces a menu ready to show guests in their own language"
+  ],
+  "categoryId": "translate",
+  "subcategoryId": "translators",
+  "workload": "translation",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Create an account on the Resst website and upload your menu PDF or enter your dishes.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "Check the website for the real plans and prices."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "ivera",
+  "name": "iVERA",
+  "website": "https://ivera.ai",
+  "summary": "iVERA answers salon phone calls 24/7, books appointments automatically, and sends SMS and email reminders. It also runs the calendar, customer records, staff schedules and checkout in one platform.",
+  "helpsWith": [
+   "Answers every call with an AI voice and books, reschedules or cancels appointments",
+   "Sends automatic SMS and email confirmations and reminders to reduce no-shows",
+   "Offers an online booking page customers can use any time"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Start the 30-day free trial at ivera.ai without a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 149,
+   "model": "trial",
+   "note": "$149 per month base plus 2.5% of revenue generated by the AI, with a 30-day free trial and no credit card required."
+  },
+  "trades": [
+   "salon"
+  ],
+  "secondary": [
+   "calls/phone-ai"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "book8",
+  "name": "Book8",
+  "website": "https://www.book8.io",
+  "summary": "Book8 answers customer calls and messages around the clock, checks real availability against your calendar, and books confirmed appointments. It works in over 70 languages.",
+  "helpsWith": [
+   "Answers phone, WhatsApp, SMS and web booking requests 24/7",
+   "Checks live availability and syncs with Google and Microsoft calendars",
+   "Sends booking confirmations and reminders to customers"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing plans are not listed on the product page, so check the site for current plans."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "salonaix",
+  "name": "SalonAiX",
+  "website": "https://www.salonaix.com",
+  "summary": "SalonAiX provides an AI receptionist that answers calls, quotes services and books appointments, plus online booking with automatic confirmations and reminders.",
+  "helpsWith": [
+   "Answers inbound calls 24/7, quotes services and books appointments",
+   "Offers a branded online booking page with real-time availability",
+   "Sends automatic SMS and email confirmations and reminders"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 69.95,
+   "model": "paid",
+   "note": "Booking starts at $69.95 per month, with AI, marketing and hiring modules added separately as you grow."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "copper",
+  "name": "Copper",
+  "website": "https://www.joincopper.io",
+  "summary": "An AI receptionist for salons and spas that answers within two rings, books into your Google Calendar and replies to customer texts.",
+  "helpsWith": [
+   "Answers calls 24/7 with a voice you choose",
+   "Books real calendar slots and confirms by text",
+   "Replies to business texts and answers FAQs from your playbook",
+   "Alerts you immediately about emergencies"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "secondary": [
+   "calls/support"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "shug",
+  "name": "Shug",
+  "website": "https://joinshug.com",
+  "summary": "An AI phone receptionist for hair salons, barbershops and beauty spas that answers calls 24/7, handles common questions, takes booking requests and transfers urgent calls.",
+  "helpsWith": [
+   "Answers calls 24/7 as your business",
+   "Answers common client questions and captures new client details",
+   "Takes booking requests into your Shug dashboard",
+   "Filters spam calls and transfers urgent calls to staff"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 99,
+   "model": "paid",
+   "note": "$99 per month plus a one-time $198 setup fee, including 120 minutes of calls per month with no contract."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "slate",
+  "name": "Slate",
+  "website": "https://www.slatebestie.com",
+  "summary": "Monitors Google and Facebook reviews, drafts a reply to each one in your brand tone, and can send review requests to clients after appointments.",
+  "helpsWith": [
+   "Writes replies to Google and Facebook reviews",
+   "Sends SMS review requests after each appointment",
+   "Alerts you the moment a new review is posted"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The site does not list plan prices on this page, so confirm current pricing with the vendor."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "rightresponse-ai",
+  "name": "RightResponse AI",
+  "website": "https://www.rightresponseai.com",
+  "summary": "Built for beauty and personal care businesses, it asks for reviews after completed appointments and writes replies that explain what makes your service worth choosing.",
+  "helpsWith": [
+   "Requests reviews by email and SMS after completed appointments",
+   "Sets a blackout period so regulars are not over-contacted",
+   "Writes replies and summarizes client feedback by topic"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing is not listed on the solutions page, so ask the vendor for current plans."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "lookmybio",
+  "name": "LookMyBio",
+  "website": "https://www.lookmybio.com",
+  "summary": "A tool for salons and barbershops that creates on-brand social posts, schedules a week of content, and builds a bio page with a booking link, with AI helping write captions.",
+  "helpsWith": [
+   "Writes captions with an AI helper",
+   "Schedules a week of posts across Instagram, Facebook, TikTok and more",
+   "Builds a bio page with a Book now link",
+   "Shows visits and link taps on paid plans"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 25,
+  "selfServe": true,
+  "howToStart": "Visit the LookMyBio salon page, choose the Starter plan and paste your website to set up your brand.",
+  "draftPricing": {
+   "startingMonthlyUsd": 27,
+   "model": "paid",
+   "note": "Starter is $27 a month; Creator is $70 a month and adds carousel and map blocks."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "callpad",
+  "name": "CallPad",
+  "website": "https://www.callpad.ai",
+  "summary": "An AI receptionist that answers calls and messages for beauty and wellness businesses, books clients into your calendar, and quotes your prices.",
+  "helpsWith": [
+   "Answers every call 24/7 and books, reschedules or cancels appointments",
+   "Replies to texts, emails and social messages with your prices and services",
+   "Takes deposits and sends missed-call text-backs"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "support",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Sign up on the CallPad website and connect your booking calendar and phone number.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing plans are listed on the CallPad website; check there for current monthly prices."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "stockguard",
+  "name": "StockGuard",
+  "website": "https://www.getstockguard.com",
+  "summary": "AI-driven inventory tool for independent retailers that tracks what you have, flags slow sellers and warns you before items run out.",
+  "helpsWith": [
+   "Scan products in and out with your phone camera",
+   "Flags dead inventory and tells you how much cash is tied up in it",
+   "Calculates reorder quantities for low-stock items"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "product-tracker",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Sign up for the free Starter plan on the StockGuard website and import your product list by CSV.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A free Starter plan covers up to 25 products; paid plans are not priced in the source."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "adminifai",
+  "name": "AdminifAI",
+  "website": "https://adminif.ai",
+  "summary": "An AI front desk that answers salon phone calls, Instagram DMs, website chat and texts, and books straight into your calendar.",
+  "helpsWith": [
+   "Picks up calls, books and reschedules appointments",
+   "Replies to Instagram DMs and website chat with your services and prices",
+   "Sends and answers two-way texts with confirmations and reminders"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "support",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "Sign up on the AdminifAI website and choose the channels you want to start with.",
+  "draftPricing": {
+   "startingMonthlyUsd": 75,
+   "model": "paid",
+   "note": "The first channel is included in the base service and each additional channel costs $75 per month."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "lightspeed-retail",
+  "name": "Lightspeed Retail",
+  "website": "https://www.lightspeedhq.com",
+  "summary": "A point-of-sale and inventory system for retail shops that tracks stock across stores and online channels and sends restock alerts. It deducts stock automatically at the register.",
+  "helpsWith": [
+   "Track inventory across multiple store locations",
+   "Manage product variations like size and color",
+   "Automatic stock deduction at the register",
+   "Restock alerts and purchase order automation"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "pos-hardware"
+  ],
+  "setupMinutes": 120,
+  "selfServe": true,
+  "howToStart": "Sign up for a free trial on the Lightspeed website and choose the Retail plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 89,
+   "model": "paid",
+   "note": "Retail plans start around $89 per month per register, with higher tiers for more features and locations."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "apaya",
+  "name": "Apaya",
+  "website": "https://apaya.com",
+  "summary": "Apaya learns your business from your website, then writes, designs, schedules and publishes your social media posts so your pages stay active without you doing the work.",
+  "helpsWith": [
+   "Writes captions in your business's voice, learned from your website",
+   "Designs graphics using your logo, colors and photos",
+   "Plans and schedules a monthly posting calendar",
+   "Publishes to Facebook, Instagram and other platforms"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "housecall-pro",
+  "name": "Housecall Pro",
+  "website": "https://www.housecallpro.com",
+  "summary": "Field service software for home service contractors that handles online booking, dispatch, invoicing and customer messages in one place.",
+  "helpsWith": [
+   "AI receptionist (CSR AI) answers calls and creates jobs",
+   "Online booking link for customers to schedule anytime",
+   "Automatic confirmations and reminders to customers",
+   "Dispatch and scheduling for technicians"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 120,
+  "selfServe": true,
+  "howToStart": "Sign up for a free trial on the Housecall Pro website and follow the setup wizard to add your services and calendar.",
+  "draftPricing": {
+   "startingMonthlyUsd": 59,
+   "model": "paid",
+   "note": "Paid plans start around $59 per month, with AI receptionist features sold as an add-on on top of the base subscription."
+  },
+  "trades": [
+   "trades",
+   "cleaning"
+  ],
+  "secondary": [
+   "customers/ads",
+   "employees/hiring"
+  ],
+  "lane": "open-web",
+  "alsoFoundBy": [
+   "directory"
+  ],
+  "listedIn": [
+   {
+    "system": "Housecall Pro",
+    "url": "https://www.housecallpro.com/integrations/"
+   }
+  ]
+ },
+ {
+  "slug": "jobber",
+  "name": "Jobber",
+  "website": "https://www.getjobber.com",
+  "summary": "Field service platform for small home service businesses with self-service booking, scheduling, quoting and invoicing.",
+  "helpsWith": [
+   "Customers request appointments online",
+   "Scheduling and dispatch for crews",
+   "Quote and invoice creation",
+   "Automated client reminders"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 90,
+  "selfServe": true,
+  "howToStart": "Start a free trial on the Jobber website and enter your business details and service list.",
+  "draftPricing": {
+   "startingMonthlyUsd": 39,
+   "model": "paid",
+   "note": "Core plans start around $39 per month for a single user, with add-ons such as AI receptionist priced separately."
+  },
+  "trades": [
+   "trades"
+  ],
+  "secondary": [
+   "customers/ads",
+   "employees/hiring"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "quoteiq-ai",
+  "name": "QuoteIQ AI",
+  "website": "https://myquoteiq.com",
+  "summary": "CRM for home service contractors with a built-in AI receptionist that answers calls, books appointments into your calendar and texts you a call summary.",
+  "helpsWith": [
+   "24/7 AI receptionist that answers and qualifies calls",
+   "Books appointments directly into your calendar",
+   "Sends automated customer texts and review requests",
+   "Outbound AI calls for renewals and follow-ups"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 29.99,
+   "model": "trial",
+   "note": "Plans start at $29.99 per month for the Essentials tier, with the AI suite included on every plan and a 14-day free trial."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "small-talk",
+  "name": "small Talk",
+  "website": "https://www.usesmalltalk.com",
+  "summary": "Helps customers write Google reviews by letting them tap what stood out about a job instead of typing. It copies their review and opens the Google review box for them.",
+  "helpsWith": [
+   "Lets customers tap what stood out about a job to build a review",
+   "Copies the written review so the customer can paste it on Google",
+   "Gives unhappy customers a private feedback option instead of a public review"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Visit the small Talk website and sign up to set up review requests for your business.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "upfirst",
+  "name": "Upfirst",
+  "website": "https://upfirst.ai",
+  "summary": "An AI answering service for small businesses that answers calls in your company name, qualifies callers and sends call summaries by text and email.",
+  "helpsWith": [
+   "Answers calls in your business name",
+   "Asks qualifying questions about service type and urgency",
+   "Sends call summaries to your team by text and email"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "support",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Sign up on the Upfirst website and follow the setup steps, about 10 minutes.",
+  "draftPricing": {
+   "startingMonthlyUsd": 24.95,
+   "model": "paid",
+   "note": "Plans start at $24.95 per month."
+  },
+  "secondary": [
+   "calls/phone-ai"
+  ],
+  "lane": "open-web",
+  "trades": [
+   "salon"
+  ],
+  "alsoFoundBy": [
+   "second-hop"
+  ]
+ },
+ {
+  "slug": "nicejob",
+  "name": "NiceJob",
+  "website": "https://get.nicejob.com",
+  "summary": "Review automation focused on Google reviews for HVAC contractors. It sends personalized review requests after each completed job and is positioned as a budget option.",
+  "helpsWith": [
+   "Sends personalized review requests after each completed job",
+   "Routes negative feedback privately to the owner before it reaches Google",
+   "Focuses on getting more Google reviews and better local search visibility"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 1440,
+  "selfServe": true,
+  "howToStart": "Sign up on the NiceJob website; setup typically takes under a day.",
+  "draftPricing": {
+   "startingMonthlyUsd": 75,
+   "model": "paid",
+   "note": "Starts at $75 per month, typically around $125 per month."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "autopilot",
+  "name": "Autopilot",
+  "website": "https://www.autopilotapp.io",
+  "summary": "Cleaning business software that answers missed calls by text, takes online bookings 24/7, and sends review and reminder texts automatically.",
+  "helpsWith": [
+   "Texts back missed calls within seconds and books the visit",
+   "Lets customers book deep cleans, move-outs, or recurring visits online",
+   "Sends automatic reminders and review requests after each clean"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Sign up on the Autopilot cleaning page and follow the setup steps to connect your phone number and booking page.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing plans are listed on the Autopilot website; check there for current monthly prices."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "zenmaid",
+  "name": "ZenMaid",
+  "website": "https://www.zenmaid.com",
+  "summary": "Scheduling software for residential maid services that sends automatic appointment reminders, follow-ups, and review requests to customers.",
+  "helpsWith": [
+   "Manages recurring cleaning schedules and crew assignments",
+   "Sends automatic appointment reminders to customers",
+   "Requests reviews and referrals after each clean"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 90,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing tiers are listed on the ZenMaid website; check there for current monthly plans."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "allo",
+  "name": "Allo",
+  "website": "https://www.withallo.com",
+  "summary": "A phone system for small teams with an AI receptionist that answers calls, learns from your website and uploaded documents, and sends call summaries.",
+  "helpsWith": [
+   "Answers common questions about your menu, events, and FAQ from uploaded documents",
+   "Records, transcribes, and summarizes every call",
+   "Connects to reservation and POS tools through Zapier"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "ios",
+   "android",
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 20,
+  "selfServe": true,
+  "howToStart": "Download the Allo app or sign up on the Allo website and follow the setup steps to get a business number.",
+  "draftPricing": {
+   "startingMonthlyUsd": 30,
+   "model": "paid",
+   "note": "Allo offers paid plans starting at a low monthly price; check their pricing page for current tiers."
+  },
+  "secondary": [
+   "calls/phone-ai"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "lineup-ai",
+  "name": "Lineup.ai",
+  "website": "https://lineup.ai",
+  "summary": "AI forecasting and scheduling software built for restaurants that predicts sales and labor needs and generates staff schedules automatically.",
+  "helpsWith": [
+   "Generates shift schedules up to four weeks ahead based on predicted demand",
+   "Lets staff submit availability and request shift swaps from a mobile app",
+   "Compares scheduled hours against actual hours to show labor variance"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 120,
+  "selfServe": false,
+  "howToStart": "Request a demo or trial on the lineup.ai website and have your POS data connected.",
+  "draftPricing": {
+   "startingMonthlyUsd": 79,
+   "model": "paid",
+   "note": "Starts at $79 per location per month with a risk-free trial."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "deputy",
+  "name": "Deputy",
+  "website": "https://www.deputy.com",
+  "summary": "Scheduling and time tracking app used in food service that suggests staffing levels from sales data and tracks hours with mobile clock-in.",
+  "helpsWith": [
+   "Suggests schedules based on sales volume and foot traffic",
+   "Tracks worked hours with a mobile time clock",
+   "Lets staff swap and pick up shifts from their phones"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 4.5,
+   "model": "paid",
+   "note": "Starts at $4.50 per user per month for scheduling, with higher tiers for advanced reporting."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "sling",
+  "name": "Sling",
+  "website": "https://getsling.com",
+  "summary": "Low-cost employee scheduling app that covers shift building, time tracking, labor cost monitoring and team messages for multi-site businesses.",
+  "helpsWith": [
+   "Builds and publishes shift schedules across several locations",
+   "Tracks time and monitors labor costs",
+   "Sends team messages and shift updates"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A free plan covers basic scheduling; paid plans add time tracking and labor cost tools."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "aira",
+  "name": "AIRA",
+  "website": "https://www.getaira.io",
+  "summary": "An AI receptionist for salons that answers calls, books appointments into your calendar during the call, and sends automatic reminders to cut no-shows.",
+  "helpsWith": [
+   "Answers client calls and books appointments in real time",
+   "Sends confirmation and reminder texts with confirm, reschedule or cancel options",
+   "Works with salon booking software such as Vagaro, Booksy and Fresha"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 24.95,
+   "model": "paid",
+   "note": "AIRA Starter is $24.95 per month with 30 calls, AIRA Growth is $59.95 per month with 100 calls, and AIRA Pro is $159.95 per month with 300 calls."
+  },
+  "lane": "open-web",
+  "trades": [
+   "salon"
+  ],
+  "alsoFoundBy": [
+   "second-hop"
+  ]
+ },
+ {
+  "slug": "voka-ai",
+  "name": "Voka AI",
+  "website": "https://vokaai.com",
+  "summary": "An AI receptionist for barbershops that answers every call, books appointments into your calendar, and can text callers a booking link.",
+  "helpsWith": [
+   "Answers calls 24/7 and books barbers against their real availability",
+   "Books into Square Appointments or Acuity Scheduling during the call",
+   "Texts booking links, directions and forms to callers"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 89,
+   "model": "paid",
+   "note": "The Flex plan is $89 per month with 300 minutes, Value is $149 per month with 600 minutes, and the Square or Acuity integration is a $19.99 per month add-on."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "freshcheq",
+  "name": "FreshCheq",
+  "website": "https://freshcheq.com",
+  "summary": "A budget-friendly food safety app for logging temperatures, checklists and food waste, with alerts sent by text or email.",
+  "helpsWith": [
+   "Logging fridge and hot-holding temperatures",
+   "Sending SMS and email alerts when readings go wrong",
+   "Tracking checklists and food waste"
+  ],
+  "categoryId": "safety",
+  "subcategoryId": "food-health",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 45,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Pricing is listed on its website with a free option for small operations, and paid plans for more features."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "dialzara",
+  "name": "Dialzara",
+  "website": "https://www.dialzara.com",
+  "summary": "Dialzara is an AI phone receptionist for small businesses that answers calls, takes messages and books appointments into Google or Outlook calendars.",
+  "helpsWith": [
+   "Answers and screens incoming calls",
+   "Books into Google or Outlook calendars on higher plans",
+   "Speaks English and Spanish on Pro and above",
+   "Transfers calls to your team"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "paid",
+   "note": "Lite is $29 per month with 60 minutes, Pro is $99 with 220 minutes, Plus is $199 and Elite is $349."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "xenia",
+  "name": "Xenia",
+  "website": "https://www.xenia.team",
+  "summary": "An operations platform that combines digital HACCP logs, Bluetooth temperature sensors and AI-scored audits for food businesses.",
+  "helpsWith": [
+   "Automated HACCP documentation",
+   "Bluetooth temperature monitoring with alerts",
+   "AI-scored audits that flag photo violations"
+  ],
+  "categoryId": "safety",
+  "subcategoryId": "food-health",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 120,
+  "selfServe": false,
+  "howToStart": "Request a demo at xenia.team and ask sales for a food safety plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 150,
+   "model": "paid",
+   "note": "Pricing is quoted per business through sales, and it is aimed at multi-location operators."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "replora-ai",
+  "name": "Replora AI",
+  "website": "https://www.reploraai.com",
+  "summary": "Monitors a salon's Google reviews and posts personalised, on-brand replies, holding them for approval if you prefer.",
+  "helpsWith": [
+   "Replies to every Google review in seconds, glowing or critical",
+   "Handles complaints about colour, wait times or pricing with empathy",
+   "Manages multiple stylists and locations from one dashboard"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Connect your Google Business Profile through secure sign-in on the Replora AI website.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing plans were not stated in the source; check the website for current plans."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "replyonthefly",
+  "name": "ReplyOnTheFly",
+  "website": "https://www.replyonthefly.com",
+  "summary": "Emails you an AI-written reply to each new salon review so you can approve and post it from your phone.",
+  "helpsWith": [
+   "Drafts personalised replies in your salon's chosen tone",
+   "Handles negative reviews diplomatically and invites clients back",
+   "Approve and post replies from your phone between appointments"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Sign up on the ReplyOnTheFly website and choose the Free Forever plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free Forever plan includes AI drafts and 5 one-click posts per month; Pro is $9.99 per month for unlimited posting and auto-post mode."
+  },
+  "lane": "open-web"
+ },
+ {
+  "slug": "leadtruffle",
+  "name": "LeadTruffle",
+  "website": "https://www.leadtruffle.co",
+  "summary": "An AI voice agent for contractors that answers calls, asks custom intake questions and can transfer live calls to your team. Booking depends on which scheduling or CRM connection you enable.",
+  "helpsWith": [
+   "Answers inbound calls with AI, including outside business hours",
+   "Asks custom qualification questions about the job, location and timing",
+   "Books appointments through a built-in scheduler or a supported CRM when enabled",
+   "Transfers calls to your team under rules you set"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Request a demo or sign up through the LeadTruffle website and walk through your intake questions and calendar setup.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Pricing is usage-based and quoted per account; confirm current plans and rates on the vendor site before signing up."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "driive",
+  "name": "Driive",
+  "website": "https://getdriive.com",
+  "summary": "A scheduling and booking system for HVAC and plumbing shops that uses AI for the conversation with customers while keeping booking rules, drive time and technician skills in code.",
+  "helpsWith": [
+   "Answers customer calls, texts and web chats with an AI scheduling assistant named Dot",
+   "Checks drive time, technician certifications and service zones before confirming a booking",
+   "Captures and qualifies out-of-zone leads for hand-off instead of booking them",
+   "Connects to field service platforms for booking and dispatch"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 120,
+  "selfServe": false,
+  "howToStart": "Book a demo through the Driive website and set up your service zones, technician skills and CRM connection with their team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "Pricing is not published on the pages reviewed; contact the vendor for plan and rate details."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "workiz",
+  "name": "Workiz",
+  "website": "https://workiz.com",
+  "summary": "Field service software for trade contractors that handles scheduling, dispatch and job tracking, with AI-assisted time-slot suggestions based on technician routes.",
+  "helpsWith": [
+   "Suggests appointment times based on technician availability and location",
+   "Dispatches jobs to field staff and tracks them in real time",
+   "Manages customer records and invoicing"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "Paid plans are offered after a trial, so check the current pricing page for exact tier prices."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "cleanwork",
+  "name": "CleanWork",
+  "website": "https://getcleanwork.com",
+  "summary": "A lead generation and outreach platform for cleaning companies that finds janitorial opportunities and uses an AI sales assistant to write and send cold emails and follow-ups. It is aimed at commercial cleaning businesses looking for new clients.",
+  "helpsWith": [
+   "Finds upcoming janitorial and commercial cleaning opportunities",
+   "Writes personalized cold emails and follow-ups",
+   "Helps book walkthrough appointments with prospects"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "ads",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "open-web"
+ },
+ {
+  "slug": "loman",
+  "name": "Loman",
+  "website": "https://loman.ai",
+  "summary": "Loman is an AI phone agent that answers calls for restaurants around the clock. It takes orders and reservations, answers menu questions, and sends tickets to your POS system.",
+  "helpsWith": [
+   "Answers every incoming call, 24/7, including during busy rushes",
+   "Takes pickup and delivery orders and reservations by phone",
+   "Answers menu, hours, and allergen questions",
+   "Sends orders and payments to your POS system"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Click Get Started or Schedule a demo on loman.ai, fill in your details, and their team will connect you.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed; you must contact the company for pricing."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Toast",
+    "url": "https://pos.toasttab.com/partners/directory/lomanai"
+   }
+  ]
+ },
+ {
+  "slug": "kintow",
+  "name": "Kintow",
+  "website": "https://www.kintow.com",
+  "summary": "Kintow is a back-office tool for restaurants that connects your POS, scheduling, invoices and bank data in one place. It tracks food and labor costs, automates vendor orders and offers an AI chat to answer questions about your numbers.",
+  "helpsWith": [
+   "Track ingredient prices and menu profitability, with alerts when costs rise",
+   "Monitor labor cost by the hour with alerts",
+   "Send vendor orders automatically based on expected demand",
+   "Count inventory by voice and ask your data questions in chat"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices, so the starting monthly price is listed as 0 and you must ask Kintow for plan costs."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Toast",
+    "url": "https://pos.toasttab.com/partners/directory/kintow"
+   }
+  ]
+ },
+ {
+  "slug": "maple",
+  "name": "Maple",
+  "website": "https://maple.inc",
+  "summary": "Maple is an AI phone agent that answers restaurant calls, takes orders, and books reservations around the clock. It sends orders straight to your POS system.",
+  "helpsWith": [
+   "Answers every call, 24/7, including when the restaurant is closed",
+   "Takes phone orders with modifications, combos, and allergy notes",
+   "Books, changes, and cancels reservations",
+   "Sends orders to your POS in real time"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "pos-hardware",
+   "web"
+  ],
+  "setupMinutes": 1440,
+  "selfServe": false,
+  "howToStart": "Request a free demo through the Get Free Demo button on maple.inc, since the page offers no self-serve signup.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no specific prices; it only says businesses pay a flat rate for delivery, and pricing scales with the number of locations, with a free demo offered."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Toast",
+    "url": "https://pos.toasttab.com/partners/directory/maple"
+   }
+  ]
+ },
+ {
+  "slug": "lexi",
+  "name": "Lexi",
+  "website": "https://hilexi.ai",
+  "summary": "Lexi is an AI phone assistant for restaurants. It answers calls, takes pickup and delivery orders, answers questions, and books reservations, so you do not miss calls when your staff is busy.",
+  "helpsWith": [
+   "Answers and takes phone orders for pickup and delivery",
+   "Answers questions about hours, menu, and policies 24/7",
+   "Books reservations for guests",
+   "Syncs orders and reservations with your POS system"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Click Try Free on https://hilexi.ai and sign up with your restaurant's name and details.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a Try Free and Get Started Free option but does not list any monthly plan prices."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Toast",
+    "url": "https://pos.toasttab.com/partners/directory/lexi"
+   }
+  ]
+ },
+ {
+  "slug": "chowly",
+  "name": "Chowly",
+  "website": "https://chowly.com",
+  "summary": "An all-in-one marketing and online ordering platform for independent restaurants. It gives you a website, commission-free online ordering on your own domain, and tools to bring in local customers.",
+  "helpsWith": [
+   "Commission-free online ordering on your own website and branded app",
+   "Google Business Profile and Google Ads management for local search",
+   "Email marketing, loyalty programs, and review requests",
+   "Syncing delivery app orders and menus to your POS"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices, so the lowest monthly cost is listed as 0; ask the sales team for plan pricing."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Square",
+    "url": "https://squareup.com/us/en/app-marketplace/app/chowly"
+   }
+  ]
+ },
+ {
+  "slug": "frontdeq",
+  "name": "FrontdeQ",
+  "website": "https://frontdeq.com",
+  "summary": "An AI phone receptionist for salons and service businesses that answers calls, remembers returning clients, and books appointments directly in Square. It works around the clock so callers get a confirmed booking even when staff are busy.",
+  "helpsWith": [
+   "Answers client calls 24 hours a day, including evenings and weekends",
+   "Checks live Square availability and books, reschedules, or cancels appointments",
+   "Greets returning clients by name and keeps their stylist and service preferences",
+   "Speaks English and Spanish based on the caller"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a 14-day free trial with no credit card required, but does not list paid plan prices, so the starting monthly cost is not shown."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "salonbridge",
+  "name": "SalonBridge",
+  "website": "https://www.mysalonbridge.com",
+  "summary": "SalonBridge is appointment and business software for salons and spas. It handles bookings, client records, reminders and payments in one place.",
+  "helpsWith": [
+   "Manages the appointment calendar and online bookings",
+   "Keeps client records, purchase history and digital forms",
+   "Sends automatic SMS reminders to reduce no-shows",
+   "Accepts card payments with built-in point of sale and stock control"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a 14-day free trial but does not show any monthly prices, so the starting price is listed as 0 and the real plan cost is unknown."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Zapier",
+    "url": "https://zapier.com/apps/salonbridge/integrations/twilio/255653244/send-whatsapp-messages-via-twilio-for-new-salonbridge-appointments"
+   }
+  ]
+ },
+ {
+  "slug": "review-goats",
+  "name": "Review Goats",
+  "website": "https://www.reviewgoats.com",
+  "summary": "Review Goats sends an automatic text message to clients after their appointment, asking them to leave a Google review. It also lets you respond to feedback directly, so unhappy clients can reach you before posting a public review.",
+  "helpsWith": [
+   "Sends a customizable review request by SMS after each appointment",
+   "Lets clients send private feedback instead of a negative public review",
+   "Lets you reply to reviews from one dashboard",
+   "Works with several review platforms, including Google and Facebook"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 15,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices; pricing is charged per location and you must schedule a demo to learn the cost."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "adaptlocal",
+  "name": "AdaptLocal",
+  "website": "https://www.adaptlocal.ai",
+  "summary": "An AI assistant that texts back missed calls, qualifies the lead, and books supported appointments, then answers owner questions and flags work that needs attention.",
+  "helpsWith": [
+   "Texts back customers after missed calls and asks basic job questions",
+   "Books supported appointments within rules you set",
+   "Prepares follow-up texts and flags open estimates or due rebooks for your approval",
+   "Sends job details to Jobber and your calendar"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Go to adaptlocal.ai, click Set up my assistant, enter your business details, and choose a plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "trial",
+   "note": "Starter is $29 per month after a 14-day trial, and Agent is $49 per month; cancel before the trial ends to avoid a charge."
+  },
+  "trades": [
+   "trades",
+   "cleaning"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace"
+   }
+  ]
+ },
+ {
+  "slug": "boulevard",
+  "name": "Boulevard",
+  "website": "https://www.joinblvd.com",
+  "summary": "Booking and scheduling software for salons, spas, medspas and barbershops. It handles online booking, the calendar, payments, reminders and client records in one place.",
+  "helpsWith": [
+   "Lets clients book, change or check appointments online",
+   "Manages the staff calendar and client profiles",
+   "Handles payments, memberships and loyalty programs",
+   "Sends marketing messages and follow-up texts or emails"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "pos-hardware"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "Click Get a Demo on the website to talk to their sales team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed; you must request a demo or check pricing separately."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "setmore",
+  "name": "Setmore",
+  "website": "https://www.setmore.com",
+  "summary": "Setmore is online appointment scheduling software. Customers can book 24/7, and it sends reminders and takes payments.",
+  "helpsWith": [
+   "Let customers book appointments online at any time through a Booking Page",
+   "Send automated email or text reminders to reduce no-shows",
+   "Accept card payments in advance when customers book",
+   "Sync bookings with Google Calendar and add Zoom or Google Meet links"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan for up to 4 users at $0 per month, and Pro plan for unlimited users at $5 per user per month on annual billing."
+  },
+  "lane": "directory"
+ },
+ {
+  "slug": "convoforms",
+  "name": "ConvoForms",
+  "website": "https://www.convoforms.ai",
+  "summary": "Gus is an AI receptionist for small trades businesses. He answers calls and website chats, takes callback requests, and books visits into Jobber or Google Calendar.",
+  "helpsWith": [
+   "Answers customer calls and website chats day and night",
+   "Captures callback requests in one lead list",
+   "Books real visits into Jobber or Google Calendar without double-booking",
+   "Texts the owner when a job is booked or a callback is requested"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Start the 14-day free trial on the ConvoForms site by entering your business name, trade and zip code, then follow the setup steps to forward your phone.",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "paid",
+   "note": "$49 a month, month to month with no setup fee, no per-seat fee and no annual contract, plus a 14-day free trial with no card needed."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace?categoria=47"
+   }
+  ]
+ },
+ {
+  "slug": "simplybook-me",
+  "name": "SimplyBook.me",
+  "website": "https://simplybook.me",
+  "summary": "An online booking system where clients book appointments on your website or a booking page, and you get reminders and online payments.",
+  "helpsWith": [
+   "Clients book appointments 24/7 on your website, Facebook, or Instagram",
+   "Automated reminders and confirmations by WhatsApp, SMS, and email",
+   "Online payments and deposits, plus in-person payments with its POS system"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Click Get a Free Account on the SimplyBook.me homepage and sign up with no card required.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The page advertises a free version and a free account with no card needed, but does not list paid plan prices on this page."
+  },
+  "lane": "directory",
+  "trades": [
+   "salon"
+  ],
+  "alsoFoundBy": [
+   "second-hop"
+  ]
+ },
+ {
+  "slug": "ison24",
+  "name": "IsOn24",
+  "website": "https://ison24.com",
+  "summary": "An AI receptionist that answers business phone calls 24/7 in a human-sounding voice, answers questions, books appointments into your calendar, and texts customers.",
+  "helpsWith": [
+   "Answers every incoming call 24/7 with a life-like AI voice",
+   "Books appointments directly into your calendar",
+   "Sends and receives customer texts from one inbox",
+   "Collects leads and caller details during calls and alerts you by text and email"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 59,
+   "model": "trial",
+   "note": "Plans start at $59 per month after a 7-day free trial that requires no credit card; the page does not list the other plan names or prices."
+  },
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace"
+   }
+  ]
+ },
+ {
+  "slug": "breezeworks",
+  "name": "Breezeworks",
+  "website": "https://www.breezeworks.com",
+  "summary": "Breezeworks is scheduling and office software for service businesses like plumbing, HVAC, and cleaning. It covers job scheduling, customer records, team tracking, and invoicing from phones or desktop computers.",
+  "helpsWith": [
+   "Schedule jobs and send the calendar to your team's devices",
+   "Keep customer contacts, job history, and payment records in one place",
+   "Send professional invoices with your logo and photos of completed work",
+   "Send automatic appointment reminders to reduce no-shows"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start Free Trial on the Breezeworks website and sign up for the 14-day free trial, which needs no credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 31.99,
+   "model": "trial",
+   "note": "Solo plan is $31.99 per month for 1 user, Team plan is $41.99 per month plus $14.99 per user, Enterprise is custom priced, and all plans include a 14-day free trial."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "contractor",
+  "name": "Contractor+",
+  "website": "https://contractorplus.app",
+  "summary": "Contractor+ is software for building and service contractors to handle estimates, scheduling, invoices, client messages, and payments in one place. It includes a mobile app for crews.",
+  "helpsWith": [
+   "Create estimates and quotes for jobs",
+   "Schedule jobs and crews",
+   "Send invoices and take payments",
+   "Call, text, and email clients from one inbox"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start for FREE on contractorplus.app; no credit card is required.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The page offers a free plan to start and says upgrades are available later, but it does not list the paid plan prices."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "william-ai",
+  "name": "William AI",
+  "website": "https://realautomation.ai",
+  "summary": "William AI is an AI phone front desk for service businesses. It answers calls, including after hours and missed calls, so you don't lose new customers.",
+  "helpsWith": [
+   "Answers incoming phone calls like a front desk employee",
+   "Catches after-hours and missed calls",
+   "Follows up with leads that call in"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone"
+  ],
+  "setupMinutes": 5,
+  "selfServe": false,
+  "howToStart": "Fill out the Instant Demo form on realautomation.ai or click Talk To The Team to get a call from the company.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the starting monthly cost is unknown; ask the team for pricing."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace/"
+   }
+  ]
+ },
+ {
+  "slug": "marlie-ai",
+  "name": "Marlie AI",
+  "website": "https://www.marlie.ai",
+  "summary": "An AI receptionist that answers your business phone 24/7, books appointments, and texts you the call details. It is built for service businesses like plumbers, locksmiths, and HVAC companies.",
+  "helpsWith": [
+   "Answers calls day and night, including weekends and holidays",
+   "Books appointments into Google Calendar, Outlook, or Calendly",
+   "Texts you a summary of each call"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Sign up for the free 14-day trial on marlie.ai, then forward your existing business phone line to the number Marlie provides.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a 14-day free trial but does not list monthly plan prices, so the starting price is shown as 0."
+  },
+  "lane": "directory"
+ },
+ {
+  "slug": "cleansync",
+  "name": "CleanSync",
+  "website": "https://cleansync.io",
+  "summary": "CleanSync is a free Jobber app that turns Airbnb and Vrbo bookings into cleaning jobs automatically. When a booking is cancelled, the job closes.",
+  "helpsWith": [
+   "Creates a Jobber cleaning job for each Airbnb or Vrbo booking using the rental's iCal calendar link",
+   "Closes the Jobber job when a guest cancels, so the cleaner does not show up for nothing",
+   "Lets you pick the cleaner's arrival time and how long the clean takes",
+   "Works for 5 to 50 short-term rentals"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Install CleanSync free from the Jobber App Store, sign in with your Jobber account, and paste in each rental's Airbnb or Vrbo calendar link.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "free",
+   "note": "CleanSync is free during early access at $0 per month, but a standard Jobber subscription is required; the page also lists a $10 per property per month option for hosts with 2+ properties who use their own crew."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace"
+   }
+  ]
+ },
+ {
+  "slug": "realwork",
+  "name": "RealWork",
+  "website": "https://www.realworklabs.com",
+  "summary": "Software for home service businesses that collects and shows your Google reviews by location, and puts your job photos and stories on your website. It is built for plumbers, HVAC, roofers, and electricians.",
+  "helpsWith": [
+   "Collect and tag Google reviews by location and neighborhood",
+   "Post job photos and stories on your website",
+   "Automate review requests, descriptions, and photos through integrations",
+   "Use AI tools to help with online presence and save time"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the lowest monthly cost is unknown and is set to 0 here; check with the company for plans."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "chatavise",
+  "name": "Chatavise",
+  "website": "https://www.chatavise.com",
+  "summary": "Chatavise is a messaging and review platform for home service businesses. It sends automatic texts for leads, job reminders, follow-ups and review requests, and catches unhappy customers privately before they post publicly.",
+  "helpsWith": [
+   "Sends automatic review requests after completed jobs",
+   "Catches unhappy customers privately through surveys before they post publicly",
+   "Replies to new leads automatically in seconds",
+   "Sends text campaigns to past customers for repeat business"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Click Book a Free Demo or Get Started on the website to request a demo, since the page centers on talking with the sales team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed; check the Pricing page for plan details."
+  },
+  "trades": [
+   "cleaning",
+   "trades"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace/"
+   }
+  ]
+ },
+ {
+  "slug": "review-harvest",
+  "name": "Review Harvest",
+  "website": "https://www.reviewharvest.com",
+  "summary": "Review Harvest sends review requests to your customers and handles the replies for you. It is built for home service businesses that want more Google reviews without spending their own time chasing them.",
+  "helpsWith": [
+   "Requests reviews from past and new customers automatically",
+   "Replies to new reviews for you",
+   "Reposts new reviews to social media",
+   "Connects to your existing CRM to import customers"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "Sign up on the website or book a demo, then book a setup call with their team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the starting price is listed as 0; see the Pricing page for plan details."
+  },
+  "trades": [
+   "trades",
+   "cleaning"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace/"
+   }
+  ]
+ },
+ {
+  "slug": "chiirp",
+  "name": "Chiirp",
+  "website": "https://chiirp.com",
+  "summary": "CHIIRP provides AI employees for trades and home service businesses that respond to leads, recover missed calls, and follow up on estimates. It is meant to work around the clock.",
+  "helpsWith": [
+   "Responds to new leads automatically",
+   "Recovers missed calls",
+   "Follows up on estimates",
+   "Works 24/7 for home service businesses"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices, so pricing is not listed here; contact the company for plan details."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace/"
+   }
+  ]
+ },
+ {
+  "slug": "houzz-pro",
+  "name": "Houzz Pro",
+  "website": "https://pro.houzz.com",
+  "summary": "Houzz Pro is business software for builders, remodelers, and designers. It covers planning, project management, estimates and invoices, and marketing in one place.",
+  "helpsWith": [
+   "Create estimates, proposals, invoices, and change orders",
+   "Manage project schedules, files, photos, and tasks",
+   "Build 3D floor plans and track selections",
+   "Generate leads and run email marketing"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page does not show plan prices; it offers a free trial and a demo request, so check pricing directly with the company."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "leadwinner-ai",
+  "name": "LeadWinner.AI",
+  "website": "https://www.leadwinner.ai",
+  "summary": "LeadWinner replies to leads from Yelp, Thumbtack, and Google LSA automatically, by text and in-chat, and follows up until a job is booked. It can also connect you by phone to the customer.",
+  "helpsWith": [
+   "Sends instant automatic replies to new Yelp, Thumbtack, and Google LSA leads",
+   "Sends follow-up messages until the customer books or stops replying",
+   "Connects you and the lead by a live two-way phone call",
+   "Sends automatic text messages to the customer's phone"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "ads",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 2,
+  "selfServe": true,
+  "howToStart": "Click Start Free Trial on leadwinner.ai, create an account with email or Google, then connect your Yelp, Thumbtack, or Google LSA business account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "A 7-day free trial is offered, then pricing starts at $2.99 per lead, and the page does not show a monthly plan price."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Zapier",
+    "url": "https://zapier.com/apps/categories/ai-sales-tools"
+   }
+  ]
+ },
+ {
+  "slug": "deep-lawn",
+  "name": "Deep Lawn",
+  "website": "https://deeplawn.com",
+  "summary": "Deep Lawn is a sales tool for lawn care and pest control companies. It uses AI to measure a property from imagery so you can quote a lead without a site visit.",
+  "helpsWith": [
+   "Measures lawn, lot, buildings and driveways from aerial imagery to produce quotes",
+   "Lets customers get a self-serve quote and check out from your website",
+   "Prices leads quickly from your own pricing tables"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show prices; see the Pricing page for plans, so the starting price is listed as 0 here."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Jobber",
+    "url": "https://secure.getjobber.com/app_marketplace/"
+   }
+  ]
+ },
+ {
+  "slug": "maidily",
+  "name": "Maidily",
+  "website": "https://www.maidily.com",
+  "summary": "Maidily is software for cleaning businesses that handles scheduling, online booking, payments, team management, and two-way texting in one place.",
+  "helpsWith": [
+   "Online booking for customers, 24/7",
+   "Scheduling one-time and recurring jobs with a drag-and-drop calendar",
+   "Sending quotes and automatic invoices, with payments through Stripe",
+   "Texting customers directly from the app"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "freemium",
+   "note": "The page says you can start free with no credit card, and shows a comparison example of $49/month for 5 users and 150 jobs, but it does not list the full plan names and prices."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Zapier",
+    "url": "https://zapier.com/apps/maidily/integrations"
+   }
+  ]
+ },
+ {
+  "slug": "easy-clean-app",
+  "name": "Easy Clean App",
+  "website": "https://easyclean.app",
+  "summary": "An app for house cleaning businesses to find clients, send estimates and invoices, manage schedules and teams, and receive payments in one place.",
+  "helpsWith": [
+   "Find new clients and send quick estimates",
+   "Send invoices and track payments",
+   "Manage schedules, clients and cleaning teams",
+   "Chat with clients with real-time translation"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "translation",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Download the app from Google Play or the App Store, or open the web version, then enter your email, create a password and verify your account with the code sent to your email.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page does not show any prices, so the starting cost is listed as 0; the page only mentions buying leads and premium features with a credit card."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "directory",
+  "listedIn": [
+   {
+    "system": "Zapier",
+    "url": "https://zapier.com/apps/easy-clean-app/integrations"
+   }
+  ]
+ },
+ {
+  "slug": "gem-city-cleaning-tools",
+  "name": "Gem City Cleaning Tools",
+  "website": "https://www.gemcitycleaningtools.com",
+  "summary": "Scheduling and business software for residential cleaning companies. It helps you see jobs, cleaners, and money in one place.",
+  "helpsWith": [
+   "Schedule jobs and prevent double-booking",
+   "Give clients a portal to manage their bookings",
+   "Let cleaners see and update their jobs in an app",
+   "Create invoices automatically and track reports"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start Free Trial on the website to sign up for the 14-day trial without a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a 14-day free trial with no credit card and a free start with up to 2 users, but it does not list paid plan prices, so the monthly cost after the trial is unknown."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "directory"
+ },
+ {
+  "slug": "hostie",
+  "name": "Hostie",
+  "website": "https://hostie.ai",
+  "summary": "Hostie is an AI virtual concierge that answers restaurant phone calls, texts, and questions in your restaurant's voice. It books reservations and takeout orders so staff can focus on guests in the room.",
+  "helpsWith": [
+   "Answers every phone call with an AI voice using custom prompts",
+   "Books reservations and takes takeout orders",
+   "Handles texts and emails in one place, including Instagram and Google Maps texting",
+   "Shows call transcripts and lets you jump in during a call"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Click Start a free trial or Book a demo on hostie.ai to sign up or talk to the team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a free trial and a Pricing page but does not list any monthly prices, so no starting price is shown."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "community"
+ },
+ {
+  "slug": "glossgenius",
+  "name": "GlossGenius",
+  "website": "https://glossgenius.com",
+  "summary": "GlossGenius is a booking, payment and admin system for beauty, wellness and health businesses. It handles online booking, scheduling, checkout and client follow-up in one place.",
+  "helpsWith": [
+   "Online booking and calendar scheduling for clients",
+   "Taking payments and checkout at the point of sale",
+   "Client reminders, rebooking and marketing campaigns",
+   "Payroll, staff time tracking and reports"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "pos-hardware"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a free trial and a demo request but does not list plan prices, so the starting price is shown as 0 and the actual cost is unknown."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "community"
+ },
+ {
+  "slug": "propertymeasure-ai",
+  "name": "PropertyMeasure.ai",
+  "website": "https://propertymeasure.ai",
+  "summary": "Software for landscaping and snow contractors that measures properties from aerial images or blueprints, then handles estimates, proposals, scheduling, job costing and invoicing in one place.",
+  "helpsWith": [
+   "Measure property areas, lengths and counts from aerial imagery or uploaded blueprints",
+   "Build estimates with your own labor, material and margin rates and send branded proposals",
+   "Schedule crews, track crew time and record work in a field app",
+   "Invoice approved work and plan contract renewals"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "costs",
+  "workload": "image-video",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Book a demo on the website, or open the Get Started option, to see plans and walk through your own properties.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no price; plans are not listed publicly, so pricing must be checked by booking a demo or viewing the pricing page."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "community"
+ },
+ {
+  "slug": "proteams",
+  "name": "ProTeams",
+  "website": "https://proteams.io",
+  "summary": "ProTeams is scheduling and proof-of-service software for commercial cleaning and janitorial companies. It tracks crew shifts with GPS check-ins and photos, and sends clients reports.",
+  "helpsWith": [
+   "Scheduling and dispatching crews across worksites",
+   "GPS-verified check-in and check-out with timestamped photo proof",
+   "Alerts for no-shows and late punch-ins",
+   "Real-time translation between Spanish-speaking crews and English-speaking office staff"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": ""
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "community"
+ },
+ {
+  "slug": "marble",
+  "name": "Marble",
+  "website": "https://joinmarble.ai",
+  "summary": "Marble is an operating system for restaurants that handles inventory counts, ordering, prep sheets, scheduling, timesheets, and finance in one place. It is built for restaurant groups and multi-location operators.",
+  "helpsWith": [
+   "Counts inventory by voice or phone camera and tracks stock levels",
+   "Drafts purchase orders by comparing supplier prices and demand forecasts",
+   "Builds prep sheets and staff schedules based on forecast demand",
+   "Syncs invoices, expenses, and payroll with accounting and payroll tools"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 10080,
+  "selfServe": false,
+  "howToStart": "Click Get a demo on joinmarble.ai to request a demo and onboarding with the sales team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices or plan names, so no starting price is listed; pricing must be requested through a demo."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "ooon-ai",
+  "name": "ooon.ai",
+  "website": "https://ooon.ai",
+  "summary": "An AI assistant that replies to clients on WhatsApp, books open appointment slots, and follows up with clients who went quiet. It works around the clock, including nights and weekends.",
+  "helpsWith": [
+   "Replies to client messages on WhatsApp at any hour",
+   "Books open slots in your calendar",
+   "Follows up with cold leads with reminders",
+   "Connects to AmoCRM and Bitrix24 on higher plans"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Choose a plan on the pricing page, pay for your subscription, then scan the WhatsApp QR code to connect your number and fill out the brief.",
+  "draftPricing": {
+   "startingMonthlyUsd": 97,
+   "model": "paid",
+   "note": "Plans start at $97 a month with $0 setup for the ooon.ai one plan (5,000 contacts), and $197 a month for the ooon.ai omni plan (10,000 contacts, with AmoCRM and Bitrix24 integration); there is also a pay-per-booking option at 10% of bookings brought in."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "beautifyx",
+  "name": "Beautifyx",
+  "website": "https://beautifyx.app",
+  "summary": "Beautifyx is one app for beauty businesses that handles online booking, client records, payments, marketing emails and texts, and staff management. It is built for salons, spas, barbershops and similar shops.",
+  "helpsWith": [
+   "Online booking with a link you can share on Instagram, Google, and text messages",
+   "Client profiles with history, notes, formulas, and photos",
+   "Point of sale for card, cash, gift cards, and payment plans",
+   "Email and text marketing plus a free booking website"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Sign up for the 14-day free trial on the Beautifyx website with a credit card, then log in on the web or the iOS or Android app.",
+  "draftPricing": {
+   "startingMonthlyUsd": 29.99,
+   "model": "paid",
+   "note": "One plan at $29.99 per month with unlimited staff and all features, plus a 14-day free trial that requires a credit card."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "elyra",
+  "name": "Elyra",
+  "website": "https://www.elyrasystems.com",
+  "summary": "Elyra is an AI platform for restaurants that answers guest calls with an AI voice agent, replies to emails, keeps guest profiles, and helps manage table seating. It is built to help restaurants bring guests back.",
+  "helpsWith": [
+   "Answers guest calls with an AI voice agent, including reservations and questions",
+   "Replies to emails such as confirmations and special requests",
+   "Keeps guest preferences and booking history for personal service",
+   "Helps allocate tables and seat walk-ins"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "Click Book a demo on the website or call +46 76 896 4770 to arrange a 15-minute demo.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices, so pricing is not listed; you must book a demo to learn the cost."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "relay",
+  "name": "Relay",
+  "website": "https://relaycustomerops.com",
+  "summary": "Relay puts texts, email, calls and social messages in one inbox for appointment businesses. It books clients without double-booking, sends reminders, and texts the waitlist when a slot opens.",
+  "helpsWith": [
+   "Answers texts, email, calls and social DMs in one inbox",
+   "Books appointments with a conflict check and sends reminders before each visit",
+   "Sends rebook nudges and texts the waitlist when a slot opens",
+   "AI drafts replies that you approve before they send"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "support",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A free plan (500 contacts) is listed, with paid plans Basic at $49/month, Starter at $79/month and Pro at $199/month; the free plan is shown for signing up but the page does not state it is for business use, so check before relying on it."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "shire-intelligence",
+  "name": "Shire Intelligence",
+  "website": "https://shireintelligence.com",
+  "summary": "Shire is a restaurant operations platform that uses existing cameras to track tables and staff, along with a point of sale, reservations, scheduling, kitchen screens, online ordering and reports.",
+  "helpsWith": [
+   "Shows live table status from existing CCTV cameras so the host knows when to seat the next party",
+   "Sends alerts to servers and bussers when a table needs attention",
+   "Handles reservations and phone bookings with an AI assistant",
+   "Provides a point of sale and sales and labor reports"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "phone",
+   "pos-hardware"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 40,
+   "model": "paid",
+   "note": "The page lists a starting price of $40 per month for the Owner plan, which adds floor intelligence to a POS you already use; a full Shire POS plan is also offered with a free install, but its price is not shown."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "menugo",
+  "name": "MenuGo",
+  "website": "https://menugo.live",
+  "summary": "MenuGo turns a paper menu into a digital menu that customers open by scanning a QR code. You can change prices and mark items sold out without reprinting.",
+  "helpsWith": [
+   "Turns a photo or PDF of your paper menu into a digital menu",
+   "Creates a QR code to print and place on tables",
+   "Lets you change prices and mark items sold out in real time",
+   "Shows views and popular items in an analytics dashboard"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "translation",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 1,
+  "selfServe": true,
+  "howToStart": "Click Start Free on menugo.live, sign up without a credit card, then upload a photo or PDF of your menu.",
+  "draftPricing": {
+   "startingMonthlyUsd": 9.99,
+   "model": "freemium",
+   "note": "A free forever plan is mentioned, and paid plans are Starter at $9.99/mo, Pro at $24.99/mo and Enterprise at $49.99/mo, but the free plan's limits are not listed on the page."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "avocado",
+  "name": "Avocado",
+  "website": "https://avocadopos.com",
+  "summary": "Avocado is a point-of-sale system for food trucks, cafes, and restaurants. It combines the register, kitchen display, online ordering, loyalty, and reporting in one menu-based system.",
+  "helpsWith": [
+   "Takes orders and payments at the register, with modifiers, discounts, and split or void checks",
+   "Sends orders to a kitchen display with a timer on each ticket",
+   "Lets customers order online for pickup or delivery from your own website",
+   "Shows sales, labor, and voids on one screen"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop",
+   "phone",
+   "pos-hardware"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Book a video walkthrough or call (512) 580-7988 to sign up with the Avocado team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The software is $0 a month, and card payments cost 5% + 15¢ per payment, which you can split with your customer or have them cover; the page does not list separate hardware or plan prices."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "tabsense",
+  "name": "TabSense",
+  "website": "https://tabsense.ai",
+  "summary": "TabSense is a point-of-sale system for restaurants, cafes and cloud kitchens that uses AI agents to help with orders, reviews, menus and fraud alerts.",
+  "helpsWith": [
+   "Sends alerts about suspicious transactions across POS terminals",
+   "Analyzes customer reviews across branches",
+   "Compares menu prices with local competitors",
+   "Takes orders by voice through calls, kiosks, web or mobile"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop",
+   "phone",
+   "pos-hardware"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "Click Book a demo on tabsense.ai to request a demo and sign up with their sales team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the starting monthly cost is unknown; you must contact the company for pricing."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "byte-kitchen",
+  "name": "Byte Kitchen",
+  "website": "https://www.bytekitchen.io",
+  "summary": "A software platform for restaurant kitchens that combines inventory, staff scheduling, catering orders, and recipe management in one system. It is built for fast-casual and quick service restaurants.",
+  "helpsWith": [
+   "Checklists and daily tasks for kitchen staff (ByteCheck)",
+   "Organizing and communicating catering orders (ByteCater)",
+   "Prep lists and order guides to reduce food waste (BytePrep)",
+   "Scheduling and staff operations (ByteShift)"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "profits",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "Click Schedule Demo on the website to request a demo with the sales team.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed here; contact sales for pricing."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "per-diem",
+  "name": "Per Diem",
+  "website": "https://www.tryperdiem.com",
+  "summary": "Per Diem builds a branded mobile app and web ordering site for restaurants, cafes, and bakeries that use Square. Orders go straight into your Square POS, and it includes loyalty rewards and marketing tools.",
+  "helpsWith": [
+   "Lets customers order ahead and pay in the app or on your website",
+   "Sends orders directly to your Square POS with no manual copying",
+   "Runs a loyalty and rewards program built on Square Loyalty",
+   "Offers delivery through your own app so you avoid third-party delivery fees"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 4320,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 99,
+   "model": "paid",
+   "note": "The page names a $99 per month price for an app, and says it also offers monthly plans and custom development, but it does not list the full plan details on this page."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "sante",
+  "name": "Santé",
+  "website": "https://www.santehq.com",
+  "summary": "Santé is a point-of-sale system for liquor and wine stores that combines checkout, inventory, online sales, and delivery apps in one place. It also includes AI tools for receiving invoices and ordering stock.",
+  "helpsWith": [
+   "Checkout and point-of-sale at the register",
+   "AI invoice receiving and inventory management",
+   "Online store with product catalog and delivery app orders",
+   "Smart ordering and pricing alerts"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "pos-hardware",
+   "desktop"
+  ],
+  "setupMinutes": 120,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no price; it says the software fee varies by store size and you must request a free demo to get pricing."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "centralcoms",
+  "name": "CentralComs",
+  "website": "https://www.centralcoms.com",
+  "summary": "CentralComs uses AI agents to answer calls, texts, and emails for home service shops, book jobs, and follow up on unsold quotes and past customers.",
+  "helpsWith": [
+   "Answers calls when your team is busy, including evenings and weekends, and books the next open time",
+   "Replies to new texts and emails and books a visit in the same chat",
+   "Follows up on unsold quotes and past customers who are due for service",
+   "Sends visit reminders and asks for online reviews after completed jobs"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start a free trial on the CentralComs website and sign up.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a free trial but does not list monthly plan prices, so no starting price is known."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "bidflow",
+  "name": "Bidflow",
+  "website": "https://getbidflow.com",
+  "summary": "BidFlow is proposal software for contractors. You describe a project and it creates a professional proposal, which you can share with clients for approval and e-signature.",
+  "helpsWith": [
+   "Create contractor proposals with AI from a project description",
+   "Share proposals with clients through a secure link where they can approve and sign",
+   "Export proposals as PDF files for printing or email"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 10,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The free plan includes up to 3 proposals per month with no credit card needed, and the Pro plan (price not shown on the page) gives unlimited proposals and advanced features."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "minicart",
+  "name": "Minicart",
+  "website": "https://minicart.com",
+  "summary": "Minicart turns a product photo into your own online store. It also offers AI helpers that draft marketing posts, manage orders and stock, and write customer replies for you to review.",
+  "helpsWith": [
+   "Creates product listings and a storefront from a photo",
+   "Drafts social media posts and promotions for your review",
+   "Tracks inventory, prepares shipping and drafts customer replies",
+   "Imports listings from Etsy, Shopify or eBay"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Starting to sell is free with no credit card required, and there are no listing fees, though payment processing fees apply when you sell; the page does not list monthly plan prices beyond a $1 first month offer on the Assistant Plan."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "handoff",
+  "name": "Handoff",
+  "website": "https://www.handoff.ai",
+  "summary": "Handoff is an all-in-one software tool for residential builders and remodelers. It helps with estimates, takeoffs, client management, project tracking, and invoicing.",
+  "helpsWith": [
+   "Create estimates and material takeoffs, including from plan files",
+   "Track leads, clients, and project pipeline in one place",
+   "Manage project budgets, schedules, and change orders",
+   "Send invoices and manage client approvals through a client portal"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start a free trial or Sign up on handoff.ai to create an account.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a free trial and a Pricing page, but no specific plan prices are shown on the homepage."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "vori",
+  "name": "Vori",
+  "website": "https://www.vori.com",
+  "summary": "Vori is a point-of-sale system for independent grocery stores. It connects checkout, pricing, ordering, loyalty and reporting in one platform.",
+  "helpsWith": [
+   "Run checkout and accept payments at the register",
+   "Manage pricing, shelf tags and margin protection",
+   "Simplify ordering, receiving and inventory tracking",
+   "See sales and reporting to find what is working"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "pos-hardware"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices, so no plan or cost is listed; contact Vori for pricing."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "feldy",
+  "name": "Feldy",
+  "website": "https://feldy.ai",
+  "summary": "Feldy lets field crews capture a job with photos, videos, and walkthroughs, then turns it into measurements and estimates. It is built for property trades like roofing and exterior work.",
+  "helpsWith": [
+   "Turns field photos and walkthroughs into structured job notes",
+   "Builds 3D roof and exterior models with measurements",
+   "Creates estimates from captured job data",
+   "Shares photos, notes, and estimates with the office in real time"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "image-video",
+  "platforms": [
+   "ios",
+   "android",
+   "web"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Click Try for free on feldy.ai and sign up for the 7-day trial without a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a 7-day free trial with no credit card required, but it does not show monthly plan prices."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "launch"
+ },
+ {
+  "slug": "tilvo",
+  "name": "Tilvo",
+  "website": "https://tilvo.ai",
+  "summary": "Tilvo is an all-in-one platform for restaurants that handles online ordering, a website, a kitchen display screen, marketing, and AI phone ordering. It is meant to help independent restaurants take orders directly instead of through delivery marketplaces.",
+  "helpsWith": [
+   "Takes online and phone orders directly, with no marketplace commission",
+   "Builds a restaurant website and online menu without code",
+   "Answers and takes phone orders with an AI voice agent 24/7",
+   "Shows kitchen orders on a kitchen display screen and sends marketing and loyalty offers"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Click Book a Demo or Get Started on tilvo.ai to request a demo or sign up.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed; check the Pricing page for plans."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "bakestreet",
+  "name": "BakeStreet",
+  "website": "https://bakestreet.co",
+  "summary": "BakeStreet is bakery software that handles custom orders, online sales, in-store POS, kitchen production planning, deliveries, reviews, and owner reporting in one system. It is built for bakeries with $500k+ in sales.",
+  "helpsWith": [
+   "Collects custom cake and order requests in one place",
+   "Runs online sales with your sizes and customization rules shown upfront",
+   "Turns orders into a weekly bake plan and runs the in-store counter and pickups",
+   "Manages delivery planning without third-party commissions"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "pos-hardware"
+  ],
+  "setupMinutes": 2880,
+  "selfServe": false,
+  "howToStart": "Book a 20-minute demo through the bakestreet.co site, where a specialist walks you through setup over about two weeks.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The site does not show any prices, so no starting price is listed; pricing is only available on the Pricing page or by booking a demo."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "echoplate",
+  "name": "EchoPlate",
+  "website": "https://www.echoplate.ai",
+  "summary": "EchoPlate is an AI assistant that takes food orders from customers by phone, WhatsApp, text, and Messenger. It is meant to handle orders around the clock so staff can focus on cooking and service.",
+  "helpsWith": [
+   "Takes food orders from customers in natural conversation",
+   "Answers phone, WhatsApp, text, and Messenger orders at any hour",
+   "Suggests add-on items to customers during an order",
+   "Sends orders to your point-of-sale system and kitchen"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 1440,
+  "selfServe": false,
+  "howToStart": "Request the free demo on the EchoPlate website, which the page says needs no credit card and sets up in about 24 hours.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices or plans, so no starting price can be confirmed; it lists a free demo and a money-back guarantee."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "owner-com",
+  "name": "Owner.com",
+  "website": "https://www.owner.com",
+  "summary": "gives restaurants their own website, online ordering, and a branded mobile app so customers can order directly instead of through third-party apps. It also helps restaurants show up in Google search and run follow-up marketing to bring customers back.",
+  "helpsWith": [
+   "Takes online orders on your own website and app without third-party delivery fees",
+   "Helps your restaurant rank higher in Google search",
+   "Runs follow-up messages and loyalty rewards to bring customers back",
+   "Includes a branded mobile app for your restaurant"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed here; check the pricing page for plans."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "flavorfeed-ai",
+  "name": "FlavorFeed AI",
+  "website": "https://www.flavorfeed.ai",
+  "summary": "FlavorFeed AI is a restaurant point-of-sale system offered free, with features for taking orders, a kitchen display, online ordering, and digital signage. It also includes AI tools for marketing.",
+  "helpsWith": [
+   "Taking orders and payments at the counter or table",
+   "Showing orders on a kitchen display screen",
+   "Accepting online orders",
+   "Creating marketing with AI tools"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "social",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Go to flavorfeed.ai and sign up on the website, since the page does not describe a separate sign-up process.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "free",
+   "note": "The page says the platform is free forever with no contracts, but it does not list plan details or any paid tiers."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "menu-tiger",
+  "name": "MENU TIGER",
+  "website": "https://www.menutiger.com",
+  "summary": "A restaurant management system with QR code ordering, point of sale, kitchen display, and table management. It lets guests order and pay from their phones.",
+  "helpsWith": [
+   "Guests order and pay by scanning a QR code at the table",
+   "Point of sale and kitchen display for front and back of house",
+   "Table management with live occupancy and a visual floor plan",
+   "Built-in sales reports and an AI-assisted menu builder"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A free plan is listed at US$0 per month with 75 orders per month, and a paid Regular plan starts at US$17 per month for 500 orders per month, but the page is cut off so other plan details are not shown."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "flowwbook",
+  "name": "Flowwbook",
+  "website": "https://flowwbook.com",
+  "summary": "Flowwbook is booking software for service businesses like salons, clinics and barbershops. It gives you a booking page, a WhatsApp AI assistant, deposits, reminders and a walk-in queue in one system.",
+  "helpsWith": [
+   "Lets customers book appointments on your own booking page",
+   "Answers customer questions and takes bookings through a WhatsApp AI assistant",
+   "Takes deposits and sends reminders",
+   "Manages a walk-in queue"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The page shows a Start free button but does not list plan prices, so no monthly price is stated here."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "mangomint",
+  "name": "Mangomint",
+  "website": "https://www.mangomint.com",
+  "summary": "Mangomint is scheduling and management software for salons, spas, barbershops and similar beauty and wellness businesses. It handles bookings, payments, client records and marketing in one place.",
+  "helpsWith": [
+   "Online booking and calendar scheduling for appointments",
+   "Payments and point-of-sale for checkout",
+   "Client records, memberships, packages and gift cards",
+   "AI receptionist (Mira) that answers calls and texts and books appointments"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed here; check the pricing page on the Mangomint website for plans."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "bookingbee",
+  "name": "BookingBee",
+  "website": "https://bookingbee.ai",
+  "summary": "BookingBee is an AI receptionist for beauty salons, spas, med spas and barbershops. It answers calls and website chats 24/7, books appointments, and answers common questions.",
+  "helpsWith": [
+   "Answers client phone calls and books appointments, including after hours",
+   "Replies to website chats, Instagram, Facebook, WhatsApp and SMS messages",
+   "Sends appointment confirmations and reminders to cut no-shows",
+   "Syncs bookings into your existing salon calendar software"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 15,
+  "selfServe": false,
+  "howToStart": "Click the Schedule a demo or Contact Us button on bookingbee.ai to request a demo and get pricing.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the starting monthly cost is listed as 0 and you need to ask BookingBee for their plans and rates."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "barber-shop",
+  "name": "barber.shop",
+  "website": "https://barber.shop",
+  "summary": "Online booking, a public web page for your shop, and a back-office dashboard for appointments, barbers, schedules, and payments. Built for barber shops.",
+  "helpsWith": [
+   "Lets customers book appointments online on your own shop page",
+   "Manages appointments, barber schedules, and payments from one dashboard",
+   "Accepts card payments online and in person through a CardPointe terminal"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone",
+   "pos-hardware"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Go to barber.shop and click Get Started to sign up and get your free shop page.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "free",
+   "note": "The page says there is no credit card needed to start and no per-barber fees, but it does not list a monthly price, so the starting price is shown as 0 and the actual plan cost is not stated."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "town",
+  "name": "Town",
+  "website": "https://town.club",
+  "summary": "Town gives independent restaurants their own website with online ordering, delivery, loyalty and email marketing. The page says you keep your guests and pay no commission on orders from your own site.",
+  "helpsWith": [
+   "Takes pickup, delivery and catering orders on your own website",
+   "Runs loyalty rewards and sends text and email campaigns to your own guest list",
+   "Helps your restaurant show up in local Google search"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "website",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "Book a demo through the Book a demo button on town.club or call (469) 249-2795.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page says one flat monthly price with 0% commission, but it does not show the actual dollar amount, so contact sales for pricing."
+  },
+  "trades": [
+   "restaurant"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "avoschedule",
+  "name": "AvoSchedule",
+  "website": "https://www.avoschedule.com",
+  "summary": "Online booking and scheduling software for salons, spas and other small beauty or wellness businesses. It lets clients book appointments 24/7 and sends reminders to cut no-shows.",
+  "helpsWith": [
+   "Lets clients book appointments online at any time",
+   "Sends SMS and email reminders before appointments",
+   "Keeps client history and notes in one place",
+   "Shows basic business reports on bookings and revenue"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Click Get Started Free on the website and create an account, which needs no credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A Free plan costs $0 with 1 user and unlimited appointments, and a Pro plan is listed at $14.99 per month billed annually."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "vibe-retail",
+  "name": "Vibe Retail",
+  "website": "https://viberetail.com",
+  "summary": "Vibe is a point-of-sale system for retail stores. It handles inventory, payments, and business reporting in one place.",
+  "helpsWith": [
+   "Track inventory in real time from one back office",
+   "Process payments at the register",
+   "Run reports and analytics across locations",
+   "Manage e-commerce sales alongside in-store sales"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "pos-hardware",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Visit the Vibe Retail website and contact the company to request a demo or sign-up.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the lowest monthly cost is listed as 0 and should be confirmed with the company."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "mutasib",
+  "name": "Mutasib",
+  "website": "https://www.mutasib.com",
+  "summary": "Mutasib is a point-of-sale and shop management app. It handles checkout with barcode scanning, tracks stock, keeps customer credit balances, and sends digital receipts.",
+  "helpsWith": [
+   "Checkout with barcode scanning and cash or card payment",
+   "Automatic stock tracking with low-stock alerts",
+   "Tracking customer credit balances",
+   "Digital receipts and sales analytics"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "android"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Sign up for a free account on the Mutasib website, then add your products and start selling from the POS screen.",
+  "draftPricing": {
+   "startingMonthlyUsd": 9,
+   "model": "freemium",
+   "note": "Free to start with no credit card needed, with paid plans from $9 per month; the page does not name the individual plans."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "markt-pos",
+  "name": "Markt POS",
+  "website": "https://www.marktpos.com",
+  "summary": "Markt POS is a point of sale system for independent and specialty food markets such as butcher shops, seafood markets, and organic food stores. It includes AI assistants for marketing, customer support, and pricing checks.",
+  "helpsWith": [
+   "Runs checkout with inventory tracking and self-checkout",
+   "Builds targeted promotions and campaigns for customers",
+   "Answers customer questions by text outside business hours",
+   "Scans supplier invoices to update products, prices, and shelf tags"
+  ],
+  "categoryId": "inventory",
+  "subcategoryId": "inventory-manager",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "pos-hardware"
+  ],
+  "setupMinutes": 30,
+  "selfServe": false,
+  "howToStart": "Request a demo or call +1 (877) 752-0625, since the page points to demos and sales contact rather than self sign-up.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed here; pricing is only on the separate Pricing page."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "octopos",
+  "name": "Octopos",
+  "website": "https://www.octopos.com",
+  "summary": "Octopos is a point-of-sale system for independent corner stores, covering checkout, inventory, loyalty and marketing. It was built by a former store owner who ran three stores.",
+  "helpsWith": [
+   "Checkout with barcode scanning, weighed items, EBT and multiple payment types",
+   "AI reads vendor invoices and flags cost increases",
+   "AI drafts marketing texts and coupons for you to approve",
+   "Inventory tracking and reorder suggestions from your phone"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "pos-hardware"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page lists a 14-day free trial with no credit card needed, but it does not show any monthly plan prices, so the starting price is listed as 0 and the real cost is unknown."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "ringdesk",
+  "name": "RingDesk",
+  "website": "https://getringdesk.com",
+  "summary": "An AI receptionist that answers your business phone 24/7, qualifies callers, books appointments, and sends emergencies to you. Built for service trades like plumbing and HVAC.",
+  "helpsWith": [
+   "Answers every call, so no calls go to voicemail",
+   "Asks qualifying questions and books appointments on your calendar",
+   "Routes emergency calls to you or your team"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 35,
+   "model": "trial",
+   "note": "The page lists a starting price of $35 per month after a 7-day free trial that needs no card."
+  },
+  "lane": "second-hop"
+ },
+ {
+  "slug": "salonagent",
+  "name": "SalonAgent",
+  "website": "https://www.salonagent.ai",
+  "summary": "An AI receptionist that answers salon calls, chats and DMs around the clock and books appointments into your booking software. It also fills empty slots in your calendar.",
+  "helpsWith": [
+   "Answers every call 24/7, including after hours and when the line is busy",
+   "Books appointments directly into Phorest, Meevo or Square",
+   "Handles web chat and text messages for bookings",
+   "Passes calls to your team when they are free, and files a message if no one can take the call"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30240,
+  "selfServe": false,
+  "howToStart": "Book a free demo through the Pick a Time With Our Team option on the website.",
+  "draftPricing": {
+   "startingMonthlyUsd": 80,
+   "model": "paid",
+   "note": "Starts at $80/month for Webchat, $200/month for the 24/7 Call Agent, or $250/month for the bundle, with a free trial on every plan."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "ringowl",
+  "name": "RingOwl",
+  "website": "https://www.ringowl.ai",
+  "summary": "RingOwl is an AI phone answering service. It answers your calls, books appointments on your calendar, and sends you a text or email summary of each call.",
+  "helpsWith": [
+   "Answers calls 24/7, including after hours and when you are busy",
+   "Books appointments on your Google Calendar",
+   "Routes callers to the right cell phone by name or keypress",
+   "Calls back website form leads within about a minute"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Start the 7-day free trial on the RingOwl website, pick your industry pack, then forward your existing phone number to RingOwl.",
+  "draftPricing": {
+   "startingMonthlyUsd": 10,
+   "model": "trial",
+   "note": "After a 7-day free trial with 30 minutes included, plans are Lite at $10/mo, Starter at $49/mo, and Growth at $99/mo."
+  },
+  "lane": "second-hop"
+ },
+ {
+  "slug": "hylen",
+  "name": "Hylen",
+  "website": "https://hylen.store",
+  "summary": "A point of sale and inventory system for small shops. It handles checkout, stock across locations, customer debts and store credit, and sales reports.",
+  "helpsWith": [
+   "Checkout and thermal or emailed receipts, with offline-ready sales",
+   "Inventory tracking, barcode scanning, and purchase orders for suppliers",
+   "Customer store credit, debt tracking, and WhatsApp payment reminders",
+   "Shift tracking, cash drawer records, and sales, tax, and stock reports as CSV"
+  ],
+  "categoryId": "payments",
+  "subcategoryId": "pos",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone",
+   "desktop",
+   "pos-hardware"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Click Sign up on hylen.store, create your shop account, and choose one of the three plans to start selling.",
+  "draftPricing": {
+   "startingMonthlyUsd": 39.99,
+   "model": "paid",
+   "note": "One plan at $39.99 per month, or $219.99 for 6 months, or $399.99 per year, with all features included and no per-terminal fees."
+  },
+  "trades": [
+   "retail"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "ringbooker",
+  "name": "RingBooker",
+  "website": "https://ringbooker.com",
+  "summary": "RingBooker is an AI phone receptionist for salons and spas. It answers calls after hours and during busy times on your current number, and sends text follow-ups to recover missed bookings.",
+  "helpsWith": [
+   "Answers after-hours and overflow calls on your current business number",
+   "Handles booking, reschedule, and cancel requests on the call",
+   "Sends automatic text-back to callers who hang up or call after hours",
+   "Gives call summaries and transcripts so your team knows what each caller wanted"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "phone-ai",
+  "workload": "voice-agent",
+  "platforms": [
+   "phone",
+   "web"
+  ],
+  "setupMinutes": 15,
+  "selfServe": true,
+  "howToStart": "Start the 14-day free trial on the RingBooker pricing page, then forward your business line and follow the guided setup.",
+  "draftPricing": {
+   "startingMonthlyUsd": 79,
+   "model": "paid",
+   "note": "Starter is $79 per month plus tax where applicable (up to 100 captured calls), Professional is $149 per month (up to 200 captured calls), and a 14-day free trial is offered with no card needed to start."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "simple-salon",
+  "name": "Simple Salon",
+  "website": "https://www.simplesalon.com",
+  "summary": "Cloud software for salons and spas that handles online bookings, appointment book, point of sale, staff rosters, client records and reports. It runs in a web browser, so you can manage the salon from anywhere.",
+  "helpsWith": [
+   "Online booking that fills your appointment book, with reminders and payments",
+   "Client records, memberships and loyalty points that stay with the business when staff leave",
+   "Reports on sales, stock, gift vouchers and popular services",
+   "Staff rosters and access levels so each person sees only what they need"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 1440,
+  "selfServe": true,
+  "howToStart": "Click Start free 14-day trial on the Simple Salon website and sign up in your browser.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a free 14-day trial with no card required, but does not show any monthly prices, so the real plan cost is unknown from this page."
+  },
+  "trades": [
+   "salon"
+  ],
+  "lane": "second-hop"
  }
 ]

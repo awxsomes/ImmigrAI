@@ -186,6 +186,8 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
     (n) => n.toLowerCase() !== tool.name.toLowerCase(),
   );
   const priceVerified = priceAppears(facts.data.startingMonthlyUsd, facts.citations);
+  // Being listed in a system's own app marketplace is evidence that it connects to that system.
+  const listedIn = (tool.listedIn ?? []) as Array<{ system: string; url: string }>;
 
   return {
     checkedAt: new Date().toISOString().slice(0, 10),
@@ -214,7 +216,8 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
       sourceUrl: languageSource,
       totalClaim: langs.data.totalClaim,
     },
-    integrations,
+    integrations: [...new Set([...integrations, ...listedIn.map((l) => l.system)])],
+    ...(listedIn.length ? { integrationSources: Object.fromEntries(listedIn.map((l) => [l.system, l.url])) } : {}),
     caution: facts.data.caution ? plainText(facts.data.caution) : null,
   };
 }

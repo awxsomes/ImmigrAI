@@ -49,11 +49,21 @@ export async function readJson<T>(req: Request): Promise<T> {
   if (Number(req.headers.get("content-length") ?? "0") > MAX_BODY_BYTES) throw new HttpError(413, "Request too large.");
   const text = await req.text();
   if (text.length > MAX_BODY_BYTES) throw new HttpError(413, "Request too large.");
+  let parsed: unknown;
   try {
-    return JSON.parse(text) as T;
+    parsed = JSON.parse(text);
   } catch {
     throw new HttpError(400, "Invalid JSON.");
   }
+  if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) throw new HttpError(400, "Invalid JSON.");
+  return parsed as T;
+}
+
+const LANGS = new Set(["en", "es", "zh", "vi"]);
+
+/** Only the languages the site has. A made-up code would otherwise skip the cache and start a new paid search. */
+export function cleanLang(input: unknown): string {
+  return typeof input === "string" && LANGS.has(input) ? input : "en";
 }
 
 /** Remove control characters and cap length. Keeps letters in any script. */

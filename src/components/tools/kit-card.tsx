@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
 import { NEW_TOOLS, SEED_BY_SLUG } from "@/data/seed-tools";
-import { displayLanguage } from "@/lib/format";
+import { displayLanguage, paidMonthly } from "@/lib/format";
 import type { Dict } from "@/lib/i18n";
 import { fmt } from "@/lib/labels";
 import { pageLanguageName } from "@/lib/localize";
@@ -15,9 +15,14 @@ export function kitTools(kit: Bundle): Tool[] {
   });
 }
 
+/** What the kit costs on the lowest plans, and what it comes to once someone moves to the first paid ones. */
 export function kitCost(tools: Tool[], t: Dict) {
-  const total = Math.round(monthlyTotal(tools) * 100) / 100;
-  return total === 0 ? t.kit_free : fmt(t.kit_cost, { n: total });
+  const round = (n: number) => Math.round(n * 100) / 100;
+  const low = round(monthlyTotal(tools));
+  const paid = round(tools.reduce((sum, tool) => sum + paidMonthly(tool), 0));
+  if (paid === 0) return t.kit_free;
+  if (low === paid) return fmt(t.kit_costAll, { n: low });
+  return low === 0 ? fmt(t.kit_costFreeFirst, { paid }) : fmt(t.kit_costRange, { low, paid });
 }
 
 /** Languages most spoken by immigrant owners in the US, checked in this order after the page's own. */

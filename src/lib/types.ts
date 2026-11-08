@@ -31,6 +31,47 @@ export interface ToolAi {
   feature: string;
 }
 
+export const BUSINESS_TYPES = ["restaurant", "salon", "retail", "trades", "cleaning"] as const;
+export type BusinessType = (typeof BUSINESS_TYPES)[number];
+
+/** Team size as owners think of it. */
+export type TeamSize = "" | "1" | "2-5" | "6-20" | "21+";
+
+/**
+ * How closely a tool fits one job.
+ * trade: built for one kind of business. task: does one job without being told how.
+ * suite: broad business software. general: a blank box the owner has to write prompts for.
+ */
+export type ToolFocus = "trade" | "task" | "suite" | "general";
+
+/** One plan as the company sells it, each price found on a cited page. */
+export interface PricePlan {
+  name: string;
+  monthlyUsd: number;
+  /** What the price is counted by. */
+  per: "business" | "person" | "location" | "use";
+  includes: string;
+}
+
+export type PolicyKind = "cancel" | "refund" | "contract" | "ai-training" | "data-export";
+
+export interface ToolPolicy {
+  kind: PolicyKind;
+  say: string;
+  /** Only set when the page is on the company's own site. */
+  url: string;
+}
+
+/** What an owner needs in order to actually start using a tool. */
+export interface ToolGuide {
+  accountSteps: string[];
+  connectSteps: string[];
+  stepsUrl: string;
+  policies: ToolPolicy[];
+  trial: string;
+  paywall: string;
+}
+
 export interface ToolPricing {
   /**
    * Lowest monthly price in USD that unlocks real business use, used for filters, totals and
@@ -44,6 +85,8 @@ export interface ToolPricing {
   note: string;
   /** Transaction, per-employee or hardware fees, shown so nothing is hidden. */
   extraFees?: string;
+  /** Every plan we could confirm, cheapest first. */
+  plans?: PricePlan[];
   sourceUrl?: string;
   /** True when the price was found in the text of a cited page. */
   verified: boolean;
@@ -78,6 +121,8 @@ export interface ReviewSummary {
 }
 
 export interface ToolScores {
+  /** How closely it is made for one job, out of 5. */
+  focus: number;
   easeOfUse: number;
   affordability: number;
   languageSupport: number;
@@ -95,6 +140,11 @@ export interface Tool {
   summary: string;
   helpsWith: string[];
   ai: ToolAi;
+  focus: ToolFocus;
+  /** The kinds of business it is built for. Empty when it is meant for any business. */
+  trades: BusinessType[];
+  /** Setup steps and rules, when public pages confirmed them. */
+  guide?: ToolGuide;
   categoryId: string;
   subcategoryId: string;
   /** Other needs it serves, as "categoryId/subcategoryId". */
@@ -107,6 +157,8 @@ export interface Tool {
   languagesTotal?: string;
   /** Products it connects with, confirmed from a cited page. */
   integrations: string[];
+  /** The app marketplace page proving a connection, by product name. */
+  integrationSources?: Record<string, string>;
   platforms: string[];
   reviews: ReviewSummary;
   environmental: EnvironmentalEstimate;
@@ -161,6 +213,22 @@ export interface SavedTool {
   myRating?: number;
   note?: string;
   inUse: boolean;
+  /** Filled in by the owner when they pay for this tool. */
+  subscription?: Subscription;
+}
+
+export interface Subscription {
+  monthlyUsd: number;
+  /** ISO date of the next charge, if the owner knows it. */
+  renewsOn?: string;
+  /** ISO date a free trial turns into a charge. */
+  trialEndsOn?: string;
+}
+
+/** Optional answers that make recommendations fit this business. */
+export interface BusinessProfile {
+  type: BusinessType | "";
+  size: TeamSize;
 }
 
 /** What the browser stores locally. No account and no server copy. */
@@ -169,6 +237,7 @@ export interface UserData {
   /** The language this owner works in, used to check each tool. */
   language: string;
   savedTools: Record<string, SavedTool>;
+  business: BusinessProfile;
   /** Software the business already runs, such as QuickBooks or Square. */
   alreadyUse: string[];
   /** Snapshots of saved or discovered tools, so their pages work offline. */
