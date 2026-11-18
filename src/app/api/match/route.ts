@@ -1,7 +1,7 @@
 import { SYSTEM_NAMES } from "@/data/systems";
 import { env } from "@/lib/env";
 import { isBusinessType, matchNeed } from "@/lib/match";
-import { allowRequest, clientKey } from "@/lib/ratelimit";
+import { allowRequest } from "@/lib/ratelimit";
 import { assertSameOrigin, cleanLang, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 import type { TeamSize } from "@/lib/types";
 
@@ -18,7 +18,7 @@ export async function POST(req: Request) {
     const need = cleanText(body.need, 300);
     if (need.length < 3) throw new HttpError(400, "Tell us what you need.");
 
-    if (!allowRequest(clientKey(req), 6)) throw new HttpError(429, "Too many searches. Please wait a minute.");
+    if (!allowRequest(req, "match", 6)) throw new HttpError(429, "Too many searches. Please wait a minute.");
 
     let cost = 0;
     const result = await matchNeed(

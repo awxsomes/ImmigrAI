@@ -186,6 +186,8 @@ export interface Subcategory {
   id: string;
   name: string;
   keywords: string[];
+  /** Phrases that look like a keyword but mean something else, such as "ice cream". Removed before matching. */
+  excludeKeywords?: string[];
   description: string;
 }
 

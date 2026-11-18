@@ -46,6 +46,8 @@ interface Entry {
   sub: string[];
   cat: string[];
   raw: string[];
+  /** Phrases removed from the question before this entry is scored, such as "ice cream". */
+  exclude: string[];
 }
 
 function prepare(): Entry[] {
@@ -61,21 +63,30 @@ function prepare(): Entry[] {
       sub: [...new Set([e.subcategoryName, ...e.subKeywords, ...words.filter((w) => !CJK.test(w))].map(normalize))].filter(Boolean),
       cat: [...new Set([e.categoryName, ...e.categoryKeywords].map(normalize))].filter(Boolean),
       raw: words.filter((w) => CJK.test(w)),
+      exclude: (e.excludeKeywords ?? []).map(normalize).filter(Boolean),
     };
   });
 }
 
 let entries: Entry[] | null = null;
 
+/** Removes each phrase wherever it appears as whole words. `text` is padded with spaces. */
+function withoutPhrases(text: string, phrases: string[]) {
+  let out = text;
+  for (const phrase of phrases) {
+    while (out.includes(` ${phrase} `)) out = out.replace(` ${phrase} `, " ");
+  }
+  return out;
+}
+
 export function localSuggestions(query: string, limit = 5): Suggestion[] {
   const trimmed = query.trim();
   if (trimmed.length < 2) return [];
   entries ??= prepare();
 
-  const q = ` ${normalize(trimmed)} `;
-  const words = new Set(q.trim().split(" "));
+  const full = ` ${normalize(trimmed)} `;
   // Needs two meaningful words. Filler alone ("help wanted" is all filler) would match everything.
-  const hasAllWords = (phrase: string) => {
+  const hasAllWords = (phrase: string, words: Set<string>) => {
     const meaningful = phrase.split(" ").filter((word) => !STOP.has(word));
     return meaningful.length >= 2 && meaningful.every((word) => words.has(word));
   };
@@ -83,10 +94,12 @@ export function localSuggestions(query: string, limit = 5): Suggestion[] {
 
   for (const entry of entries) {
     let score = 0;
+    const q = withoutPhrases(full, entry.exclude);
+    const words = new Set(q.trim().split(" "));
     for (const phrase of entry.sub) {
       if (q.includes(` ${phrase} `)) score += 4 + phrase.split(" ").length * 2;
       // Every word present but not side by side, such as "pay my two employees".
-      else if (hasAllWords(phrase)) score += 2 + phrase.split(" ").length * 2;
+      else if (hasAllWords(phrase, words)) score += 2 + phrase.split(" ").length * 2;
     }
     for (const phrase of entry.cat) {
       if (q.includes(` ${phrase} `)) score += 1 + phrase.split(" ").length;

@@ -1,7 +1,7 @@
 import { SEED_BY_SLUG, SEED_TOOLS } from "@/data/seed-tools";
 import { lookupTool } from "@/lib/discover";
 import { slugify } from "@/lib/normalize";
-import { allowRequest, clientKey } from "@/lib/ratelimit";
+import { allowRequest } from "@/lib/ratelimit";
 import { assertSameOrigin, cleanId, cleanLang, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 
 export const maxDuration = 60;
@@ -19,7 +19,7 @@ export async function POST(req: Request) {
     const known = (slug && SEED_BY_SLUG.get(slug)) || SEED_TOOLS.find((t) => slugify(t.name) === slugify(name || slug));
     if (known) return Response.json({ tool: known }, { headers: NO_STORE_HEADERS });
 
-    if (!allowRequest(clientKey(req), 6)) throw new HttpError(429, "Too many lookups. Please wait a minute.");
+    if (!allowRequest(req, "tool", 6)) throw new HttpError(429, "Too many lookups. Please wait a minute.");
 
     const tool = await lookupTool(name || slug.replace(/-/g, " "), lang);
     return Response.json({ tool }, { status: tool ? 200 : 404, headers: NO_STORE_HEADERS });

@@ -1,9 +1,11 @@
+import { ADVICE_KEYS } from "@/lib/advice";
 import { COMPAT_KEYS, PROMPT_KEYS } from "@/lib/labels";
 
 /** Every word the checkup results use. Kept apart from a "use client" file so the server can read the list. */
 export const CHECKUP_KEYS = [
   ...COMPAT_KEYS,
   ...PROMPT_KEYS,
+  ...ADVICE_KEYS,
   "card_free", "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn", "price_amount", "price_amountPerson", "price_amountLocation", "price_amountUse", "price_plan",
   "tool_leaving",
   "checkup_title", "checkup_loading", "checkup_matched", "checkup_wrong", "checkup_pages", "checkup_pagesOne", "checkup_pagesNone", "checkup_partial",

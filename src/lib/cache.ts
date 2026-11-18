@@ -30,5 +30,6 @@ export function cacheSet<T>(key: string, value: T, ttlMs: number) {
   store.set(key, { value, expires: Date.now() + ttlMs });
 }
 
-export const HOUR = 3_600_000;
+export const MINUTE = 60_000;
+export const HOUR = 60 * MINUTE;
 export const DAY = 24 * HOUR;

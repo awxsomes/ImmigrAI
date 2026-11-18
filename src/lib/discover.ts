@@ -2,7 +2,7 @@ import "server-only";
 import { z } from "zod";
 import { MAX_MONTHLY_USD, MIN_RATING, SEED_BY_SLUG, seedToolsFor } from "@/data/seed-tools";
 import { findCategory, findSubcategory, flatTaxonomy, NO_LIVE_DISCOVERY } from "@/data/taxonomy";
-import { cacheGet, cacheSet, DAY, HOUR } from "./cache";
+import { cacheGet, cacheSet, DAY, HOUR, MINUTE } from "./cache";
 import { aiEnabled, env } from "./env";
 import { DISCOVERY_RESPONSE_SCHEMA, DiscoveryResponse, safeUrl, slugify, toTool, type DiscoveredToolInput } from "./normalize";
 import { reserveDailyCalls } from "./ratelimit";
@@ -31,7 +31,22 @@ import type { Suggestion, Tool } from "./types";
  *   suggestCategories: everyday words to a category (no web search, very cheap)
  *   discoverTools: find tools for a need by live web search, then verify each one
  *   lookupTool: research one named tool
+ *
+ * Each runs inside a route with a 60-second limit (20 for suggestions). Every call is tried
+ * once, with a time budget taken from one deadline, so a slow answer can never push the
+ * route past its limit. A failure is remembered for a few minutes, so a slow category is
+ * not paid for again on every visit.
  */
+
+/** Work allowed before giving up, leaving room to answer under maxDuration = 60. */
+const DEADLINE_MS = 50_000;
+/** How long a failed search is remembered. Short, so a passing problem clears itself. */
+const FAILURE_TTL = 5 * MINUTE;
+
+function deadline() {
+  const started = Date.now();
+  return () => DEADLINE_MS - (Date.now() - started);
+}
 
 export const AUDIENCE = `You help immigrant-owned main street businesses in the United States (restaurants, salons, corner stores, HVAC, landscaping, cleaning, trades) choose AI tools and apps. Many owners are not comfortable with technology and may have limited English. Write in plain, short sentences with no marketing words.`;
 
@@ -102,7 +117,9 @@ ${taxonomy}`,
     schemaName: "category_suggestions",
     schema: SUGGEST_SCHEMA,
     maxTokens: 300,
-    timeoutMs: 10_000,
+    // The route has 20 seconds. One try that fits beats two that do not.
+    timeoutMs: 12_000,
+    attempts: 1,
   });
 
   const parsed = SuggestResponse.safeParse(data);
@@ -131,6 +148,7 @@ async function verifyCandidate(
   citations: Citation[],
   categoryId: string,
   subcategoryId: string,
+  timeoutMs: number,
 ): Promise<Tool | null> {
   const reviews = await webJson<ReviewResponse>({
     apiKey: env.openRouterKey,
@@ -144,7 +162,8 @@ async function verifyCandidate(
     includeDomains: REVIEW_DOMAINS,
     maxResults: 8,
     maxTokens: 1200,
-    timeoutMs: 25_000,
+    timeoutMs,
+    attempts: 1,
   });
 
   // A newly found tool's name may belong to other products too, so a review page has to show its web address.
@@ -195,6 +214,12 @@ export async function discoverTools(input: DiscoverInput): Promise<DiscoverResul
   const key = `discover:${category.id}/${sub?.id ?? ""}:${input.businessType ?? ""}:${input.lang}:${(input.query ?? "").toLowerCase()}`;
   const cached = cacheGet<DiscoverResult>(key);
   if (cached) return cached;
+  const left = deadline();
+  const failed = (): DiscoverResult => {
+    const result: DiscoverResult = { tools: [], status: "error" };
+    cacheSet(key, result, FAILURE_TTL);
+    return result;
+  };
 
   if (!aiEnabled()) return { tools: [], status: "ai-off" };
   // One discovery call plus one review check per candidate.
@@ -226,10 +251,12 @@ export async function discoverTools(input: DiscoverInput): Promise<DiscoverResul
       schema: DISCOVERY_RESPONSE_SCHEMA,
       maxResults: 8,
       maxTokens: 2800,
+      // Leaves time to open each site and check its reviews.
       timeoutMs: 25_000,
+      attempts: 1,
     });
     const parsed = DiscoveryResponse.safeParse(data);
-    if (!parsed.success) return { tools: [], status: "error" };
+    if (!parsed.success) return failed();
 
     const seen = new Set(known.map((t) => t.slug));
     const candidates = parsed.data.tools
@@ -248,11 +275,16 @@ export async function discoverTools(input: DiscoverInput): Promise<DiscoverResul
       await Promise.all(
         candidates.map(async (c) => {
           const site = safeUrl(c.website);
-          return site && !(await siteProblem(site, 6_000)) ? c : null;
+          return site && !(await siteProblem(site, Math.max(1_000, Math.min(6_000, left() - 12_000)))) ? c : null;
         }),
       )
     ).filter((c) => c !== null);
-    const checked = await Promise.allSettled(usable.map((c) => verifyCandidate(c, citations, category.id, sub?.id ?? category.subcategories[0].id)));
+    // Each review check gets what is left. A tool whose reviews cannot be checked in time is left out.
+    const reviewBudget = left() - 1_000;
+    if (usable.length > 0 && reviewBudget < 4_000) return failed();
+    const checked = await Promise.allSettled(
+      usable.map((c) => verifyCandidate(c, citations, category.id, sub?.id ?? category.subcategories[0].id, Math.min(20_000, reviewBudget))),
+    );
     const tools = checked.flatMap((r) => (r.status === "fulfilled" && r.value ? [r.value] : []));
 
     const result: DiscoverResult = { tools, status: "ok", checkedAt: new Date().toISOString().slice(0, 10) };
@@ -260,7 +292,7 @@ export async function discoverTools(input: DiscoverInput): Promise<DiscoverResul
     return result;
   } catch (err) {
     console.error("[immigrai:discover]", err instanceof Error ? err.message : "failed");
-    return { tools: [], status: "error" };
+    return failed();
   }
 }
 
@@ -281,6 +313,7 @@ export async function lookupTool(name: string, lang: string): Promise<Tool | nul
   const cached = cacheGet<{ tool: Tool | null }>(key);
   if (cached) return cached.tool;
   if (!aiEnabled() || !reserveDailyCalls(2)) return null;
+  const left = deadline();
 
   const taxonomy = flatTaxonomy()
     .map((t) => `${t.categoryId}/${t.subcategoryId}`)
@@ -299,6 +332,7 @@ export async function lookupTool(name: string, lang: string): Promise<Tool | nul
       maxResults: 6,
       maxTokens: 1400,
       timeoutMs: 25_000,
+      attempts: 1,
     });
     const tool = data.found ? DiscoveryResponse.shape.tools.element.safeParse(data.tool) : null;
     if (!tool?.success || !verifyNames([tool.data.name], citations).length) {
@@ -306,11 +340,13 @@ export async function lookupTool(name: string, lang: string): Promise<Tool | nul
       return null;
     }
     const sub = findSubcategory(data.categoryId, data.subcategoryId);
-    const result = await verifyCandidate(tool.data, citations, sub ? data.categoryId : "learn", sub ? data.subcategoryId : "ai-courses");
+    const budget = Math.max(3_000, Math.min(20_000, left() - 1_000));
+    const result = await verifyCandidate(tool.data, citations, sub ? data.categoryId : "learn", sub ? data.subcategoryId : "ai-courses", budget);
     cacheSet(key, { tool: result }, DAY);
     return result;
   } catch (err) {
     console.error("[immigrai:lookup]", err instanceof Error ? err.message : "failed");
+    cacheSet(key, { tool: null }, FAILURE_TTL);
     return null;
   }
 }

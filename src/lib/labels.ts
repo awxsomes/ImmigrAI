@@ -1,3 +1,4 @@
+import { ADVICE_KEYS } from "./advice";
 import type { Dict } from "./i18n";
 
 /** Send client components only the words they use, instead of the whole dictionary. */
@@ -24,6 +25,7 @@ export const CARD_KEYS = [
   "card_builtFor", "card_generalNote", "trade_restaurant", "trade_salon", "trade_retail", "trade_trades", "trade_cleaning",
   "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",
+  ...ADVICE_KEYS,
 ] as const;
 
 export type CardLabels = Pick<Dict, (typeof CARD_KEYS)[number]>;

@@ -1,21 +1,38 @@
 /**
  * Translates the interface, long pages, kits and tool descriptions into Spanish,
- * Chinese and Vietnamese. Only missing text is translated, so re-runs are cheap.
+ * Chinese and Vietnamese. Only missing text, or text whose English changed since it was
+ * translated, is sent, so re-runs are cheap. `npm run check:i18n` fails CI on any gap.
  *
  *   node --env-file=.env.local scripts/translate-content.mts
  *   node --env-file=.env.local scripts/translate-content.mts --force
+ *   node --env-file=.env.local scripts/translate-content.mts --max-cost=2.50
+ *
+ * The interface, pages, kits and categories go first for every language, then tool text,
+ * so a run stopped by --max-cost still leaves the most visible words translated.
  *
  * This is machine translation. The site says so, and a native speaker should review
  * it before launch, especially the legal pages.
  */
 import fs from "node:fs";
 import path from "node:path";
-import { BUNDLES } from "../src/data/bundles.ts";
-import { SEED_BASE as HAND_WRITTEN } from "../src/data/seed-base.ts";
 import { CATEGORIES } from "../src/data/taxonomy.ts";
 import { DOCS } from "../src/content/docs.ts";
 import { TAXONOMY_NAMES } from "../src/content/taxonomy-names.ts";
-import { cleanResearchText } from "../src/lib/research-core.ts";
+import {
+  bundleSources,
+  docSource,
+  englishStrings,
+  ERRORS_FILE,
+  errorTexts,
+  GLOSSARY,
+  hash,
+  LANGUAGES,
+  missingFields,
+  subcategoryDescriptions,
+  toolSources,
+  type Lang,
+  type Store,
+} from "./i18n-sources.mts";
 
 const apiKey = process.env.OPENROUTER_API_KEY ?? "";
 const MODEL = process.env.OPENROUTER_MODEL || "anthropic/claude-haiku-5.5";
@@ -27,18 +44,14 @@ if (!apiKey) {
 const force = process.argv.includes("--force");
 /** Re-translate tool text only, after the research changed it. */
 const forceTools = process.argv.includes("--tools");
+/** Stop starting new batches once this many dollars are spent. A safety net for the key's spend limit. */
+const maxCost = Number(process.argv.find((a) => a.startsWith("--max-cost="))?.slice(11) ?? Infinity);
 const OUT_DIR = path.resolve("src/content/i18n");
-const SEED_BASE = [...HAND_WRITTEN, ...JSON.parse(fs.readFileSync("src/data/seed-discovered.json", "utf8"))];
-
-const LANGUAGES = {
-  es: "Spanish as used by Latin American immigrants in the US. Use the informal 'tú'.",
-  zh: "Simplified Chinese (简体中文).",
-  vi: "Vietnamese (Tiếng Việt).",
-} as const;
 
 /** Does this text look like the target language? Used to catch text handed back in English. */
 function inTargetLanguage(text: string, lang: keyof typeof LANGUAGES) {
-  if (text.length < 20) return true;
+  // Web addresses in a page's links are never translated, so they cannot count against it.
+  if (text.length < 20 || /^https?:\/\/\S+$/.test(text)) return true;
   if (lang === "zh") return /[\u4e00-\u9fff]/.test(text);
   if (lang === "vi") return /[ăâđêôơưạảãàáấầẩẫậắằẳẵặẹẻẽèéếềểễệỉĩìíịọỏõòóốồổỗộớờởỡợụủũùúứừửữựỳýỵỷỹ]/i.test(text);
   return (text.match(/\b(the|and|with|your|you|for)\b/gi) ?? []).length < 4;
@@ -50,10 +63,6 @@ function leaves(value: unknown): string[] {
   if (value && typeof value === "object") return Object.values(value).flatMap(leaves);
   return [];
 }
-type Lang = keyof typeof LANGUAGES;
-
-type Json = string | string[] | Json[] | { [key: string]: Json } | null | undefined;
-
 let totalCost = 0;
 
 async function translate(batch: Record<string, unknown>, lang: Lang): Promise<Record<string, unknown>> {
@@ -62,7 +71,10 @@ Rules:
 - Use short, plain, everyday words, as a helpful neighbor would. Avoid jargon and formal legal language where you can.
 - Return only a JSON object with exactly the same keys and structure. Translate string values only.
 - Keep placeholders such as {n}, {language}, {names}, {via}, {date}, {shown}, {total}, {rating}, {email}, {contact} and {total} exactly as they are.
-- Do not translate product and company names (ImmigrAI, QuickBooks, Square, Google, SBA, SCORE, IRS, EIN, OpenRouter, Vercel, Capterra, G2, Trustpilot and so on), URLs, or the storage names immigrai:consent and immigrai:v1.
+- Do not translate product and company names (ImmigrAI, QuickBooks, Square, Google, SBA, SCORE, IRS, VITA, EIN, OpenRouter, Exa, Vercel, LawHelp.org, Capterra, G2, Trustpilot and so on), URLs, or the storage names immigrai:consent and immigrai:v1.
+- Always use these words, so the same thing never has two names: ${Object.entries(GLOSSARY[lang])
+    .map(([english, word]) => `"${english}" = "${word}"`)
+    .join("; ")}.
 - Do not add explanations.`;
   for (let attempt = 0; attempt < 4; attempt++) {
     const res = await fetch("https://openrouter.ai/api/v1/chat/completions", {
@@ -118,8 +130,8 @@ function checkStrings(source: Record<string, string>, target: Record<string, unk
 }
 
 /** The model sometimes hands text back unchanged. Remove those so this run tries them again. */
-function dropUntranslated(store: { strings: Record<string, string>; tools: Record<string, Record<string, unknown>> }, lang: Lang) {
-  const english = JSON.parse(fs.readFileSync("src/content/strings.en.json", "utf8")) as Record<string, string>;
+function dropUntranslated(store: Store, lang: Lang) {
+  const english = englishStrings();
   const tools = toolSources();
   const looksEnglish = (text: unknown, source: unknown) =>
     typeof text === "string" && (text === source || (lang === "zh" && text.length > 12 && !/[\u4e00-\u9fff]/.test(text)));
@@ -141,17 +153,6 @@ function dropUntranslated(store: { strings: Record<string, string>; tools: Recor
   if (dropped) console.log(`${lang}: re-translating ${dropped} fields that came back untranslated`);
 }
 
-/** Only the fields this language does not have yet, so a new field does not re-translate a whole tool. */
-function missingFields(source: Record<string, Json>, have: Record<string, unknown> | undefined) {
-  const out: Record<string, Json> = {};
-  for (const [field, value] of Object.entries(source)) {
-    const existing = have?.[field];
-    const complete = Array.isArray(value) ? Array.isArray(existing) && existing.length === value.length : typeof existing === "string" && existing.length > 0;
-    if (!complete) out[field] = value;
-  }
-  return out;
-}
-
 function chunks<T>(items: T[], size: number) {
   const out: T[][] = [];
   for (let i = 0; i < items.length; i += size) out.push(items.slice(i, i + size));
@@ -163,6 +164,11 @@ async function pool<T>(tasks: Array<() => Promise<T>>, limit = 4) {
   await Promise.all(
     Array.from({ length: limit }, async () => {
       while (index < tasks.length) {
+        if (totalCost >= maxCost) {
+          console.warn(`  stopped at $${totalCost.toFixed(2)} (--max-cost). Run again to finish.`);
+          index = tasks.length;
+          break;
+        }
         try {
           await tasks[index++]();
         } catch (err) {
@@ -173,64 +179,48 @@ async function pool<T>(tasks: Array<() => Promise<T>>, limit = 4) {
   );
 }
 
-function toolSources() {
-  const research = JSON.parse(fs.readFileSync("src/data/research.json", "utf8")).tools as Record<
-    string,
-    {
-      pricing: { note: string; extraFees: string | null };
-      reviews: { summary: string };
-      caution: string | null;
-      ai?: { level: string; feature: string };
-      description?: { summary?: string; helpsWith?: string[]; howToStart?: string };
-      guide?: {
-        plans: Array<{ monthlyUsd: number; includes: string }>;
-        accountSteps: string[];
-        connectSteps: string[];
-        trial: string;
-        paywall: string;
-        policies: Array<{ say: string }>;
-      };
-    }
-  >;
-  const out: Record<string, Record<string, Json>> = {};
-  for (const base of SEED_BASE) {
-    const r = research[base.slug];
-    const entry: Record<string, Json> = {
-      summary: r?.description?.summary || base.summary,
-      helpsWith: r?.description?.helpsWith?.length ? r.description.helpsWith : base.helpsWith,
-      howToStart: r?.description?.howToStart || base.howToStart,
-    };
-    const aiFeature = base.aiOverride?.level === "none" ? "" : (base.aiOverride?.feature ?? r?.ai?.feature ?? "");
-    if (aiFeature) entry.aiFeature = aiFeature;
-    const note = base.priceOverride?.note || (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note;
-    if (note) entry.pricingNote = note;
-    const fees = r?.pricing.extraFees ? cleanResearchText(r.pricing.extraFees) : undefined;
-    if (fees) entry.extraFees = fees;
-    const summary = r?.reviews.summary ? cleanResearchText(r.reviews.summary, 480) : "";
-    if (summary) entry.reviewSummary = summary;
-    const caution = base.caution ?? (r?.caution ? cleanResearchText(r.caution, 240) : "");
-    if (caution) entry.caution = caution;
-    const g = r?.guide;
-    if (g) {
-      // Same order as the site shows them, so each translation lines up with its plan.
-      const includes = [...g.plans].sort((a, b) => a.monthlyUsd - b.monthlyUsd).map((plan) => plan.includes);
-      if (includes.length) entry.planIncludes = includes;
-      if (g.accountSteps.length) entry.accountSteps = g.accountSteps;
-      if (g.connectSteps.length) entry.connectSteps = g.connectSteps;
-      if (g.trial) entry.trial = g.trial;
-      if (g.paywall) entry.paywall = g.paywall;
-      if (g.policies.length) entry.policySay = g.policies.map((policy) => policy.say);
-    }
-    out[base.slug] = entry;
+/**
+ * A translation is out of date when its English changed since. Each one records a hash of
+ * the English it came from. Older entries with no hash are taken as current, once.
+ */
+function dropStale(store: Store) {
+  const sources = (store.sources ??= {});
+  const english = englishStrings();
+  const strings = (sources.strings ??= {});
+  for (const [key, text] of Object.entries(english)) {
+    if (!store.strings[key]) continue;
+    if (strings[key] && strings[key] !== hash(text)) delete store.strings[key];
+    else strings[key] = hash(text);
   }
-  return out;
+  for (const key of Object.keys(store.strings)) {
+    if (!(key in english)) {
+      delete store.strings[key];
+      delete strings[key];
+    }
+  }
+  const docs = (sources.docs ??= {});
+  for (const key of Object.keys(DOCS) as Array<keyof typeof DOCS>) {
+    if (!store.docs[key]) continue;
+    const current = hash(docSource(key));
+    const sections = (store.docs[key] as { sections?: unknown[] }).sections?.length;
+    if ((docs[key] && docs[key] !== current) || sections !== DOCS[key].sections.length) delete store.docs[key];
+    else docs[key] = current;
+  }
+  const bundles = (sources.bundles ??= {});
+  for (const [slug, source] of Object.entries(bundleSources())) {
+    if (!store.bundles[slug]) continue;
+    if (bundles[slug] && bundles[slug] !== hash(source)) delete store.bundles[slug];
+    else bundles[slug] = hash(source);
+  }
 }
 
-async function run(lang: Lang) {
+async function run(lang: Lang, phase: "core" | "tools") {
   const file = path.join(OUT_DIR, `${lang}.json`);
-  const store = fs.existsSync(file) && !force ? JSON.parse(fs.readFileSync(file, "utf8")) : { strings: {}, docs: {}, bundles: {}, tools: {} };
-  if (forceTools) store.tools = {};
+  const store: Store = fs.existsSync(file) && !force ? JSON.parse(fs.readFileSync(file, "utf8")) : { strings: {}, docs: {}, bundles: {}, tools: {} };
+  if (forceTools && phase === "tools") store.tools = {};
   dropUntranslated(store, lang);
+  dropStale(store);
+  const sources = (store.sources ??= {});
   const save = () => {
     for (let attempt = 0; ; attempt++) {
       try {
@@ -243,30 +233,41 @@ async function run(lang: Lang) {
     }
   };
 
-  const strings = JSON.parse(fs.readFileSync("src/content/strings.en.json", "utf8")) as Record<string, string>;
+  const strings = englishStrings();
   const missing = Object.keys(strings).filter((k) => !store.strings[k]);
   const tasks: Array<() => Promise<void>> = [];
 
-  for (const keys of chunks(missing, 50)) {
+  for (const keys of phase === "core" ? chunks(missing, 50) : []) {
     tasks.push(async () => {
       const source = Object.fromEntries(keys.map((k) => [k, strings[k]]));
-      Object.assign(store.strings, checkStrings(source, await translate(source, lang)));
+      const done = checkStrings(source, await translate(source, lang));
+      Object.assign(store.strings, done);
+      for (const key of Object.keys(done)) (sources.strings ??= {})[key] = hash(strings[key]);
       save();
     });
   }
-  for (const [key, doc] of Object.entries(DOCS)) {
+  for (const key of phase === "core" ? (Object.keys(DOCS) as Array<keyof typeof DOCS>) : []) {
     if (store.docs[key]) continue;
     tasks.push(async () => {
-      store.docs[key] = await translate(doc as unknown as Record<string, unknown>, lang);
+      const source = docSource(key);
+      const translated = (await translate(source as unknown as Record<string, unknown>, lang)) as { sections?: unknown[] };
+      // A page that lost or gained a section would put headings next to the wrong text.
+      if (translated.sections?.length !== source.sections.length) throw new Error(`${key}: sections do not line up`);
+      store.docs[key] = translated;
+      (sources.docs ??= {})[key] = hash(source);
       save();
     });
   }
-  const bundleSource = Object.fromEntries(
-    BUNDLES.filter((b) => !store.bundles[b.slug]).map((b) => [b.slug, { name: b.name, tagline: b.tagline, forWho: b.forWho, ...(b.note ? { note: b.note } : {}) }]),
-  );
-  if (Object.keys(bundleSource).length) {
+  const allBundles = bundleSources();
+  const bundleSource = Object.fromEntries(Object.entries(allBundles).filter(([slug]) => !store.bundles[slug]));
+  if (phase === "core" && Object.keys(bundleSource).length) {
     tasks.push(async () => {
-      Object.assign(store.bundles, await translate(bundleSource, lang));
+      const translated = (await translate(bundleSource, lang)) as Record<string, Record<string, string>>;
+      for (const [slug, fields] of Object.entries(translated)) {
+        if (!allBundles[slug]) continue;
+        store.bundles[slug] = fields;
+        (sources.bundles ??= {})[slug] = hash(allBundles[slug]);
+      }
       save();
     });
   }
@@ -275,10 +276,12 @@ async function run(lang: Lang) {
     const fields = missingFields(source, store.tools[slug]);
     return Object.keys(fields).length ? [[slug, fields] as const] : [];
   });
-  for (const group of chunks(missingTools, 5)) {
+  for (const group of phase === "tools" ? chunks(missingTools, 5) : []) {
     tasks.push(async () => {
       const translated = await translate(Object.fromEntries(group), lang);
+      const asked = new Set(group.map(([slug]) => slug));
       for (const [slug, fields] of Object.entries(translated)) {
+        if (!asked.has(slug) || !fields || typeof fields !== "object") continue;
         store.tools[slug] = { ...(store.tools[slug] ?? {}), ...(fields as Record<string, unknown>) };
       }
       save();
@@ -286,19 +289,19 @@ async function run(lang: Lang) {
   }
 
   // Names were translated by hand. Descriptions fill in the rest for the search dropdown.
-  const descriptions: Record<string, string> = {};
-  for (const category of CATEGORIES) for (const sub of category.subcategories) descriptions[sub.id] = sub.description;
+  const descriptions = subcategoryDescriptions();
   const taxFile = path.join(OUT_DIR, `${lang}.taxonomy.json`);
   const existingTax = fs.existsSync(taxFile) ? JSON.parse(fs.readFileSync(taxFile, "utf8")) : {};
-  const needDesc = force || Object.keys(descriptions).some((id) => !existingTax[id]?.desc);
-  if (needDesc) {
+  // Each description keeps a hash of the English it came from, so a changed one is translated again.
+  const needDesc = force || Object.entries(descriptions).some(([id, text]) => !existingTax[id]?.desc || (existingTax[id]?.from && existingTax[id].from !== hash(text)));
+  if (phase === "core" && needDesc) {
     tasks.push(async () => {
       const translated = (await translate(descriptions, lang)) as Record<string, string>;
-      const out: Record<string, { name: string; desc?: string }> = {};
+      const out: Record<string, { name: string; desc?: string; from?: string }> = {};
       for (const category of CATEGORIES) {
         out[category.id] = { name: TAXONOMY_NAMES[lang][category.id] ?? category.name };
         for (const sub of category.subcategories) {
-          out[sub.id] = { name: TAXONOMY_NAMES[lang][sub.id] ?? sub.name, desc: translated[sub.id] ?? sub.description };
+          out[sub.id] = { name: TAXONOMY_NAMES[lang][sub.id] ?? sub.name, desc: translated[sub.id] ?? sub.description, from: hash(sub.description) };
         }
       }
       fs.writeFileSync(taxFile, `${JSON.stringify(out)}\n`);
@@ -307,7 +310,9 @@ async function run(lang: Lang) {
 
   await pool(tasks);
   save();
-  console.log(`${lang}: ${Object.keys(store.strings).length} strings, ${Object.keys(store.docs).length} pages, ${Object.keys(store.bundles).length} kits, ${Object.keys(store.tools).length} tools`);
+  console.log(
+    `${lang} ${phase}: ${Object.keys(store.strings).length} strings, ${Object.keys(store.docs).length} pages, ${Object.keys(store.bundles).length} kits, ${Object.keys(store.tools).length} tools ($${totalCost.toFixed(2)} so far)`,
+  );
 }
 
 async function main() {
@@ -318,7 +323,9 @@ async function main() {
   }
   fs.writeFileSync(path.join(OUT_DIR, "en.taxonomy.json"), `${JSON.stringify(en)}\n`);
 
-  for (const lang of Object.keys(LANGUAGES) as Lang[]) await run(lang);
+  for (const lang of Object.keys(LANGUAGES) as Lang[]) await run(lang, "core");
+  fs.writeFileSync(ERRORS_FILE, `${JSON.stringify(errorTexts(), null, 1)}\n`);
+  for (const lang of Object.keys(LANGUAGES) as Lang[]) await run(lang, "tools");
   console.log(`Cost about $${totalCost.toFixed(3)}`);
 }
 

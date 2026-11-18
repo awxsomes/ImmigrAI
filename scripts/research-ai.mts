@@ -511,7 +511,8 @@ async function deepFind() {
     const r = research.tools[slug];
     return (r?.reviews?.rating != null ? 3 : 0) + (r && r.exists !== false ? 2 : 0) + (hits.has(slug) ? 2 : 0) + (entry.lane === "open-web" ? 0 : 1);
   };
-  const hopJobs = Object.keys(NICHE).flatMap((trade) =>
+  const hopTrades = args.find((a) => a.startsWith("--hop-trades="))?.slice(13).split(",") ?? Object.keys(NICHE);
+  const hopJobs = hopTrades.flatMap((trade) =>
     [...bySlug.values()]
       .filter((t) => (t.trades as string[] | undefined)?.includes(trade))
       .sort((a, b) => strength(b.slug as string, b) - strength(a.slug as string, a))

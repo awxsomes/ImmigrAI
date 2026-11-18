@@ -5,6 +5,7 @@ import { useEffect, useId, useRef, useState, useTransition, type KeyboardEvent }
 import { SearchIcon } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { searchFromForm } from "@/lib/form-actions";
 import { fmt, type SearchLabels } from "@/lib/labels";
 import type { Suggestion } from "@/lib/types";
 import { isSpecificNeed, setPendingNeed } from "./pending-need";
@@ -240,13 +241,13 @@ export function SmartSearch({
       <form
         role="search"
         aria-label={landmarkLabel}
-        action={`/${lang}/search`}
-        method="get"
+        action={searchFromForm}
         onSubmit={(event) => {
           event.preventDefault();
           void submit();
         }}
       >
+        <input type="hidden" name="lang" value={lang} />
         <label htmlFor={id} className={large ? "block text-lg font-semibold sm:text-xl" : "block font-semibold"}>
           {t.search_label}
         </label>

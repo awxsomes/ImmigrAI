@@ -2451,7 +2451,13 @@
    "model": "paid",
    "note": "Starts at $75 per month, typically around $125 per month."
   },
-  "lane": "open-web"
+  "lane": "open-web",
+  "trades": [
+   "cleaning"
+  ],
+  "alsoFoundBy": [
+   "second-hop"
+  ]
  },
  {
   "slug": "autopilot",
@@ -2924,9 +2930,13 @@
    "note": "Paid plans are offered after a trial, so check the current pricing page for exact tier prices."
   },
   "trades": [
-   "trades"
+   "trades",
+   "cleaning"
   ],
-  "lane": "open-web"
+  "lane": "open-web",
+  "alsoFoundBy": [
+   "second-hop"
+  ]
  },
  {
   "slug": "cleanwork",
@@ -5364,6 +5374,911 @@
   },
   "trades": [
    "salon"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "swept",
+  "name": "Swept",
+  "website": "https://sweptworks.com",
+  "summary": "Swept is janitorial software for commercial cleaning businesses. It tracks clock-ins, checklists, photos and messages for each cleaning location, so you can see the work and the profit at every site.",
+  "helpsWith": [
+   "Clock-ins with GPS check-ins and alerts for late or missed shifts",
+   "Cleaner checklists in 100+ languages and photo inspections for proof of work",
+   "One messaging channel per location for cleaners and clients",
+   "Profitability reports showing which locations make money"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show prices; it says pricing is per location with unlimited users and points to a Compare Plans page, so 0 is shown here because no starting price is listed."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "dave",
+  "name": "Dave",
+  "website": "https://www.buildwithdave.com",
+  "summary": "Dave is contractor software that drafts estimates with AI, sends invoices, collects online payments, and keeps project photos, notes, and schedules in one place for small trade crews.",
+  "helpsWith": [
+   "Draft itemized estimates from a plain-English job description and your saved pricebook",
+   "Send invoices and collect card or bank transfer payments online with automatic overdue reminders",
+   "Keep jobsite photos, videos, and notes attached to the right project",
+   "Schedule jobs for your crew with automatic text reminders and Google Calendar sync"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a free 14-day trial with no credit card required, but it does not show any monthly price, so the starting price is listed as 0."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "braino",
+  "name": "BrainO",
+  "website": "https://www.braino.io",
+  "summary": "BrainO is contractor management software for construction businesses. It handles leads, projects, invoicing, and communication with homeowners in one place.",
+  "helpsWith": [
+   "Tracking leads and projects in one place",
+   "Sending estimates, digital contracts, and invoices",
+   "Scheduling jobs and tracking crews",
+   "Giving homeowners a portal to follow their project"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a free trial (\"Try free\" / \"Get Started Free\") but does not show plan names or monthly prices, so no starting price is listed."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "fieldkrew",
+  "name": "FieldKrew",
+  "website": "https://fieldkrew.com",
+  "summary": "FieldKrew is a web-based CRM for small field-service businesses like contractors, HVAC, plumbing, and landscaping crews. It handles leads, quotes, jobs, photos, and payments in one place.",
+  "helpsWith": [
+   "Track leads in a simple pipeline with follow-up dates",
+   "Build quotes that customers accept online, which creates the job automatically",
+   "Let customers book appointments through a shared booking page",
+   "Take card payments and send invoices"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone",
+   "desktop"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan is $0/month for solo use with a 1% FieldKrew fee on card payments; Pro is $49.99/month flat with 10 team seats included and $10/month per extra seat."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "servflo",
+  "name": "ServFlo",
+  "website": "https://servflo.ai",
+  "summary": "ServFlo is field service software for home-service businesses. It handles scheduling, dispatch, quotes, invoices and payments in one place, with an AI assistant called Flo built in.",
+  "helpsWith": [
+   "Scheduling jobs and dispatching technicians",
+   "Sending quotes and invoices, and taking payments",
+   "Letting customers book online through a website you can build with it",
+   "Replying to reviews and answering questions about your business with Flo"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click \"Start free — 14 days\" on servflo.ai to sign up for the free trial without a card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page shows a 14-day free trial with no card needed, but does not show the monthly prices of its paid plans, so the starting price is listed as 0 here."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "tidyops",
+  "name": "TidyOps",
+  "website": "https://mytidyops.com",
+  "summary": "TidyOps is scheduling and job software for cleaning companies. It keeps customers, estimates, the calendar, cleaner assignments, payments, and job costs in one place.",
+  "helpsWith": [
+   "Keeps one calendar and one client list instead of spreadsheets and group texts",
+   "Lets you reassign recurring jobs to another cleaner when someone is sick or late",
+   "Shows cleaners their assigned jobs and notes in the app",
+   "Keeps payments and job costs next to each job"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a 14-day free trial with no credit card needed to start, but it does not list monthly plan prices, so the starting price is shown as 0."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "cleanerhq",
+  "name": "CleanerHQ",
+  "website": "https://cleanerhq.com",
+  "summary": "CleanerHQ is software for home and office cleaning businesses. It handles quotes, scheduling, a phone app for cleaners, invoices and card payments in one place.",
+  "helpsWith": [
+   "Send quotes and check that the price covers crew time and supplies",
+   "Schedule jobs and repeat cleans on one calendar, and send each job to the cleaner's phone",
+   "Track clock-ins, clock-outs and job details, and let customers see their jobs and invoices",
+   "Send invoices, take card payments through your own Stripe account, and send reminders for unpaid invoices"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 19,
+   "model": "paid",
+   "note": "$19 a month for the owner plus $5 per cleaner, with the first 12 months at that price; a 14-day free trial covers you plus 2 cleaners and up to 200 customers."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "bookingkoala",
+  "name": "BookingKoala",
+  "website": "https://www.bookingkoala.com",
+  "summary": "BookingKoala is an all-in-one platform for service businesses. It gives you a website builder, online booking forms, scheduling, and client messaging tools in one place.",
+  "helpsWith": [
+   "Build a website or add booking forms to your existing site",
+   "Let customers book and reschedule appointments online",
+   "Send automated or manual emails and texts to your clients",
+   "Hire and manage providers with their own accounts"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Enter your email on the Start Free Trial form on the homepage to sign up for the 14-day free trial.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a free 14-day trial but does not show any monthly prices, so no starting price is listed."
+  },
+  "lane": "second-hop"
+ },
+ {
+  "slug": "service-autopilot",
+  "name": "Service Autopilot",
+  "website": "https://www.serviceautopilot.com",
+  "summary": "Software for lawn care, cleaning, snow removal and landscaping businesses. It handles scheduling, routing, invoicing and payments in one place.",
+  "helpsWith": [
+   "Schedule and route your crew's day in one click",
+   "Send invoices and collect card payments",
+   "Track team hours and GPS location",
+   "Automate repeat tasks like follow-ups and reviews"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Click Sign Up or Request Demo on the website, or call 972-728-4040 to talk to sales.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page lists Startup, Pro, Pro Plus and Elite plans but does not show prices, so the lowest monthly price is not stated; use Compare & Pricing or call sales."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "servicem8",
+  "name": "ServiceM8",
+  "website": "https://www.servicem8.com",
+  "summary": "ServiceM8 is job management software for trade contractors and home service businesses. It tracks jobs, staff, quotes, invoices and payments from the first client call through to completion.",
+  "helpsWith": [
+   "Manage jobs, scheduling and staff in one place",
+   "Create quotes and invoices on site and take card payments",
+   "Capture client signatures, notes, photos and PDF forms",
+   "Sync with your accounting package"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan for 1 user and 30 jobs per month, then Starter at $29/mo, Growing at $79/mo, Premium at $149/mo and Premium Plus at $349/mo, with a 14-day free trial of paid features."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "clean-scheduler",
+  "name": "Clean Scheduler",
+  "website": "https://cleanscheduler.com",
+  "summary": "Software for cleaning businesses to schedule crews, send quotes, invoice clients, and take online payments. It includes a customer portal where clients can view visits and pay bills.",
+  "helpsWith": [
+   "Schedule crews and recurring cleaning visits on one calendar",
+   "Send quotes and turn accepted quotes into scheduled jobs and invoices",
+   "Accept card and bank payments through Stripe and track month-end reports"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 39,
+   "model": "trial",
+   "note": "Starter plan is $39 per month billed monthly, or less with annual billing, after a 7-day free trial with no credit card required; Business plan is $129 per month."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "smart-service",
+  "name": "Smart Service",
+  "website": "https://www.smartservice.com",
+  "summary": "Smart Service is field service software for trades like HVAC, plumbing, and electrical. It helps you schedule jobs, dispatch crews, send estimates, and invoice customers.",
+  "helpsWith": [
+   "Schedule and dispatch jobs on a shared board",
+   "Send estimates and quotes to customers",
+   "Create work orders and invoice customers",
+   "Track payments and collect what is owed"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 60,
+  "selfServe": false,
+  "howToStart": "Book a free live demo or call 1-888-518-0818 to get started.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices; see the Pricing page for plan details."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "jobflowly",
+  "name": "JobFlowly",
+  "website": "https://jobflowly.com",
+  "summary": "Software for cleaning businesses to schedule jobs, dispatch crews, invoice clients, and track cleaner hours for payroll. It is one place to run the work instead of several separate tools.",
+  "helpsWith": [
+   "Schedules one-time and recurring cleanings on one calendar and sends crews their jobs by phone",
+   "Creates invoices from completed job hours and rates, and tracks which are paid or overdue",
+   "Tracks cleaner clock-in and clock-out hours and exports a payroll file for Gusto, QuickBooks, or Homebase",
+   "Lets clients request bookings online, and you approve each one before it goes on your calendar"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The page offers a free start with no credit card but does not show plan names or prices, so check the site for paid plan costs."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "cendorvia",
+  "name": "Cendorvia",
+  "website": "https://cendorvia.com",
+  "summary": "Cendorvia is an AI platform for home service businesses that automates customer messages, estimates, scheduling, reviews, and reports. It connects to field service tools you already use.",
+  "helpsWith": [
+   "Sends automatic follow-ups to leads and customers",
+   "Generates estimates and books jobs on the schedule",
+   "Requests and responds to online reviews",
+   "Shows revenue and job reports on a dashboard"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "llm-every-reply",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 2880,
+  "selfServe": false,
+  "howToStart": "Click Book a Demo on the Cendorvia website and talk to their team to get set up.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page shows no prices and says to book a demo for details, so no starting price is listed here."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "launch27",
+  "name": "Launch27",
+  "website": "https://launch27.com",
+  "summary": "Launch27 is scheduling and payment software for maid and house cleaning businesses. Clients book online, and you get automatic reminders and payments.",
+  "helpsWith": [
+   "Lets clients see your availability and book online in real time",
+   "Sends automatic text and email reminders before each job to cut no-shows",
+   "Pre-authorizes credit cards and charges when the job is complete",
+   "Emails clients after each job to ask for a rating"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a 14-day free trial but does not show monthly prices, so check the Pricing page for plan costs."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "fixlify-ai",
+  "name": "Fixlify AI",
+  "website": "https://fixlify.app",
+  "summary": "Field service software that connects customer calls, scheduling, dispatch, work orders, estimates, and invoices in one workspace. It also has a mobile app for technicians in the field.",
+  "helpsWith": [
+   "Schedules jobs and assigns technicians with a drag-and-drop calendar",
+   "Creates work orders, estimates, and invoices from job details",
+   "Answers customer calls with an AI receptionist you configure, and captures lead details"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Get Started Free on fixlify.app to create an account without a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The page offers a free start with 50 one-time AI credits and no credit card, limited to 1 member and 30 jobs per month; paid plan prices are not shown on the page."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "field-pm",
+  "name": "Field PM",
+  "website": "https://www.field-pm.com",
+  "summary": "Field PM is construction project management software for contractors. It covers daily field reports, job costing, RFIs, billing, safety logs, and service dispatch in one app.",
+  "helpsWith": [
+   "Daily field reports with manhours, quantities, equipment, and photos captured from a phone",
+   "Job costing with budgets and cost-code productivity",
+   "RFIs, change orders, and AIA progress billing",
+   "Safety logs, QA/QC punch lists, and weld mapping"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start Free Trial on the website, which needs no credit card and gives 30 days of full access with a sample project.",
+  "draftPricing": {
+   "startingMonthlyUsd": 149,
+   "model": "trial",
+   "note": "The Field PM Plus plan is listed at $149 per month for 15 users with all modules included, and there is a 30-day free trial with full access and no credit card required."
+  },
+  "trades": [
+   "trades"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "sweepos",
+  "name": "SweepOS",
+  "website": "https://sweepos.app",
+  "summary": "Software for cleaning companies that handles clients, sites, schedules, checklists, time tracking and invoicing in one place. It includes a mobile app for field staff and a customer portal.",
+  "helpsWith": [
+   "Scheduling cleaning jobs and tracking staff time",
+   "Running checklists for each site",
+   "Creating invoices and payroll-ready hours",
+   "Giving customers a portal and an assistant you can ask in plain words"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Visit https://sweepos.app, choose your language, and use the Contact or sign-up options on the site to get started.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so no starting price is listed."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "reviewflo",
+  "name": "ReviewFlo",
+  "website": "https://www.usereviewflo.com",
+  "summary": "ReviewFlo sends customers a single link after a job. Happy customers go straight to your Google review page, and unhappy customers can contact you privately first.",
+  "helpsWith": [
+   "Sends review request links by text or email after each job",
+   "Routes 5-star customers to Google and 1-4 star customers to private feedback",
+   "Alerts you when a customer has a bad experience so you can fix it",
+   "Shows your Google rating and review count in one dashboard (Pro)"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan costs $0 forever with Google reviews and private feedback; Pro costs $29/mo or $290/year for dashboard sending and automated follow-ups."
+  },
+  "lane": "second-hop"
+ },
+ {
+  "slug": "maidpilot",
+  "name": "MaidPilot",
+  "website": "https://maidpilot.ai",
+  "summary": "Cleaning business software that puts CRM, scheduling, invoices, and follow-up in one place. An optional AI receptionist answers calls and captures leads.",
+  "helpsWith": [
+   "Keeps clients, properties, and job history in one CRM",
+   "Runs recurring job calendars and crew assignment",
+   "Sends quote reminders and invoice follow-ups you approve first",
+   "Optional AI receptionist answers calls 24/7 and captures booking requests"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start 14-day trial on maidpilot.ai and sign up with your email and a card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 49,
+   "model": "trial",
+   "note": "Starter plan from $49 per month, with a 14-day trial that costs $0 today but requires a card."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "gatherup",
+  "name": "GatherUp",
+  "website": "https://gatherup.com",
+  "summary": "GatherUp helps local businesses collect customer reviews, keep business listings accurate, and monitor and respond to feedback. It also watches for fake reviews and can dispute supported cases.",
+  "helpsWith": [
+   "Sends review requests by email and SMS after a customer visit",
+   "Keeps business listings current on supported sites",
+   "Monitors reviews and drafts AI replies you can edit and approve",
+   "Monitors reviews for policy violations and disputes supported fake reviews"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "paid",
+   "note": "The page does not show any prices, so the starting monthly price is listed as 0; check the Pricing page for real plans and costs."
+  },
+  "lane": "second-hop"
+ },
+ {
+  "slug": "reviewrover",
+  "name": "ReviewRover",
+  "website": "https://reviewrover.co",
+  "summary": "ReviewRover sends automatic text message requests asking customers to leave Google reviews after a job is done. It also shows how your review count, rating, and response rate change over time.",
+  "helpsWith": [
+   "Sends review request texts automatically after each closed job",
+   "Follows up with customers over several messages to get more reviews",
+   "Tracks review count, average rating, and send rate in one dashboard",
+   "Connects to your CRM so requests go out without extra work"
+  ],
+  "categoryId": "customers",
+  "subcategoryId": "reviews",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 15,
+  "selfServe": false,
+  "howToStart": "Click Start ReviewRover Today on the website, or use the Contact us button to talk with the team and set up onboarding.",
+  "draftPricing": {
+   "startingMonthlyUsd": 97,
+   "model": "paid",
+   "note": "The page lists a flat $97 per month, with no other plans shown; for other pricing, contact the company."
+  },
+  "lane": "second-hop"
+ },
+ {
+  "slug": "cleandock",
+  "name": "CleanDock",
+  "website": "https://thecleandock.com",
+  "summary": "CleanDock is software for cleaning businesses to send quotes, schedule recurring cleans, take online bookings, and get paid by card or ACH. It also stores before and after photos and time records for each job.",
+  "helpsWith": [
+   "Send quotes and turn approved quotes into invoices in one tap",
+   "Schedule weekly, biweekly, and monthly recurring cleans and avoid double-booking crews",
+   "Take online bookings 24/7 through a booking link and approve requests",
+   "Collect payment by card or ACH and export reports to CSV for your bookkeeper"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 29.99,
+   "model": "trial",
+   "note": "Single plan is $29.99/mo for solo operators, Team is $49.99/mo for up to 5 users, and Team+ is $99.99/mo for unlimited users, all with a 14-day free trial."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "cleaners-app",
+  "name": "Cleaners App",
+  "website": "https://cleanersapp.com",
+  "summary": "Cleaners App is software for cleaning businesses that handles job scheduling, customer records, quotes, invoices, reminders and payments in one place.",
+  "helpsWith": [
+   "Schedule, dispatch and track cleaning jobs",
+   "Create quotes, invoices and automatic reminders",
+   "Store customer contacts and follow-up tasks",
+   "Take online payments from customers"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android",
+   "desktop"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "Click Start FREE Trial on the website and sign up for the 14-day trial without a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "trial",
+   "note": "The page offers a 14-day free trial with no credit card needed, but the page does not show any plan prices, so the monthly cost is not listed here."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "allclean",
+  "name": "Allclean",
+  "website": "https://allclean.app",
+  "summary": "Allclean is business software for cleaning companies. It handles online booking, payments, scheduling, dispatch, and referrals in one place.",
+  "helpsWith": [
+   "Lets customers book and pay online 24/7",
+   "Manages crew calendars, time off, and job dispatch",
+   "Collects payments, sends receipts and invoices",
+   "Runs referral links and discount offers for clients"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios"
+  ],
+  "setupMinutes": 30,
+  "selfServe": true,
+  "howToStart": "Click Try for Free on allclean.app and create an account, or book a demo if you want help choosing a plan.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "Free plan costs $0 a month for up to 3 users with a 6.9% + 30 cent card fee; Pro costs $299 a month for up to 8 users with a 4.9% + 30 cent fee; Enterprise is custom priced."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "opsycle",
+  "name": "Opsycle",
+  "website": "https://opsycle.com",
+  "summary": "Cleaning business software for scheduling recurring jobs, managing clients, creating invoices, and tracking package credits. Built for solo cleaners and small cleaning teams.",
+  "helpsWith": [
+   "Schedule one-time and recurring cleaning jobs, with weekly and biweekly cleans that continue automatically",
+   "Keep client details, addresses, gate codes, and notes in one place",
+   "Create invoices automatically when a job is completed and see unpaid amounts",
+   "Track prepaid packages and remaining cleaning credits"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 2,
+  "selfServe": true,
+  "howToStart": "Click Start free on the Opsycle website and create a free workspace, which takes about 2 minutes and does not require a credit card.",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "A free plan is available with 5 clients and 15 jobs per month; paid plans start at $29 per month, with other plan details not shown on the page."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "sweepops",
+  "name": "SweepOps",
+  "website": "https://sweepops.co",
+  "summary": "Cleaning business software for scheduling jobs, sending SMS and email reminders, tracking clients and payments, and seeing margins. It offers a flat monthly price with no per-cleaner fees.",
+  "helpsWith": [
+   "Schedule jobs and sync them with Google Calendar",
+   "Send automatic SMS and email reminders to clients and cleaners",
+   "Track payments and see margin in real time",
+   "Take online booking requests"
+  ],
+  "categoryId": "calls",
+  "subcategoryId": "booking",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "phone"
+  ],
+  "setupMinutes": 5,
+  "selfServe": true,
+  "howToStart": "Click Start Free on sweepops.co, sign up in about 2 minutes with no credit card needed, and create your first job.",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "trial",
+   "note": "Free 14-day trial with full access, then Starter at $29/mo for up to 3 cleaners, Growth at $49/mo for up to 10 cleaners, and Pro at $89/mo for unlimited cleaners."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "cleansyai",
+  "name": "CleansyAI",
+  "website": "https://cleansyai.com",
+  "summary": "Cleaning business software for scheduling jobs, keeping client records, assigning crews, and preparing invoices from completed work.",
+  "helpsWith": [
+   "Plan the weekly calendar and assign crews to jobs, with a check for overlapping work",
+   "Keep client contacts, addresses and service notes in one record",
+   "Create draft invoices from completed jobs, review the amount and tax, then issue them"
+  ],
+  "categoryId": "employees",
+  "subcategoryId": "scheduling",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 29,
+   "model": "paid",
+   "note": "Starter is $29/month or $290/year for 100 customers, 3 crews and 250 visits per month, with no free trial."
+  },
+  "trades": [
+   "cleaning"
+  ],
+  "lane": "second-hop"
+ },
+ {
+  "slug": "janibid",
+  "name": "JaniBid",
+  "website": "https://www.janibid.com",
+  "summary": "JaniBid is business management software for cleaning companies, including janitorial, maid, window, carpet and pressure washing services. It helps with bids, scheduling, staff check-ins and invoicing.",
+  "helpsWith": [
+   "Bid calculators for janitorial, maid, window, carpet and pressure washing jobs",
+   "Scheduling, alarm codes and directions for staff in one place",
+   "Staff check-in, check-out and work order tracking",
+   "Proposals, contracts and invoicing"
+  ],
+  "categoryId": "money",
+  "subcategoryId": "bookkeeping",
+  "workload": "optional-genai",
+  "platforms": [
+   "web",
+   "ios",
+   "android"
+  ],
+  "setupMinutes": 60,
+  "selfServe": true,
+  "howToStart": "",
+  "draftPricing": {
+   "startingMonthlyUsd": 0,
+   "model": "freemium",
+   "note": "The page offers a free CRM and free bid calculators, but it does not show the paid plan prices."
+  },
+  "trades": [
+   "cleaning"
   ],
   "lane": "second-hop"
  }

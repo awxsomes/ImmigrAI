@@ -3,7 +3,7 @@ import { z } from "zod";
 import rejectedFile from "@/data/seed-rejected.json";
 import { MAX_MONTHLY_USD, SEED_BY_SLUG, SEED_TOOLS, seedToolsFor } from "@/data/seed-tools";
 import { SYSTEM_NAMES } from "@/data/systems";
-import { findCategory, findSubcategory, flatTaxonomy, NO_LIVE_DISCOVERY } from "@/data/taxonomy";
+import { findCategory, findSubcategory, flatTaxonomy, mentionsEnforcement, NO_LIVE_DISCOVERY } from "@/data/taxonomy";
 import { cacheGet, cacheSet, DAY } from "./cache";
 import { AUDIENCE, CONSTRAINTS } from "./discover";
 import { aiEnabled, env } from "./env";
@@ -49,9 +49,6 @@ const TRADE_WORDS: Record<BusinessType, RegExp> = {
   trades: /hvac|plumb|electrician|landscap|contractor|roofing|home service|field service/i,
   cleaning: /cleaning|cleaners?\b|janitor|maid/i,
 };
-
-/** Immigration enforcement is never searched for automatically. A fake app could put someone in danger. */
-const ENFORCEMENT = /\b(?:ice (?:raids?|agents?|alerts?|sightings?)|immigration enforcement|deportations?|la migra|migra)\b/i;
 
 // ---------- Where to look ----------
 
@@ -831,7 +828,7 @@ export async function matchNeed(input: MatchInput, onCost: CostSink = () => {}, 
   if (cached) return cached;
   if (!aiEnabled()) return { status: "ai-off", ...EMPTY };
 
-  const wantsLive = input.liveSearch !== false && !ENFORCEMENT.test(input.need);
+  const wantsLive = input.liveSearch !== false && !mentionsEnforcement(input.need);
   // Understanding and the judge. The searches are counted as they are made.
   if (!reserveDailyCalls(2)) return { status: "daily-cap", ...EMPTY };
 
@@ -892,7 +889,7 @@ export async function matchNeed(input: MatchInput, onCost: CostSink = () => {}, 
     const languages = [...new Set([...brief.languages, ...(input.language && input.language !== "English" ? [input.language] : [])])];
     // A tool that only partly does the job is only worth showing when little else does.
     const solid = ranked.filter((m) => m.doesJob === "yes");
-    const shortlist = rankMatches(solid.length >= 2 ? solid : ranked, languages).slice(0, MAX_RESULTS);
+    const shortlist = rankMatches(solid.length >= 3 ? solid : ranked, languages).slice(0, MAX_RESULTS);
 
     const toCheck = systems.length > 0 && left() > 3_000 ? shortlist.filter((m) => m.adoption.some((a) => a.level === "unknown")).slice(0, 3) : [];
     if (toCheck.length > 0 && reserveDailyCalls(toCheck.length)) {

@@ -64,10 +64,114 @@ const FOCUS_OVERRIDE: Record<string, { focus: ToolFocus; trades?: BusinessType[]
   homebase: { focus: "task", trades: [] },
   connecteam: { focus: "task", trades: [] },
   buffer: { focus: "task", trades: [] },
+  elevenlabs: { focus: "task", trades: [] },
+  "google-business-profile": { focus: "task", trades: [] },
+  "whatsapp-business": { focus: "task", trades: [] },
+  nextdoor: { focus: "task", trades: [] },
+  citizen: { focus: "task", trades: [] },
+  bitwarden: { focus: "task", trades: [] },
+  "grow-with-google": { focus: "task", trades: [] },
+  quizlet: { focus: "task", trades: [] },
+  duolingo: { focus: "task", trades: [] },
+  "dynatax-ai": { focus: "task", trades: [] },
+  "rightresponse-ai": { focus: "task", trades: [] },
+  // Sold to any business. Their pages only mention these trades as examples.
+  "square-pos": { focus: "task", trades: [] },
+  "square-appointments": { focus: "task", trades: [] },
+  "paypal-zettle": { focus: "task", trades: [] },
+  paybrain: { focus: "task", trades: [] },
+  "cpos-pay": { focus: "task", trades: [] },
+  complystack: { focus: "task", trades: [] },
+  bonnie: { focus: "task", trades: [] },
+  adsimple: { focus: "task", trades: [] },
+  poof: { focus: "task", trades: [] },
+  ahoya: { focus: "task", trades: [] },
+  tabby: { focus: "task", trades: [] },
+  manabiq: { focus: "task", trades: [] },
+  "daber-ai": { focus: "task", trades: [] },
+  askhrai: { focus: "task", trades: [] },
+  hrdocket: { focus: "task", trades: [] },
+  opinas: { focus: "task", trades: [] },
+  upfirst: { focus: "task", trades: [] },
+  xenia: { focus: "task", trades: [] },
+  "simplybook-me": { focus: "task", trades: [] },
+  "voka-ai": { focus: "task", trades: [] },
+  aira: { focus: "task", trades: [] },
+  ringdesk: { focus: "task", trades: [] },
+  ringowl: { focus: "task", trades: [] },
+  ledgend: { focus: "task", trades: [] },
+  minicart: { focus: "task", trades: [] },
+  copper: { focus: "task", trades: [] },
+  reviewflo: { focus: "task", trades: [] },
+  gatherup: { focus: "task", trades: [] },
+  dave: { focus: "trade", trades: ["trades"] },
+  servflo: { focus: "trade", trades: ["trades"] },
+  fieldkrew: { focus: "trade", trades: ["trades", "cleaning"] },
+  "smart-service": { focus: "trade", trades: ["trades"] },
+  cendorvia: { focus: "trade", trades: ["trades"] },
+  "fixlify-ai": { focus: "trade", trades: ["trades"] },
+  servicem8: { focus: "trade", trades: ["trades"] },
+  maidpilot: { focus: "trade", trades: ["cleaning"] },
+  allclean: { focus: "trade", trades: ["cleaning"] },
+  cleansyai: { focus: "trade", trades: ["cleaning"] },
+  fonitix: { focus: "task", trades: ["restaurant", "salon"] },
+  // Built for one kind of business, even when they do several jobs for it.
   "7shifts": { focus: "trade", trades: ["restaurant"] },
   "toast-pos": { focus: "trade", trades: ["restaurant"] },
   fresha: { focus: "trade", trades: ["salon"] },
+  faire: { focus: "trade", trades: ["retail"] },
+  choco: { focus: "trade", trades: ["restaurant"] },
+  darva: { focus: "trade", trades: ["restaurant"] },
+  zestia: { focus: "trade", trades: ["restaurant"] },
+  nueve: { focus: "trade", trades: ["restaurant"] },
+  mays: { focus: "trade", trades: ["restaurant"] },
+  netta: { focus: "trade", trades: ["restaurant"] },
+  bakeonyx: { focus: "trade", trades: ["restaurant"] },
+  maple: { focus: "trade", trades: ["restaurant"] },
+  "shire-intelligence": { focus: "trade", trades: ["restaurant"] },
+  "per-diem": { focus: "trade", trades: ["restaurant"] },
+  "menu-tiger": { focus: "trade", trades: ["restaurant"] },
+  ivera: { focus: "trade", trades: ["salon"] },
+  salonaix: { focus: "trade", trades: ["salon"] },
+  shug: { focus: "trade", trades: ["salon"] },
+  lookmybio: { focus: "trade", trades: ["salon"] },
+  callpad: { focus: "trade", trades: ["salon"] },
+  adminifai: { focus: "trade", trades: ["salon"] },
+  frontdeq: { focus: "trade", trades: ["salon"] },
+  glossgenius: { focus: "trade", trades: ["salon"] },
+  "ooon-ai": { focus: "trade", trades: ["salon"] },
+  beautifyx: { focus: "trade", trades: ["salon"] },
+  relay: { focus: "trade", trades: ["salon"] },
+  bookingbee: { focus: "trade", trades: ["salon"] },
+  salonagent: { focus: "trade", trades: ["salon"] },
+  ringbooker: { focus: "trade", trades: ["salon"] },
+  mutasib: { focus: "trade", trades: ["retail"] },
+  octopos: { focus: "trade", trades: ["retail"] },
+  hylen: { focus: "trade", trades: ["retail"] },
+  "housecall-pro": { focus: "trade", trades: ["trades", "cleaning"] },
+  workiz: { focus: "trade", trades: ["trades"] },
+  leadtruffle: { focus: "trade", trades: ["trades"] },
+  driive: { focus: "trade", trades: ["trades"] },
+  convoforms: { focus: "trade", trades: ["trades"] },
+  "leadwinner-ai": { focus: "trade", trades: ["trades"] },
+  centralcoms: { focus: "trade", trades: ["trades"] },
+  handoff: { focus: "trade", trades: ["trades"] },
+  adaptlocal: { focus: "trade", trades: ["trades", "cleaning"] },
+  "deep-lawn": { focus: "trade", trades: ["trades"] },
+  autopilot: { focus: "trade", trades: ["trades", "cleaning"] },
+  cleanwork: { focus: "trade", trades: ["cleaning"] },
+  proteams: { focus: "trade", trades: ["cleaning"] },
 };
+
+/**
+ * Kept out of the catalog until a person signs off. The MigraWatch hotline is for reporting
+ * enforcement activity, which is exactly what this site refuses to list apps for, so it waits
+ * for the legal-aid review in docs/checklists.md.
+ */
+const HELD_FOR_REVIEW = new Set(["migrawatch"]);
+
+/** In these subcategories a language is only listed when research cited a page for it. */
+const SOURCED_LANGUAGES_ONLY = new Set(["know-your-rights"]);
 
 export interface NewToolEntry {
   name: string;
@@ -115,7 +219,8 @@ function buildTool(base: SeedBase): Tool {
   const researchedKind = r?.pricing.kind as PriceKind | undefined;
   const planKind: PriceKind | undefined = planPrice === 0 && (!researchedKind || researchedKind === "monthly") ? "free-plan" : undefined;
   const priceKind = (override?.kind as PriceKind | undefined) ?? (startingMonthlyUsd > 0 ? "monthly" : (planKind ?? (researchedKind && researchedKind !== "monthly" ? researchedKind : inferPriceKind(startingMonthlyUsd, model))));
-  const languages = r?.languages.list.length
+  const languageClaimOk = !!r?.languages.sourceUrl || !SOURCED_LANGUAGES_ONLY.has(base.subcategoryId);
+  const languages = r?.languages.list.length && languageClaimOk
     ? r.languages.list.includes("English")
       ? r.languages.list
       : ["English", ...r.languages.list]
@@ -153,7 +258,7 @@ function buildTool(base: SeedBase): Tool {
     },
     languages,
     languagesSourceUrl: r?.languages.sourceUrl || undefined,
-    languagesTotal: r?.languages.totalClaim ?? undefined,
+    languagesTotal: (languageClaimOk && r?.languages.totalClaim) || undefined,
     integrations,
     integrationSources: r?.integrationSources,
     platforms: base.platforms,
@@ -187,6 +292,7 @@ function buildTool(base: SeedBase): Tool {
 }
 
 function passesConstraints(tool: Tool, base: SeedBase) {
+  if (HELD_FOR_REVIEW.has(base.slug)) return false;
   const r = research.tools[base.slug];
   if (r && (!r.exists || r.description?.discontinued)) return false;
   // A tool found while looking for AI tools is only here for its AI.

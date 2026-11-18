@@ -7,6 +7,7 @@ import { fmt, type CardLabels, type CompatLabels } from "@/lib/labels";
 import { compatibility, envLabel, supportsLanguage } from "@/lib/scoring";
 import { useUserData } from "@/lib/storage";
 import type { Tool } from "@/lib/types";
+import { AdviceNote } from "./advice-note";
 import { RatingText } from "./tool-card";
 
 type Labels = CardLabels &
@@ -95,6 +96,7 @@ export function CompareView({
                   <Link href={toolHref(lang, tool.slug)} className="underline underline-offset-2">
                     {tool.name}
                   </Link>
+                  <AdviceNote tool={tool} lang={lang} t={t} className="mt-2 text-sm font-normal" />
                 </th>
               ))}
             </tr>

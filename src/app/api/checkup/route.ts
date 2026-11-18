@@ -1,7 +1,7 @@
 import { SYSTEM_NAMES } from "@/data/systems";
 import { cachedCheckup, runCheckup, type CheckupInput } from "@/lib/checkup";
 import { safeUrl } from "@/lib/normalize";
-import { allowRequest, clientKey } from "@/lib/ratelimit";
+import { allowRequest } from "@/lib/ratelimit";
 import { assertSameOrigin, cleanLang, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 import { BUSINESS_TYPES, type BusinessType, type TeamSize } from "@/lib/types";
 
@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     const cached = cachedCheckup(input);
     if (cached) return Response.json(cached, { headers: NO_STORE_HEADERS });
 
-    if (!allowRequest(clientKey(req), 3)) throw new HttpError(429, "Too many checkups. Please wait a minute.");
+    if (!allowRequest(req, "checkup", 3)) throw new HttpError(429, "Too many checkups. Please wait a minute.");
     return Response.json(await runCheckup(input), { headers: NO_STORE_HEADERS });
   } catch (err) {
     return jsonError(err);

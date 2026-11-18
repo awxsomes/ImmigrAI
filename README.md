@@ -44,7 +44,7 @@ Category page ──> prebuilt HTML: catalog tools, checked ahead of time
 
 A model can be confidently wrong, so its claims only count when the text the search engine returned backs them up. See `src/lib/research-core.ts`:
 
-- A rating must appear in the text of the exact page cited, on an independent review site, on a page naming that product.
+- A rating must appear in the search engine's result text for the exact page cited, on an independent review site, on a page naming that product. The page itself is not opened, so the live page may show a newer number.
 - The Apple App Store must be the US store, and a Trustpilot page's domain must match the vendor's. This caught real errors during development: another app with the same name, and a similarly named company.
 - Comparison and category pages do not count, because they show several products side by side.
 - Tools found by web search must have review pages that show their own web address, because a small tool's name often belongs to other products too. A name match alone gave several new tools the wrong reviews during development, so those reviews were removed. Having no rating is better than having the wrong one.
@@ -68,6 +68,8 @@ To keep the catalog focused on AI, `npm run research:ai -- --find` looks for sma
 npm run translate
 ```
 
+Only missing text, or text whose English changed since it was translated, is sent. `npm run check:i18n` fails when anything is missing or out of date, and runs in CI (`.github/workflows/ci.yml`).
+
 ### Built for slow connections
 
 - Pages are prerendered, so readable HTML arrives before any JavaScript.
@@ -86,7 +88,7 @@ The prototype has no database by design. Each piece has a clear next step, behin
 |---|---|
 | `research.json` in git, refreshed by script | A database, refreshed by a scheduled job |
 | Search results cached by the CDN for 12 hours | The same, plus a shared cache so instances share results |
-| Rate limits per server instance | Upstash Redis behind the same two functions in `ratelimit.ts` |
+| Rate limits per route, visitor and server instance, reset on a cold start | Upstash Redis behind the same two functions in `ratelimit.ts` |
 | Saved tools in `localStorage` | Accounts, using the same `UserData` shape |
 | Static kits in `bundles.ts` | Kits built by AI from what the owner already runs |
 
@@ -96,7 +98,7 @@ A category search costs about $0.04 and is shared between visitors through the C
 
 ```
 src/app/[lang]/        Pages, one folder per route, under a language prefix
-src/app/api/           Three API routes: suggest, discover, tool
+src/app/api/           API routes: suggest, match, discover, checkup, prompts, tool
 src/components/ui/     Watermelon UI components, adapted
 src/components/tools/  Tool cards, results, compare, My tools
 src/lib/research-core  Web research and the checks on it

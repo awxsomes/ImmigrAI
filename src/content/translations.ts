@@ -20,8 +20,17 @@ export interface TranslationSet {
       extraFees?: string;
       reviewSummary?: string;
       caution?: string;
+      /** Setup steps, rules and plan details. Each list is in the same order as the English. */
+      planIncludes?: string[];
+      accountSteps?: string[];
+      connectSteps?: string[];
+      trial?: string;
+      paywall?: string;
+      policySay?: string[];
     }
   >;
+  /** Hashes of the English each translation was made from. See scripts/translate-content.mts. */
+  sources?: { strings?: Record<string, string>; docs?: Record<string, string>; bundles?: Record<string, string> };
 }
 
 export const TRANSLATIONS = { es, zh, vi } as unknown as Record<"es" | "zh" | "vi", TranslationSet>;

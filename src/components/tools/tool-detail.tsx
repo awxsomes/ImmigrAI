@@ -6,7 +6,9 @@ import { buttonVariants } from "@/components/ui/button";
 import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText } from "@/lib/format";
 import type { Dict } from "@/lib/i18n";
 import { ADOPT_KEYS, fmt, PROMPT_KEYS, type AdoptionLabels, type PromptLabels } from "@/lib/labels";
+import { ADVICE_KEYS } from "@/lib/advice";
 import { AdoptionGuide, TeamEstimate } from "./adoption-guide";
+import { AdviceNote } from "./advice-note";
 import { PromptHelper } from "./prompt-helper";
 import { RatingText } from "./tool-card";
 import { envLabel, ENV_WEIGHTS, focusScore, OVERALL_WEIGHTS } from "@/lib/scoring";
@@ -35,6 +37,7 @@ export const DETAIL_KEYS = [
   "tool_co2", "tool_howWeCalc", "tool_scoreParts", "tool_scoreNoReviews", "tool_startAlone", "tool_setupAbout", "tool_runsOn", "tool_nothingConfirmed",
   "tool_checked", "tool_openSite", "tool_leaving", "tool_estimate",
   "score_focus", "score_reviews", "score_ease", "score_cost", "score_languages", "score_connections", "score_footprint",
+  ...ADVICE_KEYS,
 ] as const;
 
 export type DetailLabels = Pick<Dict, (typeof DETAIL_KEYS)[number]>;
@@ -153,6 +156,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
             </p>
           )}
           {tool.focus === "general" && <p className="mt-3 rounded-lg bg-marigold-tint p-3 font-medium">{t.card_generalNote}</p>}
+          <AdviceNote tool={tool} lang={lang} t={t} className="mt-3 p-3" />
         </div>
         <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-24 flex-col items-center justify-center rounded-xl bg-green text-white">
           <span className="text-4xl leading-none font-bold">{tool.scores.overall}</span>

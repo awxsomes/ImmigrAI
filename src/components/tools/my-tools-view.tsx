@@ -9,22 +9,27 @@ import { NativeSelect } from "@/components/ui/native-select";
 import { LANGUAGES } from "@/data/languages";
 import { SYSTEM_NAMES } from "@/data/systems";
 import { DeleteDataControl } from "@/components/site/delete-data";
+import type { AdviceLabels } from "@/lib/advice";
+import { downloadReminder } from "@/lib/calendar";
 import { compatText, displayLanguage, priceText, toolHref, type PriceLabels } from "@/lib/format";
 import { fmt, type CompatLabels } from "@/lib/labels";
 import { bundleFit, compatibility, monthlyTotal, planMonthly, supportsLanguage } from "@/lib/scoring";
 import { exportUserData, setAlreadyUse, setConsent, setToolLanguage, toggleSaved, updateSaved, useUserData } from "@/lib/storage";
 import type { Subscription, TeamSize, Tool } from "@/lib/types";
+import { AdviceNote } from "./advice-note";
 import { MyRating } from "./tool-actions";
 
 type SubscriptionLabels = Record<
   | "sub_title" | "sub_intro" | "sub_paying" | "sub_cost" | "sub_costHelp" | "sub_renews" | "sub_trialEnds" | "sub_howToCancel" | "sub_perMonth" | "sub_perYear"
-  | "sub_none" | "sub_dueTitle" | "sub_due" | "sub_trialTitle" | "sub_trial" | "sub_overlapTitle" | "sub_overlap",
+  | "sub_none" | "sub_dueTitle" | "sub_due" | "sub_trialTitle" | "sub_trial" | "sub_overlapTitle" | "sub_overlap"
+  | "sub_calendar" | "sub_calendarHelp" | "sub_calendarTrial" | "sub_calendarCharge" | "sub_calendarNote",
   string
 >;
 
 type Labels = CompatLabels &
   PriceLabels &
   SubscriptionLabels &
+  AdviceLabels &
   Record<
     | "my_title" | "my_sub" | "my_empty" | "my_browse" | "my_export" | "my_delete" | "my_remove" | "my_alreadyTitle" | "my_alreadyD" | "my_listTitle"
     | "my_stackTitle" | "my_lowestTotal" | "my_fitLabel" | "my_needTwo" | "my_savingOff" | "my_turnOn" | "my_saved" | "my_yourData" | "my_onlyPaper" | "my_seeKit"
@@ -63,12 +68,32 @@ function defaultCost(tool: Tool, size: TeamSize) {
   return plan ? planMonthly(plan, size) : tool.pricing.startingMonthlyUsd;
 }
 
+/** A button that hands the owner a calendar file for one date. This site cannot send reminders itself. */
+function CalendarButton({ onClick, label, name }: { onClick: () => void; label: string; name: string }) {
+  return (
+    <Button type="button" variant="outline" size="sm" className="mt-2" onClick={onClick}>
+      {label}
+      <span className="sr-only">: {name}</span>
+    </Button>
+  );
+}
+
 function SubscriptionFields({ tool, subscription, size, lang, t }: { tool: Tool; subscription?: Subscription; size: TeamSize; lang: string; t: SubscriptionLabels }) {
   const id = `sub-${tool.slug}`;
   const cancel = tool.guide?.policies.find((policy) => policy.kind === "cancel");
   const change = (patch: Partial<Subscription>) => {
     if (subscription) updateSaved(tool.slug, { subscription: { ...subscription, ...patch } });
   };
+  const remindTrial = (date: string) =>
+    downloadReminder(
+      { uid: `${tool.slug}-trial`, title: fmt(t.sub_calendarTrial, { name: tool.name }), description: t.sub_calendarNote, date },
+      `${tool.slug}-trial-ends.ics`,
+    );
+  const remindCharge = (date: string) =>
+    downloadReminder(
+      { uid: `${tool.slug}-charge`, title: fmt(t.sub_calendarCharge, { name: tool.name, n: subscription?.monthlyUsd ?? 0 }), description: t.sub_calendarNote, date, monthly: true },
+      `${tool.slug}-next-charge.ics`,
+    );
   return (
     <div className="mt-4 border-t border-line pt-3">
       <label className="flex min-h-12 cursor-pointer items-center gap-3 font-medium">
@@ -99,13 +124,16 @@ function SubscriptionFields({ tool, subscription, size, lang, t }: { tool: Tool;
             <div>
               <Label htmlFor={`${id}-renews`}>{t.sub_renews}</Label>
               <Input id={`${id}-renews`} type="date" className="mt-1 border-line-strong" value={subscription.renewsOn ?? ""} onChange={(event) => change({ renewsOn: event.target.value || undefined })} />
+              {subscription.renewsOn && <CalendarButton label={t.sub_calendar} name={`${tool.name}, ${t.sub_renews}`} onClick={() => remindCharge(nextCharge(subscription.renewsOn!, todayIso()))} />}
             </div>
             <div>
               <Label htmlFor={`${id}-trial`}>{t.sub_trialEnds}</Label>
               <Input id={`${id}-trial`} type="date" className="mt-1 border-line-strong" value={subscription.trialEndsOn ?? ""} onChange={(event) => change({ trialEndsOn: event.target.value || undefined })} />
+              {subscription.trialEndsOn && <CalendarButton label={t.sub_calendar} name={`${tool.name}, ${t.sub_trialEnds}`} onClick={() => remindTrial(subscription.trialEndsOn!)} />}
             </div>
           </div>
           <p className="mt-2 text-sm text-muted-ink">{t.sub_costHelp}</p>
+          {(subscription.renewsOn || subscription.trialEndsOn) && <p className="mt-1 text-sm text-muted-ink">{t.sub_calendarHelp}</p>}
           {cancel && <p className="mt-2">{cancel.say}</p>}
           <Link href={`${toolHref(lang, tool.slug)}#rules`} className="inline-flex min-h-11 items-center font-medium underline underline-offset-2">
             {t.sub_howToCancel}
@@ -317,6 +345,7 @@ export function MyToolsView({ lang, defaultLanguage, t }: { lang: string; defaul
                       <span className="sr-only">: {tool.name}</span>
                     </Button>
                   </div>
+                  <AdviceNote tool={tool} lang={lang} t={t} />
                   <div className="mt-3">
                     <MyRating
                       slug={tool.slug}

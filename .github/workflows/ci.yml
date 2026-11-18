@@ -1,0 +1,34 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          # Runs the .mts scripts directly, which needs Node's built-in TypeScript support.
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      # Fails when any interface word, page, kit, tool text or category is missing in
+      # Spanish, Chinese or Vietnamese, or was translated from English that has since changed.
+      - name: Translations complete
+        run: npm run check:i18n
+      - name: Color contrast
+        run: npm run check:contrast
+      - name: Types
+        run: npx tsc --noEmit
+      - name: Lint
+        run: npm run lint
+      # No API key here: the site builds with AI features switched off.
+      - name: Build
+        run: npm run build

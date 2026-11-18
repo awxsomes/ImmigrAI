@@ -7,6 +7,7 @@ import { fmt, type CardLabels } from "@/lib/labels";
 import { connectsWithExisting, envLabel, supportsLanguage } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
 import { TeamEstimate } from "./adoption-guide";
+import { AdviceNote } from "./advice-note";
 
 /**
  * One tool, with the same facts in the same order every time, so tools are easy to
@@ -111,6 +112,7 @@ export function ToolCard({
         </p>
       )}
       {tool.focus === "general" && <p className="mt-3 rounded-lg bg-marigold-tint px-3 py-2 font-medium">{t.card_generalNote}</p>}
+      <AdviceNote tool={tool} lang={lang} t={t} />
 
       <dl className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
         <Fact label={t.card_cost}>

@@ -34,7 +34,7 @@ function Paragraph({ text, t }: { text: string; t: Dict }) {
 
 function SectionBlock({ section, t }: { section: DocSection; t: Dict }) {
   return (
-    <section>
+    <section id={section.id} className={section.id ? "scroll-mt-4" : undefined}>
       <h2>{section.h}</h2>
       {section.p?.map((text) => <Paragraph key={text} text={text} t={t} />)}
       {section.ul && (

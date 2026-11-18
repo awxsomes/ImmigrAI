@@ -1,6 +1,6 @@
 import { suggestCategories } from "@/lib/discover";
 import { localSuggestions } from "@/lib/matcher";
-import { allowRequest, clientKey } from "@/lib/ratelimit";
+import { allowRequest } from "@/lib/ratelimit";
 import { assertSameOrigin, cleanLang, cleanText, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 
 export const maxDuration = 20;
@@ -21,7 +21,7 @@ export async function POST(req: Request) {
     if (local.length > 0 && local[0].confidence >= 0.75) {
       return Response.json({ suggestions: local, source: "local" }, { headers: NO_STORE_HEADERS });
     }
-    if (!allowRequest(clientKey(req))) {
+    if (!allowRequest(req, "suggest")) {
       return Response.json({ suggestions: local, source: "local", limited: true }, { headers: NO_STORE_HEADERS });
     }
 

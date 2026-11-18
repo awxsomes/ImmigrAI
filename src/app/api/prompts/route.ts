@@ -2,7 +2,7 @@ import { z } from "zod";
 import { SEED_BY_SLUG } from "@/data/seed-tools";
 import { cacheGet, cacheSet, DAY } from "@/lib/cache";
 import { aiEnabled, env } from "@/lib/env";
-import { allowRequest, clientKey, reserveDailyCalls } from "@/lib/ratelimit";
+import { allowRequest, reserveDailyCalls } from "@/lib/ratelimit";
 import { webJson } from "@/lib/research-core";
 import { assertSameOrigin, cleanId, cleanLang, cleanText, HttpError, jsonError, NO_STORE_HEADERS, readJson } from "@/lib/security";
 import { BUSINESS_TYPES } from "@/lib/types";
@@ -58,7 +58,7 @@ export async function POST(req: Request) {
     if (cached) return Response.json(cached, { headers: NO_STORE_HEADERS });
 
     if (!aiEnabled()) throw new HttpError(503, "Prompt help is switched off.");
-    if (!allowRequest(clientKey(req), 6)) throw new HttpError(429, "Too many requests. Please wait a minute.");
+    if (!allowRequest(req, "prompts", 6)) throw new HttpError(429, "Too many requests. Please wait a minute.");
     if (!reserveDailyCalls()) throw new HttpError(503, "Prompt help is resting until tomorrow.");
 
     const { data } = await webJson<unknown>({

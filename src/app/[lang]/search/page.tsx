@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { permanentRedirect } from "next/navigation";
 import { Suspense } from "react";
 import { AiSuggestions } from "@/components/search/ai-suggestions";
 import { MatchResults } from "@/components/search/match-results";
 import { ResultsView } from "@/components/tools/results-view";
 import { Skeleton } from "@/components/ui/skeleton";
 import { SEED_TOOLS, seedToolsFor } from "@/data/seed-tools";
-import { findCategory, findSubcategory, NO_LIVE_DISCOVERY } from "@/data/taxonomy";
+import { findCategory, findSubcategory, NO_LIVE_DISCOVERY, RENAMED_SUBCATEGORIES } from "@/data/taxonomy";
+import { FREE_HELP, freeHelpFor } from "@/lib/advice";
 import { searchHref } from "@/lib/format";
 import { getDict } from "@/lib/i18n";
 import { fmt, MATCH_KEYS, pick, RESULTS_KEYS } from "@/lib/labels";
@@ -44,6 +46,9 @@ async function Results({ params, searchParams }: Props) {
 
   let categoryId = one(sp.cat);
   let subcategoryId = one(sp.sub);
+  // Old links keep working after a subcategory is renamed.
+  const renamed = RENAMED_SUBCATEGORIES[subcategoryId];
+  if (renamed && categoryId) permanentRedirect(`${searchHref(lang, categoryId, renamed)}${matching ? "&need=1" : ""}`);
   let others: ReturnType<typeof localSuggestions> = [];
 
   // A typed question with no category: place it if we can, otherwise ask the AI on the page.
@@ -202,8 +207,29 @@ async function Results({ params, searchParams }: Props) {
         ))}
       </div>
 
-      {sub?.id === "ice-alerts" && <p className="mt-4 max-w-4xl rounded-lg bg-brick-tint p-4">{t.results_iceNote}</p>}
-      {category.id === "legal" && <p className="mt-4 max-w-4xl rounded-lg bg-marigold-tint p-4">{t.results_legalNote}</p>}
+      {sub?.id === "know-your-rights" && <p className="mt-4 max-w-4xl rounded-lg bg-brick-tint p-4">{t.results_iceNote}</p>}
+      {freeHelpFor(category.id, sub?.id).length > 0 && (
+        <section aria-labelledby="free-first-title" className="mt-4 max-w-4xl rounded-lg border-2 border-green bg-green-tint p-4">
+          <h2 id="free-first-title" className="text-xl font-semibold">
+            {t.freeFirst_title}
+          </h2>
+          <ul className="mt-2 space-y-3">
+            {freeHelpFor(category.id, sub?.id).map((kind) => (
+              <li key={kind}>
+                {t[FREE_HELP[kind].text]}{" "}
+                <a href={FREE_HELP[kind].href} target="_blank" rel="noopener noreferrer" className="font-medium underline underline-offset-2">
+                  {t[FREE_HELP[kind].link]}
+                  <span className="sr-only"> ({t.tool_leaving})</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-3">{t.freeFirst_note}</p>
+          <Link href={`/${lang}/free-help#free-legal-tax`} className="mt-1 inline-block py-1 font-medium underline underline-offset-2">
+            {t.freeFirst_more}
+          </Link>
+        </section>
+      )}
 
       <div className="mt-6">
         <ResultsView

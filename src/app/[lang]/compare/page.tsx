@@ -8,7 +8,10 @@ import { CARD_KEYS, COMPAT_KEYS, pick } from "@/lib/labels";
 import { localizeTool, pageLanguageName } from "@/lib/localize";
 import { cleanSlugs } from "@/lib/slugs";
 
-export const metadata: Metadata = { title: "Compare", robots: { index: false } };
+export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
+  const { lang } = await params;
+  return { title: getDict(lang).compare_title, robots: { index: false } };
+}
 
 interface Props {
   params: Promise<{ lang: string }>;

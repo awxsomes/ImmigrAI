@@ -13,16 +13,6 @@ function isTranslated(lang: string): lang is Translated {
   return lang === "es" || lang === "zh" || lang === "vi";
 }
 
-/** Translated setup steps, rules and plan details. Each list is in the same order as the English. */
-interface GuideTranslation {
-  planIncludes?: string[];
-  accountSteps?: string[];
-  connectSteps?: string[];
-  trial?: string;
-  paywall?: string;
-  policySay?: string[];
-}
-
 /** A translated list is only used when it still lines up with the English one. */
 function sameLength(translated: string[] | undefined, original: string[]) {
   return translated?.length === original.length ? translated : original;
@@ -30,7 +20,7 @@ function sameLength(translated: string[] | undefined, original: string[]) {
 
 export function localizeTool(tool: Tool, lang: string): Tool {
   if (!isTranslated(lang)) return tool;
-  const x = TRANSLATIONS[lang].tools[tool.slug] as (TranslationSet["tools"][string] & GuideTranslation) | undefined;
+  const x: TranslationSet["tools"][string] | undefined = TRANSLATIONS[lang].tools[tool.slug];
   if (!x) return tool;
   const plans = tool.pricing.plans;
   const includes = plans && sameLength(x.planIncludes, plans.map((plan) => plan.includes));
@@ -72,8 +62,12 @@ export function localBundles(lang: string) {
 }
 
 export function getDoc(key: DocKey, lang: string): { doc: Doc; translated: boolean } {
+  const english: Doc = DOCS[key];
   const translated = isTranslated(lang) ? TRANSLATIONS[lang].docs[key] : undefined;
-  return translated ? { doc: translated, translated: true } : { doc: DOCS[key], translated: false };
+  // A translation made before the English changed shape is out of date, so the English shows instead.
+  if (!translated || translated.sections.length !== english.sections.length) return { doc: english, translated: false };
+  // Anchors are never translated. They come from the English, section by section.
+  return { doc: { ...translated, sections: translated.sections.map((section, i) => ({ ...section, id: english.sections[i].id })) }, translated: true };
 }
 
 /** A category or subcategory name in the reader's language. */

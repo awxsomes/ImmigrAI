@@ -1,0 +1,34 @@
+{
+ "en": {
+  "error_title": "Something went wrong on this page.",
+  "error_d": "Please try again. Nothing you saved has been lost.",
+  "error_retry": "Try again",
+  "notFound_title": "We could not find that page.",
+  "notFound_body": "The link may be old. You can start again from the home page.",
+  "notFound_home": "Go to the home page"
+ },
+ "es": {
+  "error_title": "Algo salió mal en esta página.",
+  "error_d": "Inténtalo otra vez. No se perdió nada de lo que guardaste.",
+  "error_retry": "Intentar de nuevo",
+  "notFound_title": "No pudimos encontrar esa página.",
+  "notFound_body": "El enlace puede estar viejo. Puedes empezar otra vez desde la página principal.",
+  "notFound_home": "Ir a la página principal"
+ },
+ "zh": {
+  "error_title": "这个页面出了点问题。",
+  "error_d": "请再试一次。您保存的内容没有丢失。",
+  "error_retry": "再试一次",
+  "notFound_title": "我们找不到这个页面。",
+  "notFound_body": "这个链接可能已经过时。您可以从主页重新开始。",
+  "notFound_home": "回到主页"
+ },
+ "vi": {
+  "error_title": "Đã có lỗi xảy ra trên trang này.",
+  "error_d": "Vui lòng thử lại. Không có gì bạn đã lưu bị mất.",
+  "error_retry": "Thử lại",
+  "notFound_title": "Chúng tôi không tìm thấy trang đó.",
+  "notFound_body": "Đường dẫn có thể đã cũ. Bạn có thể bắt đầu lại từ trang chủ.",
+  "notFound_home": "Về trang chủ"
+ }
+}

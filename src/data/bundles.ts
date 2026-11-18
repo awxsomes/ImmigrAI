@@ -11,12 +11,12 @@ export const BUNDLES: Bundle[] = [
     name: "Start-up Essentials",
     tagline: "The AI basics for a new business, all with a free way to start.",
     forWho: "Any business opening its doors this year",
-    toolSlugs: ["google-business-profile", "square-pos", "finch", "canva", "whatsapp-business", "chatgpt"],
+    toolSlugs: ["google-business-profile", "square-pos", "finch", "buffer", "whatsapp-business", "praising"],
   },
   {
     slug: "small-ai-tools",
     name: "Small AI Tools Worth Trying",
-    tagline: "Smaller AI tools with public reviews and a low-cost way to start.",
+    tagline: "Smaller AI tools with a low-cost way to start. Most are too new to have public reviews yet.",
     forWho: "Owners who want to try AI beyond the big brands",
     toolSlugs: ["finch", "tabby", "sawyer", "wellsaid", "prevail"],
     note: "Small companies can change quickly. Try each one before you pay, and keep your own copy of anything important.",
@@ -34,7 +34,7 @@ export const BUNDLES: Bundle[] = [
     name: "Salon and Barbershop Kit",
     tagline: "Fill the chair and cut down on no-shows.",
     forWho: "Hair, nails, lashes, barbers and spas",
-    toolSlugs: ["fresha", "square-appointments", "canva", "replybase", "homebase"],
+    toolSlugs: ["fresha", "square-appointments", "lookmybio", "replybase", "homebase"],
     note: "You only need one booking tool. Choose Fresha or Square Appointments, and compare their fees first.",
   },
   {
@@ -49,7 +49,7 @@ export const BUNDLES: Bundle[] = [
     name: "Corner Store and Retail",
     tagline: "Track what sells and reorder before you run out.",
     forWho: "Bodegas, markets, boutiques, gift shops",
-    toolSlugs: ["square-pos", "zoho-inventory", "faire", "google-sheets", "meta-business-suite"],
+    toolSlugs: ["square-pos", "zoho-inventory", "faire", "stockguard", "meta-business-suite"],
   },
   {
     slug: "first-employee",
@@ -72,8 +72,8 @@ export const BUNDLES: Bundle[] = [
     name: "Safety First",
     tagline: "Protect your people, your accounts and your records.",
     forWho: "Every business",
-    toolSlugs: ["prevail", "passmykitchen", "citizen", "bitwarden", "ilrc-red-cards"],
-    note: "These do not need to connect to each other, because each covers a different risk. Bitwarden and the ILRC Red Cards do not use AI, but they are the best free help we found for passwords and knowing your rights. Citizen only works in some areas.",
+    toolSlugs: ["prevail", "passmykitchen", "together-safe", "bitwarden", "ilrc-red-cards"],
+    note: "These do not need to connect to each other, because each covers a different risk. Bitwarden and the ILRC Red Cards do not use AI, but they are the best free help we found for passwords and knowing your rights.",
   },
 ];
 

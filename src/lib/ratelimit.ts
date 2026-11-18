@@ -5,11 +5,14 @@ import { env } from "./env";
 /**
  * In-memory rate limiting and a daily call cap.
  *
- * Each warm serverless instance keeps its own counters, so these limits are
- * approximate. The hard ceiling is the spend limit set on the OpenRouter key.
- * To scale, swap these Maps for a shared store such as Upstash Redis behind the
- * same two functions.
+ * Each warm serverless instance keeps its own counters, and a cold start resets them, so
+ * these limits are approximate. The hard ceiling is the spend limit set on the OpenRouter
+ * key. To make them exact, swap these Maps for a shared store such as Upstash Redis behind
+ * the same two functions.
  */
+
+/** Each API route has its own allowance, so typing in the search box never uses up a checkup. */
+export type RateRoute = "suggest" | "match" | "discover" | "checkup" | "prompts" | "tool";
 
 interface Bucket {
   tokens: number;
@@ -23,14 +26,19 @@ const WINDOW_MS = 60_000;
 /** IP addresses are never stored: only a salted hash that dies with the instance. */
 const SALT = randomBytes(16).toString("hex");
 
-export function clientKey(req: Request) {
+function clientKey(req: Request) {
   const forwarded = req.headers.get("x-forwarded-for");
   const ip = (forwarded ? forwarded.split(",")[0] : req.headers.get("x-real-ip"))?.trim() || "unknown";
   return createHash("sha256").update(SALT).update(ip).digest("hex").slice(0, 32);
 }
 
-/** Token bucket: `perMinute` requests per rolling minute. Returns true when allowed. */
-export function allowRequest(key: string, perMinute = env.perMinute) {
+/**
+ * Token bucket: `perMinute` requests per rolling minute, for one visitor on one route.
+ * Returns true when allowed. A shared address, such as a library or a phone carrier's,
+ * can still hold several owners, which is why each route's allowance is kept separate.
+ */
+export function allowRequest(req: Request, route: RateRoute, perMinute = env.perMinute) {
+  const key = `${route}:${clientKey(req)}`;
   const now = Date.now();
   const bucket = buckets.get(key) ?? { tokens: perMinute, updated: now };
   bucket.tokens = Math.min(perMinute, bucket.tokens + ((now - bucket.updated) / WINDOW_MS) * perMinute);

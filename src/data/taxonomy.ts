@@ -95,7 +95,20 @@ export const CATEGORIES: Category[] = [
     keywords: ["safety", "security", "safe"],
     subcategories: [
       { id: "community-alerts", name: "Community alerts", description: "Get local alerts about crime, weather and emergencies.", keywords: ["community alerts", "neighborhood", "crime", "weather alert", "emergency", "local news", "robbery", "break in", "safety alert"] },
-      { id: "ice-alerts", name: "ICE alerts", description: "Know your rights and get community notifications about immigration enforcement.", keywords: ["ice", "ice alerts", "immigration", "raid", "raids", "know your rights", "my rights", "deportation", "enforcement", "migra", "immigration alert"] },
+      {
+        id: "know-your-rights",
+        name: "Know your rights",
+        description: "Free guides from nonprofit legal groups on your rights and your staff's rights if immigration agents come to your business.",
+        // Phrases only. A bare "ice" sent "I sell ice cream" here, a bare "immigration" caught I-9 paperwork,
+        // and a bare "my rights" caught tenants asking about a lease.
+        keywords: [
+          "know your rights", "know my rights", "red card", "red cards",
+          "ice raid", "ice raids", "ice agent", "ice agents", "ice officer", "ice officers", "ice came", "ice at my",
+          "immigration raid", "immigration raids", "immigration agent", "immigration agents", "immigration officer", "immigration officers", "immigration enforcement",
+          "workplace raid", "deportation", "deported", "la migra", "migra",
+        ],
+        excludeKeywords: ["ice cream", "dry ice", "ice machine", "ice maker", "shaved ice", "ice rink", "ice skating", "ice box", "bag of ice", "bags of ice", "sell ice", "on ice"],
+      },
       { id: "cybersecurity", name: "Cybersecurity", description: "Protect accounts, passwords and devices from scams.", keywords: ["cybersecurity", "password", "passwords", "hacked", "scam", "scams", "phishing", "fraud", "two factor", "protect my account", "virus"] },
       { id: "food-health", name: "Food & Health safety", description: "Track temperatures, checklists and health inspection prep.", keywords: ["food safety", "health inspection", "inspection", "temperature log", "temperature", "haccp", "servsafe", "allergens", "sanitation", "health inspector"] },
     ],
@@ -117,7 +130,20 @@ export const CATEGORIES: Category[] = [
  * enforcement app could put someone in danger, so this list is limited to nonprofit
  * resources that were checked, until a person reviews any new ones.
  */
-export const NO_LIVE_DISCOVERY = new Set(["ice-alerts"]);
+export const NO_LIVE_DISCOVERY = new Set(["know-your-rights"]);
+
+/** Words that look like immigration enforcement but are not, such as "dry ice alerts". Removed before the check below. */
+const NOT_ENFORCEMENT = /\b(?:ice[- ]cream|dry ice|shaved ice|ice (?:machines?|makers?|rinks?|skating|box(?:es)?)|bags? of ice)\b/gi;
+const ENFORCEMENT =
+  /\b(?:ice (?:raids?|agents?|officers?|alerts?|sightings?)|immigration (?:raids?|agents?|officers?|enforcement)|deportations?|deported|la migra|migra|redadas?|deportaci[oó]n|agentes de (?:ice|inmigraci[oó]n)|trục xuất|đột kích|nhân viên di trú)\b|移民局|移民突袭|移民执法|遣返|驱逐出境/i;
+
+/** Phrases only, never the bare word "ice". A search about enforcement is never sent to live web discovery. */
+export function mentionsEnforcement(text: string) {
+  return ENFORCEMENT.test(text.replace(NOT_ENFORCEMENT, " "));
+}
+
+/** Old subcategory ids still found in links and bookmarks, mapped to the current id. */
+export const RENAMED_SUBCATEGORIES: Record<string, string> = { "ice-alerts": "know-your-rights" };
 
 export const CATEGORY_MAP = new Map(CATEGORIES.map((c) => [c.id, c]));
 
@@ -141,6 +167,7 @@ export function flatTaxonomy() {
       subcategoryName: s.name,
       description: s.description,
       subKeywords: s.keywords,
+      excludeKeywords: s.excludeKeywords,
       categoryKeywords: c.keywords,
     })),
   );

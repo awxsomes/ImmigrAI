@@ -9,6 +9,8 @@
 import type { DocPath } from "./doc-paths";
 
 export interface DocSection {
+  /** A fixed anchor for links into the page. Never sent for translation. */
+  id?: string;
   h: string;
   p?: string[];
   ul?: string[];
@@ -22,7 +24,7 @@ export interface Doc {
   sections: DocSection[];
 }
 
-export const DOC_UPDATED = "2026-11-08";
+export const DOC_UPDATED = "2026-11-17";
 
 export const DOCS = {
   methodology: {
@@ -105,7 +107,7 @@ export const DOCS = {
         h: "How we check reviews",
         p: ["We do not write or host reviews. We search public review sites, and a rating only counts if it passes these checks:"],
         ul: [
-          "The rating must appear in the text of the exact page we link to.",
+          "The rating must appear in the search engine's result for the exact page we link to. We do not open the page ourselves, so the page may show a newer number. Check it before you rely on it.",
           "The page must be on an independent site: Capterra, G2, Trustpilot, the Apple App Store, Google Play, GetApp, Software Advice or TrustRadius. A company's own testimonials never count.",
           "The page must be about this product alone, so comparison and category pages do not count. For Apple we only accept the US store, and for Trustpilot the reviewed web address must match the company's.",
           "Small tools often share a name with another product. For tools we find by searching the web, the review page must also show the tool's own web address. If it does not, we show no rating. No rating is better than the wrong one.",
@@ -127,7 +129,7 @@ export const DOCS = {
         ul: [
           "Connects directly: one tool's own pages name the other as an integration.",
           "Connects through another product: both tools work with a shared connector, such as Zapier or QuickBooks. This may take a little setup.",
-          "Works side by side: no link we could confirm, but both run on the same kind of device. You may need to type some information twice.",
+          "Not connected: we found no link between them. They still run on the same kind of device, so you can use each one on its own, but you may need to type some information twice.",
           "Does not connect: nothing in common that we could confirm.",
         ],
         p: ["A kit's fit score is the average across every pair of tools in it. If a link exists but we could not confirm it, we report the lower level."],
@@ -153,6 +155,25 @@ export const DOCS = {
           "This can change. Ask a counselor or a lawyer about your own situation, and check the SBA's current rules before you apply.",
         ],
         links: [["News report from CBS", "https://www.cbsnews.com/news/sba-loan-rule-change-permanent-residents/"]],
+      },
+      {
+        id: "free-legal-tax",
+        h: "Free legal, tax and labor help",
+        p: [
+          "AI tools for contracts, taxes, payroll and HR are not lawyers, accountants or tax preparers, and no professional has checked them. Before you sign, send or file something important, ask a person. These programs are free for people who qualify.",
+        ],
+        ul: [
+          "Legal aid: nonprofit offices that help with leases, contracts, official letters and other legal problems, for people with lower incomes.",
+          "IRS Volunteer Income Tax Assistance (VITA): IRS-certified volunteers who prepare tax returns for free for people with lower incomes. Some simple self-employment returns are included, so ask what they can do before you go.",
+          "Low Income Taxpayer Clinics: free or low-cost help if you have a dispute with the IRS.",
+          "U.S. Department of Labor, Wage and Hour Division: free answers about minimum wage, overtime, breaks and hiring rules, in many languages.",
+        ],
+        links: [
+          ["Find free legal aid near you (LawHelp.org)", "https://www.lawhelp.org"],
+          ["Find free tax help (IRS VITA)", "https://www.irs.gov/individuals/free-tax-return-preparation-for-qualifying-taxpayers"],
+          ["Low Income Taxpayer Clinics", "https://www.taxpayeradvocate.irs.gov/about-us/low-income-taxpayer-clinics-litc/"],
+          ["Department of Labor, Wage and Hour Division", "https://www.dol.gov/agencies/whd"],
+        ],
       },
       {
         h: "Free business advice",
@@ -247,9 +268,9 @@ export const DOCS = {
       {
         h: "What passes through our servers",
         ul: [
-          "Search text. When you type a longer question, it is sent to our server and on to OpenRouter, which passes it to an AI model that matches it to a category. Please do not type private details such as names, Social Security numbers or immigration status.",
-          "If we cannot match your words to a category, they become part of the page address, which can appear in your browser history and in server logs.",
-          "Business details. When you run a business checkup or search for one specific need, the business name, city, website, kind of business, team size and the software you use are sent to our server and on to OpenRouter, so an AI model can look for reviews and match tools to you. Please do not add the names of customers or employees.",
+          "Search text. When you type a longer question, it is sent to our server and on to OpenRouter, which passes it to an AI model that matches it to a category. When we look for tools for one specific need, OpenRouter also sends search words based on your question to Exa, a web search engine. Please do not type private details such as names, Social Security numbers or immigration status.",
+          "Your words travel inside the request, not in the page address, so they do not appear in your browser history or in the addresses our host logs. The one exception: if you type only one or two words that we cannot match to a category, such as a product's name, they become part of the page address.",
+          "Business details. When you run a business checkup or search for one specific need, the business name, city, website, kind of business, team size and the software you use are sent to our server and on to OpenRouter and Exa, so an AI model and a search engine can look for reviews and match tools to you. The checkup form sends them inside the request, never in the page address. Please do not add the names of customers or employees.",
           "Your business's website. If you give us a website or we find one, our server reads that public page to look for things such as online booking. We do not keep a copy.",
           "Prompt help. When you ask us to write prompts, the problem you described and your kind of business are sent to our server and on to OpenRouter.",
           "We do not write what you type to a database. Our server may hold a search result in temporary memory for up to a day, so the same search does not cost again. We ask OpenRouter to use only AI providers that do not keep or train on it, and we rely on those companies to honor that.",
@@ -260,8 +281,9 @@ export const DOCS = {
       {
         h: "Companies involved",
         ul: [
-          "Vercel hosts this website.",
+          "Vercel hosts this website and runs our server, so every visit passes through Vercel. It may keep standard server logs, such as internet addresses and page addresses, for a short time.",
           "OpenRouter connects us to AI models. The AI model company may process the text of your search and the business details described above.",
+          "Exa is the web search engine OpenRouter uses for us. It receives search words based on what you typed, and a business's name and city during a checkup. Exa's own privacy policy applies to those searches.",
           "When you click a link to a tool, you leave our site. That company's own privacy policy applies.",
         ],
       },
@@ -277,6 +299,7 @@ export const DOCS = {
         h: "Your choices and rights",
         p: [
           "Because we keep no personal data about you on our servers, there is nothing for us to look up, correct or delete under laws such as the California Consumer Privacy Act or the GDPR. You control the data on your device through the My tools page and the data deletion page.",
+          "You can still ask us a question, make a request under those laws, or ask what Vercel, OpenRouter or Exa may hold. Write to the address below, and we will reply and help you contact those companies.",
           "{contact}",
         ],
       },
@@ -293,7 +316,7 @@ export const DOCS = {
       },
       {
         h: "Who can use it",
-        p: ["You must be 18 or older, or use this site with a parent or guardian's permission. It is meant for people running or starting a business."],
+        p: ["You must be 18 or older to use this site. It is meant for adults running or starting a business."],
       },
       {
         h: "Not professional advice",

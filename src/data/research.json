@@ -1997,12 +1997,6 @@
       "monthlyUsd": 20.83,
       "per": "person",
       "includes": "Everything in Pro, plus up to 100 Brand Kits, approval workflows, real-time ad analytics, higher AI access"
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Custom-priced per organization for 100+ employees, with SSO, SCIM and priority support"
      }
     ],
     "trial": "Pro and Business come with a 30-day free trial, and a credit card is needed to start it.",
@@ -3984,12 +3978,6 @@
       "monthlyUsd": 15,
       "per": "person",
       "includes": "AI automation, NetSuite and Sage Intacct integrations, multi-entity support, plus platform fee by team size."
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Custom pricing with implementation services, global card issuing, and dedicated support."
      }
     ],
     "trial": "",
@@ -5051,14 +5039,7 @@
     "checkedAt": "2026-11-08",
     "focus": "task",
     "trades": [],
-    "plans": [
-     {
-      "name": "Free",
-      "monthlyUsd": 0,
-      "per": "use",
-      "includes": "Only pay per transaction; POS app, online site, invoicing, booking and item library included"
-     }
-    ],
+    "plans": [],
     "trial": "",
     "paywall": "",
     "accountSteps": [
@@ -5477,14 +5458,7 @@
     "checkedAt": "2026-11-08",
     "focus": "suite",
     "trades": [],
-    "plans": [
-     {
-      "name": "Smart Sourcing Professional",
-      "monthlyUsd": 520,
-      "per": "business",
-      "includes": "Resume search with 100 contacts a month, Sourcing Assistant for up to 3 jobs; extra contacts cost $5.20 each."
-     }
-    ],
+    "plans": [],
     "trial": "",
     "paywall": "Premium placement, matched candidate invites, and the Smart Sourcing resume search need a paid plan.",
     "accountSteps": [],
@@ -6006,6 +5980,12 @@
     "trades": [],
     "plans": [
      {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": ""
+     },
+     {
       "name": "Starter",
       "monthlyUsd": 24.17,
       "per": "business",
@@ -6163,6 +6143,12 @@
     "focus": "task",
     "trades": [],
     "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": ""
+     },
      {
       "name": "Standard",
       "monthlyUsd": 10,
@@ -6472,12 +6458,6 @@
       "monthlyUsd": 14.95,
       "per": "person",
       "includes": "Per bookable team member, multiple calendars, 100 free messages and 50 free marketing emails per member"
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "High-volume businesses with more than 20 team members, custom pricing, contact sales"
      }
     ],
     "trial": "Both the Independent and Team plans come with a 7-day free trial that does not require a credit card.",
@@ -8100,6 +8080,12 @@
     "trades": [],
     "plans": [
      {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": ""
+     },
+     {
       "name": "Quizlet Plus",
       "monthlyUsd": 2.99,
       "per": "person",
@@ -8602,6 +8588,12 @@
     "focus": "suite",
     "trades": [],
     "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": ""
+     },
      {
       "name": "Pro",
       "monthlyUsd": 9,
@@ -12100,12 +12092,6 @@
       "monthlyUsd": 0,
       "per": "business",
       "includes": "100 messages a month, all channels, no credit card"
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Custom volume, SLA, dedicated onboarding"
      }
     ],
     "trial": "There is no trial; the free plan is free forever and needs no credit card.",
@@ -12281,12 +12267,6 @@
       "monthlyUsd": 149,
       "per": "person",
       "includes": "100 reviews a month, up to 100 pages per document"
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Custom limits and pricing for high-volume teams"
      }
     ],
     "trial": "The free trial gives you 2 reviews with no subscription and no card required.",
@@ -12580,12 +12560,6 @@
       "monthlyUsd": 149,
       "per": "business",
       "includes": "Up to 15 team members and unlimited AI queries"
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Unlimited team members, queries and templates; custom quote"
      }
     ],
     "trial": "Free 7-day trial on all plans; a card is required but not charged until the trial ends.",
@@ -14722,7 +14696,7 @@
   },
   "netta": {
    "checkedAt": "2026-11-08",
-   "exists": false,
+   "exists": true,
    "currentName": "Netta",
    "officialUrl": "https://getnetta.ai",
    "reviews": {
@@ -14733,13 +14707,13 @@
     "claimed": 0
    },
    "pricing": {
-    "startingMonthlyUsd": 0,
-    "model": "free",
-    "kind": "free",
-    "note": "",
+    "startingMonthlyUsd": 119,
+    "model": "paid",
+    "kind": "monthly",
+    "note": "Annual: $119 a month. Quarterly: $133 a month. Monthly: $149 a month.",
     "extraFees": null,
     "sourceUrl": "",
-    "verified": false
+    "verified": true
    },
    "languages": {
     "list": [],
@@ -15203,79 +15177,6 @@
     ]
    }
   },
-  "ivera": {
-   "checkedAt": "2026-11-08",
-   "exists": true,
-   "currentName": "ILORA (by IVERA)",
-   "officialUrl": "https://ilora.app/en/blog/odoo-migration-guide/",
-   "reviews": {
-    "rating": null,
-    "reviewCount": 0,
-    "summary": "",
-    "sources": [],
-    "claimed": 2
-   },
-   "pricing": {
-    "startingMonthlyUsd": 0,
-    "model": "paid",
-    "kind": "monthly",
-    "note": "",
-    "extraFees": "",
-    "sourceUrl": "https://ilora.app/en/pricing",
-    "verified": true
-   },
-   "languages": {
-    "list": [
-     "English",
-     "Spanish"
-    ],
-    "claimed": 2,
-    "sourceUrl": "",
-    "totalClaim": null
-   },
-   "integrations": [
-    "Odoo",
-    "Egyptian Tax Authority e-invoicing",
-    "ZATCA"
-   ],
-   "caution": "",
-   "description": {
-    "confirmed": true,
-    "discontinued": false,
-    "summary": "iVERA is an AI receptionist and salon management software that answers phone calls 24/7 and books appointments automatically. It also sends SMS and email reminders and tracks calendar, customers and staff for beauty businesses like salons, barbershops and spas.",
-    "helpsWith": [
-     "Answers calls 24/7 with an AI voice and books, reschedules or cancels appointments",
-     "Sends automatic SMS and email confirmations and reminders to cut no-shows",
-     "Offers an online booking page where customers can book any time",
-     "Syncs with Google Calendar and Square Appointments and takes payments through Stripe and Square"
-    ],
-    "howToStart": "Go to app.ivera.ai and sign up for the free trial with your mobile number, which is used to receive a verification code."
-   },
-   "ai": {
-    "level": "core",
-    "feature": "Answers your salon's calls 24/7 with an AI voice, books appointments into your calendar, and sends reminders to customers.",
-    "checkedAt": "2026-11-08"
-   },
-   "guide": {
-    "checkedAt": "2026-11-08",
-    "focus": "suite",
-    "trades": [],
-    "plans": [
-     {
-      "name": "ILORA",
-      "monthlyUsd": 99,
-      "per": "business",
-      "includes": "Up to 12 users with unlimited free viewers"
-     }
-    ],
-    "trial": "",
-    "paywall": "",
-    "accountSteps": [],
-    "connectSteps": [],
-    "stepsUrl": "",
-    "policies": []
-   }
-  },
   "salonaix": {
    "checkedAt": "2026-11-08",
    "exists": true,
@@ -15405,116 +15306,6 @@
       "kind": "data-export",
       "say": "The policies do not say how to export your data; they only describe deleting your account and the data kept after deletion.",
       "url": "https://www.salonaix.com/privacy"
-     }
-    ]
-   }
-  },
-  "copper": {
-   "checkedAt": "2026-11-08",
-   "exists": true,
-   "currentName": "Copper CRM",
-   "officialUrl": "https://www.copper.com/",
-   "reviews": {
-    "rating": null,
-    "reviewCount": 0,
-    "summary": "",
-    "sources": [],
-    "claimed": 4
-   },
-   "pricing": {
-    "startingMonthlyUsd": 0,
-    "model": "freemium",
-    "kind": "free-plan",
-    "note": "Copper has a permanent free plan for teams of up to 5 users, and paid plans are Basic at $29 per seat per month ($23 billed annually), Professional at $69 ($59 billed annually) and Business at $134 ($99 billed annually).",
-    "extraFees": null,
-    "sourceUrl": "https://www.copper.com/",
-    "verified": true
-   },
-   "languages": {
-    "list": [],
-    "claimed": 0,
-    "sourceUrl": "",
-    "totalClaim": null
-   },
-   "integrations": [
-    "Gmail",
-    "Google Calendar",
-    "Google Drive",
-    "Google Sheets",
-    "Looker Studio",
-    "LinkedIn",
-    "Slack",
-    "QuickBooks",
-    "DocuSign",
-    "PandaDoc",
-    "JustCall",
-    "RingCentral",
-    "Mailchimp",
-    "Zendesk",
-    "Zapier"
-   ],
-   "caution": "The free plan is capped at 5 users. Partner and affiliate terms do not apply to regular customers. Copper is built for Google Workspace and has no native Microsoft 365 integration.",
-   "description": {
-    "confirmed": true,
-    "discontinued": false,
-    "summary": "Copper is an AI receptionist for small owner-run businesses that answers calls and texts, books appointments into your calendar, and asks happy customers for Google reviews.",
-    "helpsWith": [
-     "Answers calls on the first ring, 24/7, with a voice you pick from six options",
-     "Books real slots into your Google Calendar and sends the customer a text confirmation",
-     "Replies to customer texts from your own FAQs and alerts your phone when something is urgent",
-     "Sends a review request with a link to your Google profile after completed jobs"
-    ],
-    "howToStart": ""
-   },
-   "ai": {
-    "level": "core",
-    "feature": "Answers every incoming call, books appointments on your calendar, and texts customers back, acting as your AI receptionist.",
-    "checkedAt": "2026-11-08"
-   },
-   "guide": {
-    "checkedAt": "2026-11-08",
-    "focus": "suite",
-    "trades": [],
-    "plans": [
-     {
-      "name": "Basic",
-      "monthlyUsd": 29,
-      "per": "person",
-      "includes": "2,500 contact limit, task automation, pipelines, project management, contact enrichment"
-     },
-     {
-      "name": "Professional",
-      "monthlyUsd": 69,
-      "per": "person",
-      "includes": "15,000 contact limit, workflow automation, bulk email, reporting, integrations"
-     },
-     {
-      "name": "Business",
-      "monthlyUsd": 134,
-      "per": "person",
-      "includes": "Unlimited contacts, email series, custom reports, multi-currency, premium support"
-     }
-    ],
-    "trial": "Free trial available; no credit card required.",
-    "paywall": "Workflow automation, bulk email, and reporting need the Professional plan or higher.",
-    "accountSteps": [],
-    "connectSteps": [],
-    "stepsUrl": "",
-    "policies": [
-     {
-      "kind": "ai-training",
-      "say": "Your customer data is not clearly stated to be used for AI training in these pages; the privacy policy says we process CRM Data only on behalf of customers and only per their instructions.",
-      "url": "https://www.copper.com/privacy"
-     },
-     {
-      "kind": "data-export",
-      "say": "Your data stays yours: you keep ownership of your customer data and Copper only gets a limited license to use it to run the service.",
-      "url": "https://www.copper.com/privacy"
-     },
-     {
-      "kind": "cancel",
-      "say": "You can cancel your subscription, but the exact steps and timing are set out in the terms, section 8.2, which was not shown here.",
-      "url": "https://www.copper.com/terms"
      }
     ]
    }
@@ -15757,32 +15548,7 @@
     "checkedAt": "2026-11-08",
     "focus": "general",
     "trades": [],
-    "plans": [
-     {
-      "name": "PAYGO",
-      "monthlyUsd": 0,
-      "per": "use",
-      "includes": "Pay per credit as you use features; suits businesses with few reviews to answer each month"
-     },
-     {
-      "name": "Core",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Essential response management with 100 review responses a month; no map tracker or competitor analysis"
-     },
-     {
-      "name": "Pro",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Review responses, AI review requests, map rank tracking and competitor analysis; 200 responses and 10 map or competitor scans a month"
-     },
-     {
-      "name": "Pro+",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Higher limits and advanced automation; 500 review responses and 25 map or competitor scans a month"
-     }
-    ],
+    "plans": [],
     "trial": "Start a free 7-day trial of RightResponse AI.",
     "paywall": "Map Rank Tracker and Competitor Analysis need a Pro or Pro+ plan, and Competitor Voice of Customer also needs separately bought packs.",
     "accountSteps": [],
@@ -20309,12 +20075,6 @@
       "monthlyUsd": 328,
       "per": "location",
       "includes": "Premier plus forms add-on, 2,500 free texts, 10,000 free email blasts, 100 GB storage"
-     },
-     {
-      "name": "Enterprise",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "Custom plan for large operations with APIs and enterprise integrations"
      }
     ],
     "trial": "",
@@ -21409,12 +21169,6 @@
       "monthlyUsd": 49,
       "per": "business",
       "includes": "$49 a week includes your first 20 leads; then $2.49 per lead for leads 21-50 and $1.49 from the 51st."
-     },
-     {
-      "name": "Enterprise & Agencies",
-      "monthlyUsd": 0,
-      "per": "use",
-      "includes": "Custom volume rates for businesses doing 200+ leads a week, with personal onboarding and priority support."
      }
     ],
     "trial": "Every plan starts with a 7-day free trial, and a credit card is required.",
@@ -22938,12 +22692,6 @@
      "restaurant"
     ],
     "plans": [
-     {
-      "name": "Customer covers it",
-      "monthlyUsd": 0,
-      "per": "business",
-      "includes": "All software included at $0 a month; customer pays 5% + 15¢ card fee at checkout"
-     },
      {
       "name": "Split it",
       "monthlyUsd": 0,
@@ -25845,6 +25593,3029 @@
    "ai": {
     "level": "none",
     "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "ivera": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "iVERA",
+   "officialUrl": "https://ivera.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 149,
+    "model": "paid",
+    "note": "iVERA: $149 a month",
+    "extraFees": null,
+    "sourceUrl": "https://ivera.ai/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "iVERA answers salon phone calls 24/7, books appointments automatically, and sends SMS and email reminders. It also runs the calendar, customer records, staff schedules and checkout in one platform.",
+    "helpsWith": [
+     "Answers every call with an AI voice and books, reschedules or cancels appointments",
+     "Sends automatic SMS and email confirmations and reminders to reduce no-shows",
+     "Offers an online booking page customers can use any time"
+    ],
+    "howToStart": "Start the 30-day free trial at ivera.ai without a credit card."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "task",
+    "trades": [
+     "salon"
+    ],
+    "plans": [
+     {
+      "name": "iVERA",
+      "monthlyUsd": 149,
+      "per": "business",
+      "includes": "AI receptionist, booking, reminders, customer and staff management, analytics; plus 2.5% of AI-generated revenue"
+     }
+    ],
+    "trial": "Free 30-day trial, no credit card required.",
+    "paywall": "After the free trial, a paid plan is needed to keep the AI receptionist and booking running.",
+    "accountSteps": [
+     "Start your 30-day free trial on the iVERA website.",
+     "Enter your services, hours, and staff.",
+     "Your AI phone number is set up right away.",
+     "Your receptionist is ready to take calls."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://ivera.ai/",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "The price is $149 per month plus 2.5% of revenue the AI generates.",
+      "url": "https://ivera.ai/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Answers your salon's phone calls 24/7 with an AI voice and books, reschedules, and cancels appointments automatically.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "copper": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Copper",
+   "officialUrl": "https://www.joincopper.io",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 79,
+    "model": "paid",
+    "note": "Solo: $79 a month. Business: $249 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.joincopper.io/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Calendar",
+    "Stripe",
+    "Twilio",
+    "Vapi",
+    "Deepgram",
+    "Anthropic"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "An AI receptionist for salons and spas that answers within two rings, books into your Google Calendar and replies to customer texts.",
+    "helpsWith": [
+     "Answers calls 24/7 with a voice you choose",
+     "Books real calendar slots and confirms by text",
+     "Replies to business texts and answers FAQs from your playbook",
+     "Alerts you immediately about emergencies"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "task",
+    "trades": [
+     "trades",
+     "cleaning",
+     "salon",
+     "restaurant",
+     "retail"
+    ],
+    "plans": [
+     {
+      "name": "Solo",
+      "monthlyUsd": 79,
+      "per": "business",
+      "includes": "Up to 500 voice minutes a month, one AI receptionist"
+     },
+     {
+      "name": "Business",
+      "monthlyUsd": 249,
+      "per": "business",
+      "includes": "Up to 2,000 voice minutes a month for 2-10 person shops"
+     }
+    ],
+    "trial": "",
+    "paywall": "Calls beyond the included voice minutes and extra features like the higher-volume Business plan need a paid plan.",
+    "accountSteps": [
+     "Tell us about your business: hours, services, pricing, and common questions.",
+     "Pick a plan: Solo at $79 a month or Business at $249 a month.",
+     "Get your Copper phone number, or forward your existing number to it.",
+     "Check the box that says you agree to the Terms of Service."
+    ],
+    "connectSteps": [
+     "Connect your Google Calendar from your Copper dashboard so bookings go on your calendar.",
+     "Add the answers to your common questions in the setup wizard.",
+     "You can disconnect Google Calendar at any time from your dashboard."
+    ],
+    "stepsUrl": "https://www.joincopper.io/",
+    "policies": [
+     {
+      "kind": "refund",
+      "say": "Fees are not refunded, except where the law requires it.",
+      "url": "https://www.joincopper.io/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Answers every incoming call with an AI voice, books appointments on your calendar, texts customers back, and sends you urgent alerts.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "swept": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Swept",
+   "officialUrl": "https://sweptworks.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 150,
+    "model": "paid",
+    "note": "Optimize: $150 a month. Scale: $225 a month",
+    "extraFees": null,
+    "sourceUrl": "https://sweptworks.com/compare-plans",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks Online"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Swept is janitorial software for commercial cleaning businesses. It tracks clock-ins, checklists, photos and messages for each cleaning location, so you can see the work and the profit at every site.",
+    "helpsWith": [
+     "Clock-ins with GPS check-ins and alerts for late or missed shifts",
+     "Cleaner checklists in 100+ languages and photo inspections for proof of work",
+     "One messaging channel per location for cleaners and clients",
+     "Profitability reports showing which locations make money"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Optimize",
+      "monthlyUsd": 150,
+      "per": "location",
+      "includes": "Up to 15 locations; scheduling, mobile clock in/out, inspections, GPS verification, checklists"
+     },
+     {
+      "name": "Scale",
+      "monthlyUsd": 225,
+      "per": "location",
+      "includes": "Up to 15 locations; everything in Optimize plus client portal, messaging, profit and loss by location, QuickBooks payroll"
+     }
+    ],
+    "trial": "",
+    "paywall": "Client portal, profit and loss by location, and QuickBooks payroll integration require the Scale plan.",
+    "accountSteps": [
+     "Book a quick walkthrough with the Swept team.",
+     "Choose a plan on the Compare Plans page."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://sweptworks.com/",
+    "policies": []
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "dave": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Dave",
+   "officialUrl": "https://www.buildwithdave.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 99,
+    "model": "paid",
+    "note": "Dave: $99 a month. Dave Yearly: $79 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.buildwithdave.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [
+     "English"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Calendar",
+    "QuickBooks Online"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Dave is contractor software that drafts estimates with AI, sends invoices, collects online payments, and keeps project photos, notes, and schedules in one place for small trade crews.",
+    "helpsWith": [
+     "Draft itemized estimates from a plain-English job description and your saved pricebook",
+     "Send invoices and collect card or bank transfer payments online with automatic overdue reminders",
+     "Keep jobsite photos, videos, and notes attached to the right project",
+     "Schedule jobs for your crew with automatic text reminders and Google Calendar sync"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Dave",
+      "monthlyUsd": 99,
+      "per": "business",
+      "includes": "2 seats included, then $20/month per additional user; all features included"
+     },
+     {
+      "name": "Dave Yearly",
+      "monthlyUsd": 79,
+      "per": "business",
+      "includes": "Billed yearly at $948; 2 seats included, then $20/month per additional user"
+     }
+    ],
+    "trial": "Free 14-day trial with no credit card required.",
+    "paywall": "",
+    "accountSteps": [
+     "Start the free 14 day trial. No credit card is needed.",
+     "Log in to the Dave app with your account.",
+     "Set up your business details and pricebook.",
+     "Create your first estimate or project."
+    ],
+    "connectSteps": [
+     "Import your existing spreadsheets into the Smart Pricebook.",
+     "Open the Business Settings help section to set up your business details.",
+     "Connect QuickBooks Online to sync clients, invoices and payments.",
+     "Connect Google Calendar to sync your schedule."
+    ],
+    "stepsUrl": "https://www.buildwithdave.com/help",
+    "policies": []
+   },
+   "ai": {
+    "level": "core",
+    "feature": "Drafts itemized estimates from a plain-English job description using your saved pricebook and templates, and can also walk jobsite notes into organized project notes and answer questions about your business.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "braino": {
+   "checkedAt": "2026-11-08",
+   "exists": false,
+   "currentName": "BrainO",
+   "officialUrl": "https://www.braino.io",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "trial",
+    "note": "The page offers a free trial (\"Try free\" / \"Get Started Free\") but does not show plan names or monthly prices, so no starting price is listed.",
+    "extraFees": null,
+    "sourceUrl": "",
+    "verified": false
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "BrainO is contractor management software for construction businesses. It handles leads, projects, invoicing, and communication with homeowners in one place.",
+    "helpsWith": [
+     "Tracking leads and projects in one place",
+     "Sending estimates, digital contracts, and invoices",
+     "Scheduling jobs and tracking crews",
+     "Giving homeowners a portal to follow their project"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "trades"
+    ],
+    "plans": [],
+    "trial": "",
+    "paywall": "",
+    "accountSteps": [],
+    "connectSteps": [],
+    "stepsUrl": "",
+    "policies": []
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Generates AI estimates for construction jobs to help contractors price projects faster.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "fieldkrew": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "FieldKrew",
+   "officialUrl": "https://fieldkrew.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Free: free. Pro: $49.99 a month",
+    "extraFees": null,
+    "sourceUrl": "https://fieldkrew.com/pricing",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks Online"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "FieldKrew is a web-based CRM for small field-service businesses like contractors, HVAC, plumbing, and landscaping crews. It handles leads, quotes, jobs, photos, and payments in one place.",
+    "helpsWith": [
+     "Track leads in a simple pipeline with follow-up dates",
+     "Build quotes that customers accept online, which creates the job automatically",
+     "Let customers book appointments through a shared booking page",
+     "Take card payments and send invoices"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "trades",
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "Unlimited leads, jobs, quotes, and invoices; solo use only; card payments at 1% FieldKrew fee."
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 49.99,
+      "per": "business",
+      "includes": "10 team seats included, extra seats $10/mo each; 15 GB photo storage; 0% FieldKrew card fee."
+     }
+    ],
+    "trial": "",
+    "paywall": "Crew access, automation, AI replies, GPS crew map, daily logs, Gantt scheduling, and the public API need the Pro plan.",
+    "accountSteps": [
+     "Sign up for the free plan. No credit card is needed.",
+     "Set up your business details and brand settings.",
+     "Add your first customer, lead, or job."
+    ],
+    "connectSteps": [
+     "Use the QuickBooks Online sync to link your accounting data.",
+     "Connect Stripe to take card payments."
+    ],
+    "stepsUrl": "https://fieldkrew.com/",
+    "policies": []
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Sends automatic AI replies to incoming customer texts and drafts AI-written emails for you to send.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "servflo": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "ServFlo",
+   "officialUrl": "https://servflo.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 41,
+    "model": "paid",
+    "note": "Core: $41 a month. Connect: $108 a month. Grow: $208 a month. Pro: $374 a month",
+    "extraFees": null,
+    "sourceUrl": "https://servflo.ai/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Thinkfleet AI"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "ServFlo is field service software for home-service businesses. It handles scheduling, dispatch, quotes, invoices and payments in one place, with an AI assistant called Flo built in.",
+    "helpsWith": [
+     "Scheduling jobs and dispatching technicians",
+     "Sending quotes and invoices, and taking payments",
+     "Letting customers book online through a website you can build with it",
+     "Replying to reviews and answering questions about your business with Flo"
+    ],
+    "howToStart": "Click \"Start free — 14 days\" on servflo.ai to sign up for the free trial without a card."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Core",
+      "monthlyUsd": 41,
+      "per": "business",
+      "includes": "1 office user, 100 AI credits, 100 texts and 1,000 emails a month"
+     },
+     {
+      "name": "Connect",
+      "monthlyUsd": 108,
+      "per": "business",
+      "includes": "2 office users, 500 AI credits, 300 texts and 5,000 emails a month"
+     },
+     {
+      "name": "Grow",
+      "monthlyUsd": 208,
+      "per": "business",
+      "includes": "3 office users, 2,000 AI credits, 1,000 texts and 20,000 emails a month"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 374,
+      "per": "business",
+      "includes": "5 office users, 5,000 AI credits, 2,500 texts and 50,000 emails a month"
+     }
+    ],
+    "trial": "Grow has a free 14-day trial, and no card is needed to explore, though a card is needed to start texting and calling.",
+    "paywall": "Website builder, Flo AI assistant, memberships, marketing campaigns and Google reviews need the Grow plan or higher.",
+    "accountSteps": [
+     "Go to servflo.ai and click Start free.",
+     "Pick your trade from the list.",
+     "Set up your service area and services.",
+     "Book a demo if you want help with setup."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://servflo.ai/",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "The page does not state a minimum contract length.",
+      "url": "https://servflo.ai/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Drafts replies to Google reviews and writes first-draft website copy from your services and service area.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "tidyops": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "TidyOps",
+   "officialUrl": "https://mytidyops.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 40.83,
+    "model": "paid",
+    "note": "Launch: $40.83 a month. Grow: $124.17 a month. Optimize: $249.17 a month. Scale: $415.83 a month",
+    "extraFees": null,
+    "sourceUrl": "https://mytidyops.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "TidyOps is scheduling and job software for cleaning companies. It keeps customers, estimates, the calendar, cleaner assignments, payments, and job costs in one place.",
+    "helpsWith": [
+     "Keeps one calendar and one client list instead of spreadsheets and group texts",
+     "Lets you reassign recurring jobs to another cleaner when someone is sick or late",
+     "Shows cleaners their assigned jobs and notes in the app",
+     "Keeps payments and job costs next to each job"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Launch",
+      "monthlyUsd": 40.83,
+      "per": "business",
+      "includes": "2 management users, 1 active location, unlimited frontline cleaners"
+     },
+     {
+      "name": "Grow",
+      "monthlyUsd": 124.17,
+      "per": "business",
+      "includes": "5 management users, 1 active location, unlimited frontline cleaners"
+     },
+     {
+      "name": "Optimize",
+      "monthlyUsd": 249.17,
+      "per": "business",
+      "includes": "10 management users, 2 active locations, unlimited frontline cleaners"
+     },
+     {
+      "name": "Scale",
+      "monthlyUsd": 415.83,
+      "per": "business",
+      "includes": "25 management users, 4 active locations, unlimited frontline cleaners"
+     }
+    ],
+    "trial": "TidyOps offers a 14-day free trial.",
+    "paywall": "Job profitability, advanced reports, and compensation preparation need the Grow plan or higher.",
+    "accountSteps": [
+     "No credit card is needed to start.",
+     "Set up your company workspace and add your team."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://mytidyops.com/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "Paid plans renew unless you cancel before renewal.",
+      "url": "https://mytidyops.com/"
+     },
+     {
+      "kind": "refund",
+      "say": "Fees are generally not refunded, except where the law requires a refund.",
+      "url": "https://mytidyops.com/"
+     },
+     {
+      "kind": "contract",
+      "say": "Paid subscriptions can be billed monthly or annually, and price changes come with notice as required by law.",
+      "url": "https://mytidyops.com/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "cleanerhq": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "CleanerHQ",
+   "officialUrl": "https://cleanerhq.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 19,
+    "model": "paid",
+    "note": "You and office staff: $19 a month",
+    "extraFees": null,
+    "sourceUrl": "https://cleanerhq.com/pricing/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [
+     "English",
+     "Spanish"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe",
+    "Jobber",
+    "Housecall Pro",
+    "ZenMaid"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "CleanerHQ is software for home and office cleaning businesses. It handles quotes, scheduling, a phone app for cleaners, invoices and card payments in one place.",
+    "helpsWith": [
+     "Send quotes and check that the price covers crew time and supplies",
+     "Schedule jobs and repeat cleans on one calendar, and send each job to the cleaner's phone",
+     "Track clock-ins, clock-outs and job details, and let customers see their jobs and invoices",
+     "Send invoices, take card payments through your own Stripe account, and send reminders for unpaid invoices"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "You and office staff",
+      "monthlyUsd": 19,
+      "per": "person",
+      "includes": "Per person for you and office staff who manage quotes, jobs, and invoices; first 12 months"
+     }
+    ],
+    "trial": "Free 14-day trial for you plus 2 cleaners and up to 200 customers, no card needed.",
+    "paywall": "Adding your whole team, beyond the free trial's limits, requires a paid subscription.",
+    "accountSteps": [
+     "Start free with no card for 14 days, or subscribe.",
+     "Add your team: name, phone, and what each person does best.",
+     "Set up your calendar and add your first job."
+    ],
+    "connectSteps": [
+     "Connect your Stripe account to take card payments."
+    ],
+    "stepsUrl": "https://cleanerhq.com/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can cancel in your billing settings. The cancellation takes effect at the end of the paid period.",
+      "url": "https://cleanerhq.com/terms-and-conditions/"
+     },
+     {
+      "kind": "ai-training",
+      "say": "The privacy policy says CleanerHQ does not sell your data, but it does not clearly say whether customer data is used to train AI.",
+      "url": "https://cleanerhq.com/privacy-policy/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "bookingkoala": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "BookingKoala",
+   "officialUrl": "https://www.bookingkoala.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 27,
+    "model": "paid",
+    "note": "Starter: $27 a month. Growing: $57 a month. Premium: $197 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.bookingkoala.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "BookingKoala is an all-in-one platform for service businesses. It gives you a website builder, online booking forms, scheduling, and client messaging tools in one place.",
+    "helpsWith": [
+     "Build a website or add booking forms to your existing site",
+     "Let customers book and reschedule appointments online",
+     "Send automated or manual emails and texts to your clients",
+     "Hire and manage providers with their own accounts"
+    ],
+    "howToStart": "Enter your email on the Start Free Trial form on the homepage to sign up for the 14-day free trial."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 27,
+      "per": "business",
+      "includes": "Up to 5 providers or 5 GB storage; website builder and booking forms."
+     },
+     {
+      "name": "Growing",
+      "monthlyUsd": 57,
+      "per": "business",
+      "includes": "Up to 15 providers or 15 GB storage; advanced reports and SMS notifications."
+     },
+     {
+      "name": "Premium",
+      "monthlyUsd": 197,
+      "per": "business",
+      "includes": "Up to 50 providers or 50 GB storage; campaigns for 5,000 contacts and all marketing features."
+     }
+    ],
+    "trial": "A 14 to 30 day free trial to test all features; the page does not say whether a card is needed.",
+    "paywall": "Advanced reports, referral and rating system, gift cards, GPS clock-in, and SMS notifications need a paid plan.",
+    "accountSteps": [
+     "Enter your email address.",
+     "Try the product free for 14 days."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://www.bookingkoala.com/",
+    "policies": []
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "service-autopilot": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Service Autopilot",
+   "officialUrl": "https://www.serviceautopilot.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "paid",
+    "note": "Startup: $49 a month. Pro: $199 a month. Pro Plus with Automations: $499 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.serviceautopilot.com/pricing/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks Integration",
+    "Email Integrations"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Software for lawn care, cleaning, snow removal and landscaping businesses. It handles scheduling, routing, invoicing and payments in one place.",
+    "helpsWith": [
+     "Schedule and route your crew's day in one click",
+     "Send invoices and collect card payments",
+     "Track team hours and GPS location",
+     "Automate repeat tasks like follow-ups and reviews"
+    ],
+    "howToStart": "Click Sign Up or Request Demo on the website, or call 972-728-4040 to talk to sales."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Startup",
+      "monthlyUsd": 49,
+      "per": "business",
+      "includes": "Scheduling, dispatch, invoicing, expense tracking, customer and lead management; 1 business user, 1 mobile license"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 199,
+      "per": "business",
+      "includes": "Everything in Startup plus multi-day jobs, route optimization, job costing, reporting; 1 business user, 2 mobile licenses"
+     },
+     {
+      "name": "Pro Plus with Automations",
+      "monthlyUsd": 499,
+      "per": "business",
+      "includes": "Everything in Pro plus automations, training access; 2 business users, 5 mobile licenses"
+     }
+    ],
+    "trial": "",
+    "paywall": "Automations, multi-day job management, route optimization, and job costing need a paid plan, with automations starting at the Pro Plus level.",
+    "accountSteps": [],
+    "connectSteps": [],
+    "stepsUrl": "",
+    "policies": []
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "clean-scheduler": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Clean Scheduler",
+   "officialUrl": "https://cleanscheduler.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 39,
+    "model": "paid",
+    "note": "Starter: $39 a month. Business: $129 a month. Pro: $299 a month",
+    "extraFees": null,
+    "sourceUrl": "https://cleanscheduler.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe",
+    "Plaid",
+    "Google Analytics",
+    "Supabase",
+    "Resend",
+    "QuickBooks",
+    "ADP",
+    "Gusto"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Software for cleaning businesses to schedule crews, send quotes, invoice clients, and take online payments. It includes a customer portal where clients can view visits and pay bills.",
+    "helpsWith": [
+     "Schedule crews and recurring cleaning visits on one calendar",
+     "Send quotes and turn accepted quotes into scheduled jobs and invoices",
+     "Accept card and bank payments through Stripe and track month-end reports"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 39,
+      "per": "business",
+      "includes": "2 office and 5 field seats, up to 500 active customers"
+     },
+     {
+      "name": "Business",
+      "monthlyUsd": 129,
+      "per": "business",
+      "includes": "2 office and 10 field seats, up to 5,000 active customers"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 299,
+      "per": "business",
+      "includes": "10 office seats, unlimited field seats, up to 25,000 active customers"
+     }
+    ],
+    "trial": "Every plan has a 7-day free trial with no credit card required.",
+    "paywall": "Customer portals, email campaigns, payroll exports, and tips and commissions tracking need the Business plan or higher.",
+    "accountSteps": [
+     "Create your workspace. No credit card is needed.",
+     "Open your dashboard and follow the Getting started checklist.",
+     "Add your first quote or customer."
+    ],
+    "connectSteps": [
+     "Add your customer list to your workspace.",
+     "Connect Stripe to accept cards and ACH payments.",
+     "Optionally connect your business bank account through Plaid for bank matching.",
+     "Connect payroll exports for ADP, Gusto or QuickBooks on the Business plan."
+    ],
+    "stepsUrl": "https://cleanscheduler.com/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can cancel your platform subscription in the billing settings, and access may stop after that.",
+      "url": "https://cleanscheduler.com/terms"
+     },
+     {
+      "kind": "refund",
+      "say": "Fees are not refunded once a billing period has started, unless the law requires it.",
+      "url": "https://cleanscheduler.com/terms"
+     },
+     {
+      "kind": "data-export",
+      "say": "After you cancel, your data is kept for 30 days so you can resubscribe or export what you need, then it is deleted.",
+      "url": "https://cleanscheduler.com/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "smart-service": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Smart Service",
+   "officialUrl": "https://www.smartservice.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 129,
+    "model": "paid",
+    "note": "Standard Subscription: $129 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.smartservice.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "ChatGPT"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Smart Service is field service software for trades like HVAC, plumbing, and electrical. It helps you schedule jobs, dispatch crews, send estimates, and invoice customers.",
+    "helpsWith": [
+     "Schedule and dispatch jobs on a shared board",
+     "Send estimates and quotes to customers",
+     "Create work orders and invoice customers",
+     "Track payments and collect what is owed"
+    ],
+    "howToStart": "Book a free live demo or call 1-888-518-0818 to get started."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Standard Subscription",
+      "monthlyUsd": 129,
+      "per": "person",
+      "includes": "Starts at $129 per user per month with a five-user minimum; same rate for Cloud and Desktop; volume discounts as team grows"
+     }
+    ],
+    "trial": "",
+    "paywall": "",
+    "accountSteps": [],
+    "connectSteps": [],
+    "stepsUrl": "",
+    "policies": []
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Suggests dispatch and routing for crews, and offers AI reporting and analytics on jobs and business performance.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "jobflowly": {
+   "checkedAt": "2026-11-08",
+   "exists": false,
+   "currentName": "JobFlowly",
+   "officialUrl": "https://jobflowly.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "The page offers a free start with no credit card but does not show plan names or prices, so check the site for paid plan costs.",
+    "extraFees": null,
+    "sourceUrl": "",
+    "verified": false
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Gusto",
+    "QuickBooks",
+    "QuickBooks Payroll",
+    "Homebase"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Software for cleaning businesses to schedule jobs, dispatch crews, invoice clients, and track cleaner hours for payroll. It is one place to run the work instead of several separate tools.",
+    "helpsWith": [
+     "Schedules one-time and recurring cleanings on one calendar and sends crews their jobs by phone",
+     "Creates invoices from completed job hours and rates, and tracks which are paid or overdue",
+     "Tracks cleaner clock-in and clock-out hours and exports a payroll file for Gusto, QuickBooks, or Homebase",
+     "Lets clients request bookings online, and you approve each one before it goes on your calendar"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [],
+    "trial": "Start free with no credit card required.",
+    "paywall": "",
+    "accountSteps": [],
+    "connectSteps": [],
+    "stepsUrl": "",
+    "policies": []
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "cendorvia": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Cendorvia",
+   "officialUrl": "https://cendorvia.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 149,
+    "model": "paid",
+    "note": "Starter: $149 a month. Professional: $349 a month",
+    "extraFees": null,
+    "sourceUrl": "https://cendorvia.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Housecall Pro",
+    "Jobber",
+    "ServiceTitan",
+    "FieldEdge",
+    "Google Gmail",
+    "Google Calendar",
+    "Facebook",
+    "Stripe",
+    "QuickBooks"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Cendorvia is an AI platform for home service businesses that automates customer messages, estimates, scheduling, reviews, and reports. It connects to field service tools you already use.",
+    "helpsWith": [
+     "Sends automatic follow-ups to leads and customers",
+     "Generates estimates and books jobs on the schedule",
+     "Requests and responds to online reviews",
+     "Shows revenue and job reports on a dashboard"
+    ],
+    "howToStart": "Click Book a Demo on the Cendorvia website and talk to their team to get set up."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 149,
+      "per": "business",
+      "includes": "Up to 3 users, 500 AI interactions a month, 1 integration"
+     },
+     {
+      "name": "Professional",
+      "monthlyUsd": 349,
+      "per": "business",
+      "includes": "Up to 15 users, unlimited AI interactions, 10 integrations"
+     }
+    ],
+    "trial": "All plans include a 14-day free trial, and no credit card is required.",
+    "paywall": "Marketing automation, review management, business analytics, and priority support need a paid plan.",
+    "accountSteps": [],
+    "connectSteps": [
+     "Link your existing field service software, CRM, and communication tools with the one-click integrations."
+    ],
+    "stepsUrl": "https://cendorvia.com/",
+    "policies": [
+     {
+      "kind": "ai-training",
+      "say": "Your customers' information may be used for generative AI applications.",
+      "url": "https://cendorvia.com/privacy"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers customer questions, books appointments, and sends follow-ups to leads by text, email, and web chat, around the clock.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "servicem8": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "ServiceM8",
+   "officialUrl": "https://www.servicem8.com",
+   "reviews": {
+    "sources": [
+     {
+      "site": "Trustpilot",
+      "url": "https://www.trustpilot.com/review/www.servicem8.com",
+      "rating": 4.1,
+      "count": 120
+     },
+     {
+      "site": "Google Play",
+      "url": "https://play.google.com/store/apps/details?id=com.servicem8.skip&hl=en_US",
+      "rating": 3.8,
+      "count": 749
+     }
+    ],
+    "rating": 3.9,
+    "reviewCount": 869,
+    "summary": "Users like that the software is easy to use, handles invoicing and scheduling well, and has a clear interface with useful integrations such as Xero. Users report bugs, slow performance, lost data, limited integrations with other software, and slow support responses.",
+    "claimed": 5
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "paid",
+    "note": "Starter: $29 a month. Growing: $79 a month. Premium: $149 a month. Premium Plus: $349 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.servicem8.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Xero",
+    "QuickBooks Online",
+    "MYOB",
+    "Mailchimp",
+    "Apple CarPlay",
+    "Deputy",
+    "n8n",
+    "Zapier",
+    "ChatGPT",
+    "Claude"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "ServiceM8 is job management software for trade contractors and home service businesses. It tracks jobs, staff, quotes, invoices and payments from the first client call through to completion.",
+    "helpsWith": [
+     "Manage jobs, scheduling and staff in one place",
+     "Create quotes and invoices on site and take card payments",
+     "Capture client signatures, notes, photos and PDF forms",
+     "Sync with your accounting package"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 29,
+      "per": "business",
+      "includes": "Unlimited users, 50 jobs per month"
+     },
+     {
+      "name": "Growing",
+      "monthlyUsd": 79,
+      "per": "business",
+      "includes": "Unlimited users, 150 jobs per month"
+     },
+     {
+      "name": "Premium",
+      "monthlyUsd": 149,
+      "per": "business",
+      "includes": "Unlimited users, 500 jobs per month"
+     },
+     {
+      "name": "Premium Plus",
+      "monthlyUsd": 349,
+      "per": "business",
+      "includes": "Unlimited users, 1500+ jobs per month"
+     }
+    ],
+    "trial": "A 14-day free trial is offered on the pricing page, and the page does not say whether a card is needed.",
+    "paywall": "Going past 30 jobs a month, adding more than one user, and the Office Agent Pro add-on ($39/mo on paid plans) need a paid plan.",
+    "accountSteps": [
+     "Go to the ServiceM8 website and click the trial option.",
+     "Create your account. No credit card is needed for the 14-day free trial.",
+     "Read the Getting Started Guide for basic setup tips.",
+     "Watch the Learning Roadmap videos to learn the basics.",
+     "Optionally, pay a ServiceM8 Partner to set up your account for you."
+    ],
+    "connectSteps": [
+     "Connect your accounting package (Xero, QuickBooks Online or MYOB) to sync clients, items, invoices and payments.",
+     "Add staff logins through Settings > Staff > Add Staff in your Online Dashboard."
+    ],
+    "stepsUrl": "https://www.servicem8.com/us/pricing",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "The account owner can cancel the account at any time from account management settings.",
+      "url": "https://www.servicem8.com/introduction"
+     },
+     {
+      "kind": "contract",
+      "say": "There is no lock-in. You can upgrade or downgrade plans at any time.",
+      "url": "https://www.servicem8.com/us/pricing"
+     },
+     {
+      "kind": "data-export",
+      "say": "They point to a backup download guide.",
+      "url": "https://www.servicem8.com/introduction"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Helps write job notes and text using an AI Writing Helper, and answers questions through an Office Agent, on plans from Free up.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "fixlify-ai": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Fixlify AI",
+   "officialUrl": "https://fixlify.app",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Free: free. Pro: $49 a month. Business: $199 a month",
+    "extraFees": null,
+    "sourceUrl": "https://fixlify.app/pricing",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Ads"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Field service software that connects customer calls, scheduling, dispatch, work orders, estimates, and invoices in one workspace. It also has a mobile app for technicians in the field.",
+    "helpsWith": [
+     "Schedules jobs and assigns technicians with a drag-and-drop calendar",
+     "Creates work orders, estimates, and invoices from job details",
+     "Answers customer calls with an AI receptionist you configure, and captures lead details"
+    ],
+    "howToStart": "Click Get Started Free on fixlify.app to create an account without a credit card."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "50 one-time AI credits, 1 team member, up to 30 jobs a month"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 49,
+      "per": "business",
+      "includes": "300 AI credits a month, 3 team members, up to 200 jobs a month"
+     },
+     {
+      "name": "Business",
+      "monthlyUsd": 199,
+      "per": "business",
+      "includes": "1,000 AI credits a month, 10 team members, unlimited jobs"
+     }
+    ],
+    "trial": "There is no free trial period, but the Free plan needs no credit card and has no time limit.",
+    "paywall": "AI phone answering, smart scheduling, route optimization, GPS tracking, and API access need a paid plan.",
+    "accountSteps": [
+     "Go to fixlify.app and click Get Started Free.",
+     "Create your workspace. No credit card is needed.",
+     "Sign in at hub.fixlify.app/auth with your team account.",
+     "Install the Fixlify app from the App Store or Google Play and sign in."
+    ],
+    "connectSteps": [
+     "Open Clients and choose Add Client to enter a customer's name and contact details.",
+     "Open that client and choose Create Job to add the work details.",
+     "Open the job's Documents section to create an estimate or invoice."
+    ],
+    "stepsUrl": "https://fixlify.app/help",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can end your account by contacting your administrator or emailing care@fixlify.app.",
+      "url": "https://fixlify.app/terms"
+     },
+     {
+      "kind": "refund",
+      "say": "Fees are not refunded except where the law requires it.",
+      "url": "https://fixlify.app/terms"
+     },
+     {
+      "kind": "contract",
+      "say": "Subscriptions renew automatically unless you cancel them.",
+      "url": "https://fixlify.app/terms"
+     },
+     {
+      "kind": "data-export",
+      "say": "Data may be deleted 30 days after your account ends, so export it first if you want to keep it.",
+      "url": "https://fixlify.app/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers customer calls, captures lead details, offers available appointment times, and sends confirmations, and assigns jobs to technicians based on skills, location, and availability.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "field-pm": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Field PM",
+   "officialUrl": "https://www.field-pm.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 9,
+    "model": "paid",
+    "note": "Time Clock Lite: $9 a month. Service Dispatch Lite: $29 a month. Contractor Lite: $49 a month. Service Dispatch Contractor: $99 a month. Contractor: $149 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.field-pm.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "QuickBooks Online",
+    "Microsoft 365"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Field PM is construction project management software for contractors. It covers daily field reports, job costing, RFIs, billing, safety logs, and service dispatch in one app.",
+    "helpsWith": [
+     "Daily field reports with manhours, quantities, equipment, and photos captured from a phone",
+     "Job costing with budgets and cost-code productivity",
+     "RFIs, change orders, and AIA progress billing",
+     "Safety logs, QA/QC punch lists, and weld mapping"
+    ],
+    "howToStart": "Click Start Free Trial on the website, which needs no credit card and gives 30 days of full access with a sample project."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Time Clock Lite",
+      "monthlyUsd": 9,
+      "per": "business",
+      "includes": "Crew clock-in and clock-out, capped at 15 employees"
+     },
+     {
+      "name": "Service Dispatch Lite",
+      "monthlyUsd": 29,
+      "per": "business",
+      "includes": "Dispatch board only, up to 5 techs"
+     },
+     {
+      "name": "Contractor Lite",
+      "monthlyUsd": 49,
+      "per": "business",
+      "includes": "Core project management, up to 5 users, add-ons a la carte"
+     },
+     {
+      "name": "Service Dispatch Contractor",
+      "monthlyUsd": 99,
+      "per": "business",
+      "includes": "Includes T&M, Sales, Tool and Fleet tracking, up to 15 techs"
+     },
+     {
+      "name": "Contractor",
+      "monthlyUsd": 149,
+      "per": "business",
+      "includes": "Includes T&M, Sales, Tool and Fleet tracking, up to 15 users"
+     }
+    ],
+    "trial": "",
+    "paywall": "The bundled T&M Billing, Sales and Estimating, Tool Tracking and Fleet Tracking modules need a non-Lite plan, which is worth $116 a month.",
+    "accountSteps": [
+     "No credit card is needed for the 30-day trial.",
+     "Sign in with your email and password.",
+     "Use the sample project to explore the app."
+    ],
+    "connectSteps": [
+     "Import project data from Excel, as the product page says projects can be imported via Excel.",
+     "To link QuickBooks, go to Settings and then Payroll after you connect it through the Time Clock add-on.",
+     "To link Microsoft 365, enable file mirroring and choose the project folders to copy."
+    ],
+    "stepsUrl": "https://www.field-pm.com/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can cancel your subscription at any time, and you keep access until the end of the billing period.",
+      "url": "https://www.field-pm.com/terms"
+     },
+     {
+      "kind": "refund",
+      "say": "You do not get a refund for a partial billing period.",
+      "url": "https://www.field-pm.com/terms"
+     },
+     {
+      "kind": "contract",
+      "say": "Plans are billed monthly or annually, and the product page says cancel anytime with no contracts.",
+      "url": "https://www.field-pm.com/"
+     },
+     {
+      "kind": "ai-training",
+      "say": "The privacy policy does not say whether your data is used to train AI.",
+      "url": "https://www.field-pm.com/privacy"
+     },
+     {
+      "kind": "data-export",
+      "say": "You can ask for a copy of your data in a portable format, and the product page says daily backups are exportable any time.",
+      "url": "https://www.field-pm.com/privacy"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "launch27": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Launch27",
+   "officialUrl": "https://launch27.com",
+   "reviews": {
+    "sources": [
+     {
+      "site": "Trustpilot",
+      "url": "https://www.trustpilot.com/review/launch27.com",
+      "rating": 1.6,
+      "count": 47
+     }
+    ],
+    "rating": 1.6,
+    "reviewCount": 47,
+    "summary": "Users say the software is easy to use, the customer support responds quickly and kindly, and it automates scheduling and client bookings. Users say the email customizer is limited, some features are broken or unfinished, support can be slow or only AI-driven, the mobile app and servers have had downtime, and the price is high with no refunds on unused months.",
+    "claimed": 4
+   },
+   "pricing": {
+    "startingMonthlyUsd": 75,
+    "model": "paid",
+    "note": "BASE: $75 a month. PRO: $150 a month. PLUS: $299 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.launch27.com/pricing/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Zapier",
+    "MailChimp",
+    "Infusionsoft",
+    "Quickbooks",
+    "SalesForce",
+    "Gmail"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Launch27 is scheduling and payment software for maid and house cleaning businesses. Clients book online, and you get automatic reminders and payments.",
+    "helpsWith": [
+     "Lets clients see your availability and book online in real time",
+     "Sends automatic text and email reminders before each job to cut no-shows",
+     "Pre-authorizes credit cards and charges when the job is complete",
+     "Emails clients after each job to ask for a rating"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "BASE",
+      "monthlyUsd": 75,
+      "per": "business",
+      "includes": "Unlimited users and bookings, customer database, scheduling, payroll manager, and automated email reminders."
+     },
+     {
+      "name": "PRO",
+      "monthlyUsd": 150,
+      "per": "business",
+      "includes": "Everything in Base plus premium booking form without Launch27 branding, Google Calendar and Zapier integrations, and automated text reminders."
+     },
+     {
+      "name": "PLUS",
+      "monthlyUsd": 299,
+      "per": "business",
+      "includes": "Everything in Pro plus mobile app access for cleaners and admins, automatic credit card charging, and multiple location calendars."
+     }
+    ],
+    "trial": "Try Launch27 free for 14 days, risk-free.",
+    "paywall": "Premium booking form without Launch27 branding, text reminders, and mobile app access need a paid plan.",
+    "accountSteps": [],
+    "connectSteps": [],
+    "stepsUrl": "",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You must give written notice at least 90 days before the end of your term, or the contract renews automatically for another 12 months.",
+      "url": "https://www.launch27.com/terms-of-service/"
+     },
+     {
+      "kind": "refund",
+      "say": "Fees are not refundable and cannot be cancelled, except as the agreement says.",
+      "url": "https://www.launch27.com/terms-of-service/"
+     },
+     {
+      "kind": "ai-training",
+      "say": "Yes, the company may use your customer data to train and improve its AI systems.",
+      "url": "https://www.launch27.com/terms-of-service/"
+     },
+     {
+      "kind": "data-export",
+      "say": "You can export your bookings and customer data as a CSV file, and after ending the contract you can get your data for up to 30 days.",
+      "url": "https://www.launch27.com/terms-of-service/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "sweepos": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "SweepOS",
+   "officialUrl": "https://sweepos.app",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Free: free. Enterprise: free",
+    "extraFees": null,
+    "sourceUrl": "https://sweepos.app/en/pricing/",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [
+     "English",
+     "German",
+     "French",
+     "Spanish",
+     "Polish"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Software for cleaning companies that handles clients, sites, schedules, checklists, time tracking and invoicing in one place. It includes a mobile app for field staff and a customer portal.",
+    "helpsWith": [
+     "Scheduling cleaning jobs and tracking staff time",
+     "Running checklists for each site",
+     "Creating invoices and payroll-ready hours",
+     "Giving customers a portal and an assistant you can ask in plain words"
+    ],
+    "howToStart": "Visit https://sweepos.app, choose your language, and use the Contact or sign-up options on the site to get started."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "Up to 3 workers and 30 clients, no time limit, with scheduling, invoicing and the mobile app."
+     },
+     {
+      "name": "Enterprise",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "Custom reporting and priority support for big operations; price is quoted, not published."
+     }
+    ],
+    "trial": "Every new account gets 14 days of Pro free, with no credit card needed, then moves to Free unless you upgrade.",
+    "paywall": "Pro features such as the AI assistant, digital contracts, payroll export, accounting integration and customer portal need a paid plan.",
+    "accountSteps": [],
+    "connectSteps": [],
+    "stepsUrl": "",
+    "policies": []
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "reviewflo": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "ReviewFlo",
+   "officialUrl": "https://www.usereviewflo.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Basic (Free): free. Pro: $29 a month. AI: $49 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.usereviewflo.com/pricing",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Business Profile"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "ReviewFlo sends customers a single link after a job. Happy customers go straight to your Google review page, and unhappy customers can contact you privately first.",
+    "helpsWith": [
+     "Sends review request links by text or email after each job",
+     "Routes 5-star customers to Google and 1-4 star customers to private feedback",
+     "Alerts you when a customer has a bad experience so you can fix it",
+     "Shows your Google rating and review count in one dashboard (Pro)"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "task",
+    "trades": [
+     "trades",
+     "restaurant",
+     "salon",
+     "retail",
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Basic (Free)",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "Review link, smart routing, private feedback alerts, 1 business location"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 29,
+      "per": "business",
+      "includes": "Review requests, follow-up emails, Google stats, up to 3 locations"
+     },
+     {
+      "name": "AI",
+      "monthlyUsd": 49,
+      "per": "business",
+      "includes": "Unlimited past-customer contacts, SMS automation, AI review replies, up to 15 locations"
+     }
+    ],
+    "trial": "Basic is free forever and needs no credit card, so no trial is listed.",
+    "paywall": "Sending review requests from the dashboard and automated follow-up emails need the Pro plan.",
+    "accountSteps": [
+     "Create your account. No credit card is needed.",
+     "Add your business information.",
+     "Send your first review link to a customer by text or email."
+    ],
+    "connectSteps": [
+     "Upload your customer list to start past customer campaigns (listed as coming soon).",
+     "Connect your Google Business Profile from your dashboard (Pro plan)."
+    ],
+    "stepsUrl": "https://www.usereviewflo.com/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can cancel your account at any time by emailing support.",
+      "url": "https://www.usereviewflo.com/terms"
+     },
+     {
+      "kind": "refund",
+      "say": "Refunds are given only if ReviewFlo decides to give one.",
+      "url": "https://www.usereviewflo.com/terms"
+     },
+     {
+      "kind": "contract",
+      "say": "There is no contract, and the homepage says there are no contracts.",
+      "url": "https://www.usereviewflo.com/"
+     },
+     {
+      "kind": "ai-training",
+      "say": "The privacy policy does not say whether customer data is used to train AI.",
+      "url": "https://www.usereviewflo.com/privacy-policy"
+     },
+     {
+      "kind": "data-export",
+      "say": "The service does not say you can export your data, and it warns you to keep your own backups.",
+      "url": "https://www.usereviewflo.com/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Sends review request links to customers after each job and routes unhappy ratings to you privately, but AI review replies and sentiment analysis are listed as coming soon, not yet available.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "maidpilot": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "MaidPilot",
+   "officialUrl": "https://maidpilot.ai",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 49,
+    "model": "paid",
+    "note": "Starter: $49 a month. Pro: $99 a month. Business: $199 a month. AI Receptionist: $149 a month. AI Receptionist Plus: $348 a month",
+    "extraFees": null,
+    "sourceUrl": "https://maidpilot.ai/pricing/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [
+     "Portuguese (Brazil)"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "AI Receptionist",
+    "AI Copilot",
+    "AI Follow-Up",
+    "AI Inbox",
+    "AI Website Builder",
+    "Scheduling & Jobs"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Cleaning business software that puts CRM, scheduling, invoices, and follow-up in one place. An optional AI receptionist answers calls and captures leads.",
+    "helpsWith": [
+     "Keeps clients, properties, and job history in one CRM",
+     "Runs recurring job calendars and crew assignment",
+     "Sends quote reminders and invoice follow-ups you approve first",
+     "Optional AI receptionist answers calls 24/7 and captures booking requests"
+    ],
+    "howToStart": "Click Start 14-day trial on maidpilot.ai and sign up with your email and a card."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 49,
+      "per": "business",
+      "includes": "CRM, scheduling, email, and AI Copilot for owner-operators"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 99,
+      "per": "business",
+      "includes": "Adds invoices, payments, team time tracking, SMS, and AI follow-up"
+     },
+     {
+      "name": "Business",
+      "monthlyUsd": 199,
+      "per": "business",
+      "includes": "Adds multi-channel inbox, sales tracking, and higher allowances"
+     },
+     {
+      "name": "AI Receptionist",
+      "monthlyUsd": 149,
+      "per": "use",
+      "includes": "24/7 inbound call answering with 100 call minutes a month"
+     },
+     {
+      "name": "AI Receptionist Plus",
+      "monthlyUsd": 348,
+      "per": "use",
+      "includes": "Starter ops plus 300 call minutes a month"
+     }
+    ],
+    "trial": "Starter has a 14-day free trial with no charge today, but a card is required.",
+    "paywall": "Pro and Business plans, plus call answering, need a paid plan and are charged today.",
+    "accountSteps": [
+     "Start the 14-day trial from the website.",
+     "Add your card to start the trial. You pay $0 today.",
+     "Complete your company profile, business hours, and service area.",
+     "Add your services and set prices.",
+     "Invite your team members and assign roles."
+    ],
+    "connectSteps": [
+     "Keep your current business phone number and forward it to the MaidPilot number in your account when you are ready.",
+     "Turn on the AI Receptionist add-on if you want calls answered by AI."
+    ],
+    "stepsUrl": "https://maidpilot.ai/help/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can cancel at any time.",
+      "url": "https://maidpilot.ai/terms/"
+     },
+     {
+      "kind": "ai-training",
+      "say": "Company data is used to provide the service and process AI requests, but the policy does not say it is used to train AI models.",
+      "url": "https://maidpilot.ai/privacy/"
+     },
+     {
+      "kind": "contract",
+      "say": "Plans are billed monthly, and the AI Receptionist is a separate paid add-on.",
+      "url": "https://maidpilot.ai/terms/"
+     },
+     {
+      "kind": "data-export",
+      "say": "Your data stays available to you under the retention practices in the Privacy Policy, and is deleted when the workspace is deleted.",
+      "url": "https://maidpilot.ai/terms/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Answers inbound calls and texts 24/7, captures leads, and drafts follow-up messages and quote reminders that you approve before they are sent.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "reviewrover": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "ReviewRover",
+   "officialUrl": "https://reviewrover.co",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Free Widget Tool: free. ReviewRover: $97 a month. Multi-Location & Agency: free",
+    "extraFees": null,
+    "sourceUrl": "https://reviewrover.co/pricing",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Business Profile",
+    "QuickBooks",
+    "Twilio",
+    "Stripe",
+    "Zapier",
+    "Yelp",
+    "Facebook",
+    "X/Twitter",
+    "YouTube",
+    "LinkedIn"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "ReviewRover sends automatic text message requests asking customers to leave Google reviews after a job is done. It also shows how your review count, rating, and response rate change over time.",
+    "helpsWith": [
+     "Sends review request texts automatically after each closed job",
+     "Follows up with customers over several messages to get more reviews",
+     "Tracks review count, average rating, and send rate in one dashboard",
+     "Connects to your CRM so requests go out without extra work"
+    ],
+    "howToStart": "Click Start ReviewRover Today on the website, or use the Contact us button to talk with the team and set up onboarding."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "task",
+    "trades": [
+     "trades"
+    ],
+    "plans": [
+     {
+      "name": "Free Widget Tool",
+      "monthlyUsd": 0,
+      "per": "use",
+      "includes": "Free Google review widget generator for any site, no signup needed."
+     },
+     {
+      "name": "ReviewRover",
+      "monthlyUsd": 97,
+      "per": "location",
+      "includes": "Unlimited SMS and email requests, contacts, integrations, and locations, with founder onboarding."
+     },
+     {
+      "name": "Multi-Location & Agency",
+      "monthlyUsd": 0,
+      "per": "location",
+      "includes": "Volume pricing for 5+ locations or agencies; custom quote, so no fixed price shown."
+     }
+    ],
+    "trial": "No self-serve free trial; new customers get a free onboarding call and pay nothing if it is not a fit.",
+    "paywall": "Review automation, SMS and email requests, and integrations need the paid $97 per location plan.",
+    "accountSteps": [
+     "Go to reviewrover.co and click Start ReviewRover Today!",
+     "Sign up for an account.",
+     "Connect your Google Business Profile.",
+     "Send your first review request."
+    ],
+    "connectSteps": [
+     "Connect your CRM once.",
+     "Connect QuickBooks so every paid invoice triggers a review request.",
+     "Connect your Google Business Profile."
+    ],
+    "stepsUrl": "https://reviewrover.co/",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "You must keep paying during the subscription term, and delays on your side do not stop payments.",
+      "url": "https://reviewrover.co/terms"
+     },
+     {
+      "kind": "data-export",
+      "say": "The privacy policy does not say you can export your data, but you can ask them to delete your information.",
+      "url": "https://reviewrover.co/privacy"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "cleandock": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "CleanDock",
+   "officialUrl": "https://thecleandock.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29.99,
+    "model": "paid",
+    "note": "Single: $29.99 a month. Team: $49.99 a month. Team+: $99.99 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.thecleandock.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Calendar"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "CleanDock is software for cleaning businesses to send quotes, schedule recurring cleans, take online bookings, and get paid by card or ACH. It also stores before and after photos and time records for each job.",
+    "helpsWith": [
+     "Send quotes and turn approved quotes into invoices in one tap",
+     "Schedule weekly, biweekly, and monthly recurring cleans and avoid double-booking crews",
+     "Take online bookings 24/7 through a booking link and approve requests",
+     "Collect payment by card or ACH and export reports to CSV for your bookkeeper"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Single",
+      "monthlyUsd": 29.99,
+      "per": "business",
+      "includes": "Unlimited jobs and contacts, quotes, invoices, time tracking, photo capture, calendar"
+     },
+     {
+      "name": "Team",
+      "monthlyUsd": 49.99,
+      "per": "business",
+      "includes": "Up to 5 team members, team time tracking, shared calendar, role-based permissions"
+     },
+     {
+      "name": "Team+",
+      "monthlyUsd": 99.99,
+      "per": "business",
+      "includes": "Unlimited team members with no user cap"
+     }
+    ],
+    "trial": "Every plan includes a 14-day free trial, and the page does not say a card is required.",
+    "paywall": "Team time tracking, shared calendar, and role-based permissions need the Team plan or higher.",
+    "accountSteps": [
+     "Choose a plan: Single, Team, or Team+.",
+     "Enter your name, email, and company name to create your account.",
+     "Build your first quote, then send it to a client."
+    ],
+    "connectSteps": [
+     "Log in and open your settings.",
+     "Connect your Google account to sync appointments to a CleanDock calendar in Google Calendar."
+    ],
+    "stepsUrl": "https://www.thecleandock.com/",
+    "policies": [
+     {
+      "kind": "cancel",
+      "say": "You can cancel anytime by contacting the company.",
+      "url": "https://www.thecleandock.com/terms"
+     },
+     {
+      "kind": "refund",
+      "say": "Fees are not refunded, except where the law requires it.",
+      "url": "https://www.thecleandock.com/terms"
+     },
+     {
+      "kind": "contract",
+      "say": "Every plan has a 14-day free trial, and the site says you can cancel anytime.",
+      "url": "https://www.thecleandock.com/"
+     },
+     {
+      "kind": "data-export",
+      "say": "Your data can be exported at any time.",
+      "url": "https://www.thecleandock.com/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "cleaners-app": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Cleaners App",
+   "officialUrl": "https://cleanersapp.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29.99,
+    "model": "paid",
+    "note": "Solo: $29.99 a month. Crew: $89 a month. Team: $119 a month. Growth: $179 a month. Scaling: $359 a month",
+    "extraFees": null,
+    "sourceUrl": "https://www.cleanersapp.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "PayNow"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Cleaners App is software for cleaning businesses that handles job scheduling, customer records, quotes, invoices, reminders and payments in one place.",
+    "helpsWith": [
+     "Schedule, dispatch and track cleaning jobs",
+     "Create quotes, invoices and automatic reminders",
+     "Store customer contacts and follow-up tasks",
+     "Take online payments from customers"
+    ],
+    "howToStart": "Click Start FREE Trial on the website and sign up for the 14-day trial without a credit card."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Solo",
+      "monthlyUsd": 29.99,
+      "per": "person",
+      "includes": "1-2 users; streamlines jobs, quotes and invoices"
+     },
+     {
+      "name": "Crew",
+      "monthlyUsd": 89,
+      "per": "business",
+      "includes": "3-5 users; smarter scheduling and faster quoting"
+     },
+     {
+      "name": "Team",
+      "monthlyUsd": 119,
+      "per": "business",
+      "includes": "6-10 users; coordination, automation and project tracking"
+     },
+     {
+      "name": "Growth",
+      "monthlyUsd": 179,
+      "per": "business",
+      "includes": "11-20 users; standardised processes across sites"
+     },
+     {
+      "name": "Scaling",
+      "monthlyUsd": 359,
+      "per": "business",
+      "includes": "21-50 users; compliance control and real-time oversight"
+     }
+    ],
+    "trial": "Start a 14-day free trial with no credit card needed.",
+    "paywall": "",
+    "accountSteps": [
+     "Start your 14-day free trial. No credit card is needed.",
+     "Log in to your Cleaners App account.",
+     "Use the job scheduling tools to add your first job."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://www.cleanersapp.com/",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "The free trial lasts 14 days and does not need a credit card.",
+      "url": "https://www.cleanersapp.com/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "gatherup": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "GatherUp",
+   "officialUrl": "https://gatherup.com",
+   "reviews": {
+    "sources": [],
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "claimed": 3
+   },
+   "pricing": {
+    "startingMonthlyUsd": 99,
+    "model": "paid",
+    "note": "Local Business: $99 a month. Multiple Locations: $60 a month. Reveal: $45 a month. Illuminate: $125 a month. Integrity: $300 a month",
+    "extraFees": null,
+    "sourceUrl": "https://gatherup.com/pricing/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "GatherUp helps local businesses collect customer reviews, keep business listings accurate, and monitor and respond to feedback. It also watches for fake reviews and can dispute supported cases.",
+    "helpsWith": [
+     "Sends review requests by email and SMS after a customer visit",
+     "Keeps business listings current on supported sites",
+     "Monitors reviews and drafts AI replies you can edit and approve",
+     "Monitors reviews for policy violations and disputes supported fake reviews"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "suite",
+    "trades": [],
+    "plans": [
+     {
+      "name": "Local Business",
+      "monthlyUsd": 99,
+      "per": "business",
+      "includes": "1 location, billed annually, with reviews and customer conversations in one place"
+     },
+     {
+      "name": "Multiple Locations",
+      "monthlyUsd": 60,
+      "per": "location",
+      "includes": "Consistent reputation management for 2 to 100+ locations, billed annually"
+     },
+     {
+      "name": "Reveal",
+      "monthlyUsd": 45,
+      "per": "location",
+      "includes": "Review authenticity analysis, Transparency Certificate subject to approval, daily notifications"
+     },
+     {
+      "name": "Illuminate",
+      "monthlyUsd": 125,
+      "per": "location",
+      "includes": "Automated disputes of policy-violating reviews and analysis for up to 6 competitors"
+     },
+     {
+      "name": "Integrity",
+      "monthlyUsd": 300,
+      "per": "location",
+      "includes": "Disputes and analysis extended to up to 15 competitors, plus dedicated support"
+     }
+    ],
+    "trial": "",
+    "paywall": "Review Defense tiers, such as automated review disputes and competitor review analysis, need a paid plan.",
+    "accountSteps": [
+     "Click Start free trial on the GatherUp homepage.",
+     "Sign in to your account from the Sign in link."
+    ],
+    "connectSteps": [
+     "Connect your CRM or POS system.",
+     "Or import a customer list."
+    ],
+    "stepsUrl": "https://gatherup.com/",
+    "policies": []
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Drafts replies to customer reviews for the owner to edit and approve, and organizes customer feedback into recurring themes.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "allclean": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Allclean",
+   "officialUrl": "https://allclean.app",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Free: free. Pro: $299 a month",
+    "extraFees": null,
+    "sourceUrl": "https://allclean.app/",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Allclean is business software for cleaning companies. It handles online booking, payments, scheduling, dispatch, and referrals in one place.",
+    "helpsWith": [
+     "Lets customers book and pay online 24/7",
+     "Manages crew calendars, time off, and job dispatch",
+     "Collects payments, sends receipts and invoices",
+     "Runs referral links and discount offers for clients"
+    ],
+    "howToStart": "Click Try for Free on allclean.app and create an account, or book a demo if you want help choosing a plan."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "Up to 3 users, all features, 6.9% + 30¢ processing fees"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 299,
+      "per": "business",
+      "includes": "Up to 8 users, all features, 4.9% + 30¢ processing fees, extra users $40/mo each"
+     }
+    ],
+    "trial": "",
+    "paywall": "Pro plan is needed for up to 8 users and lower processing fees (4.9% + 30¢ instead of 6.9% + 30¢).",
+    "accountSteps": [
+     "Go to allclean.app and click Try for Free.",
+     "Create your account with your details.",
+     "Choose a plan: Free, Pro, or Enterprise.",
+     "Start using the booking and dispatch tools."
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://allclean.app/",
+    "policies": [
+     {
+      "kind": "ai-training",
+      "say": "Allclean does not share your customers' phone numbers or SMS data with others for marketing.",
+      "url": "https://allclean.app/terms"
+     },
+     {
+      "kind": "refund",
+      "say": "Allclean can end your account at any time without notice, and it is not liable for loss of data.",
+      "url": "https://allclean.app/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Lets customers book cleaning jobs by phone through Kelly, an AI voice agent, and add it as a paid add-on to your plan.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "opsycle": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "Opsycle",
+   "officialUrl": "https://opsycle.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "Free: free. Starter: $29 a month. Growth: $79 a month. Scale: $149 a month",
+    "extraFees": null,
+    "sourceUrl": "https://opsycle.com/en/pricing",
+    "verified": true,
+    "kind": "free-plan"
+   },
+   "languages": {
+    "list": [
+     "English",
+     "German",
+     "French",
+     "Spanish",
+     "Japanese",
+     "Korean"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Lemon Squeezy",
+    "Stripe",
+    "Jobber"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Cleaning business software for scheduling recurring jobs, managing clients, creating invoices, and tracking package credits. Built for solo cleaners and small cleaning teams.",
+    "helpsWith": [
+     "Schedule one-time and recurring cleaning jobs, with weekly and biweekly cleans that continue automatically",
+     "Keep client details, addresses, gate codes, and notes in one place",
+     "Create invoices automatically when a job is completed and see unpaid amounts",
+     "Track prepaid packages and remaining cleaning credits"
+    ],
+    "howToStart": "Click Start free on the Opsycle website and create a free workspace, which takes about 2 minutes and does not require a credit card."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Free",
+      "monthlyUsd": 0,
+      "per": "business",
+      "includes": "Up to 5 clients and 15 jobs per month"
+     },
+     {
+      "name": "Starter",
+      "monthlyUsd": 29,
+      "per": "business",
+      "includes": "Up to 50 clients and 200 jobs per month"
+     },
+     {
+      "name": "Growth",
+      "monthlyUsd": 79,
+      "per": "business",
+      "includes": "Up to 300 clients and 2,000 jobs per month"
+     },
+     {
+      "name": "Scale",
+      "monthlyUsd": 149,
+      "per": "business",
+      "includes": "Up to 5,000 clients and 50,000 jobs per month"
+     }
+    ],
+    "trial": "",
+    "paywall": "Client CSV import, team roster and job assignment, and package-credit tracking need a paid plan, starting with Growth or Starter respectively.",
+    "accountSteps": [
+     "Create a free workspace. No credit card is needed.",
+     "Add your first client and property notes.",
+     "Schedule a one-time or recurring job.",
+     "Open Field mode to run your day."
+    ],
+    "connectSteps": [
+     "Switch from Jobber by importing a CSV file."
+    ],
+    "stepsUrl": "https://opsycle.com/en",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "Paid plans renew each billing period, and prices can change with notice for later billing periods.",
+      "url": "https://opsycle.com/en/terms"
+     },
+     {
+      "kind": "cancel",
+      "say": "You can stop using the Service and ask to close your account at any time.",
+      "url": "https://opsycle.com/en/terms"
+     },
+     {
+      "kind": "data-export",
+      "say": "You keep ownership of the data you upload, and you can ask to access, correct, delete, or export it.",
+      "url": "https://opsycle.com/en/terms"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "sweepops": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "SweepOps",
+   "officialUrl": "https://sweepops.co",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "paid",
+    "note": "Starter: $29 a month. Growth: $49 a month. Pro: $89 a month",
+    "extraFees": null,
+    "sourceUrl": "https://sweepops.co/pricing/",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [
+     "Russian",
+     "Spanish"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Google Calendar",
+    "QuickBooks",
+    "Twilio",
+    "Resend",
+    "Supabase"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Cleaning business software for scheduling jobs, sending SMS and email reminders, tracking clients and payments, and seeing margins. It offers a flat monthly price with no per-cleaner fees.",
+    "helpsWith": [
+     "Schedule jobs and sync them with Google Calendar",
+     "Send automatic SMS and email reminders to clients and cleaners",
+     "Track payments and see margin in real time",
+     "Take online booking requests"
+    ],
+    "howToStart": "Click Start Free on sweepops.co, sign up in about 2 minutes with no credit card needed, and create your first job."
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 29,
+      "per": "business",
+      "includes": "Up to 3 active cleaners and 150 jobs per month"
+     },
+     {
+      "name": "Growth",
+      "monthlyUsd": 49,
+      "per": "business",
+      "includes": "Up to 10 active cleaners, unlimited jobs, owner plus 3 dispatchers"
+     },
+     {
+      "name": "Pro",
+      "monthlyUsd": 89,
+      "per": "business",
+      "includes": "Unlimited users and jobs, 800 SMS, API access and priority support"
+     }
+    ],
+    "trial": "You get a 14-day free trial and no credit card is required.",
+    "paywall": "API access, webhooks, CSV exports and priority support need the Pro plan.",
+    "accountSteps": [
+     "Sign up with your name, email and company name.",
+     "Set your company address and time zone.",
+     "Add your first client by entering their name, phone and address.",
+     "Create your first job and pick a date and time.",
+     "Send the booking confirmation to your client by SMS."
+    ],
+    "connectSteps": [
+     "Enter your client details one by one into the platform.",
+     "Connect your Google Calendar from the settings page."
+    ],
+    "stepsUrl": "https://sweepops.co/",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "The free trial has no card needed, and you can cancel at any time.",
+      "url": "https://sweepops.co/"
+     },
+     {
+      "kind": "refund",
+      "say": "Fees are not refundable unless the company says otherwise.",
+      "url": "https://sweepops.co/terms/"
+     }
+    ]
+   },
+   "ai": {
+    "level": "none",
+    "feature": "",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "cleansyai": {
+   "checkedAt": "2026-11-08",
+   "exists": true,
+   "currentName": "CleansyAI",
+   "officialUrl": "https://cleansyai.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 29,
+    "model": "paid",
+    "note": "Starter: $29 a month. Growth: $59 a month. Business: $99 a month",
+    "extraFees": null,
+    "sourceUrl": "https://cleansyai.com/pricing",
+    "verified": true,
+    "kind": "monthly"
+   },
+   "languages": {
+    "list": [],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [
+    "Stripe",
+    "Vercel",
+    "Amazon Web Services",
+    "Postmark",
+    "Google Analytics",
+    "Google Tag Manager"
+   ],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "Cleaning business software for scheduling jobs, keeping client records, assigning crews, and preparing invoices from completed work.",
+    "helpsWith": [
+     "Plan the weekly calendar and assign crews to jobs, with a check for overlapping work",
+     "Keep client contacts, addresses and service notes in one record",
+     "Create draft invoices from completed jobs, review the amount and tax, then issue them"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [
+     {
+      "name": "Starter",
+      "monthlyUsd": 29,
+      "per": "business",
+      "includes": "Up to 100 active customers, 3 crews, 250 visits per month"
+     },
+     {
+      "name": "Growth",
+      "monthlyUsd": 59,
+      "per": "business",
+      "includes": "Up to 500 active customers, 10 crews, 1,000 visits per month"
+     },
+     {
+      "name": "Business",
+      "monthlyUsd": 99,
+      "per": "business",
+      "includes": "Up to 2,000 active customers, 30 crews, 3,000 visits per month"
+     }
+    ],
+    "trial": "There is no free trial; you can create an account, but billing starts when you confirm a subscription in Stripe Checkout, and no card is needed to create an account.",
+    "paywall": "Adding customers, crews and bookings requires a paid subscription.",
+    "accountSteps": [
+     "Create an account on the CleansyAI website; no card is required to create an account.",
+     "Set up your business details and choose your business time zone.",
+     "Add your clients, services and crews.",
+     "Choose a paid plan to add customers, crews and bookings.",
+     "Plan the week by booking each job and assigning a crew."
+    ],
+    "connectSteps": [
+     "Add your clients, services and crews in the workspace.",
+     "Connect your own Stripe account to take online invoice card payments.",
+     "QuickBooks Online sync is not currently available to customers while platform provider setup is pending."
+    ],
+    "stepsUrl": "https://cleansyai.com/",
+    "policies": [
+     {
+      "kind": "contract",
+      "say": "Plans renew monthly or annually until you cancel, and there is no free trial.",
+      "url": "https://cleansyai.com/terms"
+     },
+     {
+      "kind": "data-export",
+      "say": "You can ask for a copy of your data and receive it in a structured, machine-readable format.",
+      "url": "https://cleansyai.com/privacy"
+     }
+    ]
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Assigns scheduled cleaning jobs to available crews by spreading the booked hours across them.",
+    "checkedAt": "2026-11-08"
+   }
+  },
+  "janibid": {
+   "checkedAt": "2026-11-08",
+   "exists": false,
+   "currentName": "JaniBid",
+   "officialUrl": "https://www.janibid.com",
+   "reviews": {
+    "rating": null,
+    "reviewCount": 0,
+    "summary": "",
+    "sources": [],
+    "claimed": 0
+   },
+   "pricing": {
+    "startingMonthlyUsd": 0,
+    "model": "freemium",
+    "note": "The page offers a free CRM and free bid calculators, but it does not show the paid plan prices.",
+    "extraFees": null,
+    "sourceUrl": "",
+    "verified": false
+   },
+   "languages": {
+    "list": [
+     "Spanish"
+    ],
+    "claimed": 0,
+    "sourceUrl": "",
+    "totalClaim": null
+   },
+   "integrations": [],
+   "caution": null,
+   "description": {
+    "confirmed": true,
+    "discontinued": false,
+    "summary": "JaniBid is business management software for cleaning companies, including janitorial, maid, window, carpet and pressure washing services. It helps with bids, scheduling, staff check-ins and invoicing.",
+    "helpsWith": [
+     "Bid calculators for janitorial, maid, window, carpet and pressure washing jobs",
+     "Scheduling, alarm codes and directions for staff in one place",
+     "Staff check-in, check-out and work order tracking",
+     "Proposals, contracts and invoicing"
+    ],
+    "howToStart": ""
+   },
+   "guide": {
+    "checkedAt": "2026-11-08",
+    "focus": "trade",
+    "trades": [
+     "cleaning"
+    ],
+    "plans": [],
+    "trial": "Sign up for Free CRM is offered, but the page does not state the trial length or whether a card is needed.",
+    "paywall": "",
+    "accountSteps": [
+     "Go to the Janibid home page.",
+     "Click Sign up for Free CRM Now!"
+    ],
+    "connectSteps": [],
+    "stepsUrl": "https://www.janibid.com/",
+    "policies": []
+   },
+   "ai": {
+    "level": "feature",
+    "feature": "Takes booking requests from customers automatically through an AI lead booking bot, which is currently a waitlist offering.",
     "checkedAt": "2026-11-08"
    }
   }

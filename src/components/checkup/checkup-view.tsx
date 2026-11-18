@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState, type ReactNode } from "react";
 import { ArrowIcon, CheckIcon } from "@/components/icons";
+import { AdviceNote } from "@/components/tools/advice-note";
 import { PromptHelper } from "@/components/tools/prompt-helper";
 import { SaveAllButton } from "@/components/tools/tool-actions";
 import { buttonVariants } from "@/components/ui/button";
@@ -134,6 +135,7 @@ function ProblemCard({ problem, index, lang, t }: { problem: CheckupProblem; ind
             </p>
             <p className="font-medium">{priceText(tool, t)}</p>
             {match.why && <p className="mt-1">{match.why}</p>}
+            <AdviceNote tool={tool} lang={lang} t={t} />
           </div>
 
           {match.useThis.length > 0 && (
@@ -199,7 +201,25 @@ function ProblemCard({ problem, index, lang, t }: { problem: CheckupProblem; ind
   );
 }
 
-function Results({ result, lang, t }: { result: CheckupResult; lang: string; t: Labels }) {
+/** "Wrong business?" goes back to an empty form. Without scripts it is a plain link to the form page. */
+function StartAgain({ lang, onReset, className, children }: { lang: string; onReset?: () => void; className: string; children: ReactNode }) {
+  return (
+    <Link
+      href={`/${lang}/checkup`}
+      prefetch={false}
+      className={className}
+      onClick={(event) => {
+        if (!onReset) return;
+        event.preventDefault();
+        onReset();
+      }}
+    >
+      {children}
+    </Link>
+  );
+}
+
+function Results({ result, lang, t, onReset }: { result: CheckupResult; lang: string; t: Labels; onReset?: () => void }) {
   const { business, themes, site, problems, plan, pages, partial } = result;
   const praise = themes.filter((theme) => theme.kind === "praise");
   const complaints = themes.filter((theme) => theme.kind === "complaint");
@@ -212,9 +232,9 @@ function Results({ result, lang, t }: { result: CheckupResult; lang: string; t: 
         <p className="text-xl font-semibold">{business?.name}</p>
         {business?.address && <p>{business.address}</p>}
         <p className="mt-1 text-sm">{pages === 0 ? t.checkup_pagesNone : pages === 1 ? t.checkup_pagesOne : fmt(t.checkup_pages, { n: pages })}</p>
-        <Link href={`/${lang}/checkup`} prefetch={false} className="inline-block py-1 font-medium underline underline-offset-2">
+        <StartAgain lang={lang} onReset={onReset} className="inline-block py-1 font-medium underline underline-offset-2">
           {t.checkup_wrong}
-        </Link>
+        </StartAgain>
       </div>
 
       {partial && <p className="mt-4 rounded-lg bg-marigold-tint p-3">{t.checkup_partial}</p>}
@@ -311,7 +331,7 @@ function Results({ result, lang, t }: { result: CheckupResult; lang: string; t: 
 }
 
 /** Asks once the visitor's saved answers have loaded, so their software counts in the first result. */
-export function CheckupView({ lang, name, city, website, t }: { lang: string; name: string; city: string; website: string; t: Labels }) {
+export function CheckupView({ lang, name, city, website, t, onReset }: { lang: string; name: string; city: string; website: string; t: Labels; onReset?: () => void }) {
   const { data, ready } = useUserData();
   const [outcome, setOutcome] = useState<Outcome | null>(null);
   const { type, size } = data.business;
@@ -339,9 +359,9 @@ export function CheckupView({ lang, name, city, website, t }: { lang: string; na
 
   const again = (
     <div className="mt-4 flex flex-wrap gap-3">
-      <Link href={`/${lang}/checkup`} prefetch={false} className={buttonVariants({ variant: "outline" })}>
+      <StartAgain lang={lang} onReset={onReset} className={buttonVariants({ variant: "outline" })}>
         {t.checkup_wrong}
-      </Link>
+      </StartAgain>
       <Link href={`/${lang}`} prefetch={false} className={buttonVariants({ variant: "outline" })}>
         {t.checkup_describe}
       </Link>
@@ -369,7 +389,7 @@ export function CheckupView({ lang, name, city, website, t }: { lang: string; na
       </>
     );
   } else if (outcome.result.status === "ok") {
-    body = <Results result={outcome.result} lang={lang} t={t} />;
+    body = <Results result={outcome.result} lang={lang} t={t} onReset={onReset} />;
   } else {
     const message = outcome.result.status === "not-found" ? t.checkup_notFound : outcome.result.status === "error" ? t.checkup_failed : t.checkup_paused;
     body = (

@@ -9,7 +9,7 @@ export const TAXONOMY_NAMES: Record<"es" | "zh" | "vi", Record<string, string>> 
     employees: "Administrar empleados", hiring: "Contratar", scheduling: "Horarios de empleados", payroll: "Nómina", training: "Capacitación",
     calls: "Contestar llamadas", "phone-ai": "Llamadas automáticas", support: "Atención al cliente", booking: "Reservar citas",
     legal: "Trámites legales y de negocio", "legal-help": "Ayuda legal", permits: "Permisos de negocio", "employment-docs": "Documentos laborales", regulations: "Regulaciones",
-    safety: "Seguridad y protección", "community-alerts": "Alertas comunitarias", "ice-alerts": "Alertas de ICE", cybersecurity: "Ciberseguridad", "food-health": "Seguridad alimentaria y sanitaria",
+    safety: "Seguridad y protección", "community-alerts": "Alertas comunitarias", "know-your-rights": "Conoce tus derechos", cybersecurity: "Ciberseguridad", "food-health": "Seguridad alimentaria y sanitaria",
     learn: "Aprender nuevas habilidades", "ai-courses": "Cursos de IA", "business-courses": "Cursos de negocios", "study-tools": "Herramientas de estudio",
   },
   zh: {
@@ -21,7 +21,7 @@ export const TAXONOMY_NAMES: Record<"es" | "zh" | "vi", Record<string, string>> 
     employees: "管理员工", hiring: "招聘", scheduling: "员工排班", payroll: "工资发放", training: "培训",
     calls: "接听电话", "phone-ai": "自动接听电话", support: "客户服务", booking: "预约",
     legal: "处理法律与营业文件", "legal-help": "法律协助", permits: "营业许可", "employment-docs": "雇佣文件", regulations: "法规",
-    safety: "安全与防护", "community-alerts": "社区警报", "ice-alerts": "ICE 警报", cybersecurity: "网络安全", "food-health": "食品与健康安全",
+    safety: "安全与防护", "community-alerts": "社区警报", "know-your-rights": "了解你的权利", cybersecurity: "网络安全", "food-health": "食品与健康安全",
     learn: "学习新技能", "ai-courses": "AI 课程", "business-courses": "商业课程", "study-tools": "学习工具",
   },
   vi: {
@@ -33,7 +33,7 @@ export const TAXONOMY_NAMES: Record<"es" | "zh" | "vi", Record<string, string>> 
     employees: "Quản lý nhân viên", hiring: "Tuyển dụng", scheduling: "Lịch làm việc", payroll: "Trả lương", training: "Đào tạo",
     calls: "Trả lời điện thoại", "phone-ai": "Trả lời điện thoại tự động", support: "Hỗ trợ khách hàng", booking: "Đặt lịch hẹn",
     legal: "Giấy tờ pháp lý và kinh doanh", "legal-help": "Hỗ trợ pháp lý", permits: "Giấy phép kinh doanh", "employment-docs": "Giấy tờ lao động", regulations: "Quy định",
-    safety: "An toàn và bảo mật", "community-alerts": "Cảnh báo cộng đồng", "ice-alerts": "Cảnh báo ICE", cybersecurity: "An ninh mạng", "food-health": "An toàn thực phẩm và sức khỏe",
+    safety: "An toàn và bảo mật", "community-alerts": "Cảnh báo cộng đồng", "know-your-rights": "Biết quyền của bạn", cybersecurity: "An ninh mạng", "food-health": "An toàn thực phẩm và sức khỏe",
     learn: "Học kỹ năng mới", "ai-courses": "Khóa học AI", "business-courses": "Khóa học kinh doanh", "study-tools": "Công cụ học tập",
   },
 };
