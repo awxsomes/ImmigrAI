@@ -17,7 +17,7 @@ function AdoptionLine({ item, t }: { item: Adoption; t: MatchLabels }) {
   const confirmed = item.level === "direct" || item.level === "bridge";
   return (
     <li className="flex gap-2">
-      {confirmed ? <CheckIcon className="mt-1 size-4 shrink-0 text-green-dark" /> : <span aria-hidden="true" className="w-4 shrink-0 text-center">&bull;</span>}
+      {confirmed ? <CheckIcon className="mt-1 size-4 shrink-0 text-blue-dark" /> : <span aria-hidden="true" className="w-4 shrink-0 text-center">&bull;</span>}
       <span>
         {fmt(text, { system: item.system })}
         {item.evidenceUrl && (
@@ -54,8 +54,8 @@ export function MatchCard({
 }) {
   const label = match.fit === "close" ? t.match_fitClose : hasTrade ? t.match_fitExact : t.match_fitJob;
   return (
-    <div className="overflow-hidden rounded-xl border-2 border-green">
-      <div className="space-y-3 bg-green-tint p-5">
+    <div className="overflow-hidden rounded-lg border border-blue">
+      <div className="space-y-3 bg-blue-tint p-5">
         <Badge variant={match.fit === "exact" ? "warm" : "outline"}>{label}</Badge>
         <div>
           <p className="font-semibold">{fmt(t.match_why, { name: match.tool.name })}</p>

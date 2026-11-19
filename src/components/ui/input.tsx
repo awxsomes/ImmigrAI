@@ -7,7 +7,7 @@ function Input({ className, large, ...props }: ComponentProps<"input"> & { large
     <input
       data-slot="input"
       className={cn(
-        "w-full min-w-0 rounded-lg border-2 bg-surface px-3 text-ink placeholder:text-muted-ink",
+        "w-full min-w-0 rounded-lg border bg-surface px-3 text-ink placeholder:text-muted-ink",
         large ? "min-h-14 text-lg" : "min-h-12 text-base",
         className ?? "border-line-strong",
       )}

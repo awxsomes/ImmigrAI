@@ -28,7 +28,7 @@ export function LanguageMenu({ lang, label, moreLabel }: { lang: string; label: 
           {current}
         </>
       }
-      panelClassName="absolute right-0 z-40 mt-1 w-44 overflow-hidden rounded-lg border-2 border-ink bg-surface"
+      panelClassName="absolute right-0 z-40 mt-1 w-44 overflow-hidden rounded-lg border border-line-strong bg-surface shadow-lg"
     >
       <ul>
         {NAMES.map(([code, name]) => (
@@ -40,14 +40,14 @@ export function LanguageMenu({ lang, label, moreLabel }: { lang: string; label: 
                 // Keep the current search when switching language.
                 event.currentTarget.href = `/${code}${rest}${window.location.search}`;
               }}
-              className={`block px-3 py-3 no-underline hover:bg-green-tint ${code === lang ? "font-semibold" : ""}`}
+              className={`block px-3 py-3 no-underline hover:bg-blue-tint ${code === lang ? "font-semibold" : ""}`}
             >
               {name}
             </a>
           </li>
         ))}
-        <li className="border-t-2 border-line">
-          <Link href={`/${lang}/my-tools#language`} prefetch={false} className="block px-3 py-3 font-medium underline underline-offset-2 hover:bg-green-tint">
+        <li className="border-t border-line">
+          <Link href={`/${lang}/my-tools#language`} prefetch={false} className="block px-3 py-3 font-medium underline underline-offset-2 hover:bg-blue-tint">
             {moreLabel}
           </Link>
         </li>

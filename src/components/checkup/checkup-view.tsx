@@ -56,7 +56,7 @@ function Signal({ ok, children }: { ok: boolean; children: ReactNode }) {
   return (
     <li className="flex gap-2">
       {ok ? (
-        <CheckIcon className="mt-1 size-4 shrink-0 text-green" />
+        <CheckIcon className="mt-1 size-4 shrink-0 text-blue" />
       ) : (
         <span aria-hidden="true" className="w-4 shrink-0 text-center font-bold">
           &ndash;
@@ -116,16 +116,16 @@ function ProblemCard({ problem, index, lang, t }: { problem: CheckupProblem; ind
   const connectSteps = tool?.guide?.connectSteps ?? [];
 
   return (
-    <li className="rounded-xl border-2 border-line bg-surface p-5">
+    <li className="rounded-lg border border-line bg-surface p-5">
       <h3 className="text-xl font-semibold">
         {index + 1}. {problem.title}
       </h3>
       <Evidence evidence={problem.evidence} t={t} />
 
       {!match || !tool ? (
-        <p className="mt-3 rounded-lg bg-marigold-tint p-3">{t.checkup_noTool}</p>
+        <p className="mt-3 rounded-lg bg-amber-tint p-3">{t.checkup_noTool}</p>
       ) : (
-        <div className="mt-4 space-y-4 border-t-2 border-line pt-4">
+        <div className="mt-4 space-y-4 border-t border-line pt-4">
           <div>
             <p className="text-sm text-muted-ink">{t.checkup_tool}</p>
             <p className="text-lg font-semibold">
@@ -144,7 +144,7 @@ function ProblemCard({ problem, index, lang, t }: { problem: CheckupProblem; ind
               <ul className="mt-1 space-y-1">
                 {match.useThis.map((item) => (
                   <li key={item} className="flex gap-2">
-                    <CheckIcon className="mt-1 size-4 shrink-0 text-green" />
+                    <CheckIcon className="mt-1 size-4 shrink-0 text-blue" />
                     {item}
                   </li>
                 ))}
@@ -227,7 +227,7 @@ function Results({ result, lang, t, onReset }: { result: CheckupResult; lang: st
 
   return (
     <>
-      <div className="mt-3 rounded-lg bg-green-tint p-4">
+      <div className="mt-3 rounded-lg bg-blue-tint p-4">
         <p className="text-sm">{t.checkup_matched}</p>
         <p className="text-xl font-semibold">{business?.name}</p>
         {business?.address && <p>{business.address}</p>}
@@ -237,7 +237,7 @@ function Results({ result, lang, t, onReset }: { result: CheckupResult; lang: st
         </StartAgain>
       </div>
 
-      {partial && <p className="mt-4 rounded-lg bg-marigold-tint p-3">{t.checkup_partial}</p>}
+      {partial && <p className="mt-4 rounded-lg bg-amber-tint p-3">{t.checkup_partial}</p>}
 
       <section aria-labelledby="fix-title" className="mt-8">
         <h2 id="fix-title" className="text-2xl font-semibold">
@@ -260,7 +260,7 @@ function Results({ result, lang, t, onReset }: { result: CheckupResult; lang: st
       </section>
 
       {plan && (
-        <section aria-labelledby="plan-title" className="mt-8 rounded-xl border-2 border-ink bg-surface p-5">
+        <section aria-labelledby="plan-title" className="mt-8 rounded-lg border border-line bg-surface p-5">
           <h2 id="plan-title" className="text-2xl font-semibold">
             {t.checkup_planTitle}
           </h2>
@@ -382,7 +382,7 @@ export function CheckupView({ lang, name, city, website, t, onReset }: { lang: s
   } else if ("failed" in outcome) {
     body = (
       <>
-        <p role="alert" className="mt-3 rounded-lg bg-marigold-tint p-4">
+        <p role="alert" className="mt-3 rounded-lg bg-amber-tint p-4">
           {outcome.failed === "limited" ? t.checkup_limited : t.checkup_failed}
         </p>
         {again}
@@ -394,7 +394,7 @@ export function CheckupView({ lang, name, city, website, t, onReset }: { lang: s
     const message = outcome.result.status === "not-found" ? t.checkup_notFound : outcome.result.status === "error" ? t.checkup_failed : t.checkup_paused;
     body = (
       <>
-        <p role="status" className="mt-3 rounded-lg bg-marigold-tint p-4">
+        <p role="status" className="mt-3 rounded-lg bg-amber-tint p-4">
           {message}
         </p>
         {again}

@@ -102,13 +102,13 @@ export function MatchResults({
         {t.match_title}
       </h1>
 
-      <div className="mt-4 rounded-xl bg-marigold-tint p-4">
+      <div className="mt-4 rounded-lg bg-amber-tint p-4">
         <h2 className="font-semibold">{t.match_understood}</h2>
         <p className="mt-1 text-lg">{brief?.job ?? need}</p>
         {brief && brief.mustHave.length > 0 && (
           <ul className="mt-2 flex flex-wrap gap-2">
             {brief.mustHave.map((item) => (
-              <li key={item} className="rounded-md border-2 border-line-strong bg-surface px-2 py-1 text-sm">
+              <li key={item} className="rounded-md border border-line-strong bg-surface px-2 py-1 text-sm">
                 {item}
               </li>
             ))}
@@ -124,7 +124,7 @@ export function MatchResults({
               maxLength={300}
               value={draft}
               onChange={(event) => setDraft(event.target.value)}
-              className="block w-full rounded-lg border-2 border-line-strong bg-surface p-3"
+              className="block w-full rounded-lg border border-line-strong bg-surface p-3"
             />
             <Button type="submit" variant="outline">
               {t.match_again}
@@ -155,7 +155,7 @@ export function MatchResults({
         </ul>
       )}
 
-      {result?.nothingSpecialized && <p className="mt-4 rounded-lg border-2 border-line bg-surface p-5">{t.match_nothing}</p>}
+      {result?.nothingSpecialized && <p className="mt-4 rounded-lg border border-line bg-surface p-5">{t.match_nothing}</p>}
 
       {phase === "done" && !paused && data.alreadyUse.length === 0 && tools.length > 0 && (
         <p className="mt-4">

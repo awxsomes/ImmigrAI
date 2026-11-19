@@ -8,7 +8,7 @@ function NativeSelect({ className, ...props }: ComponentProps<"select">) {
     <div className={cn("relative w-full", className)} data-slot="native-select-wrapper">
       <select
         data-slot="native-select"
-        className="min-h-12 w-full appearance-none rounded-lg border-2 border-line-strong bg-surface py-2 pr-10 pl-3 text-base text-ink"
+        className="min-h-12 w-full appearance-none rounded-lg border border-line-strong bg-surface py-2 pr-10 pl-3 text-base text-ink"
         {...props}
       />
       <ChevronIcon className="pointer-events-none absolute top-1/2 right-3 size-4 -translate-y-1/2" />

@@ -99,7 +99,7 @@ function SubscriptionFields({ tool, subscription, size, lang, t }: { tool: Tool;
       <label className="flex min-h-12 cursor-pointer items-center gap-3 font-medium">
         <input
           type="checkbox"
-          className="size-6 shrink-0 accent-[#0e5a45]"
+          className="size-6 shrink-0 accent-blue"
           checked={Boolean(subscription)}
           onChange={(event) => updateSaved(tool.slug, { subscription: event.target.checked ? { monthlyUsd: defaultCost(tool, size) } : undefined })}
         />
@@ -186,7 +186,7 @@ function SubscriptionSummary({ items, lang, t }: { items: Array<{ tool: Tool; su
         </div>
       </dl>
       {trials.length > 0 && (
-        <div className="rounded-lg bg-marigold-tint p-3">
+        <div className="rounded-lg bg-amber-tint p-3">
           <h3 className="font-semibold">{t.sub_trialTitle}</h3>
           <ul className="mt-1 space-y-1">
             {trials.map(({ tool, date }) => (
@@ -206,7 +206,7 @@ function SubscriptionSummary({ items, lang, t }: { items: Array<{ tool: Tool; su
         </div>
       )}
       {overlaps.length > 0 && (
-        <div className="rounded-lg bg-marigold-tint p-3">
+        <div className="rounded-lg bg-amber-tint p-3">
           <h3 className="font-semibold">{t.sub_overlapTitle}</h3>
           <ul className="mt-1 space-y-1">
             {overlaps.map((group) => (
@@ -253,7 +253,7 @@ export function MyToolsView({ lang, defaultLanguage, t }: { lang: string; defaul
         (consent === "yes" ? (
           <p className="mt-2 text-lg text-muted-ink">{t.my_saved}</p>
         ) : (
-          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-marigold-tint p-4">
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-amber-tint p-4">
             <p>{t.my_savingOff}</p>
             <Button variant="outline" size="sm" onClick={() => setConsent(true)}>
               {t.my_turnOn}
@@ -287,7 +287,7 @@ export function MyToolsView({ lang, defaultLanguage, t }: { lang: string; defaul
           ) : (
             <p className="mt-3">{fmt(t.my_languageNoSite, { language: languageName })}</p>
           ))}
-        {speaks.length > 0 && <p className="mt-3 font-medium text-green-dark">{fmt(t.my_languageWorks, { language: languageName, names: speaks.map((tool) => tool.name).join(", ") })}</p>}
+        {speaks.length > 0 && <p className="mt-3 font-medium text-blue-dark">{fmt(t.my_languageWorks, { language: languageName, names: speaks.map((tool) => tool.name).join(", ") })}</p>}
         {unconfirmed.length > 0 && <p className="mt-2">{fmt(t.my_languageUnknown, { language: languageName, names: unconfirmed.map((tool) => tool.name).join(", ") })}</p>}
       </section>
 
@@ -300,7 +300,7 @@ export function MyToolsView({ lang, defaultLanguage, t }: { lang: string; defaul
               <label className="flex min-h-12 cursor-pointer items-center gap-3">
                 <input
                   type="checkbox"
-                  className="size-6 shrink-0 accent-[#0e5a45]"
+                  className="size-6 shrink-0 accent-blue"
                   checked={data.alreadyUse.includes(name)}
                   onChange={(event) => toggleSoftware(name, event.target.checked)}
                 />
@@ -404,7 +404,7 @@ export function MyToolsView({ lang, defaultLanguage, t }: { lang: string; defaul
         </section>
       )}
 
-      <section className="mt-10 border-t-2 border-line pt-6" aria-labelledby="data-title">
+      <section className="mt-10 border-t border-line pt-6" aria-labelledby="data-title">
         <h2 id="data-title" className="text-2xl font-semibold">{t.my_yourData}</h2>
         <div className="mt-3 flex flex-wrap items-start gap-3">
           <Button variant="outline" onClick={download}>

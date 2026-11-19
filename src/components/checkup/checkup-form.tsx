@@ -34,20 +34,20 @@ export function CheckupFields({ t, idPrefix, action, onStart }: { t: CheckupForm
           <label htmlFor={`${idPrefix}-name`} className="block font-semibold">
             {t.checkup_name}
           </label>
-          <Input id={`${idPrefix}-name`} name="name" required minLength={2} maxLength={80} autoComplete="organization" className="mt-1 border-ink" />
+          <Input id={`${idPrefix}-name`} name="name" required minLength={2} maxLength={80} autoComplete="organization" className="mt-1 border-line-strong" />
         </div>
         <div>
           <label htmlFor={`${idPrefix}-city`} className="block font-semibold">
             {t.checkup_city}
           </label>
-          <Input id={`${idPrefix}-city`} name="city" required minLength={2} maxLength={60} autoComplete="address-level2" className="mt-1 border-ink" />
+          <Input id={`${idPrefix}-city`} name="city" required minLength={2} maxLength={60} autoComplete="address-level2" className="mt-1 border-line-strong" />
         </div>
       </div>
       <div>
         <label htmlFor={`${idPrefix}-site`} className="block font-semibold">
           {t.checkup_site}
         </label>
-        <Input id={`${idPrefix}-site`} name="site" type="text" inputMode="url" maxLength={200} autoComplete="url" className="mt-1 border-ink" />
+        <Input id={`${idPrefix}-site`} name="site" type="text" inputMode="url" maxLength={200} autoComplete="url" className="mt-1 border-line-strong" />
       </div>
       <Button type="submit" size="lg">
         {t.checkup_go}

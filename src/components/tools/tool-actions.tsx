@@ -47,7 +47,7 @@ export function MyRating({
           {[1, 2, 3, 4, 5].map((n) => (
             <label
               key={n}
-              className="flex min-h-12 min-w-12 cursor-pointer items-center justify-center rounded-lg border-2 border-line-strong bg-surface font-medium has-checked:border-green has-checked:bg-green has-checked:text-white has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-ink"
+              className="flex min-h-12 min-w-12 cursor-pointer items-center justify-center rounded-lg border border-line-strong bg-surface font-medium has-checked:border-blue has-checked:bg-blue has-checked:text-white has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-ink"
             >
               <input
                 type="radio"
@@ -70,7 +70,7 @@ export function MyRating({
       <label className="flex min-h-12 cursor-pointer items-center gap-3 font-medium">
         <input
           type="checkbox"
-          className="size-6 accent-[#0e5a45]"
+          className="size-6 accent-blue"
           checked={saved?.inUse ?? false}
           onChange={(e) => updateSaved(slug, { inUse: e.target.checked })}
         />
@@ -84,7 +84,7 @@ export function MyRating({
           id={`note-${slug}`}
           rows={2}
           maxLength={500}
-          className="mt-1 block w-full rounded-lg border-2 border-line-strong bg-surface p-3"
+          className="mt-1 block w-full rounded-lg border border-line-strong bg-surface p-3"
           value={saved?.note ?? ""}
           onChange={(e) => updateSaved(slug, { note: e.target.value })}
         />

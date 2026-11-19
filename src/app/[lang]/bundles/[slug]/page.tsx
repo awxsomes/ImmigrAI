@@ -39,7 +39,7 @@ function NewToolsPage({ lang, t }: { lang: string; t: Dict }) {
         {NEW_TOOLS.map((tool) => {
           const href = safeUrl(tool.website);
           return (
-            <li key={tool.name} className="rounded-xl border-2 border-line bg-surface p-5">
+            <li key={tool.name} className="rounded-lg border border-line bg-surface p-5">
               <h2 className="text-xl font-semibold">{tool.name}</h2>
               <p className="mt-1 text-sm text-muted-ink">
                 {fmt(t.new_launched, { date: tool.launched })}. {tool.categoryHint}.
@@ -107,7 +107,7 @@ export default async function KitPage({ params }: Props) {
       <p className="mt-2 text-sm text-muted-ink">
         {t.kit_notice} {t.kit_costNote}
       </p>
-      {kit.note && <p className="mt-3 max-w-3xl rounded-lg bg-marigold-tint p-3">{kit.note}</p>}
+      {kit.note && <p className="mt-3 max-w-3xl rounded-lg bg-amber-tint p-3">{kit.note}</p>}
       <div className="mt-4">
         <SaveAllButton tools={tools} label={t.bundle_saveAll} doneLabel={t.kit_saved} />
       </div>
@@ -131,7 +131,7 @@ export default async function KitPage({ params }: Props) {
         <div className="mt-3 overflow-x-auto" tabIndex={0} role="region" aria-label={t.compat_title}>
           <table className="w-full min-w-[32rem] text-left">
             <thead>
-              <tr className="border-b-2 border-line-strong">
+              <tr className="border-b border-line-strong">
                 <th scope="col" className="py-2 pr-3 font-semibold">{t.compare_feature}</th>
                 <th scope="col" className="py-2 font-semibold">{t.compat_title}</th>
               </tr>

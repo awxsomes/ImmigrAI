@@ -10,7 +10,7 @@ export function DeleteDataControl({ t }: { t: { button: string; question: string
 
   if (state === "confirm") {
     return (
-      <div role="alertdialog" aria-label={t.button} className="w-full rounded-lg border-2 border-brick bg-brick-tint p-4">
+      <div role="alertdialog" aria-label={t.button} className="w-full rounded-lg border border-brick bg-brick-tint p-4">
         <p className="font-medium">{t.question}</p>
         <div className="mt-3 flex flex-wrap gap-2">
           <Button

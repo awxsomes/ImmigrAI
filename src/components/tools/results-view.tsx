@@ -186,8 +186,8 @@ export function ResultsView({
         <Button variant="outline" className="w-full lg:hidden" aria-expanded={showFilters} aria-controls="filters" onClick={() => setShowFilters((v) => !v)}>
           {showFilters ? t.filter_hide : t.filter_show}
         </Button>
-        <section id="filters" aria-labelledby="filters-title" className={`${showFilters ? "block" : "hidden"} mt-4 space-y-5 rounded-xl border-2 border-line bg-surface p-5 lg:mt-0 lg:block`}>
-          <h2 id="filters-title" className="text-lg font-semibold">
+        <section id="filters" aria-labelledby="filters-title" className={`${showFilters ? "block" : "hidden"} mt-4 space-y-5 rounded-lg border border-line bg-surface p-5 lg:mt-0 lg:block`}>
+          <h2 id="filters-title" className="text-lg font-bold">
             {t.filter_title}
           </h2>
 
@@ -259,7 +259,7 @@ export function ResultsView({
             <label className="mt-2 flex min-h-11 cursor-pointer items-center gap-3">
               <input
                 type="checkbox"
-                className="size-6 shrink-0 accent-[#0e5a45]"
+                className="size-6 shrink-0 accent-blue"
                 disabled={!language}
                 checked={filters.onlyMyLanguage}
                 onChange={(e) => setFilters((f) => ({ ...f, onlyMyLanguage: e.target.checked }))}
@@ -270,7 +270,7 @@ export function ResultsView({
 
           {data.alreadyUse.length > 0 && (
             <label className="flex min-h-11 cursor-pointer items-center gap-3">
-              <input type="checkbox" className="size-6 shrink-0 accent-[#0e5a45]" checked={onlyConnected} onChange={(e) => setOnlyConnected(e.target.checked)} />
+              <input type="checkbox" className="size-6 shrink-0 accent-blue" checked={onlyConnected} onChange={(e) => setOnlyConnected(e.target.checked)} />
               {t.filter_onlyConnect}
             </label>
           )}
@@ -306,7 +306,7 @@ export function ResultsView({
 
       <div className="min-w-0">
         <div className="flex flex-wrap items-end justify-between gap-3">
-          <p className="font-medium" role="status">
+          <p className="font-semibold" role="status">
             {fmt(t.results_showing, { shown: shown.length, total: all.length })}
           </p>
           <div className="w-full sm:w-60">
@@ -322,7 +322,7 @@ export function ResultsView({
         </div>
 
         {status && (
-          <div role="status" className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-marigold-tint p-3">
+          <div role="status" className="mt-4 flex flex-wrap items-center justify-between gap-3 rounded-lg bg-amber-tint p-3">
             <p>{status}</p>
             {live === "save-data" && (
               <Button variant="outline" size="sm" onClick={() => void runSearch()}>
@@ -333,13 +333,13 @@ export function ResultsView({
         )}
 
         {shown.length === 0 ? (
-          <p className="mt-6 rounded-lg border-2 border-line bg-surface p-5">{t.results_none}</p>
+          <p className="mt-6 rounded-lg border border-line bg-surface p-5">{t.results_none}</p>
         ) : (
           <>
             {aiTools.length > 0 && toolList(aiTools)}
             {generalTools.length > 0 && (
               <details className="group mt-6" open={aiTools.length === 0}>
-                <summary className="flex min-h-12 list-none items-center justify-between gap-2 rounded-lg border-2 border-line-strong bg-surface px-4 font-medium hover:bg-green-tint">
+                <summary className="flex min-h-14 list-none items-center justify-between gap-2 rounded-lg border border-line bg-surface px-5 font-semibold transition-colors hover:border-blue">
                   {fmt(t.results_generalTools, { n: generalTools.length })}
                   <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
                 </summary>
@@ -350,7 +350,7 @@ export function ResultsView({
             {otherTools.length > 0 &&
               (aiTools.length > 0 ? (
                 <details className="group mt-6">
-                  <summary className="flex min-h-12 list-none items-center justify-between gap-2 rounded-lg border-2 border-line-strong bg-surface px-4 font-medium hover:bg-green-tint">
+                  <summary className="flex min-h-14 list-none items-center justify-between gap-2 rounded-lg border border-line bg-surface px-5 font-semibold transition-colors hover:border-blue">
                     {fmt(t.results_otherTools, { n: otherTools.length })}
                     <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
                   </summary>
@@ -364,11 +364,11 @@ export function ResultsView({
       </div>
 
       {compare.length > 0 && (
-        <div role="region" aria-label={t.compare_go} className="fixed inset-x-0 bottom-0 z-20 border-t-2 border-ink bg-surface px-4 py-3">
+        <div role="region" aria-label={t.compare_go} className="fixed inset-x-0 bottom-0 z-20 border-t border-line-strong bg-surface px-4 py-3 shadow-[0_-4px_16px_rgb(17_24_39/0.08)]">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
-            <p className="font-medium">
+            <p className="font-semibold">
               {compare.length} {t.compare_bar}
-              {compareNotice && <span className="ml-2 font-normal text-[#7a2a14]">{t.compare_max}</span>}
+              {compareNotice && <span className="ml-2 font-normal text-brick-dark">{t.compare_max}</span>}
             </p>
             <div className="flex gap-2">
               <Button variant="ghost" onClick={() => setCompare([])}>
@@ -376,7 +376,7 @@ export function ResultsView({
               </Button>
               <Link
                 href={`/${lang}/compare?tools=${compare.join(",")}`}
-                className="inline-flex min-h-12 items-center rounded-lg border-2 border-green bg-green px-5 font-medium text-white hover:border-green-dark hover:bg-green-dark"
+                className="inline-flex min-h-12 items-center rounded-lg border border-blue bg-blue px-5 font-semibold text-white hover:border-blue-dark hover:bg-blue-dark"
               >
                 {t.compare_go}
               </Link>

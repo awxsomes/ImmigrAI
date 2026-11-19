@@ -10,7 +10,7 @@ export function Footer({ lang, t }: { lang: string; t: Dict }) {
     <Footer1
       navLabel={t.footer_explore}
       brand={
-        <Link href={`/${lang}`} className="flex items-center gap-2 text-xl font-bold no-underline">
+        <Link href={`/${lang}`} className="flex items-center gap-2 text-xl font-extrabold tracking-tight no-underline">
           <ShopMark className="size-8" />
           {t.brand}
         </Link>
