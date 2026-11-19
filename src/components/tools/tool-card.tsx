@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CheckIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
-import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText, toolHref } from "@/lib/format";
+import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText, toolHref, type PriceLabels } from "@/lib/format";
 import { fmt, type CardLabels } from "@/lib/labels";
 import { connectsWithExisting, envLabel, supportsLanguage } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
@@ -48,6 +48,35 @@ export function RatingText({ tool, t }: { tool: Tool; t: CardLabels }) {
   );
 }
 
+type FactLineLabels = PriceLabels & Pick<CardLabels, "card_reviewCount" | "card_languageOne" | "card_languageCount">;
+
+/** The three facts people scan for first, on one line: cost, rating and languages. The full facts follow in the same order. */
+export function FactLine({ tool, t, className }: { tool: Tool; t: FactLineLabels; className?: string }) {
+  const { rating, reviewCount } = tool.reviews;
+  const separator = (
+    <span aria-hidden="true" className="text-line-strong">
+      |
+    </span>
+  );
+  return (
+    <p className={`flex flex-wrap items-center gap-x-2.5 gap-y-1 ${className ?? ""}`}>
+      <span className="font-semibold">{priceText(tool, t)}</span>
+      {!tool.publicResource && rating !== null && (
+        <>
+          {separator}
+          <span className="inline-flex items-center gap-1">
+            <StarIcon className="size-4 text-star" />
+            <span className="font-semibold">{rating}</span>
+            {reviewCount > 0 && <span className="text-muted-ink">({fmt(t.card_reviewCount, { n: reviewCount.toLocaleString() })})</span>}
+          </span>
+        </>
+      )}
+      {separator}
+      <span>{tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}</span>
+    </p>
+  );
+}
+
 export function ToolCard({
   tool,
   lang,
@@ -76,9 +105,6 @@ export function ToolCard({
   const confirmation = priceConfirmation(tool, t);
   const hasPlans = Boolean(tool.pricing.plans?.length);
 
-  const { rating, reviewCount } = tool.reviews;
-  const languageCount = tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length });
-
   return (
     <article className="rounded-lg border border-line bg-surface p-5 sm:p-6">
       <div className="flex items-start justify-between gap-4">
@@ -88,26 +114,7 @@ export function ToolCard({
               {tool.name}
             </Link>
           </h3>
-          {/* The three facts people scan for first, on one line. The full facts follow below in the same order. */}
-          <p className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[0.95rem]">
-            <span className="font-semibold">{priceText(tool, t)}</span>
-            {!tool.publicResource && rating !== null && (
-              <>
-                <span aria-hidden="true" className="text-line-strong">
-                  |
-                </span>
-                <span className="inline-flex items-center gap-1">
-                  <StarIcon className="size-4 text-star" />
-                  <span className="font-semibold">{rating}</span>
-                  {reviewCount > 0 && <span className="text-muted-ink">({fmt(t.card_reviewCount, { n: reviewCount.toLocaleString() })})</span>}
-                </span>
-              </>
-            )}
-            <span aria-hidden="true" className="text-line-strong">
-              |
-            </span>
-            <span>{languageCount}</span>
-          </p>
+          <FactLine tool={tool} t={t} className="mt-1 text-[0.95rem]" />
           <p className="mt-3 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
             {tool.source === "live" && <Badge variant="outline">{t.card_new}</Badge>}
