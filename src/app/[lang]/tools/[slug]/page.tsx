@@ -3,9 +3,12 @@ import { DetailActions, SaveButton, type ExtrasLabels } from "@/components/tools
 import { DETAIL_KEYS, ToolDetail } from "@/components/tools/tool-detail";
 import { LiveToolPage } from "@/components/tools/tool-extras";
 import { SEED_BY_SLUG, SEED_TOOLS } from "@/data/seed-tools";
+import { findCategory, findSubcategory } from "@/data/taxonomy";
+import { searchHref } from "@/lib/format";
 import { getDict, UI_LANGS, type Dict } from "@/lib/i18n";
 import { COMPAT_KEYS, pick } from "@/lib/labels";
-import { localizeTool } from "@/lib/localize";
+import { localizeTool, nameOf } from "@/lib/localize";
+import type { Tool } from "@/lib/types";
 
 interface Props {
   params: Promise<{ lang: string; slug: string }>;
@@ -35,6 +38,17 @@ function extrasLabels(t: Dict): ExtrasLabels {
   };
 }
 
+/** Home, then the area and the need the tool is listed under, in the page's language. */
+function crumbsFor(tool: Tool, lang: string, t: Dict) {
+  const category = findCategory(tool.categoryId);
+  const sub = findSubcategory(tool.categoryId, tool.subcategoryId);
+  return [
+    { href: `/${lang}`, label: t.nav_home },
+    ...(category ? [{ href: searchHref(lang, category.id), label: nameOf(lang, category.id, category.name) }] : []),
+    ...(category && sub ? [{ href: searchHref(lang, category.id, sub.id), label: nameOf(lang, sub.id, sub.name) }] : []),
+  ];
+}
+
 export default async function ToolPage({ params }: Props) {
   const { lang, slug } = await params;
   const t = getDict(lang);
@@ -48,6 +62,7 @@ export default async function ToolPage({ params }: Props) {
         t={pick(t, DETAIL_KEYS)}
         actions={<SaveButton tool={tool} saveLabel={t.card_saveTool} savedLabel={t.card_savedTool} />}
         sidebar={<DetailActions tool={tool} t={extrasLabels(t)} />}
+        crumbs={crumbsFor(tool, lang, t)}
       />
     );
   }

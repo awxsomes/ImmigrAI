@@ -10,7 +10,7 @@ import { ADVICE_KEYS } from "@/lib/advice";
 import { AdoptionGuide, TeamEstimate } from "./adoption-guide";
 import { AdviceNote } from "./advice-note";
 import { PromptHelper } from "./prompt-helper";
-import { RatingText } from "./tool-card";
+import { FactLine, RatingText } from "./tool-card";
 import { envLabel, ENV_WEIGHTS, focusScore, OVERALL_WEIGHTS } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
 
@@ -35,20 +35,41 @@ export const DETAIL_KEYS = [
   "tool_whatItUses", "tool_ratingBySite", "tool_site", "tool_stars", "tool_reviewsCol", "tool_notShown", "tool_noReviewsYet", "tool_publicResourceNote",
   "tool_reviewCheck", "tool_priceSource", "tool_languageSource", "tool_statedTotal", "tool_languagesNote", "tool_perTask", "tool_wattHours", "tool_waterMl",
   "tool_co2", "tool_howWeCalc", "tool_scoreParts", "tool_scoreNoReviews", "tool_startAlone", "tool_setupAbout", "tool_runsOn", "tool_nothingConfirmed",
-  "tool_checked", "tool_openSite", "tool_leaving", "tool_estimate",
+  "tool_checked", "tool_openSite", "tool_leaving", "tool_estimate", "nav_breadcrumb",
   "score_focus", "score_reviews", "score_ease", "score_cost", "score_languages", "score_connections", "score_footprint",
   ...ADVICE_KEYS,
 ] as const;
 
 export type DetailLabels = Pick<Dict, (typeof DETAIL_KEYS)[number]>;
 
+/** Each part of the page is its own card, with the same heading and padding. */
 function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-4 border-t border-line pt-6">
-      <h2 className="text-2xl font-semibold">{title}</h2>
-      <div className="mt-3">{children}</div>
+    <section id={id} className="scroll-mt-4 rounded-lg border border-line bg-surface p-5 sm:p-6">
+      <h2 className="text-2xl font-bold">{title}</h2>
+      <div className="mt-4">{children}</div>
     </section>
   );
+}
+
+/** A table with a gray header row, in a box that scrolls sideways on a narrow phone instead of the page. */
+function TableBox({ caption, children }: { caption: string; children: ReactNode }) {
+  return (
+    <div className="mt-4">
+      <p className="mb-2 font-semibold" aria-hidden="true">
+        {caption}
+      </p>
+      <div className="overflow-x-auto rounded-lg border border-line">{children}</div>
+    </div>
+  );
+}
+
+const TH = "px-3 py-2 text-sm font-semibold text-muted-ink";
+const TD = "px-3 py-2.5";
+
+export interface Crumb {
+  href: string;
+  label: string;
 }
 
 function Meter({ label, value, max, display }: { label: string; value: number; max: number; display: string }) {
@@ -99,32 +120,49 @@ function PlanTable({ tool, t }: { tool: Tool; t: DetailLabels }) {
   const plans = tool.pricing.plans ?? [];
   if (plans.length === 0) return null;
   return (
-    <table className="mt-3 w-full text-left">
-      <caption className="mb-1 text-left font-medium">{t.tool_plansTitle}</caption>
-      <thead>
-        <tr className="border-b border-line-strong">
-          <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_planName}</th>
-          <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_planPrice}</th>
-          <th scope="col" className="py-2 font-semibold">{t.tool_planIncludes}</th>
-        </tr>
-      </thead>
-      <tbody>
-        {plans.map((plan) => (
-          <tr key={plan.name} className="border-b border-line align-top">
-            <td className="py-2 pr-3 font-medium">{plan.name}</td>
-            <td className="py-2 pr-3">
-              {plan.monthlyUsd === 0 ? t.card_free : fmt(t.price_amount, { n: plan.monthlyUsd })}
-              {plan.monthlyUsd > 0 && <span className="block text-sm text-muted-ink">{t[`per_${plan.per}`]}</span>}
-            </td>
-            <td className="py-2">{plan.includes}</td>
+    <TableBox caption={t.tool_plansTitle}>
+      <table className="w-full text-left">
+        <caption className="sr-only">{t.tool_plansTitle}</caption>
+        <thead className="bg-soft">
+          <tr>
+            <th scope="col" className={TH}>{t.tool_planName}</th>
+            <th scope="col" className={TH}>{t.tool_planPrice}</th>
+            <th scope="col" className={TH}>{t.tool_planIncludes}</th>
           </tr>
-        ))}
-      </tbody>
-    </table>
+        </thead>
+        <tbody className="divide-y divide-line">
+          {plans.map((plan) => (
+            <tr key={plan.name} className="align-top">
+              <td className={`${TD} font-semibold`}>{plan.name}</td>
+              <td className={`${TD} whitespace-nowrap`}>
+                {plan.monthlyUsd === 0 ? t.card_free : fmt(t.price_amount, { n: plan.monthlyUsd })}
+                {plan.monthlyUsd > 0 && <span className="block text-sm text-muted-ink">{t[`per_${plan.per}`]}</span>}
+              </td>
+              <td className={TD}>{plan.includes}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </TableBox>
   );
 }
 
-export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; lang: string; t: DetailLabels; actions?: ReactNode; sidebar?: ReactNode }) {
+export function ToolDetail({
+  tool,
+  lang,
+  t,
+  actions,
+  sidebar,
+  crumbs,
+}: {
+  tool: Tool;
+  lang: string;
+  t: DetailLabels;
+  actions?: ReactNode;
+  sidebar?: ReactNode;
+  /** The area and need this tool is listed under. Left out for tools found by live search. */
+  crumbs?: Crumb[];
+}) {
   const env = tool.environmental;
   const { rating, sources, reviewCount, summary } = tool.reviews;
   const includesReviews = tool.scores.overallIncludesReviews;
@@ -137,10 +175,29 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6">
-      <div className="flex flex-wrap items-start justify-between gap-6">
-        <div className="max-w-3xl">
-          <h1 className="text-4xl font-bold">{tool.name}</h1>
-          <p className="mt-2 flex flex-wrap items-center gap-2">
+      {crumbs && crumbs.length > 0 && (
+        <nav aria-label={t.nav_breadcrumb} className="text-sm text-muted-ink">
+          <ol className="flex flex-wrap gap-x-2">
+            {crumbs.map((crumb) => (
+              <li key={crumb.href}>
+                <Link href={crumb.href} prefetch={false} className="inline-block py-1 underline underline-offset-2 hover:text-ink">
+                  {crumb.label}
+                </Link>
+                <span aria-hidden="true"> / </span>
+              </li>
+            ))}
+            <li aria-current="page" className="py-1 font-semibold text-ink">
+              {tool.name}
+            </li>
+          </ol>
+        </nav>
+      )}
+
+      <div className="mt-3 grid items-start gap-8 lg:grid-cols-[minmax(0,1fr)_21rem]">
+        <div>
+          <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl">{tool.name}</h1>
+          <FactLine tool={tool} t={t} className="mt-3 text-lg" />
+          <p className="mt-4 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
             {tool.source === "live" && <Badge variant="warm">{t.tool_foundLive}</Badge>}
             {tool.trades?.map((trade) => (
@@ -149,66 +206,75 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
               </Badge>
             ))}
           </p>
-          <p className="mt-3 text-lg">{tool.summary}</p>
+          <p className="mt-4 max-w-3xl text-lg">{tool.summary}</p>
           {tool.ai.level !== "none" && tool.ai.feature && (
-            <p className="mt-3 rounded-lg bg-blue-tint p-3">
-              <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
+            <p className="mt-3 max-w-3xl text-muted-ink">
+              <span className="font-semibold text-ink">{t.card_aiDoes}:</span> {tool.ai.feature}
             </p>
           )}
-          {tool.focus === "general" && <p className="mt-3 rounded-lg bg-amber-tint p-3 font-medium">{t.card_generalNote}</p>}
-          <AdviceNote tool={tool} lang={lang} t={t} className="mt-3 p-3" />
+          {tool.focus === "general" && <p className="mt-4 max-w-3xl rounded-lg bg-amber-tint p-3 font-medium">{t.card_generalNote}</p>}
+          <AdviceNote tool={tool} lang={lang} t={t} className="mt-4 max-w-3xl p-3" />
         </div>
-        <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-24 flex-col items-center justify-center rounded-lg bg-blue text-white">
-          <span className="text-4xl leading-none font-bold">{tool.scores.overall}</span>
-          <span className="mt-1 text-sm">{t.card_score}</span>
-        </div>
-      </div>
 
-      <dl className="mt-5 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
-        <div>
-          <dt className="text-sm text-muted-ink">{t.card_cost}</dt>
-          <dd className="font-semibold">{priceText(tool, t)}</dd>
-        </div>
-        <div>
-          <dt className="text-sm text-muted-ink">{t.card_rating}</dt>
-          <dd className="font-semibold">
-            <RatingText tool={tool} t={t} />
-          </dd>
-        </div>
-        <div>
-          <dt className="text-sm text-muted-ink">{t.card_language}</dt>
-          <dd className="font-semibold">
-            {tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}
-          </dd>
-        </div>
-        <div>
-          <dt className="text-sm text-muted-ink">{t.card_footprint}</dt>
-          <dd className="font-semibold">
-            {env.score}/100, {t[`env_${envLabel(env.score)}`]}
-          </dd>
-        </div>
-      </dl>
-
-      <div className="mt-5 flex flex-wrap gap-2">
-        {tool.website && (
-          <a href={tool.website} {...OUT} className={buttonVariants({ variant: "default" })}>
-            {t.tool_openSite}
-            <ArrowIcon className="size-4" />
-            <span className="sr-only"> ({t.tool_leaving})</span>
-          </a>
-        )}
-        {actions}
+        {/* The facts and the next step, together in one card so they are easy to find on any screen. */}
+        <aside aria-label={t.tool_score} className="rounded-lg border border-line bg-surface p-5 sm:p-6">
+          <div className="flex items-center gap-4">
+            <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-16 shrink-0 flex-col items-center justify-center rounded-lg bg-blue text-white">
+              <span className="text-2xl leading-none font-bold">{tool.scores.overall}</span>
+              <span className="mt-0.5 text-xs">{t.card_score}</span>
+            </div>
+            <a href="#score" className="font-semibold underline underline-offset-2">
+              {t.tool_scoreParts}
+            </a>
+          </div>
+          <dl className="mt-5 divide-y divide-line border-y border-line">
+            <div className="py-3">
+              <dt className="text-sm text-muted-ink">{t.card_cost}</dt>
+              <dd className="font-semibold">{priceText(tool, t)}</dd>
+            </div>
+            <div className="py-3">
+              <dt className="text-sm text-muted-ink">{t.card_rating}</dt>
+              <dd className="font-semibold">
+                <RatingText tool={tool} t={t} />
+              </dd>
+            </div>
+            <div className="py-3">
+              <dt className="text-sm text-muted-ink">{t.card_language}</dt>
+              <dd className="font-semibold">
+                <a href="#languages" className="underline-offset-2 hover:underline">
+                  {tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}
+                </a>
+              </dd>
+            </div>
+            <div className="py-3">
+              <dt className="text-sm text-muted-ink">{t.card_footprint}</dt>
+              <dd className="font-semibold">
+                {env.score}/100, {t[`env_${envLabel(env.score)}`]}
+              </dd>
+            </div>
+          </dl>
+          <div className="mt-5 grid gap-2">
+            {tool.website && (
+              <a href={tool.website} {...OUT} className={`${buttonVariants({ variant: "default" })} w-full`}>
+                {t.tool_openSite}
+                <ArrowIcon className="size-4" />
+                <span className="sr-only"> ({t.tool_leaving})</span>
+              </a>
+            )}
+            {actions}
+          </div>
+        </aside>
       </div>
 
       {!tool.publicResource && <AdoptionGuide tool={tool} lang={lang} t={adoptLabels} />}
       {tool.source === "catalog" && tool.ai.level !== "none" && (
-        <div className="mt-4 rounded-lg border border-line bg-surface p-5">
+        <div className="mt-6 rounded-lg border border-line bg-surface p-5 sm:p-6">
           <PromptHelper slug={tool.slug} problem="" lang={lang} t={promptLabels} />
         </div>
       )}
 
-      <div className="mt-8 grid gap-8 lg:grid-cols-2">
-        <div className="space-y-8">
+      <div className="mt-6 grid items-start gap-6 lg:grid-cols-2">
+        <div className="space-y-6">
           <Section title={t.tool_helps}>
             <ul className="space-y-2">
               {tool.helpsWith.map((item) => (
@@ -261,8 +327,8 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
               </>
             ) : (
               <>
-                <p className="flex items-center gap-2 text-xl font-semibold">
-                  <StarIcon className="size-5 text-star" />
+                <p className="flex items-center gap-2 text-2xl font-bold">
+                  <StarIcon className="size-6 text-star" />
                   {fmt(t.card_ratingLine, { rating })}
                 </p>
                 <p className="text-sm text-muted-ink">
@@ -270,30 +336,37 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
                   {reviewCount > 0 ? `, ${fmt(t.card_reviewCount, { n: reviewCount.toLocaleString() })}` : ""}
                 </p>
                 {summary && <p className="mt-3">{summary}</p>}
-                <table className="mt-4 w-full text-left">
-                  <caption className="mb-1 text-left font-medium">{t.tool_ratingBySite}</caption>
-                  <thead>
-                    <tr className="border-b border-line-strong">
-                      <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_site}</th>
-                      <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_stars}</th>
-                      <th scope="col" className="py-2 font-semibold">{t.tool_reviewsCol}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {sources.map((source) => (
-                      <tr key={source.url} className="border-b border-line">
-                        <td className="py-2 pr-3">
-                          <a href={source.url} {...OUT} className="underline underline-offset-2">
-                            {source.site}
-                            <span className="sr-only"> ({t.tool_leaving})</span>
-                          </a>
-                        </td>
-                        <td className="py-2 pr-3">{source.rating}</td>
-                        <td className="py-2">{source.count ? source.count.toLocaleString() : t.tool_notShown}</td>
+                <TableBox caption={t.tool_ratingBySite}>
+                  <table className="w-full text-left">
+                    <caption className="sr-only">{t.tool_ratingBySite}</caption>
+                    <thead className="bg-soft">
+                      <tr>
+                        <th scope="col" className={TH}>{t.tool_site}</th>
+                        <th scope="col" className={TH}>{t.tool_stars}</th>
+                        <th scope="col" className={TH}>{t.tool_reviewsCol}</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-line">
+                      {sources.map((source) => (
+                        <tr key={source.url}>
+                          <td className={TD}>
+                            <a href={source.url} {...OUT} className="underline underline-offset-2">
+                              {source.site}
+                              <span className="sr-only"> ({t.tool_leaving})</span>
+                            </a>
+                          </td>
+                          <td className={TD}>
+                            <span className="inline-flex items-center gap-1">
+                              <StarIcon className="size-4 text-star" />
+                              {source.rating}
+                            </span>
+                          </td>
+                          <td className={TD}>{source.count ? source.count.toLocaleString() : t.tool_notShown}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </TableBox>
                 <p className="mt-2 text-sm text-muted-ink">{t.tool_reviewCheck}</p>
               </>
             )}
@@ -318,7 +391,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
           )}
         </div>
 
-        <div className="space-y-8">
+        <div className="space-y-6">
           <Section id="languages" title={t.tool_languagesAll}>
             <p className="font-medium">{tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}</p>
             {tool.languagesTotal && <p className="text-sm">{fmt(t.tool_statedTotal, { total: tool.languagesTotal })}</p>}
@@ -386,7 +459,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
             </Link>
           </Section>
 
-          <Section title={t.tool_scoreParts}>
+          <Section id="score" title={t.tool_scoreParts}>
             <ScoreMeters tool={tool} t={t} />
             {!includesReviews && <p className="mt-3 text-sm">{t.tool_scoreNoReviews}</p>}
             {tool.lastChecked && <p className="mt-3 text-sm text-muted-ink">{fmt(t.tool_checked, { date: tool.lastChecked })}</p>}

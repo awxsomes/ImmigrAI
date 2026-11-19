@@ -30,15 +30,15 @@ export function DetailActions({ tool, t }: { tool: Tool; t: ExtrasLabels }) {
     .flatMap((slug) => (data.toolCache[slug] ? [data.toolCache[slug]] : []));
 
   return (
-    <div className="mt-8 space-y-4">
+    <div className="mt-6 space-y-4">
       {existing.length > 0 && (
-        <p className="flex w-fit items-center gap-1.5 rounded-md bg-blue-tint px-2 py-1 text-sm font-medium text-blue-dark">
+        <p className="flex w-fit items-center gap-1.5 rounded-full bg-blue-tint px-3 py-1 text-sm font-semibold text-blue-dark">
           <CheckIcon className="size-4 shrink-0" />
           {fmt(t.connectsExisting, { names: existing.join(", ") })}
         </p>
       )}
-      <div className="max-w-3xl rounded-lg border border-line bg-surface p-5">
-        <h2 className="text-xl font-semibold">{t.yoursTitle}</h2>
+      <div className="max-w-3xl rounded-lg border border-line bg-surface p-5 sm:p-6">
+        <h2 className="text-2xl font-bold">{t.yoursTitle}</h2>
         {saved ? (
           <div className="mt-3">
             <MyRating slug={tool.slug} t={t.rating} />
