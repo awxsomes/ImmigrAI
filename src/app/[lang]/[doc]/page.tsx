@@ -72,10 +72,10 @@ function MethodologyTables({ t }: { t: Dict }) {
     <div className="not-prose my-6 space-y-6">
       <div>
         <h2 className="text-xl font-semibold">{t.method_rubric}</h2>
-        <div className="mt-2 overflow-x-auto rounded-xl border-2 border-line bg-surface" tabIndex={0} role="region" aria-label={t.method_rubric}>
+        <div className="mt-2 overflow-x-auto rounded-lg border border-line bg-surface" tabIndex={0} role="region" aria-label={t.method_rubric}>
           <table className="w-full min-w-[28rem] text-left">
             <thead>
-              <tr className="border-b-2 border-line-strong">
+              <tr className="border-b border-line-strong">
                 <th scope="col" className="p-3 font-semibold">{t.method_part}</th>
                 <th scope="col" className="p-3 font-semibold">{t.method_weight}</th>
                 <th scope="col" className="p-3 font-semibold">{t.method_measure}</th>
@@ -93,10 +93,10 @@ function MethodologyTables({ t }: { t: Dict }) {
           </table>
         </div>
       </div>
-      <div className="overflow-x-auto rounded-xl border-2 border-line bg-surface" tabIndex={0} role="region" aria-label={t.method_tableClass}>
+      <div className="overflow-x-auto rounded-lg border border-line bg-surface" tabIndex={0} role="region" aria-label={t.method_tableClass}>
         <table className="w-full min-w-[42rem] text-left">
           <thead>
-            <tr className="border-b-2 border-line-strong">
+            <tr className="border-b border-line-strong">
               <th scope="col" className="p-3 font-semibold">{t.method_tableClass}</th>
               <th scope="col" className="p-3 font-semibold">{t.method_tableEnergy}</th>
               <th scope="col" className="p-3 font-semibold">{t.method_tableWater}</th>
@@ -141,7 +141,7 @@ export default async function DocPage({ params }: Props) {
       <p className="mt-3 text-lg">{doc.intro}</p>
       <p className="mt-2 text-sm text-muted-ink">{fmt(t.doc_updated, { date: DOC_UPDATED })}</p>
       {translated && (
-        <p className="mt-2 rounded-lg bg-marigold-tint p-3 text-sm">
+        <p className="mt-2 rounded-lg bg-amber-tint p-3 text-sm">
           {t.doc_translated}{" "}
           <Link href={`/en/${key}`} lang="en">
             {t.doc_readEnglish}

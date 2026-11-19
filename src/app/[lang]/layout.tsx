@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Lexend } from "next/font/google";
+import { Plus_Jakarta_Sans } from "next/font/google";
 import { notFound } from "next/navigation";
 import type { ReactNode } from "react";
 import { ConsentBanner } from "@/components/site/consent-banner";
@@ -11,17 +11,18 @@ import { SITE, siteUrl } from "@/lib/site";
 import "../globals.css";
 
 /**
- * Lexend was designed to make reading easier, including for people new to a language.
- * next/font serves it from this site, so visitors make no request to Google. Chinese
- * uses the device's own fonts rather than a multi-megabyte download.
+ * Plus Jakarta Sans: open, friendly letters and a heavy weight for clear headings. It covers
+ * Vietnamese, including stacked accent marks. next/font serves it from this site, so visitors
+ * make no request to Google. Chinese uses the device's own fonts rather than a multi-megabyte
+ * download.
  */
-const lexend = Lexend({ subsets: ["latin", "vietnamese"], variable: "--font-lexend", display: "swap" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "vietnamese"], variable: "--font-jakarta", display: "swap" });
 
 export function generateStaticParams() {
   return UI_LANGS.map((lang) => ({ lang }));
 }
 
-export const viewport: Viewport = { themeColor: "#0e5a45", width: "device-width", initialScale: 1 };
+export const viewport: Viewport = { themeColor: "#1d4ed8", width: "device-width", initialScale: 1 };
 
 export async function generateMetadata({ params }: { params: Promise<{ lang: string }> }): Promise<Metadata> {
   const { lang } = await params;
@@ -39,7 +40,7 @@ export default async function RootLayout({ children, params }: { children: React
   if (!isUiLang(lang)) notFound();
   const t = getDict(lang);
   return (
-    <html lang={lang === "zh" ? "zh-Hans" : lang} className={lexend.variable}>
+    <html lang={lang === "zh" ? "zh-Hans" : lang} className={jakarta.variable}>
       <body className="flex min-h-dvh flex-col">
         <noscript>
           <style>{'div[hidden][id^="S:"]{display:block!important}[data-slot="skeleton"]{display:none}'}</style>

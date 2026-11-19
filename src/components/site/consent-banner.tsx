@@ -20,7 +20,7 @@ export function ConsentBanner({
   const { consent, ready } = useUserData();
   if (!ready || consent !== "unknown") return null;
   return (
-    <div role="region" aria-label={t.consent_q} className="fixed inset-x-0 bottom-0 z-50 border-t-[3px] border-ink bg-marigold-tint px-4 py-2 sm:py-3">
+    <div role="region" aria-label={t.consent_q} className="fixed inset-x-0 bottom-0 z-50 border-t border-line-strong bg-surface px-4 py-2 shadow-[0_-4px_16px_rgb(17_24_39/0.08)] sm:py-3">
       <div className="mx-auto flex max-w-6xl flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
         <p className="max-w-3xl text-sm leading-snug sm:text-base">
           <span className="font-semibold">{t.consent_q}</span> {t.consent_d}{" "}
@@ -43,7 +43,7 @@ export function ConsentBanner({
 
 export function PrivacyChoicesButton({ label }: { label: string }) {
   return (
-    <button type="button" onClick={reopenConsent} className="inline-block cursor-pointer py-1 text-left text-sm underline underline-offset-2 hover:text-marigold">
+    <button type="button" onClick={reopenConsent} className="inline-block cursor-pointer py-1 text-left text-[0.95rem] underline underline-offset-2 hover:text-blue-dark">
       {label}
     </button>
   );

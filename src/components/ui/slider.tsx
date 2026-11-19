@@ -11,9 +11,9 @@ function Slider(props: SliderPrimitive.Root.Props) {
     <SliderPrimitive.Root className="w-full" data-slot="slider" thumbAlignment="edge" {...props}>
       <SliderPrimitive.Control className="relative flex min-h-11 w-full touch-none items-center select-none">
         <SliderPrimitive.Track className="relative h-2.5 w-full grow overflow-hidden rounded-full bg-line">
-          <SliderPrimitive.Indicator className="h-full bg-green" />
+          <SliderPrimitive.Indicator className="h-full bg-blue" />
         </SliderPrimitive.Track>
-        <SliderPrimitive.Thumb className="block size-7 rounded-full border-[3px] border-green bg-surface" />
+        <SliderPrimitive.Thumb className="block size-7 rounded-full border-[3px] border-blue bg-surface" />
       </SliderPrimitive.Control>
     </SliderPrimitive.Root>
   );

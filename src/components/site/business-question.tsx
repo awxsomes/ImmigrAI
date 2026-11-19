@@ -79,7 +79,7 @@ export function BusinessQuestion({ t }: { t: Labels }) {
             &minus;
           </span>
         </summary>
-        <div className="mt-1 space-y-5 rounded-lg border-2 border-line bg-surface p-4">
+        <div className="mt-1 space-y-5 rounded-lg border border-line bg-surface p-4">
           <div className="sm:max-w-md">
             <label htmlFor={`${id}-size`} className="block font-semibold">
               {t.biz_size}
@@ -104,7 +104,7 @@ export function BusinessQuestion({ t }: { t: Labels }) {
                         <label className="flex min-h-11 cursor-pointer items-center gap-3">
                           <input
                             type="checkbox"
-                            className="size-6 shrink-0 accent-[#0e5a45]"
+                            className="size-6 shrink-0 accent-blue"
                             checked={data.alreadyUse.includes(name)}
                             onChange={(event) => toggleSystem(name, event.target.checked)}
                           />

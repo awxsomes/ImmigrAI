@@ -129,10 +129,10 @@ async function Results({ params, searchParams }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-6 pb-28">
-      <nav aria-label={t.nav_breadcrumb} className="text-sm">
+      <nav aria-label={t.nav_breadcrumb} className="text-sm text-muted-ink">
         <ol className="flex flex-wrap gap-x-2">
           <li>
-            <Link href={`/${lang}`} className="inline-block py-1 underline underline-offset-2">
+            <Link href={`/${lang}`} className="inline-block py-1 underline underline-offset-2 hover:text-ink">
               {t.nav_home}
             </Link>
             <span aria-hidden="true"> / </span>
@@ -140,17 +140,17 @@ async function Results({ params, searchParams }: Props) {
           {sub ? (
             <>
               <li>
-                <Link href={searchHref(lang, category.id)} className="inline-block py-1 underline underline-offset-2">
+                <Link href={searchHref(lang, category.id)} className="inline-block py-1 underline underline-offset-2 hover:text-ink">
                   {categoryName}
                 </Link>
                 <span aria-hidden="true"> / </span>
               </li>
-              <li aria-current="page" className="py-1">
+              <li aria-current="page" className="py-1 font-semibold text-ink">
                 {subName}
               </li>
             </>
           ) : (
-            <li aria-current="page" className="py-1">
+            <li aria-current="page" className="py-1 font-semibold text-ink">
               {categoryName}
             </li>
           )}
@@ -168,7 +168,7 @@ async function Results({ params, searchParams }: Props) {
           currentSub={sub?.id}
         />
       ) : (
-        <h1 className="mt-2 text-3xl font-bold sm:text-4xl">{sub ? `${categoryName} → ${subName}` : categoryName}</h1>
+        <h1 className="mt-3 text-4xl font-extrabold tracking-tight sm:text-5xl">{subName || categoryName}</h1>
       )}
       {q && (
         <p className="mt-1 text-muted-ink">
@@ -187,11 +187,11 @@ async function Results({ params, searchParams }: Props) {
         </p>
       )}
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-6 flex flex-wrap gap-2">
         <Link
           href={searchHref(lang, category.id)}
           aria-current={!sub ? "page" : undefined}
-          className={`inline-flex min-h-11 items-center rounded-lg border-2 px-3 no-underline ${!sub ? "border-green bg-green text-white" : "border-line-strong bg-surface hover:bg-green-tint"}`}
+          className={`inline-flex min-h-11 items-center rounded-full border px-4 text-[0.95rem] no-underline ${!sub ? "border-blue bg-blue font-semibold text-white" : "border-line-strong bg-surface font-medium hover:border-blue hover:bg-blue-tint"}`}
         >
           {t.results_all}
         </Link>
@@ -200,7 +200,7 @@ async function Results({ params, searchParams }: Props) {
             key={s.id}
             href={searchHref(lang, category.id, s.id)}
             aria-current={sub?.id === s.id ? "page" : undefined}
-            className={`inline-flex min-h-11 items-center rounded-lg border-2 px-3 no-underline ${sub?.id === s.id ? "border-green bg-green text-white" : "border-line-strong bg-surface hover:bg-green-tint"}`}
+            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-[0.95rem] no-underline ${sub?.id === s.id ? "border-blue bg-blue font-semibold text-white" : "border-line-strong bg-surface font-medium hover:border-blue hover:bg-blue-tint"}`}
           >
             {nameOf(lang, s.id, s.name)}
           </Link>
@@ -209,7 +209,7 @@ async function Results({ params, searchParams }: Props) {
 
       {sub?.id === "know-your-rights" && <p className="mt-4 max-w-4xl rounded-lg bg-brick-tint p-4">{t.results_iceNote}</p>}
       {freeHelpFor(category.id, sub?.id).length > 0 && (
-        <section aria-labelledby="free-first-title" className="mt-4 max-w-4xl rounded-lg border-2 border-green bg-green-tint p-4">
+        <section aria-labelledby="free-first-title" className="mt-4 max-w-4xl rounded-lg border border-blue bg-blue-tint p-4">
           <h2 id="free-first-title" className="text-xl font-semibold">
             {t.freeFirst_title}
           </h2>
@@ -231,7 +231,7 @@ async function Results({ params, searchParams }: Props) {
         </section>
       )}
 
-      <div className="mt-6">
+      <div className="mt-8">
         <ResultsView
           key={`${category.id}/${sub?.id ?? ""}`}
           lang={lang}

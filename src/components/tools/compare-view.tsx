@@ -86,10 +86,10 @@ export function CompareView({
   return (
     <div className="mx-auto max-w-6xl px-4 py-8">
       <h1 className="text-4xl font-bold">{t.compare_title}</h1>
-      <div className="mt-5 overflow-x-auto rounded-xl border-2 border-line bg-surface" tabIndex={0} role="region" aria-label={t.compare_title}>
+      <div className="mt-5 overflow-x-auto rounded-lg border border-line bg-surface" tabIndex={0} role="region" aria-label={t.compare_title}>
         <table className="w-full min-w-[40rem] text-left align-top">
           <thead>
-            <tr className="border-b-2 border-line-strong">
+            <tr className="border-b border-line-strong">
               <th scope="col" className="p-3 font-semibold">{t.compare_feature}</th>
               {tools.map((tool) => (
                 <th key={tool.slug} scope="col" className="p-3 text-lg font-semibold">

@@ -47,7 +47,7 @@ function Part({ n, title, id, children }: { n: number; title: string; id?: strin
   return (
     <section id={id} className="min-w-0 scroll-mt-4">
       <h3 className="flex items-center gap-2 text-xl font-semibold">
-        <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-green text-base font-bold text-white">
+        <span aria-hidden="true" className="flex size-8 shrink-0 items-center justify-center rounded-full bg-blue text-base font-bold text-white">
           {n}
         </span>
         {title}
@@ -76,7 +76,7 @@ export function AdoptionGuide({ tool, lang, t }: { tool: Tool; lang: string; t: 
   const connector = CONNECTORS.find((name) => connectsWithExisting(tool, [name]).length > 0);
 
   return (
-    <section aria-labelledby="adopt-title" className="mt-8 rounded-xl border-2 border-ink bg-surface p-5">
+    <section aria-labelledby="adopt-title" className="mt-8 rounded-lg border border-line bg-surface p-5">
       <h2 id="adopt-title" className="text-2xl font-semibold">
         {fmt(t.adopt_title, { name: tool.name })}
       </h2>
@@ -117,7 +117,7 @@ export function AdoptionGuide({ tool, lang, t }: { tool: Tool; lang: string; t: 
                 const direct = connectsWithExisting(tool, [system]).length > 0;
                 return (
                   <li key={system} className="flex gap-2">
-                    {direct && <CheckIcon className="mt-1 size-4 shrink-0 text-green" />}
+                    {direct && <CheckIcon className="mt-1 size-4 shrink-0 text-blue" />}
                     <span>
                       {direct ? fmt(t.adopt_confirmed, { system }) : connector ? fmt(t.adopt_bridge, { system, via: connector }) : fmt(t.adopt_unconfirmed, { system })}
                     </span>
@@ -152,7 +152,7 @@ export function AdoptionGuide({ tool, lang, t }: { tool: Tool; lang: string; t: 
           </dl>
           <Sources urls={guide?.policies.map((p) => p.url) ?? []} t={t} />
           {tool.caution && (
-            <p className="mt-3 rounded-lg bg-marigold-tint p-3">
+            <p className="mt-3 rounded-lg bg-amber-tint p-3">
               <span className="font-semibold">{t.tool_caution}:</span> {tool.caution}
             </p>
           )}
@@ -166,5 +166,5 @@ export function AdoptionGuide({ tool, lang, t }: { tool: Tool; lang: string; t: 
 export function TeamEstimate({ tool, template }: { tool: Tool; template: string }) {
   const { data } = useUserData();
   const text = teamEstimate(tool, data.business?.size ?? "", template);
-  return text ? <span className="block text-sm font-normal text-green-dark">{text}</span> : null;
+  return text ? <span className="block text-sm font-normal text-blue-dark">{text}</span> : null;
 }

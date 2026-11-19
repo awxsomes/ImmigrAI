@@ -44,7 +44,7 @@ export type DetailLabels = Pick<Dict, (typeof DETAIL_KEYS)[number]>;
 
 function Section({ id, title, children }: { id?: string; title: string; children: ReactNode }) {
   return (
-    <section id={id} className="scroll-mt-4 border-t-2 border-line pt-6">
+    <section id={id} className="scroll-mt-4 border-t border-line pt-6">
       <h2 className="text-2xl font-semibold">{title}</h2>
       <div className="mt-3">{children}</div>
     </section>
@@ -57,7 +57,7 @@ function Meter({ label, value, max, display }: { label: string; value: number; m
       <dt>{label}</dt>
       <dd className="font-semibold">{display}</dd>
       <dd className="col-span-2 mt-1 h-2.5 overflow-hidden rounded-full bg-line" aria-hidden="true">
-        <div className="h-full rounded-full bg-green" style={{ width: `${Math.max(2, Math.min(100, (value / max) * 100))}%` }} />
+        <div className="h-full rounded-full bg-blue" style={{ width: `${Math.max(2, Math.min(100, (value / max) * 100))}%` }} />
       </dd>
     </div>
   );
@@ -102,7 +102,7 @@ function PlanTable({ tool, t }: { tool: Tool; t: DetailLabels }) {
     <table className="mt-3 w-full text-left">
       <caption className="mb-1 text-left font-medium">{t.tool_plansTitle}</caption>
       <thead>
-        <tr className="border-b-2 border-line-strong">
+        <tr className="border-b border-line-strong">
           <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_planName}</th>
           <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_planPrice}</th>
           <th scope="col" className="py-2 font-semibold">{t.tool_planIncludes}</th>
@@ -151,14 +151,14 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
           </p>
           <p className="mt-3 text-lg">{tool.summary}</p>
           {tool.ai.level !== "none" && tool.ai.feature && (
-            <p className="mt-3 rounded-lg bg-green-tint p-3">
+            <p className="mt-3 rounded-lg bg-blue-tint p-3">
               <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
             </p>
           )}
-          {tool.focus === "general" && <p className="mt-3 rounded-lg bg-marigold-tint p-3 font-medium">{t.card_generalNote}</p>}
+          {tool.focus === "general" && <p className="mt-3 rounded-lg bg-amber-tint p-3 font-medium">{t.card_generalNote}</p>}
           <AdviceNote tool={tool} lang={lang} t={t} className="mt-3 p-3" />
         </div>
-        <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-24 flex-col items-center justify-center rounded-xl bg-green text-white">
+        <div role="img" aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })} className="flex size-24 flex-col items-center justify-center rounded-lg bg-blue text-white">
           <span className="text-4xl leading-none font-bold">{tool.scores.overall}</span>
           <span className="mt-1 text-sm">{t.card_score}</span>
         </div>
@@ -202,7 +202,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
 
       {!tool.publicResource && <AdoptionGuide tool={tool} lang={lang} t={adoptLabels} />}
       {tool.source === "catalog" && tool.ai.level !== "none" && (
-        <div className="mt-4 rounded-xl border-2 border-line bg-surface p-5">
+        <div className="mt-4 rounded-lg border border-line bg-surface p-5">
           <PromptHelper slug={tool.slug} problem="" lang={lang} t={promptLabels} />
         </div>
       )}
@@ -213,7 +213,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
             <ul className="space-y-2">
               {tool.helpsWith.map((item) => (
                 <li key={item} className="flex gap-2">
-                  <CheckIcon className="mt-1 size-4 shrink-0 text-green" />
+                  <CheckIcon className="mt-1 size-4 shrink-0 text-blue" />
                   {item}
                 </li>
               ))}
@@ -257,12 +257,12 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
             ) : rating === null ? (
               <>
                 <p>{t.tool_noReviewsYet}</p>
-                <p className="mt-2 rounded-lg bg-marigold-tint p-3">{t.tool_smallNote}</p>
+                <p className="mt-2 rounded-lg bg-amber-tint p-3">{t.tool_smallNote}</p>
               </>
             ) : (
               <>
                 <p className="flex items-center gap-2 text-xl font-semibold">
-                  <StarIcon className="size-5 text-[#a97a0c]" />
+                  <StarIcon className="size-5 text-star" />
                   {fmt(t.card_ratingLine, { rating })}
                 </p>
                 <p className="text-sm text-muted-ink">
@@ -273,7 +273,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
                 <table className="mt-4 w-full text-left">
                   <caption className="mb-1 text-left font-medium">{t.tool_ratingBySite}</caption>
                   <thead>
-                    <tr className="border-b-2 border-line-strong">
+                    <tr className="border-b border-line-strong">
                       <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_site}</th>
                       <th scope="col" className="py-2 pr-3 font-semibold">{t.tool_stars}</th>
                       <th scope="col" className="py-2 font-semibold">{t.tool_reviewsCol}</th>
@@ -310,7 +310,7 @@ export function ToolDetail({ tool, lang, t, actions, sidebar }: { tool: Tool; la
                 </li>
               </ul>
               {tool.caution && (
-                <p className="mt-3 rounded-lg bg-marigold-tint p-3">
+                <p className="mt-3 rounded-lg bg-amber-tint p-3">
                   <span className="font-semibold">{t.tool_caution}:</span> {tool.caution}
                 </p>
               )}

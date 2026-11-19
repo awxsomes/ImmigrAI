@@ -7,13 +7,13 @@ import { cn } from "@/lib/utils";
  * targets are at least 48px. Hover darkens instead of fading, so contrast never drops.
  */
 const BASE =
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border-2 font-medium whitespace-normal text-center no-underline transition-colors disabled:cursor-not-allowed disabled:border-line disabled:bg-line disabled:text-muted-ink";
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border font-semibold whitespace-normal text-center no-underline transition-colors disabled:cursor-not-allowed disabled:border-line disabled:bg-line disabled:text-muted-ink";
 
 const VARIANTS = {
-  default: "border-green bg-green text-white hover:border-green-dark hover:bg-green-dark",
-  accent: "border-ink bg-marigold text-ink hover:bg-[#e3a214]",
-  outline: "border-ink bg-surface text-ink hover:bg-green-tint",
-  ghost: "border-transparent bg-transparent text-ink underline underline-offset-2 hover:bg-green-tint",
+  default: "border-blue bg-blue text-white hover:border-blue-dark hover:bg-blue-dark",
+  accent: "border-amber bg-amber text-ink hover:border-amber-hover hover:bg-amber-hover",
+  outline: "border-line-strong bg-surface text-ink hover:bg-blue-tint",
+  ghost: "border-transparent bg-transparent text-ink underline underline-offset-2 hover:bg-blue-tint",
   destructive: "border-brick bg-surface text-brick hover:bg-brick-tint",
 };
 

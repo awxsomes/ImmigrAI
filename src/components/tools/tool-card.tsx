@@ -37,7 +37,7 @@ export function RatingText({ tool, t }: { tool: Tool; t: CardLabels }) {
   return (
     <>
       <span className="inline-flex items-center gap-1">
-        <StarIcon className="size-4 text-[#a97a0c]" />
+        <StarIcon className="size-4 text-star" />
         {fmt(t.card_ratingLine, { rating })}
       </span>
       <span className="block text-sm font-normal text-muted-ink">
@@ -76,16 +76,39 @@ export function ToolCard({
   const confirmation = priceConfirmation(tool, t);
   const hasPlans = Boolean(tool.pricing.plans?.length);
 
+  const { rating, reviewCount } = tool.reviews;
+  const languageCount = tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length });
+
   return (
-    <article className="rounded-xl border-2 border-line bg-surface p-5">
+    <article className="rounded-lg border border-line bg-surface p-5 sm:p-6">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
-          <h3 className="text-xl font-semibold">
+          <h3 className="text-xl font-bold">
             <Link href={href} prefetch={false} className="underline-offset-2 hover:underline">
               {tool.name}
             </Link>
           </h3>
-          <p className="mt-1 flex flex-wrap items-center gap-2">
+          {/* The three facts people scan for first, on one line. The full facts follow below in the same order. */}
+          <p className="mt-1 flex flex-wrap items-center gap-x-2.5 gap-y-1 text-[0.95rem]">
+            <span className="font-semibold">{priceText(tool, t)}</span>
+            {!tool.publicResource && rating !== null && (
+              <>
+                <span aria-hidden="true" className="text-line-strong">
+                  |
+                </span>
+                <span className="inline-flex items-center gap-1">
+                  <StarIcon className="size-4 text-star" />
+                  <span className="font-semibold">{rating}</span>
+                  {reviewCount > 0 && <span className="text-muted-ink">({fmt(t.card_reviewCount, { n: reviewCount.toLocaleString() })})</span>}
+                </span>
+              </>
+            )}
+            <span aria-hidden="true" className="text-line-strong">
+              |
+            </span>
+            <span>{languageCount}</span>
+          </p>
+          <p className="mt-3 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
             {tool.source === "live" && <Badge variant="outline">{t.card_new}</Badge>}
             {tool.trades?.map((trade) => (
@@ -98,7 +121,7 @@ export function ToolCard({
         <div
           role="img"
           aria-label={fmt(t.card_scoreOf, { n: tool.scores.overall })}
-          className="flex size-16 shrink-0 flex-col items-center justify-center rounded-lg bg-green text-white"
+          className="flex size-16 shrink-0 flex-col items-center justify-center rounded-lg bg-blue text-white"
         >
           <span className="text-2xl leading-none font-bold">{tool.scores.overall}</span>
           <span className="mt-0.5 text-xs">{t.card_score}</span>
@@ -107,14 +130,14 @@ export function ToolCard({
 
       <p className="mt-3">{tool.summary}</p>
       {tool.ai.level !== "none" && tool.ai.feature && (
-        <p className="mt-3 rounded-lg bg-green-tint px-3 py-2">
-          <span className="font-semibold">{t.card_aiDoes}:</span> {tool.ai.feature}
+        <p className="mt-2 text-muted-ink">
+          <span className="font-semibold text-ink">{t.card_aiDoes}:</span> {tool.ai.feature}
         </p>
       )}
-      {tool.focus === "general" && <p className="mt-3 rounded-lg bg-marigold-tint px-3 py-2 font-medium">{t.card_generalNote}</p>}
+      {tool.focus === "general" && <p className="mt-3 rounded-lg bg-amber-tint px-3 py-2 font-medium">{t.card_generalNote}</p>}
       <AdviceNote tool={tool} lang={lang} t={t} />
 
-      <dl className="mt-4 grid gap-x-6 gap-y-3 sm:grid-cols-2">
+      <dl className="mt-5 grid gap-x-6 gap-y-3 border-t border-line pt-4 sm:grid-cols-2">
         <Fact label={t.card_cost}>
           {priceText(tool, t)}
           {next && <span className="block text-sm font-normal text-muted-ink">{next}</span>}
@@ -138,7 +161,7 @@ export function ToolCard({
         <Fact label={t.card_language}>
           {language ? (
             speaks ? (
-              <span className="inline-flex items-center gap-1 text-green-dark">
+              <span className="inline-flex items-center gap-1 text-blue-dark">
                 <CheckIcon className="size-4" />
                 {fmt(t.card_worksInLang, { language: languageName })}
               </span>
@@ -148,7 +171,7 @@ export function ToolCard({
           ) : (
             <span>{tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}</span>
           )}
-          <Link href={`${href}#languages`} prefetch={false} className="inline-block py-1 text-sm font-normal underline underline-offset-2">
+          <Link href={`${href}#languages`} prefetch={false} className="block w-fit py-1 text-sm font-normal underline underline-offset-2">
             {t.card_seeLanguages}
           </Link>
         </Fact>
@@ -171,18 +194,18 @@ export function ToolCard({
       </dl>
 
       {existing.length > 0 && (
-        <p className="mt-3 inline-flex items-center gap-1.5 rounded-md bg-green-tint px-2 py-1 text-sm font-medium text-green-dark">
+        <p className="mt-3 inline-flex items-center gap-1.5 rounded-full bg-blue-tint px-3 py-1 text-sm font-semibold text-blue-dark">
           <CheckIcon className="size-4 shrink-0" />
           {fmt(t.card_connectsExisting, { names: existing.join(", ") })}
         </p>
       )}
-      {!tool.selfServe && <p className="mt-3 text-sm font-medium text-[#7a2a14]">{t.card_needsSales}</p>}
+      {!tool.selfServe && <p className="mt-3 text-sm font-medium text-brick-dark">{t.card_needsSales}</p>}
 
-      <div className="mt-4 flex flex-wrap items-center gap-2">
+      <div className="mt-5 flex flex-wrap items-center gap-2">
         <Link
           href={href}
           prefetch={false}
-          className="inline-flex min-h-12 items-center justify-center rounded-lg border-2 border-green bg-green px-5 py-2 font-medium text-white no-underline transition-colors hover:border-green-dark hover:bg-green-dark"
+          className="inline-flex min-h-12 items-center justify-center rounded-lg border border-blue bg-blue px-5 py-2 font-semibold text-white no-underline transition-colors hover:border-blue-dark hover:bg-blue-dark"
         >
           {t.card_details}
           <span className="sr-only">: {tool.name}</span>

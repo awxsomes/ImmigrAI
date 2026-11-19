@@ -32,12 +32,12 @@ export function DetailActions({ tool, t }: { tool: Tool; t: ExtrasLabels }) {
   return (
     <div className="mt-8 space-y-4">
       {existing.length > 0 && (
-        <p className="flex w-fit items-center gap-1.5 rounded-md bg-green-tint px-2 py-1 text-sm font-medium text-green-dark">
+        <p className="flex w-fit items-center gap-1.5 rounded-md bg-blue-tint px-2 py-1 text-sm font-medium text-blue-dark">
           <CheckIcon className="size-4 shrink-0" />
           {fmt(t.connectsExisting, { names: existing.join(", ") })}
         </p>
       )}
-      <div className="max-w-3xl rounded-xl border-2 border-line bg-surface p-5">
+      <div className="max-w-3xl rounded-lg border border-line bg-surface p-5">
         <h2 className="text-xl font-semibold">{t.yoursTitle}</h2>
         {saved ? (
           <div className="mt-3">

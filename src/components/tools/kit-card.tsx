@@ -53,7 +53,7 @@ export function kitSetup(tools: Tool[], t: Dict) {
 
 function Facts({ rows }: { rows: [string, string][] }) {
   return (
-    <dl className="mt-auto grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 border-t-2 border-line pt-3 text-sm">
+    <dl className="mt-auto grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 border-t border-line pt-3 text-sm">
       {rows.map(([label, value]) => (
         <div key={label} className="contents">
           <dt className="text-muted-ink">{label}</dt>
@@ -67,15 +67,14 @@ function Facts({ rows }: { rows: [string, string][] }) {
 export function KitCard({ kit, lang, t, heading: Heading = "h3", art }: { kit: Bundle; lang: string; t: Dict; heading?: "h2" | "h3"; art?: ReactNode }) {
   const tools = kitTools(kit);
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-xl border-2 border-line bg-surface">
-      {art && <div className="flex justify-center border-b-2 border-line bg-green-tint px-4 pt-3">{art}</div>}
+    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-blue">
       <div className="flex flex-1 flex-col p-5">
-        <Heading className="text-xl font-semibold">
+        <Heading className="text-xl font-bold">
           <Link href={`/${lang}/bundles/${kit.slug}`} prefetch={false} className="underline-offset-2 hover:underline">
             {kit.name}
           </Link>
         </Heading>
-        <p className="mt-1">{kit.tagline}</p>
+        <p className="mt-1 text-muted-ink">{kit.tagline}</p>
         <p className="mt-2 mb-4 text-sm text-muted-ink">{tools.map((tool) => tool.name).join(", ")}</p>
         <Facts
           rows={[
@@ -85,21 +84,21 @@ export function KitCard({ kit, lang, t, heading: Heading = "h3", art }: { kit: B
           ]}
         />
       </div>
+      {art && <div className="flex justify-center bg-blue-tint px-4 pt-4">{art}</div>}
     </article>
   );
 }
 
 export function NewToolsCard({ lang, t, heading: Heading = "h3", art }: { lang: string; t: Dict; heading?: "h2" | "h3"; art?: ReactNode }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-xl border-2 border-ink bg-surface">
-      {art && <div className="flex justify-center border-b-2 border-ink bg-marigold-tint px-4 pt-3">{art}</div>}
+    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-blue">
       <div className="flex flex-1 flex-col p-5">
-        <Heading className="text-xl font-semibold">
+        <Heading className="text-xl font-bold">
           <Link href={`/${lang}/bundles/new-tools`} prefetch={false} className="underline-offset-2 hover:underline">
             {t.home_newTools}
           </Link>
         </Heading>
-        <p className="mt-1 mb-4">{t.home_newToolsD}</p>
+        <p className="mt-1 mb-4 text-muted-ink">{t.home_newToolsD}</p>
         <Facts
           rows={[
             [t.kit_toolsLabel, fmt(t.kit_toolsCount, { n: NEW_TOOLS.length })],
@@ -107,6 +106,7 @@ export function NewToolsCard({ lang, t, heading: Heading = "h3", art }: { lang: 
           ]}
         />
       </div>
+      {art && <div className="flex justify-center bg-blue-tint px-4 pt-4">{art}</div>}
     </article>
   );
 }

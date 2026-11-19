@@ -67,13 +67,13 @@ export function PromptHelper({ slug, problem, lang, t }: { slug: string; problem
           {state === "loading" ? t.prompts_loading : t.prompts_button}
         </Button>
       )}
-      <p role="status" className={state === "failed" ? "mt-2 font-medium text-[#7a2a14]" : "sr-only"}>
+      <p role="status" className={state === "failed" ? "mt-2 font-medium text-brick-dark" : "sr-only"}>
         {state === "failed" ? t.prompts_failed : state === "loading" ? t.prompts_loading : ""}
       </p>
       {prompts.length > 0 && (
         <ol className="mt-4 space-y-4">
           {prompts.map((prompt) => (
-            <li key={prompt.title} className="rounded-lg bg-green-tint p-4">
+            <li key={prompt.title} className="rounded-lg bg-blue-tint p-4">
               <h4 className="font-semibold">{prompt.title}</h4>
               <p className="mt-1 whitespace-pre-wrap">{prompt.text}</p>
               <CopyButton text={prompt.text} t={t} />

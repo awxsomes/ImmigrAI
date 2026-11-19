@@ -252,7 +252,14 @@ export function SmartSearch({
           {t.search_label}
         </label>
         <div className="relative mt-2">
-          <div className={`flex flex-col gap-2 sm:flex-row ${large ? "sm:gap-3" : ""}`}>
+          {/* A pill on the home page, with the button inside it. The outline follows the keyboard into the box. */}
+          <div
+            className={
+              large
+                ? "flex items-center gap-2 rounded-full border border-line-strong bg-surface p-1.5 ps-5 has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-ink"
+                : "flex flex-col gap-2 sm:flex-row"
+            }
+          >
             <Input
               ref={inputRef}
               id={id}
@@ -277,16 +284,17 @@ export function SmartSearch({
               onChange={(event) => void update(event.target.value)}
               onKeyDown={onKeyDown}
               large={large}
-              className="border-ink"
+              // cn() only joins class names, so these overrides of the input's own classes are marked important.
+              className={large ? "border-0! bg-transparent! px-0! focus-visible:shadow-none! focus-visible:outline-none!" : "border-line-strong"}
             />
-            <Button type="submit" size={large ? "lg" : "default"} aria-disabled={pending || undefined}>
+            <Button type="submit" size={large ? "lg" : "default"} className={large ? "rounded-full! px-4! sm:px-6!" : undefined} aria-disabled={pending || undefined}>
               <SearchIcon className="size-5" />
-              {pending ? t.search_opening : t.search_button}
+              <span className={large ? "max-sm:sr-only" : undefined}>{pending ? t.search_opening : t.search_button}</span>
             </Button>
           </div>
 
           {showList && (
-            <div className="absolute inset-x-0 top-full z-30 mt-1 overflow-hidden rounded-lg border-2 border-ink bg-surface">
+            <div className="absolute inset-x-0 top-full z-30 mt-2 overflow-hidden rounded-lg border border-line-strong bg-surface shadow-lg">
               {items.length > 0 ? (
                 <ul role="listbox" id={listId} aria-label={t.search_suggestions} className="max-h-[60vh] overflow-y-auto">
                   {items.map((item, index) => (
@@ -298,7 +306,7 @@ export function SmartSearch({
                       onMouseDown={(event) => event.preventDefault()}
                       onClick={() => go(item.href)}
                       onMouseEnter={() => setActive(index)}
-                      className={`cursor-pointer border-b border-line px-4 py-3 last:border-b-0 ${index === active ? "bg-green-tint" : ""}`}
+                      className={`cursor-pointer border-b border-line px-4 py-3 last:border-b-0 ${index === active ? "bg-blue-tint" : ""}`}
                     >
                       <span className="block font-semibold">{item.title}</span>
                       <span className="block text-sm text-muted-ink">
@@ -335,7 +343,7 @@ export function SmartSearch({
                 event.preventDefault();
                 tryExample(example);
               }}
-              className="inline-flex min-h-11 items-center rounded-lg border-2 border-line-strong bg-surface px-3 py-1 no-underline transition-colors hover:bg-green-tint"
+              className="inline-flex min-h-11 items-center rounded-full border border-line bg-surface px-4 py-1 text-[0.95rem] no-underline transition-colors hover:border-blue hover:bg-blue-tint"
             >
               {example}
             </a>

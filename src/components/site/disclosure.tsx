@@ -9,17 +9,25 @@ import { ChevronIcon } from "@/components/icons";
  * has loaded on a slow connection and works with a keyboard. Once loaded, this adds
  * the expected extras: close on Escape, on an outside click, and after choosing a link.
  */
+const SUMMARY = {
+  button: "rounded-lg border border-line-strong bg-surface px-3 font-semibold transition-colors hover:bg-blue-tint",
+  /** A tab in the header's row of areas: underlined while open, like the page it leads to. */
+  tab: "border-b-[3px] border-transparent font-semibold hover:text-blue-dark group-open:border-blue",
+};
+
 export function Disclosure({
   label,
   panelClassName,
   rootClassName,
   summaryClassName,
+  variant = "button",
   children,
 }: {
   label: ReactNode;
   panelClassName: string;
   rootClassName?: string;
   summaryClassName?: string;
+  variant?: keyof typeof SUMMARY;
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDetailsElement>(null);
@@ -54,7 +62,7 @@ export function Disclosure({
   return (
     <details ref={ref} className={`group ${rootClassName ?? ""}`}>
       <summary
-        className={`flex min-h-12 list-none items-center gap-2 rounded-lg border-2 border-ink bg-surface px-3 font-medium transition-colors hover:bg-green-tint ${summaryClassName ?? ""}`}
+        className={`flex min-h-12 list-none items-center gap-2 ${SUMMARY[variant]} ${summaryClassName ?? ""}`}
       >
         {label}
         <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
