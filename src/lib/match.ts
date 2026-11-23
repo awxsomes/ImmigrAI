@@ -11,7 +11,22 @@ import type { Adoption, AdoptionLevel, MatchedTool, MatchInput, MatchLane, Match
 import { localSuggestions } from "./matcher";
 import { DISCOVERY_RESPONSE_SCHEMA, DiscoveryResponse, safeUrl, slugify, toTool, type DiscoveredToolInput } from "./normalize";
 import { reserveDailyCalls } from "./ratelimit";
-import { appearsIn, isGeneralAssistant, isProductSite, isRealConnection, mentionsAi, priceAppears, quoteAppears, readSite, rootDomain, verifyLanguages, verifyNames, webJson, type Citation } from "./research-core";
+import {
+  appearsIn,
+  isGeneralAssistant,
+  isProductSite,
+  isRealConnection,
+  liveSiteProblem,
+  mentionsAi,
+  priceAppears,
+  quoteAppears,
+  readSite,
+  rootDomain,
+  verifyLanguages,
+  verifyNames,
+  webJson,
+  type Citation,
+} from "./research-core";
 import { buildScores, connectsWithExisting, supportsLanguage } from "./scoring";
 import { BUSINESS_TYPES, type BusinessType, type Tool, type ToolFocus } from "./types";
 
@@ -116,7 +131,7 @@ const ON_CONNECTORS = new Set([
 /** Chat and email accounts cannot hand over a customer file, so a file import does not help with them. */
 const NO_FILE_EXPORT = new Set(["WhatsApp", "Facebook", "Instagram", "Gmail", "Outlook"]);
 
-const CATALOG_BY_DOMAIN = new Map(SEED_TOOLS.map((tool) => [rootDomain(tool.website), tool]));
+const CATALOG_BY_DOMAIN = new Map(SEED_TOOLS.flatMap((tool) => [tool.website, ...(tool.aliasDomains ?? [])].map((address) => [rootDomain(address), tool] as const)));
 
 // ---------- What the model is asked for ----------
 
@@ -254,7 +269,7 @@ interface Found {
   citations: Citation[];
   site: string;
   /** Kept when finding the site already meant reading it. */
-  page?: { text: string; url: string };
+  page?: { text: string; url: string; privacyLink?: boolean };
   lanes: Set<MatchLane>;
   listings: Adoption[];
 }
@@ -543,7 +558,9 @@ async function guessSite(entry: Found, brief: Understanding, timeoutMs: number) 
   const tries = await Promise.all(
     domainGuesses(name).map(async (domain) => {
       const page = await readSite(`https://${domain}`, timeoutMs);
-      return !page.problem && page.text && appearsIn(page.text.toLowerCase(), name) && pageShowsJob(page.text, brief) ? { site: `https://${domain}`, page: { text: page.text, url: page.url } } : null;
+      return !page.problem && page.text && appearsIn(page.text.toLowerCase(), name) && pageShowsJob(page.text, brief)
+        ? { site: `https://${domain}`, page: { text: page.text, url: page.url, privacyLink: page.privacyLink } }
+        : null;
     }),
   );
   const hit = tries.find((t) => t !== null);
@@ -578,12 +595,16 @@ function pageShowsJob(text: string, brief: Understanding) {
   return hits >= 2 || (hits >= 1 && trade);
 }
 
-/** Reads each product's own site. A name only survives if the company's own words show the job and the AI. */
+/**
+ * Reads each product's own site. A name only survives if the company's own words show the job
+ * and the AI, and if it passes the checks people applied by hand to tools search found: a price
+ * in US dollars and a privacy page. Nobody reviews a live find before the owner sees it.
+ */
 async function confirmOnSite(entries: Found[], brief: Understanding, timeoutMs: number): Promise<Candidate[]> {
   const read = await Promise.all(
     entries.map(async (entry): Promise<Candidate | null> => {
       const site = entry.page ? { problem: null, ...entry.page } : await readSite(entry.site, timeoutMs);
-      if (site.problem) return null;
+      if (await liveSiteProblem(site, entry.citations, entry.input.name, timeoutMs)) return null;
       const name = entry.input.name;
       const page: Citation[] = site.text ? [{ url: site.url, title: name, content: site.text.slice(0, 40_000) }] : [];
       const evidence = [...page, ...entry.citations];
@@ -675,7 +696,7 @@ function buildLiveTool(c: Candidate, verdict: Verdict, brief: Understanding): To
   const page: Citation[] = c.pageText ? [{ url: c.pageUrl, title: input.name, content: c.pageText.slice(0, 40_000) }] : [];
   const all = [...c.citations, ...page];
   const base = toTool(input, brief.categoryId, brief.subcategoryId, {
-    languages: verifyLanguages(input.languages, all),
+    languages: verifyLanguages(input.languages, all, input.name),
     integrations: verifyNames(input.integrations, all).filter((n) => n.toLowerCase() !== input.name.toLowerCase() && isRealConnection(n)),
     priceVerified: priceAppears(input.startingMonthlyUsd, all),
     // Reviews are not looked up here: they play no part in whether a tool fits this need.
@@ -692,14 +713,16 @@ function buildLiveTool(c: Candidate, verdict: Verdict, brief: Understanding): To
     scores: buildScores({
       focus,
       rating: null,
+      reviewCount: 0,
       startingMonthlyUsd: base.pricing.startingMonthlyUsd,
       priceKind: base.pricing.kind,
+      priceBasis: base.pricing.verified ? "source" : "estimate",
       languages: base.languages,
+      languagesChecked: Boolean(base.languagesChecked),
       integrations: base.integrations,
       setupMinutes: base.setupMinutes,
       platforms: base.platforms,
       selfServe: base.selfServe,
-      environment: base.environmental.score,
     }),
   };
 }

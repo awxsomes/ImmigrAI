@@ -8,13 +8,19 @@
  *   node --env-file=.env.local scripts/research-tools.mts --only=a,b redo these slugs
  *   node --env-file=.env.local scripts/research-tools.mts --new      also find recently launched tools
  *   node --env-file=.env.local scripts/research-tools.mts --describe rewrite descriptions from cited pages
+ *   node --env-file=.env.local scripts/research-tools.mts --stale=30 --max=60
+ *                                                   redo up to 60 tools last checked over 30 days ago
  *
- * Costs about $0.02 per tool. Run it on a schedule to keep the catalog fresh.
+ * Costs about $0.02 per tool. .github/workflows/refresh-research.yml runs it weekly with --stale.
  */
 import fs from "node:fs";
 import path from "node:path";
 import { SEED_BASE as HAND_WRITTEN } from "../src/data/seed-base.ts";
 import {
+  appStoreLanguages,
+  isProductSite,
+  officialAddresses,
+  siteInCitations,
   REVIEW_DOMAINS,
   REVIEW_SCHEMA,
   REVIEW_SYSTEM,
@@ -46,6 +52,12 @@ const force = args.includes("--force");
 const onlyArg = args.find((a) => a.startsWith("--only="));
 const only = onlyArg ? new Set(onlyArg.slice(7).split(",")) : null;
 const wantNew = args.includes("--new");
+/** Redo tools whose research is older than this many days. */
+const staleArg = args.find((a) => a.startsWith("--stale="));
+const staleDays = staleArg ? Number(staleArg.slice(8)) : null;
+/** At most this many tools in one run, so a scheduled run has a known cost. */
+const maxArg = args.find((a) => a.startsWith("--max="));
+const maxTools = maxArg ? Number(maxArg.slice(6)) : Infinity;
 const wantDescribe = args.includes("--describe");
 
 const FACT_SCHEMA = {
@@ -172,14 +184,20 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
 
   // Small tools often share a name with another product, so their review pages must show their web address.
   const strict = !HAND_WRITTEN.includes(tool) || tool.strictReviews;
+  // A company can run a product from another domain, such as zettle.com for PayPal Zettle.
+  const official = officialAddresses(tool.website, facts.data.officialUrl, tool.aliasDomains);
   const { sources, rating, reviewCount } = finalizeReviews(
-    verifyReviews(tool.name, reviews.data.evidence, reviews.citations, strict ? [tool.website] : undefined),
-    [tool.website, facts.data.officialUrl],
+    verifyReviews(tool.name, reviews.data.evidence, reviews.citations, strict ? officialAddresses(tool.website, tool.aliasDomains) : undefined),
+    official,
   );
   // The written summary draws on every page found. If one failed the checks, it may describe something else.
   const summary = rating === null || (strict && sources.length < reviews.data.evidence.length) ? "" : [reviews.data.praise, reviews.data.complaints].map(plainText).filter(Boolean).join(" ");
-  const snippetLanguages = verifyLanguages(langs.data.languages, langs.citations);
-  const languageSource = trustedSource(langs.data.sourceUrl, tool.website, facts.data.officialUrl);
+  // Each language must be named on a page about this tool, not anywhere in the results.
+  const snippetLanguages = verifyLanguages(langs.data.languages, langs.citations, tool.name);
+  const languageSource = trustedSource(langs.data.sourceUrl, ...official);
+  // The App Store's own Languages field is a full list, so it tells "not supported" from "not checked".
+  const listing = sources.find((source) => source.site === "Apple App Store");
+  const store = listing ? await appStoreLanguages(listing.url, tool.name) : null;
   const pageLanguages = await readLanguagePage(languageSource);
   const languages = [...new Set([...pageLanguages, ...snippetLanguages])];
   const integrations = verifyNames(facts.data.integrations, facts.citations).filter(
@@ -207,7 +225,7 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
       kind: facts.data.priceKind,
       note: plainText(facts.data.pricingNote),
       extraFees: facts.data.extraFees ? plainText(facts.data.extraFees) : null,
-      sourceUrl: trustedSource(facts.data.pricingUrl, tool.website, facts.data.officialUrl),
+      sourceUrl: trustedSource(facts.data.pricingUrl, ...official),
       verified: priceVerified,
     },
     languages: {
@@ -215,6 +233,7 @@ async function researchTool(tool: (typeof SEED_BASE)[number]) {
       claimed: langs.data.languages.length,
       sourceUrl: languageSource,
       totalClaim: langs.data.totalClaim,
+      ...(store ? { store: { ...store, checkedAt: new Date().toISOString().slice(0, 10) } } : {}),
     },
     integrations: [...new Set([...integrations, ...listedIn.map((l) => l.system)])],
     ...(listedIn.length ? { integrationSources: Object.fromEntries(listedIn.map((l) => [l.system, l.url])) } : {}),
@@ -227,7 +246,15 @@ async function main() {
     ? JSON.parse(fs.readFileSync(OUT, "utf8"))
     : { generatedAt: "", model: MODEL, tools: {} };
 
-  const queue = SEED_BASE.filter((t) => (only ? only.has(t.slug) : force || !store.tools[t.slug]));
+  const today = Date.now();
+  const isStale = (slug: string) => {
+    const checkedAt = (store.tools[slug] as { checkedAt?: string } | undefined)?.checkedAt;
+    return !checkedAt || staleDays === null || (today - Date.parse(checkedAt)) / 86_400_000 > staleDays;
+  };
+  const queue = SEED_BASE.filter((t) => (only ? only.has(t.slug) : force || !store.tools[t.slug] || (staleDays !== null && isStale(t.slug))))
+    // The oldest first, so a capped run still works through the whole catalog over a few weeks.
+    .sort((a, b) => String((store.tools[a.slug] as { checkedAt?: string })?.checkedAt ?? "").localeCompare(String((store.tools[b.slug] as { checkedAt?: string })?.checkedAt ?? "")))
+    .slice(0, maxTools);
   console.log(`Researching ${queue.length} of ${SEED_BASE.length} tools with ${MODEL}`);
 
   const save = () => {
@@ -346,6 +373,15 @@ async function findNewTools(store: { newTools?: unknown[] }) {
     },
   } as const;
   const found = new Map<string, { name: string; website: string; summary: string; launched: string; startingMonthlyUsd: number; categoryHint: string }>();
+  // "New" means launched in the last twelve months, worked out from today rather than written into the code.
+  const now = new Date();
+  const year = now.getFullYear();
+  const isRecent = (launched: string) => {
+    const when = Date.parse(`1 ${launched}`);
+    const stated = Number.isFinite(when) ? new Date(when) : null;
+    if (stated) return now.getTime() - stated.getTime() < 366 * 86_400_000 && stated.getTime() <= now.getTime() + 31 * 86_400_000;
+    return new RegExp(`\\b${year}\\b`).test(launched);
+  };
   for (const trade of ["restaurants and cafes", "salons and barbershops", "retail shops", "home service trades such as HVAC and plumbing"]) {
     const { data, citations, cost } = await webJson<{ tools: Array<typeof found extends Map<string, infer V> ? V : never> }>({
       apiKey,
@@ -354,7 +390,7 @@ async function findNewTools(store: { newTools?: unknown[] }) {
       web: true,
       system:
         "You find recently launched, low-cost AI tools for small US businesses. Use only products named in the search results, sold in the United States, usable without technical skills. Leave launched empty if the results do not state a launch date. Do not mention search results or sources in your text.",
-      user: `New AI tool launched in 2026 for small ${trade} in the United States, free plan or low monthly price`,
+      user: `New AI tool launched in ${year - 1} or ${year} for small ${trade} in the United States, free plan or low monthly price`,
       schemaName: "new_tools",
       schema,
       maxResults: 8,
@@ -362,13 +398,15 @@ async function findNewTools(store: { newTools?: unknown[] }) {
     });
     totalCost += cost;
     for (const tool of data.tools) {
-      if (tool.launched && /2026/.test(tool.launched) && verifyNames([tool.name], citations).length > 0 && tool.website.startsWith("https://")) {
+      // The website must be the product's own and one the search really returned: never a directory, a blog or a press release.
+      const site = tool.website.startsWith("https://") && isProductSite(tool.website) && siteInCitations(tool.website, citations);
+      if (tool.launched && isRecent(tool.launched) && verifyNames([tool.name], citations).length > 0 && site) {
         found.set(tool.name.toLowerCase(), { ...tool, summary: plainText(tool.summary) });
       }
     }
   }
   store.newTools = [...found.values()].slice(0, 8).map((t) => ({ ...t, checkedAt: new Date().toISOString().slice(0, 10) }));
-  console.log(`New tools with a stated 2026 launch: ${found.size}`);
+  console.log(`New tools with a stated launch in the last year: ${found.size}`);
 }
 
 main().catch((err) => {

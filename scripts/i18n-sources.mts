@@ -9,6 +9,7 @@ import { SEED_BASE as HAND_WRITTEN } from "../src/data/seed-base.ts";
 import { CATEGORIES } from "../src/data/taxonomy.ts";
 import { DOCS } from "../src/content/docs.ts";
 import { cleanResearchText } from "../src/lib/research-core.ts";
+import { planKeys, sameNumbers } from "../src/lib/translation-check.ts";
 
 export const LANGUAGES = {
   es: "Spanish as used by Latin American immigrants in the US. Use the informal 'tú'.",
@@ -46,8 +47,11 @@ export interface Store {
   docs: Record<string, unknown>;
   bundles: Record<string, Record<string, string>>;
   tools: Record<string, Record<string, unknown>>;
-  /** A short hash of the English each translation was made from. A changed English text is re-translated. */
-  sources?: { strings?: Record<string, string>; docs?: Record<string, string>; bundles?: Record<string, string> };
+  /**
+   * A short hash of the English each translation was made from. A changed English text is
+   * re-translated. Tool text is hashed field by field, as tools[slug][field].
+   */
+  sources?: { strings?: Record<string, string>; docs?: Record<string, string>; bundles?: Record<string, string>; tools?: Record<string, Record<string, string>> };
 }
 
 export function hash(value: unknown) {
@@ -144,9 +148,11 @@ export function toolSources() {
     if (caution) entry.caution = caution;
     const g = r?.guide;
     if (g) {
-      // Same order as the site shows them, so each translation lines up with its plan.
-      const includes = [...g.plans].sort((a, b) => a.monthlyUsd - b.monthlyUsd).map((plan) => plan.includes);
-      if (includes.length) entry.planIncludes = includes;
+      // Keyed by plan name, in the order the site shows them, so a plan added or reordered
+      // can never put one plan's details under another plan's price.
+      const plans = [...g.plans].sort((a, b) => a.monthlyUsd - b.monthlyUsd);
+      const keys = planKeys(plans.map((plan) => plan.name));
+      if (plans.length) entry.planIncludes = Object.fromEntries(plans.map((plan, i) => [keys[i], plan.includes]));
       if (g.accountSteps.length) entry.accountSteps = g.accountSteps;
       if (g.connectSteps.length) entry.connectSteps = g.connectSteps;
       if (g.trial) entry.trial = g.trial;
@@ -158,15 +164,48 @@ export function toolSources() {
   return out;
 }
 
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+/** True when a translated field has every part its English has: each list item, or each plan by name. */
+function complete(value: Json, existing: unknown) {
+  if (Array.isArray(value)) return Array.isArray(existing) && existing.length === value.length;
+  // A plan with nothing written about it, such as many free plans, has nothing to translate.
+  if (isRecord(value)) return isRecord(existing) && Object.entries(value).every(([key, english]) => english === "" || (typeof existing[key] === "string" && (existing[key] as string).length > 0));
+  return typeof existing === "string" && existing.length > 0;
+}
+
+function isEmpty(value: Json) {
+  return value === "" || (Array.isArray(value) && value.length === 0) || (isRecord(value) && Object.keys(value).length === 0);
+}
+
 /** Only the fields this language does not have yet, so a new field does not re-translate a whole tool. */
 export function missingFields(source: Record<string, Json>, have: Record<string, unknown> | undefined) {
   const out: Record<string, Json> = {};
   for (const [field, value] of Object.entries(source)) {
     // Nothing to translate, so nothing can be missing.
-    if (value === "" || (Array.isArray(value) && value.length === 0)) continue;
-    const existing = have?.[field];
-    const complete = Array.isArray(value) ? Array.isArray(existing) && existing.length === value.length : typeof existing === "string" && existing.length > 0;
-    if (!complete) out[field] = value;
+    if (isEmpty(value)) continue;
+    if (!complete(value, have?.[field])) out[field] = value;
+  }
+  return out;
+}
+
+export type ToolProblem = "out of date" | "numbers differ";
+
+/**
+ * Translated tool fields that can no longer be trusted: their English changed since (the stored
+ * hash differs), or they state different numbers from the English, such as "$16" against "$19".
+ */
+export function toolFieldProblems(slug: string, source: Record<string, Json>, store: Store) {
+  const out: Array<{ field: string; problem: ToolProblem }> = [];
+  const have = store.tools[slug] ?? {};
+  const hashes = store.sources?.tools?.[slug] ?? {};
+  for (const [field, translated] of Object.entries(have)) {
+    const english = source[field];
+    if (english === undefined || isEmpty(english)) continue;
+    if (hashes[field] !== hash(english)) out.push({ field, problem: "out of date" });
+    else if (!sameNumbers(english, translated)) out.push({ field, problem: "numbers differ" });
   }
   return out;
 }

@@ -1,6 +1,7 @@
 /**
  * Fails when any interface word, page, kit, tool description or category is missing in
- * Spanish, Chinese or Vietnamese, or when its English changed after it was translated.
+ * Spanish, Chinese or Vietnamese, when its English changed after it was translated, or when a
+ * translated tool field states different numbers from its English.
  * Runs in CI. Fix a failure with `npm run translate`.
  *
  *   node scripts/check-i18n.mts
@@ -20,6 +21,7 @@ import {
   missingFields,
   readStore,
   subcategoryDescriptions,
+  toolFieldProblems,
   toolSources,
   type Lang,
 } from "./i18n-sources.mts";
@@ -74,6 +76,12 @@ for (const lang of Object.keys(LANGUAGES) as Lang[]) {
     Object.entries(bundles)
       .filter(([slug, source]) => !store.bundles[slug] || Object.keys(source).some((field) => !store.bundles[slug][field]) || sources.bundles?.[slug] !== hash(source))
       .map(([slug]) => slug),
+  );
+
+  report(
+    lang,
+    "tool fields whose English changed since, or whose numbers differ from the English",
+    Object.entries(tools).flatMap(([slug, source]) => toolFieldProblems(slug, source, store).map(({ field, problem }) => `${slug}.${field} (${problem})`)),
   );
 
   report(

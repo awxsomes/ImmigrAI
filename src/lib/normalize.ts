@@ -111,6 +111,9 @@ export function toTool(
   subcategoryId: string,
   verified: {
     languages: string[];
+    /** True when the languages came from a full list, such as an App Store listing. */
+    languagesChecked?: boolean;
+    languagesSourceUrl?: string;
     integrations: string[];
     priceVerified: boolean;
     reviews: Tool["reviews"];
@@ -145,6 +148,8 @@ export function toTool(
       verified: verified.priceVerified,
     },
     languages,
+    languagesChecked: Boolean(verified.languagesChecked),
+    languagesSourceUrl: verified.languagesSourceUrl,
     integrations: verified.integrations,
     platforms,
     reviews: verified.reviews,
@@ -154,14 +159,16 @@ export function toTool(
     scores: buildScores({
       focus: "task",
       rating: verified.reviews.rating,
+      reviewCount: verified.reviews.reviewCount,
       startingMonthlyUsd,
       priceKind,
+      priceBasis: verified.priceVerified ? "source" : "estimate",
       languages,
+      languagesChecked: Boolean(verified.languagesChecked),
       integrations: verified.integrations,
       setupMinutes,
       platforms,
       selfServe: input.selfServe,
-      environment: environmental.score,
     }),
     setupMinutes,
     selfServe: input.selfServe,

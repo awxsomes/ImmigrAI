@@ -34,7 +34,7 @@ export const KEYWORDS_I18N: Record<string, string> = {
   regulations: "regulaciones|reglas|salario mínimo|inspección|quy định|luật lao động|法规|规定|最低工资",
   "community-alerts": "alertas|crimen|robo|vecindario|cảnh báo|an ninh khu phố|社区警报|治安",
   // No bare "ice" or "immigration": those caught ice cream sellers and I-9 paperwork.
-  "know-your-rights": "la migra|migra|redada de inmigración|redadas de inmigración|agentes de inmigración|agentes de ice|deportación|conoce tus derechos|tarjeta roja|tarjetas rojas|trục xuất|biết quyền của bạn|nhân viên di trú|đột kích di trú|移民局抓人|移民突袭|移民执法|遣返|驱逐出境|了解你的权利|红卡",
+  "know-your-rights": "la migra|migra|redada de inmigración|redadas de inmigración|agentes de inmigración|agentes de ice|redada de ice|redadas de ice|deportación|conoce tus derechos|tarjeta roja|tarjetas rojas|trục xuất|biết quyền của bạn|nhân viên di trú|đột kích di trú|移民局抓人|移民突袭|移民执法|遣返|驱逐出境|了解你的权利|红卡",
   cybersecurity: "contraseña|estafa|hackeado|fraude|mật khẩu|lừa đảo|bị hack|密码|诈骗|被盗号|网络安全",
   "food-health": "seguridad alimentaria|inspección de salud|temperatura|an toàn thực phẩm|kiểm tra y tế|食品安全|卫生检查",
   "ai-courses": "curso de ia|aprender ia|inteligencia artificial|khóa học ai|học ai|人工智能课程|学习ai",

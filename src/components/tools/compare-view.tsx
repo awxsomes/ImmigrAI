@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { aiLabel, displayLanguage, compatText, nextPlanText, priceText, toolHref } from "@/lib/format";
+import { aiLabel, displayLanguage, compatText, nextPlanText, priceText, startCase, toolHref } from "@/lib/format";
 import { fmt, type CardLabels, type CompatLabels } from "@/lib/labels";
-import { compatibility, envLabel, supportsLanguage } from "@/lib/scoring";
+import { compatibility, languageAnswer } from "@/lib/scoring";
 import { useUserData } from "@/lib/storage";
 import type { Tool } from "@/lib/types";
 import { AdviceNote } from "./advice-note";
@@ -14,7 +14,7 @@ type Labels = CardLabels &
   CompatLabels &
   Record<
     | "compare_title" | "compare_empty" | "compare_feature" | "compare_pairs" | "compare_rowCost" | "compare_rowFees" | "compare_rowRating" | "compare_rowScore"
-    | "compare_rowEase" | "compare_rowFootprint" | "compare_rowLanguages" | "compare_rowMyLanguage" | "compare_rowConnections" | "compare_rowSetup"
+    | "compare_rowEase" | "compare_rowLanguages" | "compare_rowMyLanguage" | "compare_rowConnections" | "compare_rowSetup"
     | "compare_outOf5" | "compare_none" | "compare_rowAi" | "tool_setupAbout" | "common_yes" | "common_no" | "my_browse",
     string
   >;
@@ -70,14 +70,16 @@ export function CompareView({
       ? [
           {
             label: fmt(t.compare_rowMyLanguage, { language: displayLanguage(language, lang) }),
-            cell: (tool: Tool) => (supportsLanguage(tool, language) ? t.common_yes : fmt(t.card_notConfirmedLang, { language: displayLanguage(language, lang) })),
+            cell: (tool: Tool) => {
+              const answer = languageAnswer(tool, language);
+              return answer === "yes" ? t.common_yes : startCase(fmt(answer === "no" ? t.lang_notSupported : t.lang_notChecked, { language: displayLanguage(language, lang) }), lang);
+            },
           },
         ]
       : []),
     { label: t.compare_rowLanguages, cell: (tool) => tool.languages.length },
     { label: t.compare_rowEase, cell: (tool) => fmt(t.compare_outOf5, { n: tool.scores.easeOfUse }) },
     { label: t.compare_rowSetup, cell: (tool) => fmt(t.tool_setupAbout, { n: tool.setupMinutes }) },
-    { label: t.compare_rowFootprint, cell: (tool) => `${tool.environmental.score}/100, ${t[`env_${envLabel(tool.environmental.score)}`]}` },
     { label: t.compare_rowConnections, cell: (tool) => (tool.integrations.length ? tool.integrations.slice(0, 6).join(", ") : t.compare_none) },
   ];
 

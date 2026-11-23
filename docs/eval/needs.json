@@ -1,0 +1,278 @@
+{
+  "about": "Hand-labelled needs for scripts/eval-match.mts. For each need, 'acceptable' lists tools that do this job for this owner, and 'notTheJob' lists tools that clearly do not. Entries are catalog slugs (the name in a tool's page address) or 'domain:example.com' for tools outside the catalog. A tool the search returns that is in neither list is reported as unlabelled, so a person can add it here.",
+  "labelledBy": "First draft written on 2026-11-23 from the catalog's own descriptions, by Claude. No owner has checked these sets yet. Until a person confirms each one (set checkedWithOwner to the date), treat the scores as a rough guide.",
+  "needs": [
+    {
+      "id": "salon-reminders-vi",
+      "need": "Vietnamese-owned nail salon in Houston, 4 technicians, uses Square Appointments. Clients no-show, and the owner wants automatic reminders and rebooking texts in Vietnamese and English.",
+      "type": "salon", "systems": ["Square"], "language": "Vietnamese", "size": "2-5",
+      "acceptable": ["square-appointments", "fresha", "glossgenius", "mangomint", "boulevard", "avoschedule", "salonaix", "ivera", "beautifyx", "relay", "simplybook-me"],
+      "notTheJob": ["chatgpt", "canva", "google-sheets", "darva", "maple", "7shifts", "toast-pos", "housecall-pro"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "taqueria-phone-es",
+      "need": "Family taqueria in Phoenix on a Clover register. They miss phone orders at lunch, and most callers speak Spanish.",
+      "type": "restaurant", "systems": ["Clover"], "language": "Spanish",
+      "acceptable": ["maple", "fonitix", "darva", "daber-ai", "goodcall", "rosie", "dialzara", "aira", "ringowl", "ison24", "marlie-ai", "ringdesk"],
+      "notTheJob": ["shug", "ringbooker", "bookingbee", "salonagent", "google-voice", "chatgpt", "leadtruffle"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "restaurant-review-replies-zh",
+      "need": "Chinese restaurant in Queens on Toast. The owner writes in Chinese and wants Google and Yelp reviews answered in English without writing the replies themselves.",
+      "type": "restaurant", "systems": ["Toast"], "language": "Chinese",
+      "acceptable": ["replybase", "starsteady", "forkjury", "opinas", "rightresponse-ai", "replora-ai", "replyonthefly", "praising", "gatherup"],
+      "notTheJob": ["canva", "chatgpt", "reviewflo", "google-translate", "deepl"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "hvac-after-hours",
+      "need": "Two-truck HVAC company in Atlanta using QuickBooks Online. They lose after-hours calls and need those calls booked as jobs.",
+      "type": "trades", "systems": ["QuickBooks"], "language": "",
+      "acceptable": ["leadtruffle", "centralcoms", "convoforms", "adaptlocal", "goodcall", "rosie", "aira", "ringowl", "ringdesk", "upfirst", "marlie-ai", "ison24", "dialzara"],
+      "notTheJob": ["shug", "bookingbee", "salonagent", "ringbooker", "maple", "darva", "google-voice", "chatgpt"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "landscaper-quotes-es",
+      "need": "Spanish-speaking landscaper in Dallas with 6 workers and no software besides a phone and Google Calendar. Needs quotes and invoices made from the truck, in Spanish.",
+      "type": "trades", "systems": ["Google Calendar"], "language": "Spanish", "size": "6-20",
+      "acceptable": ["jobber", "dave", "quoteiq-ai", "contractor", "servflo", "fieldkrew", "housecall-pro", "aviy", "bidflow"],
+      "notTheJob": ["chatgpt", "canva", "google-sheets", "maidily", "glossgenius"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "corner-store-reorder",
+      "need": "Corner store in the Bronx with a Clover register. Wants to know what to reorder and when, based on its sales.",
+      "type": "retail", "systems": ["Clover"], "language": "",
+      "acceptable": ["stockguard", "octopos", "hylen", "mutasib", "lightspeed-retail", "zoho-inventory"],
+      "notTheJob": ["chatgpt", "google-sheets", "choco", "yes-chef-os", "quickstok", "bakeonyx"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "cleaning-dispatch-pt",
+      "need": "House cleaning company in Orlando with 8 cleaners, using Google Calendar and Stripe. Needs to assign jobs and routes and message cleaners in Portuguese.",
+      "type": "cleaning", "systems": ["Google Calendar", "Stripe"], "language": "Portuguese", "size": "6-20",
+      "acceptable": ["maidily", "allclean", "maidpilot", "cleansyai", "autopilot", "housecall-pro", "fieldkrew", "connecteam"],
+      "notTheJob": ["7shifts", "chatgpt", "toast-pos", "glossgenius"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "bakery-recipe-costing",
+      "need": "Bakery in Chicago on a Square register. Needs ingredient cost tracking and recipe costing built from supplier invoices.",
+      "type": "restaurant", "systems": ["Square"], "language": "",
+      "acceptable": ["bakeonyx", "yes-chef-os", "quickstok"],
+      "notTheJob": ["chatgpt", "google-sheets", "faire", "canva"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "market-invoices-quickbooks",
+      "need": "Arabic-speaking owner of a halal market in Dearborn with a Square register and QuickBooks Online. Wants supplier invoices read automatically and entered into QuickBooks.",
+      "type": "retail", "systems": ["Square", "QuickBooks"], "language": "Arabic",
+      "acceptable": ["bukeep", "bonnie", "profitbooks", "dynatax-ai"],
+      "notTheJob": ["chatgpt", "google-sheets", "faire", "google-translate"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "barbershop-fill-slots",
+      "need": "Haitian-owned barbershop in Miami using Booksy. Wants to fill empty chair slots by texting past clients.",
+      "type": "salon", "systems": ["Booksy"], "language": "Haitian Creole",
+      "acceptable": ["relay", "ooon-ai", "glossgenius", "beautifyx", "fresha", "mangomint"],
+      "notTheJob": ["canva", "buffer", "chatgpt", "google-ads", "indeed"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "food-truck-social",
+      "need": "Filipino-owned food truck in San Diego on Square. Wants social posts about today's location and menu without having to write them.",
+      "type": "restaurant", "systems": ["Square"], "language": "",
+      "acceptable": ["platepost", "nueve", "apaya", "buffer", "postall"],
+      "notTheJob": ["canva", "chatgpt", "google-ads", "lookmybio"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "restaurant-schedules",
+      "need": "Restaurant with 15 hourly staff on Toast. Wants weekly schedules built from expected sales, and staff to swap shifts on their phones.",
+      "type": "restaurant", "systems": ["Toast"], "language": "", "size": "6-20",
+      "acceptable": ["7shifts", "lineup-ai", "homebase", "deputy", "sonnical", "mays"],
+      "notTheJob": ["maidily", "proteams", "cleansyai", "chatgpt", "google-sheets"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "salon-ai-receptionist",
+      "need": "Hair salon with 3 stylists on Square Appointments. Calls go to voicemail while everyone is with clients; wants the phone answered and appointments booked.",
+      "type": "salon", "systems": ["Square"], "language": "",
+      "acceptable": ["shug", "ringbooker", "bookingbee", "salonagent", "frontdeq", "ivera", "salonaix", "callpad", "adminifai", "copper", "fonitix", "voka-ai", "aira", "ahoya"],
+      "notTheJob": ["maple", "darva", "leadtruffle", "centralcoms", "google-voice", "chatgpt"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "payroll-three-es",
+      "need": "Pay my three employees every two weeks and handle the payroll taxes. I use QuickBooks and prefer Spanish.",
+      "type": "", "systems": ["QuickBooks"], "language": "Spanish", "size": "2-5",
+      "acceptable": ["gusto", "square-payroll", "roll-by-adp"],
+      "notTheJob": ["chatgpt", "indeed", "7shifts"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "menu-translation",
+      "need": "Translate our restaurant menu into English and Spanish, and keep the translations up to date when prices change.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["resst", "google-translate", "deepl"],
+      "notTheJob": ["elevenlabs", "wellsaid", "chatgpt"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "cleaning-more-reviews",
+      "need": "Get more Google reviews for my house cleaning company after each job.",
+      "type": "cleaning", "systems": [], "language": "",
+      "acceptable": ["nicejob", "reviewflo", "gatherup", "praising", "opinas", "rightresponse-ai", "google-business-profile"],
+      "notTheJob": ["forkjury", "chatgpt", "canva", "google-ads"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "restaurant-temperature-logs",
+      "need": "Keep fridge temperature logs and daily food safety checklists for the health inspector in a small restaurant.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["fooddocs", "passmykitchen", "xenia", "mays"],
+      "notTheJob": ["chatgpt", "google-sheets", "complystack"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "salon-bookkeeping",
+      "need": "One-person nail salon with no accounting software. Wants bank transactions sorted for taxes without learning accounting.",
+      "type": "salon", "systems": [], "language": "", "size": "1",
+      "acceptable": ["wave", "zoho-books", "quickbooks-online", "finch", "bonnie", "profitbooks", "tabby", "poof", "danbooks", "bukeep", "keeper-tax", "dynatax-ai", "jupid"],
+      "notTheJob": ["chatgpt", "google-sheets", "glossgenius"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "cleaner-quarterly-taxes",
+      "need": "Self-employed house cleaner. Wants to know how much to pay in quarterly taxes and find write-offs.",
+      "type": "cleaning", "systems": [], "language": "", "size": "1",
+      "acceptable": ["keeper-tax", "turbotax", "tabby", "jupid"],
+      "notTheJob": ["chatgpt", "gusto", "maidily"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "taqueria-website",
+      "need": "A simple website for our taqueria with the menu, hours and a map, that I can update myself.",
+      "type": "restaurant", "systems": [], "language": "Spanish",
+      "acceptable": ["wix", "square-online", "cadu", "forgelo", "menugo", "per-diem"],
+      "notTheJob": ["canva", "chatgpt", "google-ads"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "market-card-payments",
+      "need": "Take card and tap payments at a weekend farmers market with no monthly fee.",
+      "type": "retail", "systems": [], "language": "",
+      "acceptable": ["square-pos", "paypal-zettle", "cpos-pay"],
+      "notTheJob": ["toast-pos", "chatgpt", "faire"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "corner-store-pos",
+      "need": "Point of sale for a corner store with barcode scanning and low-stock alerts.",
+      "type": "retail", "systems": [], "language": "",
+      "acceptable": ["octopos", "mutasib", "hylen", "square-pos", "lightspeed-retail", "paybrain", "stockguard"],
+      "notTheJob": ["toast-pos", "avocado", "zestia", "flavorfeed-ai", "chatgpt"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "restaurant-hr-documents",
+      "need": "Write an employee handbook and offer letters for my restaurant that follow my state's rules.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["askhrai", "hrdocket"],
+      "notTheJob": ["chatgpt", "indeed", "7shifts"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "food-truck-permits",
+      "need": "Find out which licenses and health permits a new food truck needs, and get reminded before they expire.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["foundra", "permitsentry-ai", "sba-business-guide"],
+      "notTheJob": ["chatgpt", "passmykitchen"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "lease-review",
+      "need": "Check a commercial lease for risky terms before I sign it.",
+      "type": "", "systems": [], "language": "",
+      "acceptable": ["justee", "rocket-lawyer", "talking-tree", "sawyer", "inhouse-ai"],
+      "notTheJob": ["chatgpt", "deepl", "google-translate"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "hire-line-cook",
+      "need": "Hire a line cook quickly and sort through the applicants.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["indeed", "jugglehire", "kova-hr"],
+      "notTheJob": ["chatgpt", "linkedin-learning", "7shifts"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "cashier-training-es",
+      "need": "Turn our store manual into short lessons with quizzes to train new cashiers, in Spanish.",
+      "type": "retail", "systems": [], "language": "Spanish",
+      "acceptable": ["manabiq", "helpable", "connecteam"],
+      "notTheJob": ["duolingo", "chatgpt", "linkedin-learning"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "salon-dm-replies",
+      "need": "Answer customer questions on WhatsApp and Instagram for my beauty salon and book them in.",
+      "type": "salon", "systems": ["WhatsApp", "Instagram"], "language": "",
+      "acceptable": ["ooon-ai", "adminifai", "chatpal", "callpad", "salonagent", "relay", "whatsapp-business"],
+      "notTheJob": ["buffer", "canva", "postall", "chatgpt"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "lawn-measure-quotes",
+      "need": "Lawn care company that wants to measure yards from satellite images and send quotes without driving out.",
+      "type": "trades", "systems": [], "language": "",
+      "acceptable": ["deep-lawn"],
+      "notTheJob": ["chatgpt", "google-sheets", "maidily"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "plumber-missed-calls",
+      "need": "Plumber who misses calls while on jobs. Wants missed calls texted back right away and the job booked into Jobber.",
+      "type": "trades", "systems": ["Jobber"], "language": "",
+      "acceptable": ["adaptlocal", "leadtruffle", "centralcoms", "convoforms", "cendorvia", "goodcall", "upfirst"],
+      "notTheJob": ["shug", "bookingbee", "salonagent", "maple", "google-voice", "chatgpt"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "office-phishing",
+      "need": "Small office on Microsoft 365 got phishing emails. Wants to be warned about suspicious sign-ins and use strong passwords.",
+      "type": "", "systems": ["Outlook"], "language": "",
+      "acceptable": ["prevail", "bitwarden"],
+      "notTheJob": ["chatgpt", "nextdoor", "citizen"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "restaurant-supplier-orders",
+      "need": "Order from all our food distributors in one place instead of calls and texts.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["choco"],
+      "notTheJob": ["faire", "chatgpt", "google-sheets"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "bakery-local-ads",
+      "need": "Bring more people into my bakery with local ads on a small budget.",
+      "type": "restaurant", "systems": [], "language": "",
+      "acceptable": ["bocads", "adsimple", "google-ads", "meta-business-suite"],
+      "notTheJob": ["chatgpt", "canva", "cleanwork", "leadwinner-ai"],
+      "checkedWithOwner": false
+    },
+    {
+      "id": "restaurant-profit-view",
+      "need": "See how much profit my restaurant makes each month from my POS and bank, without a spreadsheet.",
+      "type": "restaurant", "systems": ["Square"], "language": "",
+      "acceptable": ["netta", "yourprofitbook", "ledgend"],
+      "notTheJob": ["chatgpt", "google-sheets"],
+      "checkedWithOwner": false
+    }
+  ]
+}

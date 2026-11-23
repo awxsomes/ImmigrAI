@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { ReactNode } from "react";
 import { CheckIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
-import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText, toolHref, type PriceLabels } from "@/lib/format";
+import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText, startCase, toolHref, type PriceLabels } from "@/lib/format";
 import { fmt, type CardLabels } from "@/lib/labels";
-import { connectsWithExisting, envLabel, supportsLanguage } from "@/lib/scoring";
+import { connectsWithExisting, languageAnswer } from "@/lib/scoring";
 import type { Tool } from "@/lib/types";
 import { TeamEstimate } from "./adoption-guide";
 import { AdviceNote } from "./advice-note";
@@ -50,6 +50,25 @@ export function RatingText({ tool, t }: { tool: Tool; t: CardLabels }) {
 
 type FactLineLabels = PriceLabels & Pick<CardLabels, "card_reviewCount" | "card_languageOne" | "card_languageCount">;
 
+type LanguageLabels = Pick<CardLabels, "card_worksInLang" | "lang_notChecked" | "lang_notSupported">;
+
+/**
+ * Whether a tool works in the owner's language, in three honest answers. "Not checked" is not
+ * "not supported": most small tools have no language list we could read, and they may still work.
+ */
+export function LanguageFit({ tool, lang, language, languageName, t }: { tool: Tool; lang: string; language: string; languageName: string; t: LanguageLabels }) {
+  const answer = languageAnswer(tool, language);
+  if (answer === "yes") {
+    return (
+      <span className="inline-flex items-center gap-1 text-blue-dark">
+        <CheckIcon className="size-4" />
+        {fmt(t.card_worksInLang, { language: languageName })}
+      </span>
+    );
+  }
+  return <span className="font-normal">{startCase(fmt(answer === "no" ? t.lang_notSupported : t.lang_notChecked, { language: languageName }), lang)}</span>;
+}
+
 /** The three facts people scan for first, on one line: cost, rating and languages. The full facts follow in the same order. */
 export function FactLine({ tool, t, className }: { tool: Tool; t: FactLineLabels; className?: string }) {
   const { rating, reviewCount } = tool.reviews;
@@ -94,13 +113,10 @@ export function ToolCard({
   actions?: ReactNode;
 }) {
   const href = toolHref(lang, tool.slug);
-  const env = tool.environmental;
-  const envWord = t[`env_${envLabel(env.score)}`];
   const shownLinks = tool.integrations.slice(0, 3);
   const extraLinks = tool.integrations.length - shownLinks.length;
   const existing = alreadyUse?.length ? connectsWithExisting(tool, alreadyUse) : [];
   const languageName = language ? displayLanguage(language, lang) : "";
-  const speaks = language ? supportsLanguage(tool, language) : false;
   const next = nextPlanText(tool, t);
   const confirmation = priceConfirmation(tool, t);
   const hasPlans = Boolean(tool.pricing.plans?.length);
@@ -117,7 +133,7 @@ export function ToolCard({
           <FactLine tool={tool} t={t} className="mt-1 text-[0.95rem]" />
           <p className="mt-3 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
-            {tool.source === "live" && <Badge variant="outline">{t.card_new}</Badge>}
+            {tool.source === "live" && <Badge variant="outline">{t.card_foundLive}</Badge>}
             {tool.trades?.map((trade) => (
               <Badge key={trade} variant="warm">
                 {fmt(t.card_builtFor, { trade: t[`trade_${trade}`] })}
@@ -167,14 +183,7 @@ export function ToolCard({
         </Fact>
         <Fact label={t.card_language}>
           {language ? (
-            speaks ? (
-              <span className="inline-flex items-center gap-1 text-blue-dark">
-                <CheckIcon className="size-4" />
-                {fmt(t.card_worksInLang, { language: languageName })}
-              </span>
-            ) : (
-              <span className="font-normal">{fmt(t.card_notConfirmedLang, { language: languageName })}</span>
-            )
+            <LanguageFit tool={tool} lang={lang} language={language} languageName={languageName} t={t} />
           ) : (
             <span>{tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}</span>
           )}
@@ -182,10 +191,7 @@ export function ToolCard({
             {t.card_seeLanguages}
           </Link>
         </Fact>
-        <Fact label={t.card_footprint}>
-          {env.score}/100, {envWord}
-        </Fact>
-        <div className="sm:col-span-2">
+        <div>
           <dt className="text-sm text-muted-ink">{t.card_connects}</dt>
           <dd className="font-medium">
             {shownLinks.length > 0 ? (

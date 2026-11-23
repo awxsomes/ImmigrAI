@@ -3,6 +3,9 @@
  * Chinese and Vietnamese. Only missing text, or text whose English changed since it was
  * translated, is sent, so re-runs are cheap. `npm run check:i18n` fails CI on any gap.
  *
+ * Every tool field keeps a hash of the English it came from, and a translation that states
+ * different numbers from its English is thrown away rather than shown.
+ *
  *   node --env-file=.env.local scripts/translate-content.mts
  *   node --env-file=.env.local scripts/translate-content.mts --force
  *   node --env-file=.env.local scripts/translate-content.mts --max-cost=2.50
@@ -33,6 +36,7 @@ import {
   type Lang,
   type Store,
 } from "./i18n-sources.mts";
+import { sameNumbers } from "../src/lib/translation-check.ts";
 
 const apiKey = process.env.OPENROUTER_API_KEY ?? "";
 const MODEL = process.env.OPENROUTER_MODEL || "anthropic/claude-haiku-5.5";
@@ -212,12 +216,35 @@ function dropStale(store: Store) {
     if (bundles[slug] && bundles[slug] !== hash(source)) delete store.bundles[slug];
     else bundles[slug] = hash(source);
   }
+  // Tool text, field by field. A field with no hash yet is kept once, and only if its numbers match.
+  const toolHashes = (sources.tools ??= {});
+  const tools = toolSources();
+  let dropped = 0;
+  for (const [slug, entry] of Object.entries(store.tools)) {
+    const source = tools[slug];
+    const hashes = (toolHashes[slug] ??= {});
+    for (const field of Object.keys(entry)) {
+      const english = source?.[field];
+      const current = english === undefined ? "" : hash(english);
+      const stale = !source || english === undefined || (hashes[field] ? hashes[field] !== current : !sameNumbers(english, entry[field]));
+      if (stale) {
+        delete entry[field];
+        delete hashes[field];
+        dropped++;
+      } else hashes[field] = current;
+    }
+    if (Object.keys(hashes).length === 0) delete toolHashes[slug];
+  }
+  if (dropped) console.log(`  re-translating ${dropped} tool fields whose English changed or whose numbers differ`);
 }
 
 async function run(lang: Lang, phase: "core" | "tools") {
   const file = path.join(OUT_DIR, `${lang}.json`);
   const store: Store = fs.existsSync(file) && !force ? JSON.parse(fs.readFileSync(file, "utf8")) : { strings: {}, docs: {}, bundles: {}, tools: {} };
-  if (forceTools && phase === "tools") store.tools = {};
+  if (forceTools && phase === "tools") {
+    store.tools = {};
+    if (store.sources) store.sources.tools = {};
+  }
   dropUntranslated(store, lang);
   dropStale(store);
   const sources = (store.sources ??= {});
@@ -282,7 +309,18 @@ async function run(lang: Lang, phase: "core" | "tools") {
       const asked = new Set(group.map(([slug]) => slug));
       for (const [slug, fields] of Object.entries(translated)) {
         if (!asked.has(slug) || !fields || typeof fields !== "object") continue;
-        store.tools[slug] = { ...(store.tools[slug] ?? {}), ...(fields as Record<string, unknown>) };
+        const source = tools[slug];
+        const hashes = ((sources.tools ??= {})[slug] ??= {});
+        for (const [field, value] of Object.entries(fields as Record<string, unknown>)) {
+          if (source?.[field] === undefined) continue;
+          // A translation that changes a price or a count is worse than English, so it is not kept.
+          if (!sameNumbers(source[field], value)) {
+            console.warn(`  ${lang}: dropped ${slug}.${field}, its numbers differ from the English`);
+            continue;
+          }
+          store.tools[slug] = { ...(store.tools[slug] ?? {}), [field]: value };
+          hashes[field] = hash(source[field]);
+        }
       }
       save();
     });

@@ -223,6 +223,17 @@ function nameTokens(name: string) {
 }
 
 /**
+ * True when one returned page is about this product: it names the product in full, or every
+ * word that identifies it. A page about a competitor that mentions one shared word does not count.
+ */
+export function pageNamesProduct(citation: Citation, toolName: string) {
+  const haystack = `${citation.title}\n${citation.content}\n${citation.url}`.toLowerCase();
+  const tokens = nameTokens(toolName);
+  if (tokens.length === 0) return true;
+  return appearsIn(haystack, toolName.toLowerCase().replace(/\(.*?\)/g, " ").trim()) || tokens.every((t) => haystack.includes(t));
+}
+
+/**
  * Keep only ratings that appear in the text returned for that exact URL, on an
  * independent review site, on a page that names this product. One entry per site.
  */
@@ -283,15 +294,27 @@ export const MIN_REVIEWS_FOR_RATING = 25;
 
 export function rootDomain(url: string) {
   try {
-    return new URL(url).hostname.replace(/^www\./, "").split(".").slice(-2).join(".");
+    return new URL(url.includes("://") ? url : `https://${url}`).hostname.replace(/^www\./, "").split(".").slice(-2).join(".");
   } catch {
     return "";
+  }
+}
+
+/** The country an App Store link points to. A link with no country, such as apps.apple.com/app/id123, opens the US store. */
+export function appStoreCountry(url: string) {
+  try {
+    const u = new URL(url);
+    if (!u.hostname.endsWith("apps.apple.com")) return null;
+    return u.pathname.match(/^\/([a-z]{2})\//i)?.[1].toLowerCase() ?? "us";
+  } catch {
+    return null;
   }
 }
 
 /**
  * Guards against rating the wrong product. A US business needs the US App Store, and a
  * Trustpilot page is named after a company's own domain, so that domain must match.
+ * officialUrls may include a company's other domains, such as zettle.com for PayPal Zettle.
  */
 export function isSameProduct(source: VerifiedReviewSource, officialUrls: string[]) {
   let url: URL;
@@ -300,7 +323,8 @@ export function isSameProduct(source: VerifiedReviewSource, officialUrls: string
   } catch {
     return false;
   }
-  if (url.hostname.endsWith("apps.apple.com") && !url.pathname.startsWith("/us/")) return false;
+  const country = appStoreCountry(source.url);
+  if (country && country !== "us") return false;
   // Comparison and category pages show several products' ratings side by side.
   if (/\/(?:compare|categories|vs)\//.test(url.pathname)) return false;
   if (url.hostname.endsWith("trustpilot.com")) {
@@ -317,6 +341,12 @@ const NOT_A_CONNECTION = /^(?:anthropic(?: claude)?|clerk|cloudflare|dodo paymen
 
 export function isRealConnection(name: string) {
   return !NOT_A_CONNECTION.test(name.trim());
+}
+
+/** A company's own address plus any other domains it uses, as full addresses for the checks above. */
+export function officialAddresses(website: string, ...more: Array<string | string[] | undefined>) {
+  const extra = more.flat().filter((u): u is string => Boolean(u)).map((u) => (u.includes("://") ? u : `https://${u}`));
+  return [website, ...extra];
 }
 
 /** The final say on a rating: drop wrong-product matches, then require enough reviews. */
@@ -469,20 +499,85 @@ export async function safeFetch(address: string, options: { timeoutMs?: number; 
  * use it yet, or it is priced for another country. A site that blocks automated checks is given
  * the benefit of the doubt, because that alone says nothing about the product.
  */
-export async function readSite(url: string, timeoutMs = 10_000): Promise<{ problem: string | null; text: string; url: string }> {
+export interface SiteRead {
+  problem: string | null;
+  text: string;
+  url: string;
+  /** The site would not let an automated check read it, so nothing on it could be checked. */
+  blocked?: boolean;
+  /** The page links to a privacy policy. */
+  privacyLink?: boolean;
+}
+
+const PRIVACY_LINK = /<a\b[^>]*href=["'][^"']*privac[^"']*["']|<a\b[^>]*>\s*(?:<[^>]+>\s*)*privacy/i;
+
+export async function readSite(url: string, timeoutMs = 10_000): Promise<SiteRead> {
   let page: SafePage;
   try {
     page = await safeFetch(url, { timeoutMs });
   } catch {
     return { problem: "site could not be reached", text: "", url };
   }
-  if (page.status === 401 || page.status === 403 || page.status === 429) return { problem: null, text: "", url: page.url };
+  if (page.status === 401 || page.status === 403 || page.status === 429) return { problem: null, text: "", url: page.url, blocked: true };
   if (page.status >= 400) return { problem: "site returned an error", text: "", url: page.url };
   const text = htmlToText(page.text);
-  if (/\bjoin (?:the |our )?wait[- ]?list\b|\blaunching (?:soon|in |this |summer|fall|winter|spring)|\bjoin early access\b|\bget early access\b/i.test(text)) return { problem: "not available yet", text, url: page.url };
+  const privacyLink = PRIVACY_LINK.test(page.text);
+  if (/\bjoin (?:the |our )?wait[- ]?list\b|\blaunching (?:soon|in |this |summer|fall|winter|spring)|\bjoin early access\b|\bget early access\b/i.test(text)) return { problem: "not available yet", text, url: page.url, privacyLink };
   const hasDollars = /\$\s?\d/.test(text);
-  if (!hasDollars && /₹|₦|\bNGN\b|£\s?\d|€\s?\d/.test(text)) return { problem: "priced for another country", text, url: page.url };
-  return { problem: null, text, url: page.url };
+  if (!hasDollars && /₹|₦|\bNGN\b|£\s?\d|€\s?\d/.test(text)) return { problem: "priced for another country", text, url: page.url, privacyLink };
+  return { problem: null, text, url: page.url, privacyLink };
+}
+
+/** A price in US dollars, or a stated free plan. "Free trial" alone says nothing about the price. */
+export function showsUsdPrice(text: string) {
+  return /(?:US)?\$\s?\d|\bUSD\b|\bfree (?:plan|tier|version|forever|for life|account|to (?:use|start|join))\b|\bno monthly fee\b/i.test(text);
+}
+
+async function pageStatus(address: string, timeoutMs: number) {
+  try {
+    const page = await safeFetch(address, { timeoutMs, maxBytes: 300_000 });
+    return { status: page.status, text: page.status < 400 ? htmlToText(page.text) : "" };
+  } catch {
+    return { status: 0, text: "" };
+  }
+}
+
+/**
+ * The reasons people most often turned down tools that search found, checked automatically
+ * before a live result reaches an owner: no price in US dollars (sold by demo, or priced for
+ * another country), and no privacy policy. The search results count for the price only when
+ * they are about this product. A site that blocks automated reading cannot show its privacy
+ * link, so that check is skipped for it, and the result still says it was not reviewed.
+ */
+export async function liveSiteProblem(site: SiteRead, citations: Citation[], toolName: string, timeoutMs = 4_000): Promise<string | null> {
+  if (site.problem) return site.problem;
+  const origin = (() => {
+    try {
+      return new URL(site.url).origin;
+    } catch {
+      return "";
+    }
+  })();
+  if (!origin) return "site could not be reached";
+  const aboutIt = citations.filter((c) => pageNamesProduct(c, toolName)).map((c) => `${c.title}\n${c.content}`).join("\n");
+  const needPrice = !showsUsdPrice(site.text) && !showsUsdPrice(aboutIt);
+  const needPrivacy = !site.blocked && !site.privacyLink;
+  const [pricing, privacy, privacyPolicy] = await Promise.all([
+    needPrice ? pageStatus(`${origin}/pricing`, timeoutMs) : null,
+    needPrivacy ? pageStatus(`${origin}/privacy`, timeoutMs) : null,
+    needPrivacy ? pageStatus(`${origin}/privacy-policy`, timeoutMs) : null,
+  ]);
+  if (needPrice && !(pricing && showsUsdPrice(pricing.text))) return "no price in US dollars found";
+  // A page built in the browser shows almost no text to a check like this one, so its address answering is enough.
+  const found = (p: { status: number; text: string } | null) => Boolean(p && p.status > 0 && p.status < 400 && (/privacy/i.test(p.text) || p.text.trim().length < 300));
+  if (needPrivacy && !found(privacy) && !found(privacyPolicy)) return "no privacy page found";
+  return null;
+}
+
+/** True when the address is on a site the search really returned, not one a model remembered or made up. */
+export function siteInCitations(address: string, citations: Citation[]) {
+  const domain = rootDomain(address);
+  return Boolean(domain) && citations.some((c) => rootDomain(c.url) === domain);
 }
 
 export async function siteProblem(url: string, timeoutMs = 10_000): Promise<string | null> {
@@ -549,18 +644,68 @@ export function appearsIn(text: string, phrase: string) {
   return new RegExp(`(^|[^\\p{L}\\p{N}])${escaped}($|[^\\p{L}\\p{N}])`, "iu").test(text);
 }
 
-/** Keep the languages actually named in the returned text, in English or their own script. */
-export function verifyLanguages(claimed: string[], citations: Citation[]) {
-  const text = citations.map((c) => `${c.title}\n${c.content}`).join("\n").toLowerCase();
+/**
+ * Keep the languages named, in English or their own script, on a returned page that is about
+ * this product. Pages are checked one at a time: a competitor's page that lists Spanish says
+ * nothing about this product, even when both came back from the same search.
+ */
+export function verifyLanguages(claimed: string[], citations: Citation[], toolName: string) {
+  const pages = citations.filter((c) => pageNamesProduct(c, toolName)).map((c) => `${c.title}\n${c.content}`.toLowerCase());
   const out = new Set<string>();
   for (const language of claimed) {
     const name = language.trim();
     if (!name) continue;
     const firstWord = name.split(/\s+/)[0];
     const candidates = [name, ...(NATIVE_NAMES[name] ?? []), ...(NATIVE_NAMES[firstWord] ?? [])];
-    if (candidates.some((c) => appearsIn(text, c))) out.add(name);
+    if (pages.some((page) => candidates.some((c) => appearsIn(page, c)))) out.add(name);
   }
   return [...out];
+}
+
+/** App Store language codes, as Apple's lookup returns them, with their English names. */
+const ISO_LANGUAGES: Record<string, string> = {
+  EN: "English", ES: "Spanish", ZH: "Chinese", VI: "Vietnamese", KO: "Korean", TL: "Tagalog", FIL: "Filipino", AR: "Arabic", HT: "Haitian Creole",
+  PT: "Portuguese", FR: "French", RU: "Russian", HI: "Hindi", PA: "Punjabi", UR: "Urdu", BN: "Bengali", AM: "Amharic", SO: "Somali", FA: "Persian",
+  PL: "Polish", UK: "Ukrainian", TH: "Thai", JA: "Japanese", DE: "German", IT: "Italian", EL: "Greek", TR: "Turkish", SW: "Swahili", NE: "Nepali",
+  KM: "Khmer", LO: "Lao", MY: "Burmese", ID: "Indonesian", MS: "Malay", TA: "Tamil", TE: "Telugu", GU: "Gujarati", HE: "Hebrew", NL: "Dutch",
+  RO: "Romanian", SV: "Swedish", DA: "Danish", NB: "Norwegian", NO: "Norwegian", FI: "Finnish", CS: "Czech", HU: "Hungarian", BG: "Bulgarian",
+  HR: "Croatian", SR: "Serbian", SK: "Slovak", SL: "Slovenian", LT: "Lithuanian", LV: "Latvian", ET: "Estonian", SQ: "Albanian", MK: "Macedonian",
+  HY: "Armenian", KA: "Georgian", AZ: "Azerbaijani", KK: "Kazakh", UZ: "Uzbek", MN: "Mongolian", CA: "Catalan", EU: "Basque", GL: "Galician",
+  CY: "Welsh", GA: "Irish", IS: "Icelandic", MT: "Maltese", AF: "Afrikaans", ZU: "Zulu", XH: "Xhosa", YO: "Yoruba", IG: "Igbo", HA: "Hausa",
+  MR: "Marathi", KN: "Kannada", ML: "Malayalam", SI: "Sinhala", PS: "Pashto", KU: "Kurdish", UG: "Uyghur", SM: "Samoan", TO: "Tongan", MI: "Maori",
+};
+
+/** The numeric App Store id in a listing's address, such as 1234567 in apps.apple.com/us/app/name/id1234567. */
+export function appStoreId(url: string) {
+  return appStoreCountry(url) ? (url.match(/\/id(\d{5,12})\b/)?.[1] ?? null) : null;
+}
+
+export interface StoreLanguages {
+  list: string[];
+  sourceUrl: string;
+  appName: string;
+}
+
+/**
+ * Reads the Languages field of a US App Store listing, which Apple fills in from the app itself.
+ * The app's name must match the product, so a company's other app does not count. Google Play
+ * listings have no language field, so there is nothing to read there.
+ */
+export async function appStoreLanguages(listingUrl: string, toolName: string, timeoutMs = 8_000): Promise<StoreLanguages | null> {
+  const id = appStoreId(listingUrl);
+  if (!id || appStoreCountry(listingUrl) !== "us") return null;
+  try {
+    const page = await safeFetch(`https://itunes.apple.com/lookup?id=${id}&country=us`, { timeoutMs, maxBytes: 400_000 });
+    if (page.status !== 200) return null;
+    const json = JSON.parse(page.text) as { results?: Array<{ trackName?: string; trackViewUrl?: string; languageCodesISO2A?: string[] }> };
+    const app = json.results?.[0];
+    if (!app?.trackName || !app.languageCodesISO2A?.length) return null;
+    if (!pageNamesProduct({ url: "", title: app.trackName, content: "" }, toolName)) return null;
+    const list = [...new Set(app.languageCodesISO2A.map((code) => ISO_LANGUAGES[code.toUpperCase()]).filter((name): name is string => Boolean(name)))];
+    return list.length ? { list, sourceUrl: listingUrl, appName: app.trackName } : null;
+  } catch {
+    return null;
+  }
 }
 
 /** Language names we can recognize on a vendor's own "supported languages" page. */

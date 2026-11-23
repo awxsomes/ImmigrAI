@@ -225,19 +225,6 @@ export function ResultsView({
           </div>
 
           <div>
-            <Label id="env-label">{t.filter_env}</Label>
-            <p className="text-sm text-muted-ink">{filters.minEnv === 0 ? t.filter_envAny : fmt(t.filter_envAtLeast, { n: filters.minEnv })}</p>
-            <Slider
-              aria-labelledby="env-label"
-              min={0}
-              max={100}
-              step={5}
-              value={filters.minEnv}
-              onValueChange={(v) => setFilters((f) => ({ ...f, minEnv: v as number }))}
-            />
-          </div>
-
-          <div>
             <Label htmlFor="language-filter">{t.filter_myLanguage}</Label>
             <NativeSelect
               id="language-filter"
@@ -315,7 +302,6 @@ export function ResultsView({
               <option value="overall">{t.sort_overall}</option>
               <option value="cheapest">{t.sort_cheapest}</option>
               <option value="rating">{t.sort_rating}</option>
-              <option value="env">{t.sort_env}</option>
               <option value="easiest">{t.sort_easiest}</option>
             </NativeSelect>
           </div>

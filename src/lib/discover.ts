@@ -7,16 +7,20 @@ import { aiEnabled, env } from "./env";
 import { DISCOVERY_RESPONSE_SCHEMA, DiscoveryResponse, safeUrl, slugify, toTool, type DiscoveredToolInput } from "./normalize";
 import { reserveDailyCalls } from "./ratelimit";
 import {
+  appStoreLanguages,
   cleanResearchText,
   finalizeReviews,
+  isProductSite,
   isRealConnection,
+  liveSiteProblem,
   mentionsAi,
   priceAppears,
+  readSite,
   REVIEW_DOMAINS,
   REVIEW_SCHEMA,
   REVIEW_SYSTEM,
   reviewPrompt,
-  siteProblem,
+  siteInCitations,
   verifyLanguages,
   verifyNames,
   verifyReviews,
@@ -172,8 +176,14 @@ async function verifyCandidate(
   if (candidate.startingMonthlyUsd > MAX_MONTHLY_USD) return null;
 
   const allCitations = [...citations, ...reviews.citations];
+  // The App Store's own Languages field is a full list, so a missing language there means "not supported".
+  const listing = sources.find((source) => source.site === "Apple App Store");
+  const store = listing ? await appStoreLanguages(listing.url, candidate.name, 3_000) : null;
   return toTool(candidate, categoryId, subcategoryId, {
-    languages: verifyLanguages(candidate.languages, allCitations),
+    languages: [...new Set([...verifyLanguages(candidate.languages, allCitations, candidate.name), ...(store?.list ?? [])])],
+    // An English-only app is often a companion app, so only a localized listing counts as a full list.
+    languagesChecked: (store?.list.length ?? 0) >= 2,
+    languagesSourceUrl: store?.sourceUrl,
     integrations: verifyNames(candidate.integrations, allCitations).filter((n) => n.toLowerCase() !== candidate.name.toLowerCase() && isRealConnection(n)),
     priceVerified: priceAppears(candidate.startingMonthlyUsd, citations),
     reviews: {
@@ -265,17 +275,24 @@ export async function discoverTools(input: DiscoverInput): Promise<DiscoverResul
         if (!slug || seen.has(slug) || SEED_BY_SLUG.has(slug)) return false;
         seen.add(slug);
         // AI must be named on a returned page, and a tool with no AI is not what this search is for.
-        return t.aiLevel !== "none" && t.workload !== "none" && verifyNames([t.name], citations).length > 0 && mentionsAi(t.name, citations);
+        if (t.aiLevel === "none" || t.workload === "none" || verifyNames([t.name], citations).length === 0 || !mentionsAi(t.name, citations)) return false;
+        // The website must be one the search really returned, and the product's own, not a directory or an article.
+        const site = safeUrl(t.website);
+        return Boolean(site) && isProductSite(site) && siteInCitations(site, citations);
       })
       .slice(0, CANDIDATES);
 
-    // A tool that is gone, not out yet or priced for another country should not reach an owner.
-    // The address came from a model reading the open web, so it is checked before anything opens it.
+    // Nobody reviews these before an owner sees them, so the reasons people most often turned
+    // down searched-for tools are checked here: gone or not out yet, no price in US dollars, no
+    // privacy page. The address came from a model reading the open web, and safeFetch checks it before opening it.
     const usable = (
       await Promise.all(
         candidates.map(async (c) => {
           const site = safeUrl(c.website);
-          return site && !(await siteProblem(site, Math.max(1_000, Math.min(6_000, left() - 12_000)))) ? c : null;
+          if (!site) return null;
+          const budget = Math.max(1_000, Math.min(5_000, left() - 16_000));
+          const page = await readSite(site, budget);
+          return (await liveSiteProblem(page, citations, c.name, Math.min(3_500, budget))) ? null : c;
         }),
       )
     ).filter((c) => c !== null);

@@ -3,7 +3,7 @@
 *Making AI Accessible to Every Entrepreneur.*
 *Your Guide to AI for Small Businesses.*
 
-An "Angie's List" of AI tools for immigrant-run main street businesses, including small and new tools that owners would struggle to find. An owner describes what they need in their own words, in any language, and gets affordable, easy tools with verified ratings, full language lists, environmental estimates and a check of how the tools work together.
+An "Angie's List" of AI tools for immigrant-run main street businesses, including small and new tools that owners would struggle to find. An owner describes what they need in their own words, in any language, and gets affordable, easy tools with verified ratings, honest language answers (works, not supported, or not checked yet) and a check of how the tools work together. Each tool page also shows a rough estimate of its energy use. That is a values choice, not a ranking: we think the people paying for AI should be able to see what it uses, so the estimate is there to read, and it never changes a score or the order of results.
 
 ## Run it
 
@@ -45,13 +45,15 @@ Category page ──> prebuilt HTML: catalog tools, checked ahead of time
 A model can be confidently wrong, so its claims only count when the text the search engine returned backs them up. See `src/lib/research-core.ts`:
 
 - A rating must appear in the search engine's result text for the exact page cited, on an independent review site, on a page naming that product. The page itself is not opened, so the live page may show a newer number.
-- The Apple App Store must be the US store, and a Trustpilot page's domain must match the vendor's. This caught real errors during development: another app with the same name, and a similarly named company.
+- The Apple App Store must be the US store (a link with no country opens the US store, so it counts), and a Trustpilot page's domain must match the vendor's or another domain it uses (`aliasDomains`, such as zettle.com for PayPal Zettle). This caught real errors during development: another app with the same name, and a similarly named company.
 - Comparison and category pages do not count, because they show several products side by side.
 - Tools found by web search must have review pages that show their own web address, because a small tool's name often belongs to other products too. A name match alone gave several new tools the wrong reviews during development, so those reviews were removed. Having no rating is better than having the wrong one.
 - At least 25 reviews are needed, or the tool shows "no confirmed rating".
-- Languages must be named on a cited page. The script also reads the vendor's own language page for the full list.
+- Languages must be named on a cited page about that product, checked page by page, so a competitor's language list cannot count. The script also reads the vendor's own language page, and `npm run research:stores` reads the Languages field of the US App Store listing (free, no API key). Only a full list turns a missing language into "not supported"; otherwise the site says "not checked".
 - A tool only counts as using AI if a returned page names both the product and its AI. Each tool says what its AI does, and AI that only runs behind the scenes does not count.
-- A tool's Environmental Impact score is calculated from the kind of AI it runs, using the published figures on `/methodology`, not a number a model made up.
+- Ratings are pulled toward the catalog average by review count (a Bayesian average), and a tool with no confirmed reviews counts as the average, so a small tool is neither rewarded nor punished for being unknown.
+- Where a person corrected the research (who a tool is made for, its price, what its AI does), the tool page says "Checked by a person", and every part of the score is marked Confirmed or Estimate.
+- Tools found by live search are marked "Found today, not reviewed". Their website must be one the search returned, and must show a US dollar price and a privacy page, the most common reasons people rejected searched-for tools.
 
 ### Keeping the catalog fresh
 
@@ -59,7 +61,7 @@ A model can be confidently wrong, so its claims only count when the text the sea
 npm run research
 ```
 
-This re-researches any tool without data. Add `-- --force` to redo all of them (about $1.30 for 56 tools), or `-- --new` to look for tools launched this year. Research can still misread a price, so a wrong one can be corrected with `priceOverride` in `src/data/seed-base.ts`, which always wins over research. Then translate what changed:
+This re-researches any tool without data. Add `-- --force` to redo all of them (about $0.02 a tool), `-- --stale=30` to redo tools checked more than 30 days ago, or `-- --new` to look for tools launched in the last year. `.github/workflows/refresh-research.yml` runs the stale refresh every Monday and opens a pull request to review. Research can still misread a price, so a wrong one can be corrected with `priceOverride` in `src/data/seed-base.ts`, which always wins over research. Then translate what changed:
 
 To keep the catalog focused on AI, `npm run research:ai -- --find` looks for small AI tools for every need, and `npm run research:ai -- --check` confirms what each tool's AI does. Read the new tools in `src/data/seed-discovered.json` before publishing them, because small tools have few reviews to check against.
 
@@ -68,7 +70,11 @@ To keep the catalog focused on AI, `npm run research:ai -- --find` looks for sma
 npm run translate
 ```
 
-Only missing text, or text whose English changed since it was translated, is sent. `npm run check:i18n` fails when anything is missing or out of date, and runs in CI (`.github/workflows/ci.yml`).
+Only missing text, or text whose English changed since it was translated, is sent. Every translated tool field stores a hash of its English, and a translation whose numbers differ from the English (such as "$16" against "$19") is rejected. Plans are matched to their translations by name. `npm run check:i18n` fails when anything is missing, out of date or has different numbers, and runs in CI (`.github/workflows/ci.yml`).
+
+### Measuring search
+
+`npm run check:matcher` runs a 43-question regression list through the instant matcher in CI. `npm run eval` measures need-first matching against the hand-labelled needs in `docs/eval/needs.json` (precision@5 and the "does not do the job" rate) and writes each run to `docs/eval/runs/`. See [docs/eval/README.md](docs/eval/README.md).
 
 ### Built for slow connections
 
@@ -102,7 +108,7 @@ src/app/api/           API routes: suggest, match, discover, checkup, prompts, t
 src/components/ui/     Watermelon UI components, adapted
 src/components/tools/  Tool cards, results, compare, My tools
 src/lib/research-core  Web research and the checks on it
-src/lib/scoring        Environmental, ImmigrAI and compatibility scoring
+src/lib/scoring        ImmigrAI score, energy estimate and compatibility
 src/lib/matcher        On-device search
 src/data/              Taxonomy, starter catalog, kits, research results
 src/content/           Legal and long-form pages, interface text, translations

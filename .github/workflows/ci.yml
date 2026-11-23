@@ -25,6 +25,10 @@ jobs:
         run: npm run check:i18n
       - name: Color contrast
         run: npm run check:contrast
+      # 43 owner questions, including unaccented Spanish and Vietnamese and "ice cream",
+      # that must keep landing on the right need.
+      - name: Matcher regression list
+        run: npm run check:matcher
       - name: Types
         run: npx tsc --noEmit
       - name: Lint

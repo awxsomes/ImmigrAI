@@ -70,7 +70,10 @@
   --color-line: var(--line);
   --color-line-strong: var(--line-strong);
 
-  --font-sans: var(--font-jakarta), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+  --font-sans: var(--font-inter), "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", "Noto Sans CJK SC", system-ui, sans-serif;
+
+  /* Inter reads as heavy above 700, so the heaviest headings stop there for a cleaner look. */
+  --font-weight-extrabold: 700;
 
   --radius-sm: 0.3rem;
   --radius-md: 0.4rem;
@@ -92,13 +95,15 @@
     color: var(--ink);
     font-family: var(--font-sans);
     line-height: 1.55;
+    /* A lowercase l with a tail, so l, I and 1 never look alike to someone new to English. */
+    font-feature-settings: "cv05" 1;
   }
   h1,
   h2,
   h3 {
     line-height: 1.2;
     text-wrap: balance;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.022em;
   }
   a {
     color: inherit;

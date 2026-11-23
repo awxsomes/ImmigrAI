@@ -109,6 +109,11 @@ export function displayLanguage(name: string, lang: string) {
   }
 }
 
+/** "español: sin verificar" becomes "Español: sin verificar" when a language name starts a label. */
+export function startCase(text: string, lang: string) {
+  return text ? text.charAt(0).toLocaleUpperCase(lang) + text.slice(1) : text;
+}
+
 export function aiLabel(level: AiLevel, t: Pick<CardLabels, "card_aiCore" | "card_aiFeature" | "card_aiNone">) {
   return level === "core" ? t.card_aiCore : level === "feature" ? t.card_aiFeature : t.card_aiNone;
 }

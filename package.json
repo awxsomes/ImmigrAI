@@ -10,9 +10,12 @@
     "research": "node --no-warnings --env-file=.env.local scripts/research-tools.mts",
     "translate": "node --no-warnings --env-file=.env.local scripts/translate-content.mts",
     "check:i18n": "node --no-warnings scripts/check-i18n.mts",
+    "check:matcher": "node --no-warnings scripts/check-matcher.mts",
     "check:contrast": "node scripts/check-contrast.cjs",
     "research:ai": "node --no-warnings --env-file=.env.local scripts/research-ai.mts",
-    "research:guide": "node --no-warnings --env-file=.env.local scripts/research-guide.mts"
+    "research:guide": "node --no-warnings --env-file=.env.local scripts/research-guide.mts",
+    "research:stores": "node --no-warnings scripts/research-stores.mts",
+    "eval": "node --no-warnings --env-file=.env.local scripts/eval-match.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

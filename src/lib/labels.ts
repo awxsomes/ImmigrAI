@@ -14,16 +14,15 @@ export function fmt(template: string, vars: Record<string, string | number>) {
 }
 
 export const CARD_KEYS = [
-  "card_cost", "card_rating", "card_footprint", "card_language", "card_connects", "card_score", "card_scoreOf",
+  "card_cost", "card_rating", "card_language", "card_connects", "card_score", "card_scoreOf",
   "card_noRating", "card_publicResource", "card_priceUnconfirmed", "card_ratingLine", "card_fromSites", "card_fromSite",
-  "card_reviewCount", "card_new", "card_noConnections", "card_more", "card_worksInLang", "card_notConfirmedLang",
+  "card_reviewCount", "card_foundLive", "card_noConnections", "card_more", "card_worksInLang", "lang_notChecked", "lang_notSupported",
   "card_languageCount", "card_languageOne", "card_seeLanguages", "card_connectsExisting", "card_details", "card_free",
   "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn",
   "card_aiCore", "card_aiFeature", "card_aiNone", "card_aiDoes", "card_smallTool",
   "card_fees", "card_needsSales",
   "price_amount", "price_amountPerson", "price_amountLocation", "price_amountUse", "price_plan", "price_next", "price_estimate", "price_plansUnconfirmed", "price_paywall",
   "card_builtFor", "card_generalNote", "trade_restaurant", "trade_salon", "trade_retail", "trade_trades", "trade_cleaning",
-  "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",
   ...ADVICE_KEYS,
 ] as const;
@@ -58,10 +57,10 @@ export const RESULTS_KEYS = [
   ...CARD_KEYS, ...ACTION_KEYS,
   "results_showing", "results_searching", "results_foundNew", "results_foundNone", "results_paused", "results_failed", "results_saveData",
   "results_searchWeb", "results_none", "results_sort", "results_pick", "results_otherTools", "results_generalTools", "results_generalNote",
-  "sort_overall", "sort_cheapest", "sort_rating", "sort_env", "sort_easiest",
-  "filter_title", "filter_price", "filter_rating", "filter_anyRating", "filter_env", "filter_reset", "filter_show", "filter_hide",
+  "sort_overall", "sort_cheapest", "sort_rating", "sort_easiest",
+  "filter_title", "filter_price", "filter_rating", "filter_anyRating", "filter_reset", "filter_show", "filter_hide",
   "filter_businessType", "businessType_any", "businessType_restaurant", "businessType_salon", "businessType_retail", "businessType_trades", "businessType_cleaning",
-  "filter_stars", "filter_star", "filter_priceUpTo", "filter_priceFree", "filter_envAtLeast", "filter_envAny", "filter_onlyMine", "filter_onlyConnect", "filter_myLanguage", "filter_chooseLanguage",
+  "filter_stars", "filter_star", "filter_priceUpTo", "filter_priceFree", "filter_onlyMine", "filter_onlyConnect", "filter_myLanguage", "filter_chooseLanguage",
   "compare_bar", "compare_go", "compare_clear", "compare_max",
 ] as const;
 export type ResultsLabels = Pick<Dict, (typeof RESULTS_KEYS)[number]>;

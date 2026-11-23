@@ -24,64 +24,58 @@ export interface Doc {
   sections: DocSection[];
 }
 
-export const DOC_UPDATED = "2026-11-17";
+export const DOC_UPDATED = "2026-11-23";
 
 export const DOCS = {
   methodology: {
     title: "How we calculate our scores",
     intro:
-      "Every score on this site follows a written rule. This page shows the rules, where the numbers come from, and what we cannot measure.",
+      "Most of a score comes from written rules applied to facts on public pages. Some parts are our estimates, and on some tools a person corrected what the research got wrong. This page shows the rules, where each number comes from, where people stepped in, and what we cannot measure.",
     sections: [
       {
-        h: "Environmental Impact score",
-        p: [
-          "The score runs from 0 to 100, based on how much electricity, water and computing power a tool uses for one task. Higher means a lighter footprint.",
-          "Four parts make up the score: Energy (30%), measured in watt-hours per task. Water (20%), measured in milliliters per task. Carbon (20%), measured in grams of CO2 equivalent per task. Computational efficiency (30%), based on the tokens processed, the model size and the computing resources needed.",
-          "This is an estimate, not a measurement. Almost no company publishes these numbers for its own product. So we place each tool in a class based on the kind of AI it runs, and every tool in a class gets the same estimate. The table below shows each class.",
-        ],
-      },
-      {
-        h: "Turning the estimate into a score",
-        ul: [
-          "Energy, water and carbon use a logarithmic scale. A task using 0.01 watt-hours or less scores 100, and 10 watt-hours or more scores 0, because AI tasks differ by hundreds of times.",
-          "Water is estimated at 1.08 milliliters per watt-hour, from Google's published figures of 0.26 mL for a 0.24 Wh prompt.",
-          "Carbon is estimated at 0.4 grams per watt-hour, the US grid average for 2024 as used by MIT Technology Review. Many tools run on cleaner power than this, but they rarely publish enough to confirm it.",
-          "Computational efficiency is set for each class, from 98 for no AI model down to 18 for AI that runs throughout a phone call.",
-        ],
-      },
-      {
-        h: "Where the figures come from",
-        ul: [
-          "A typical chatbot reply: about 0.3 Wh. Google reported 0.24 Wh for a median Gemini text prompt in August 2025, and OpenAI's chief executive stated about 0.34 Wh for an average ChatGPT prompt, without explaining the method.",
-          "An image: about 0.63 Wh, from MIT Technology Review's May 2025 figure for Stable Diffusion 3 Medium, including cooling and other overhead.",
-          "Our own assumptions, with no published source: 0.5 Wh for one voice clip, 3 Wh for a full AI phone call (about eight model replies plus speech), and the lower figures for tools with no AI or small background AI.",
-        ],
-        links: [
-          ["Google's paper on Gemini's footprint", "https://arxiv.org/abs/2508.15734"],
-          ["MIT Technology Review methodology", "https://www.technologyreview.com/2025/05/20/1116331/ai-energy-demand-methodology/"],
-        ],
-      },
-      {
-        h: "What this score cannot tell you",
-        ul: [
-          "It does not include the energy used to train a model, or to make the phones and computers you use.",
-          "Two tools in the same class can differ a lot. A company's real figures could be better or worse than ours.",
-          "Published figures vary widely and companies report them differently, so treat the score as a rough guide for comparing tools.",
-        ],
-      },
-      {
+        id: "score",
         h: "ImmigrAI score",
         p: [
-          "A high star rating can hide a tool that is expensive, English-only, hard to set up or made for someone else. So the ImmigrAI score (0 to 100) blends: made for the job 25%, public reviews 20%, ease of use 20%, cost 15%, language support 10%, connections to software owners use 5%, and environmental impact 5%.",
-          "How famous a tool is does not count. The number of reviews is never part of the score. We only use it to decide whether there are enough reviews to show a rating at all, and to weigh one review site against another.",
-          "If we cannot confirm a tool's reviews, we leave reviews out and score the rest, and that score cannot go above 85. We never fill the gap with an invented number, and the tool's page says so.",
+          "A high star rating can hide a tool that is expensive, English-only, hard to set up or made for someone else. So the ImmigrAI score (0 to 100) blends: made for the job 25%, public reviews 20%, ease of use 20%, cost 15%, language support 10%, and connections to software owners use 10%. Energy use is not part of the score.",
+          "How famous a tool is does not count. The number of reviews only decides how much a rating can move away from the average.",
         ],
         ul: [
           "Made for the job: 5 out of 5 if it is built for one kind of business, 4 if it does one job without being told how, 2.5 if it is broad business software, and 1 if it is a blank box where you have to write the instructions yourself.",
+          "Reviews: each rating is pulled toward {ratingPrior}, the average of every tool we could rate, as if {priorReviews} reviews at that average were added to it. A rating from thousands of reviews barely moves. A tool with no confirmed reviews counts as exactly {ratingPrior}, so being small or new neither helps nor hurts it.",
           "Ease of use is our estimate, based on setup time, whether it has a phone app, and whether you can sign up without talking to a salesperson.",
           "Cost comes from the lowest monthly price that lets you actually use the tool. Tools with no monthly fee but a charge on each sale score a little lower than fully free tools, and tools where you set your own ad budget score lower still, because the real cost is harder to predict.",
           "Language support counts the languages most spoken by immigrant owners, such as Spanish, Chinese, Vietnamese, Korean, Tagalog, Arabic, Haitian Creole, Portuguese, Russian, French and Hindi. Four or more earns full marks. A long list of other languages earns nothing extra.",
           "Connections count only software small businesses really run, such as QuickBooks, Square, Toast, Google Calendar or WhatsApp. Three or more earns full marks. A long list of other connections earns nothing extra.",
+        ],
+      },
+      {
+        id: "confirmed",
+        h: "Confirmed or estimated",
+        p: ["On each tool's page, every part of the score is marked Confirmed or Estimate, so you can see which numbers to trust and which to check yourself."],
+        ul: [
+          "Confirmed: we read it on a public page, such as a price on the company's pricing page, a star rating on a review site, a full language list or a named connection, or a person checked it.",
+          "Estimate: made for the job and ease of use come from an AI model reading the tool's own pages, unless a person checked them. Together they are {guessShare}% of the score.",
+          "Language support is an estimate when we found no full language list, and cost is an estimate when we could not find the price on a page.",
+        ],
+      },
+      {
+        id: "people",
+        h: "Where a person changed the result",
+        p: [
+          "Automatic research makes mistakes. For example, a page that mentions restaurants does not make a product a restaurant product. A person corrected these by hand: who the tool is made for on {checkedFocus} tools, the price on {checkedPrice} tools, and what the AI does on {checkedAi} tools. Each of those tools says so on its page.",
+          "These are accuracy fixes, not favors. No tool pays to be listed or ranked, and a correction can lower a score as easily as raise it.",
+          "On the {uncheckedFocus} tools where no person checked who the tool is made for, about {guessShare}% of the score comes from the AI model's reading of the tool's pages rather than from a confirmed fact.",
+        ],
+      },
+      {
+        id: "languages",
+        h: "Works in your language, not supported, or not checked",
+        ul: [
+          "Works in Spanish: a page about this tool names Spanish.",
+          "Spanish: not supported: we read the tool's full language list, from its own language page or its Apple App Store listing, and Spanish is not on it.",
+          "Spanish: not checked: we have not found a full list. This is common for small tools, and the tool may still work in Spanish, so ask the company.",
+          "A page only counts if it is about this tool. A page that compares several tools cannot add a language to this one.",
+          "Google Play listings do not show languages, so only the App Store is read.",
         ],
       },
       {
@@ -109,7 +103,7 @@ export const DOCS = {
         ul: [
           "The rating must appear in the search engine's result for the exact page we link to. We do not open the page ourselves, so the page may show a newer number. Check it before you rely on it.",
           "The page must be on an independent site: Capterra, G2, Trustpilot, the Apple App Store, Google Play, GetApp, Software Advice or TrustRadius. A company's own testimonials never count.",
-          "The page must be about this product alone, so comparison and category pages do not count. For Apple we only accept the US store, and for Trustpilot the reviewed web address must match the company's.",
+          "The page must be about this product alone, so comparison and category pages do not count. For Apple we only accept the US store, and an App Store link with no country opens the US store, so it counts. For Trustpilot the reviewed web address must match the company's, or another address the company uses, such as zettle.com for PayPal Zettle.",
           "Small tools often share a name with another product. For tools we find by searching the web, the review page must also show the tool's own web address. If it does not, we show no rating. No rating is better than the wrong one.",
           "There must be at least 25 reviews in total. Fewer than that, and we show no rating.",
           "Sites with more reviews count more, on a logarithmic scale, so no single site decides the result.",
@@ -135,9 +129,47 @@ export const DOCS = {
         p: ["A kit's fit score is the average across every pair of tools in it. If a link exists but we could not confirm it, we report the lower level."],
       },
       {
+        id: "live",
         h: "Limits of live search",
         p: [
           "Prices, ratings and features change, and an AI model reading the web can misread a page. Our checks catch many errors but not all of them. Always confirm the price and terms on the tool's own website before you pay.",
+          "Tools found by a live search are marked 'Found today, not reviewed', because no person has looked at them. Before one is shown, its website must be one the search really returned, and the site must show a price in US dollars and a privacy policy. Those were the most common reasons people turned down tools that search found.",
+        ],
+      },
+      {
+        id: "report",
+        h: "Report a mistake",
+        p: ["If something on a tool's page is wrong, use 'Report a mistake' on that page. It opens an email with the page filled in.", "{contact}"],
+      },
+      {
+        id: "energy",
+        h: "Energy use (estimate)",
+        p: [
+          "Each tool's page has a rough estimate of the electricity it uses, closed by default. It is not part of the score and does not change the order of results. We show it because we think the energy AI uses should be visible to the people paying for it.",
+          "Almost no company publishes these figures for its own product. So we place each tool in a class based on the kind of AI it runs, and every tool in a class gets the same estimate. Low means 0.1 watt-hours or less per task, Medium means under 1, and High means 1 or more.",
+          "For scale, a home refrigerator uses about 1,000 to 2,000 watt-hours a day. A busy salon whose AI answers 600 calls a month would use about 1,800 watt-hours a month, about what a refrigerator uses in a day or two.",
+        ],
+      },
+      {
+        h: "Where the energy figures come from",
+        ul: [
+          "A typical chatbot reply: about 0.3 Wh. Google reported 0.24 Wh for a median Gemini text prompt in August 2025, and OpenAI's chief executive stated about 0.34 Wh for an average ChatGPT prompt, without explaining the method.",
+          "An image: about 0.63 Wh, from MIT Technology Review's May 2025 figure for Stable Diffusion 3 Medium, including cooling and other overhead.",
+          "Our own assumptions, with no published source: 0.5 Wh for one voice clip, 3 Wh for a full AI phone call (about eight model replies plus speech), and the lower figures for tools with no AI or small background AI.",
+          "Water is estimated at 1.08 milliliters per watt-hour, from Google's published figures of 0.26 mL for a 0.24 Wh prompt.",
+          "Carbon is estimated at 0.4 grams per watt-hour, the US grid average for 2024 as used by MIT Technology Review. Many tools run on cleaner power than this, but they rarely publish enough to confirm it.",
+        ],
+        links: [
+          ["Google's paper on Gemini's footprint", "https://arxiv.org/abs/2508.15734"],
+          ["MIT Technology Review methodology", "https://www.technologyreview.com/2025/05/20/1116331/ai-energy-demand-methodology/"],
+        ],
+      },
+      {
+        h: "What the energy estimate cannot tell you",
+        ul: [
+          "It does not include the energy used to train a model, or to make the phones and computers you use.",
+          "Two tools in the same class can differ a lot. A company's real figures could be better or worse than ours.",
+          "Published figures vary widely and companies report them differently, so treat the estimate as a rough guide.",
         ],
       },
     ],
@@ -233,6 +265,12 @@ export const DOCS = {
         ],
       },
       {
+        h: "Why we show energy use",
+        p: [
+          "AI runs in data centers that use electricity and water. We think the people paying for a tool should be able to see that, so each tool's page has a rough estimate of its energy use. This is a choice about our values, not a ranking: it does not change a tool's score or its place in the results.",
+        ],
+      },
+      {
         h: "What this site is not",
         p: [
           "We are not lawyers, accountants or financial advisors. Nothing here is legal, tax, immigration or financial advice. Some text is written by AI and translated by machine, so please confirm anything important.",
@@ -241,7 +279,7 @@ export const DOCS = {
       {
         h: "Fonts, images and software",
         ul: [
-          "Text is set in Lexend, under the SIL Open Font License 1.1. The font files are served from this site, not from Google.",
+          "Text is set in Inter, under the SIL Open Font License 1.1. The font files are served from this site, not from Google.",
           "There are no stock photos. Icons and the logo were drawn for this site.",
           "Interface components are adapted from Watermelon UI and built on Base UI (MIT).",
           "Software: Next.js, React, Tailwind CSS and Zod (all MIT).",
@@ -324,7 +362,7 @@ export const DOCS = {
       },
       {
         h: "Information can be wrong",
-        p: ["Prices, ratings, languages and features come from automated web research and can be wrong or out of date. Environmental scores are estimates. Some text is written or translated by AI. Confirm anything important on the tool's own website before you pay or rely on it."],
+        p: ["Prices, ratings, languages and features come from automated web research and can be wrong or out of date. Energy-use figures are estimates. Some text is written or translated by AI. Confirm anything important on the tool's own website before you pay or rely on it."],
       },
       {
         h: "Other companies' tools",

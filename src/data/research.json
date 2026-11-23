@@ -54,7 +54,16 @@
     ],
     "claimed": 2,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id871544379",
+     "appName": "Homebase: Employee Scheduling",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Clover",
@@ -455,7 +464,85 @@
     ],
     "claimed": 249,
     "sourceUrl": "https://support.google.com/translate/answer/6350850?co=GENIE.Platform%3DDesktop&hl=en",
-    "totalClaim": "249 languages"
+    "totalClaim": "249 languages",
+    "store": {
+     "list": [
+      "Afrikaans",
+      "Albanian",
+      "Arabic",
+      "Armenian",
+      "Azerbaijani",
+      "Basque",
+      "Bengali",
+      "Bulgarian",
+      "Khmer",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Galician",
+      "Georgian",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Icelandic",
+      "Igbo",
+      "Indonesian",
+      "Irish",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Kazakh",
+      "Korean",
+      "Lao",
+      "Latvian",
+      "Lithuanian",
+      "Macedonian",
+      "Malay",
+      "Malayalam",
+      "Marathi",
+      "Mongolian",
+      "Nepali",
+      "Norwegian",
+      "Pashto",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Sinhala",
+      "Slovak",
+      "Slovenian",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Uzbek",
+      "Vietnamese",
+      "Welsh",
+      "Yoruba",
+      "Zulu"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/google-translate/id414706506?platform=iphone&see-all=reviews",
+     "appName": "Google Translate",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Workspace",
@@ -574,7 +661,15 @@
     ],
     "claimed": 1,
     "sourceUrl": "https://support.waveapps.com/hc/en-us/articles/115005571103-Is-Wave-available-in-my-language",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/wave-small-business-software/id881629660?see-all=reviews",
+     "appName": "Wave: Small Business Software",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Sheets",
@@ -706,7 +801,15 @@
     ],
     "claimed": 1,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/quo-formerly-openphone/id1241817309?platform=iphone&see-all=reviews",
+     "appName": "Quo (formerly OpenPhone)",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Salesforce",
@@ -1130,7 +1233,67 @@
     ],
     "claimed": 51,
     "sourceUrl": "https://bitwarden.com/help/localization/",
-    "totalClaim": "more than 60 languages"
+    "totalClaim": "more than 60 languages",
+    "store": {
+     "list": [
+      "Afrikaans",
+      "Arabic",
+      "Azerbaijani",
+      "Basque",
+      "Bengali",
+      "Bulgarian",
+      "Burmese",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Galician",
+      "Georgian",
+      "German",
+      "Greek",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Korean",
+      "Latvian",
+      "Lithuanian",
+      "Malayalam",
+      "Marathi",
+      "Nepali",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Sinhala",
+      "Slovak",
+      "Slovenian",
+      "Spanish",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese",
+      "Welsh"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/bitwarden-password-manager/id1137397744?see-all=reviews",
+     "appName": "Bitwarden Password Manager",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Chrome",
@@ -1475,7 +1638,31 @@
     ],
     "claimed": 109,
     "sourceUrl": "https://support.deepl.com/hc/en-us/articles/360019925219-DeepL-Translator-languages",
-    "totalClaim": "100+ languages"
+    "totalClaim": "100+ languages",
+    "store": {
+     "list": [
+      "Arabic",
+      "Czech",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Polish",
+      "Portuguese",
+      "Russian",
+      "Chinese",
+      "Spanish",
+      "Turkish",
+      "Ukrainian"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/deepl-translate/id1552407475?platform=iphone&see-all=reviews",
+     "appName": "DeepL Translate",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "DeepL for Chrome",
@@ -1696,7 +1883,25 @@
     ],
     "claimed": 92,
     "sourceUrl": "https://elevenlabs.io/docs/help-center/other/what-languages-do-you-support",
-    "totalClaim": "90+ languages"
+    "totalClaim": "90+ languages",
+    "store": {
+     "list": [
+      "Arabic",
+      "Croatian",
+      "English",
+      "French",
+      "German",
+      "Hindi",
+      "Italian",
+      "Japanese",
+      "Polish",
+      "Portuguese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/elevenlabs-ai-voice-generator/id6743162587",
+     "appName": "ElevenLabs: AI Voice Generator",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Twilio"
@@ -1943,7 +2148,86 @@
     ],
     "claimed": 86,
     "sourceUrl": "",
-    "totalClaim": "100 languages"
+    "totalClaim": "100 languages",
+    "store": {
+     "list": [
+      "Afrikaans",
+      "Albanian",
+      "Arabic",
+      "Armenian",
+      "Azerbaijani",
+      "Basque",
+      "Bengali",
+      "Bulgarian",
+      "Burmese",
+      "Khmer",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Galician",
+      "Georgian",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hausa",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Igbo",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Kazakh",
+      "Korean",
+      "Kurdish",
+      "Latvian",
+      "Lithuanian",
+      "Macedonian",
+      "Malay",
+      "Malayalam",
+      "Marathi",
+      "Mongolian",
+      "Nepali",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Sinhala",
+      "Slovak",
+      "Slovenian",
+      "Somali",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Uzbek",
+      "Vietnamese",
+      "Welsh",
+      "Xhosa",
+      "Yoruba",
+      "Zulu"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/canva-ai-photo-video-editor/id897446215?see-all=reviews",
+     "appName": "Canva AI Photo & Video Editor",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Salesforce",
@@ -2373,7 +2657,46 @@
     ],
     "claimed": 33,
     "sourceUrl": "",
-    "totalClaim": "English and 32 more"
+    "totalClaim": "English and 32 more",
+    "store": {
+     "list": [
+      "Arabic",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Finnish",
+      "French",
+      "German",
+      "Greek",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Malay",
+      "Norwegian",
+      "Polish",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Chinese",
+      "Slovak",
+      "Spanish",
+      "Swedish",
+      "Tagalog",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/meta-business-suite/id514643583?see-all=reviews",
+     "appName": "Meta Business Suite",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Facebook Page",
@@ -2521,7 +2844,28 @@
     ],
     "claimed": 14,
     "sourceUrl": "https://support.buffer.com/en-us/articles/can-i-use-buffer-in-another-language-wetiyDOiI4",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Arabic",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Hindi",
+      "Italian",
+      "Japanese",
+      "Polish",
+      "Chinese",
+      "Spanish",
+      "Thai",
+      "Turkish",
+      "Ukrainian"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/buffer-plan-schedule-posts/id490474324?platform=iphone&see-all=reviews",
+     "appName": "Buffer: Plan & Schedule Posts",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Bitly",
@@ -2720,7 +3064,15 @@
     ],
     "claimed": 51,
     "sourceUrl": "https://support.google.com/google-ads/answer/6333734?hl=en",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/google-ads/id1037457231?platform=ipad&see-all=reviews",
+     "appName": "Google Ads",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Analytics",
@@ -2836,7 +3188,40 @@
     ],
     "claimed": 24,
     "sourceUrl": "",
-    "totalClaim": "English and 23 more"
+    "totalClaim": "English and 23 more",
+    "store": {
+     "list": [
+      "Arabic",
+      "Bulgarian",
+      "Croatian",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hindi",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Korean",
+      "Malay",
+      "Marathi",
+      "Polish",
+      "Portuguese",
+      "Chinese",
+      "Spanish",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/accounting-app-zoho-books/id710446064?platform=iphone&see-all=reviews",
+     "appName": "Accounting App - Zoho Books",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Zoho CRM",
@@ -2984,7 +3369,78 @@
     ],
     "claimed": 22,
     "sourceUrl": "https://support.google.com/docs/answer/58515?hl=en",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Afrikaans",
+      "Amharic",
+      "Arabic",
+      "Armenian",
+      "Azerbaijani",
+      "Basque",
+      "Bengali",
+      "Bulgarian",
+      "Khmer",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Galician",
+      "Georgian",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Icelandic",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Kazakh",
+      "Korean",
+      "Lao",
+      "Latvian",
+      "Lithuanian",
+      "Malay",
+      "Malayalam",
+      "Marathi",
+      "Mongolian",
+      "Nepali",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Sinhala",
+      "Slovak",
+      "Slovenian",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Vietnamese",
+      "Zulu"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/google-sheets/id842849113?see-all=reviews",
+     "appName": "Google Sheets",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Asana",
@@ -3126,7 +3582,18 @@
     ],
     "claimed": 11,
     "sourceUrl": "https://quickbooks.intuit.com/global/faq/",
-    "totalClaim": "11"
+    "totalClaim": "11",
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "Portuguese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/intuit-quickbooks-for-business/id584606479?see-all=reviews",
+     "appName": "Intuit QuickBooks for Business",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Payments",
@@ -3264,7 +3731,15 @@
     ],
     "claimed": 1,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1471090941",
+     "appName": "Keeper: Tax Filing & Expenses",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Plaid"
@@ -3530,7 +4005,26 @@
     ],
     "claimed": 26,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Portuguese",
+      "Chinese",
+      "Spanish",
+      "Swedish",
+      "Thai"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/stripe-dashboard/id978516833?platform=iphone&see-all=reviews",
+     "appName": "Stripe Dashboard",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "MemberSpace"
@@ -3653,7 +4147,19 @@
     ],
     "claimed": 4,
     "sourceUrl": "https://squareup.com/us/en/the-bottom-line/selling-anywhere/square-register-app-now-available-worldwide",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Catalan",
+      "English",
+      "French",
+      "Japanese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/square-point-of-sale-pos/id335393788?platform=iphone&see-all=reviews",
+     "appName": "Square Point of Sale (POS)",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Square Payroll",
@@ -3931,7 +4437,18 @@
     ],
     "claimed": 1,
     "sourceUrl": "https://support.ramp.com/get-started-with-ramp/set-up-with-ramp",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "Japanese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/ramp/id1628197245?see-all=reviews&platform=ipad",
+     "appName": "Ramp",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -4207,7 +4724,40 @@
     ],
     "claimed": 28,
     "sourceUrl": "",
-    "totalClaim": "27"
+    "totalClaim": "27",
+    "store": {
+     "list": [
+      "Arabic",
+      "Bulgarian",
+      "Croatian",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hindi",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Korean",
+      "Malay",
+      "Marathi",
+      "Polish",
+      "Portuguese",
+      "Chinese",
+      "Spanish",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1037960494",
+     "appName": "Zoho Inventory Management App",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Zoho Books",
@@ -4325,7 +4875,24 @@
     ],
     "claimed": 9,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Danish",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Italian",
+      "Polish",
+      "Portuguese",
+      "Spanish",
+      "Swedish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/faire-wholesale/id1413340491?platform=iphone&see-all=reviews",
+     "appName": "Faire Wholesale",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Shopify",
@@ -4446,7 +5013,15 @@
     ],
     "claimed": 1,
     "sourceUrl": "https://help.sortly.com/can-i-use-sortly-in-a-different-language",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/sortly-inventory-simplified/id529353551?platform=ipad&see-all=reviews",
+     "appName": "Sortly: Inventory Simplified",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -4730,7 +5305,17 @@
     ],
     "claimed": 3,
     "sourceUrl": "https://kb.7shifts.com/hc/en-us/articles/4417519528211-Language-Support",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/7shifts-employee-scheduling/id731444612?platform=iphone&see-all=reviews",
+     "appName": "7shifts: Employee Scheduling",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Gusto",
@@ -4871,7 +5456,17 @@
     ],
     "claimed": 20,
     "sourceUrl": "https://help.connecteam.com/en/articles/5365277-configure-your-preferred-language",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "Hebrew",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/connecteam-team-management-app/id1121613912?platform=iphone&see-all=reviews",
+     "appName": "Connecteam Team Management App",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -5121,7 +5716,16 @@
     ],
     "claimed": 2,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1474007759",
+     "appName": "Roll by ADP – Easy Payroll App",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online"
@@ -5431,7 +6035,43 @@
     ],
     "claimed": 16,
     "sourceUrl": "",
-    "totalClaim": "28 languages"
+    "totalClaim": "28 languages",
+    "store": {
+     "list": [
+      "Arabic",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Finnish",
+      "French",
+      "German",
+      "Greek",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Malay",
+      "Norwegian",
+      "Polish",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Chinese",
+      "Spanish",
+      "Swedish",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/indeed-job-search/id309735670?platform=iphone&see-all=reviews",
+     "appName": "Indeed Job Search",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Indeed Smart Sourcing",
@@ -5619,7 +6259,52 @@
     ],
     "claimed": 59,
     "sourceUrl": "https://faq.whatsapp.com/873422324183264",
-    "totalClaim": "over 40 languages on iOS and over 60 on Android"
+    "totalClaim": "over 40 languages on iOS and over 60 on Android",
+    "store": {
+     "list": [
+      "Arabic",
+      "Bengali",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Finnish",
+      "French",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Indonesian",
+      "Irish",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Malay",
+      "Marathi",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Chinese",
+      "Slovak",
+      "Spanish",
+      "Swedish",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/whatsapp-business/id1386412985?see-all=reviews",
+     "appName": "WhatsApp Business",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Meta Verified",
@@ -5727,7 +6412,82 @@
     ],
     "claimed": 7,
     "sourceUrl": "https://support.google.com/voice/answer/168515?hl=en&co=GENIE.Platform%3DDesktop",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Afrikaans",
+      "Albanian",
+      "Amharic",
+      "Arabic",
+      "Armenian",
+      "Azerbaijani",
+      "Basque",
+      "Bengali",
+      "Bulgarian",
+      "Burmese",
+      "Khmer",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Galician",
+      "Georgian",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Icelandic",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Kazakh",
+      "Korean",
+      "Lao",
+      "Latvian",
+      "Lithuanian",
+      "Macedonian",
+      "Malay",
+      "Malayalam",
+      "Marathi",
+      "Mongolian",
+      "Nepali",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Sinhala",
+      "Slovak",
+      "Slovenian",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Uzbek",
+      "Vietnamese",
+      "Zulu"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/google-voice/id318698524?platform=iphone&see-all=reviews",
+     "appName": "Google Voice",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Gmail",
@@ -5924,7 +6684,18 @@
     ],
     "claimed": 48,
     "sourceUrl": "https://help.tidio.com/hc/en-us/articles/12643043611036-Lyro-Multilanguage-support",
-    "totalClaim": "48 supported languages"
+    "totalClaim": "48 supported languages",
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "Russian",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id916822567",
+     "appName": "Tidio",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Analytics",
@@ -6100,7 +6871,19 @@
     ],
     "claimed": 8,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "German",
+      "Portuguese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/calendly-meeting-scheduling/id1451094657?see-all=reviews",
+     "appName": "Calendly: Meeting Scheduling",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Office 365",
@@ -6265,7 +7048,19 @@
     ],
     "claimed": 4,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Catalan",
+      "English",
+      "French",
+      "Japanese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/square-appointments-scheduler/id1023050786?platform=iphone&see-all=reviews",
+     "appName": "Square Appointments: Scheduler",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Calendar",
@@ -6629,7 +7424,72 @@
     ],
     "claimed": 59,
     "sourceUrl": "",
-    "totalClaim": "59 languages beyond English"
+    "totalClaim": "59 languages beyond English",
+    "store": {
+     "list": [
+      "Albanian",
+      "Amharic",
+      "Arabic",
+      "Armenian",
+      "Bengali",
+      "Bulgarian",
+      "Burmese",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Georgian",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hindi",
+      "Hungarian",
+      "Icelandic",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Kazakh",
+      "Korean",
+      "Latvian",
+      "Lithuanian",
+      "Macedonian",
+      "Malay",
+      "Malayalam",
+      "Marathi",
+      "Mongolian",
+      "Norwegian",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Slovak",
+      "Slovenian",
+      "Somali",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Tagalog",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/chatgpt/id6448311069?platform=vision&see-all=reviews",
+     "appName": "ChatGPT",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Slack",
@@ -6922,7 +7782,15 @@
     "list": [],
     "claimed": 1,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/zenbusiness-llc-formation/id1588955434",
+     "appName": "ZenBusiness: LLC Formation",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "PayPal",
@@ -7151,7 +8019,23 @@
     ],
     "claimed": 9,
     "sourceUrl": "https://nextdoor.com/api/settings/locales",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Catalan",
+      "Danish",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Italian",
+      "Spanish",
+      "Swedish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/nextdoor-neighborhood-network/id640360962?see-all=reviews",
+     "appName": "Nextdoor: Neighborhood Network",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [],
    "caution": "Continuous ad campaigns bill 31 days upfront and recharge every 31 days until canceled, and canceling still runs to the end of the paid cycle; fixed-length campaigns under 31 days cannot be canceled once running. Casual services like dog walking or babysitting need official business documents to post to the neighborhood newsfeed.",
@@ -7338,7 +8222,15 @@
     ],
     "claimed": 8,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1487448481",
+     "appName": "FoodDocs | Food Safety System",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "ConnectedFresh",
@@ -7802,7 +8694,45 @@
     ],
     "claimed": 49,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Arabic",
+      "Bengali",
+      "Czech",
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Greek",
+      "Hindi",
+      "Hungarian",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Kannada",
+      "Korean",
+      "Marathi",
+      "Polish",
+      "Portuguese",
+      "Punjabi",
+      "Romanian",
+      "Russian",
+      "Chinese",
+      "Spanish",
+      "Swedish",
+      "Tamil",
+      "Telugu",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Urdu",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/duolingo-learn-languages/id570060128?platform=iphone&see-all=reviews",
+     "appName": "Duolingo: Learn Languages",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [],
    "caution": "Duolingo does not publish one fixed price list, so prices shown on checkout may differ by account, platform and country, and a Lite plan appears to be in testing only. The results do not give a monthly price for Duolingo for Business or any fees for small businesses, and the results name no integrations with other apps. Check duolingo.com and languageappguide.com for current prices.",
@@ -8051,7 +8981,30 @@
     ],
     "claimed": 17,
     "sourceUrl": "https://help.quizlet.com/hc/en-us/articles/360031056971-Changing-language-settings",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Dutch",
+      "English",
+      "French",
+      "German",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Polish",
+      "Portuguese",
+      "Russian",
+      "Chinese",
+      "Spanish",
+      "Turkish",
+      "Ukrainian",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/quizlet-more-than-flashcards/id546473125?see-all=reviews",
+     "appName": "Quizlet: More than Flashcards",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Classroom",
@@ -9897,7 +10850,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6794984306",
+     "appName": "DynaTax AI",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks",
@@ -10556,7 +11517,15 @@
     "list": [],
     "claimed": 1,
     "sourceUrl": "https://cpos.com/terminal/merchant-guide",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6747078851",
+     "appName": "CPOS: Tap to Pay Card Reader",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Stripe",
@@ -10753,7 +11722,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6751765356",
+     "appName": "Paybrain: POS & AI Invoicing",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Stripe",
@@ -10922,7 +11899,73 @@
     ],
     "claimed": 62,
     "sourceUrl": "",
-    "totalClaim": "60+ languages"
+    "totalClaim": "60+ languages",
+    "store": {
+     "list": [
+      "Afrikaans",
+      "Albanian",
+      "Arabic",
+      "Azerbaijani",
+      "Basque",
+      "Bengali",
+      "Bulgarian",
+      "Burmese",
+      "Khmer",
+      "Catalan",
+      "Croatian",
+      "Czech",
+      "Danish",
+      "Dutch",
+      "English",
+      "Estonian",
+      "Finnish",
+      "French",
+      "Galician",
+      "German",
+      "Greek",
+      "Gujarati",
+      "Hebrew",
+      "Hindi",
+      "Hungarian",
+      "Icelandic",
+      "Indonesian",
+      "Irish",
+      "Italian",
+      "Japanese",
+      "Kazakh",
+      "Korean",
+      "Latvian",
+      "Lithuanian",
+      "Macedonian",
+      "Maltese",
+      "Marathi",
+      "Mongolian",
+      "Norwegian",
+      "Persian",
+      "Polish",
+      "Portuguese",
+      "Romanian",
+      "Russian",
+      "Serbian",
+      "Chinese",
+      "Sinhala",
+      "Slovak",
+      "Slovenian",
+      "Spanish",
+      "Swahili",
+      "Swedish",
+      "Tamil",
+      "Thai",
+      "Turkish",
+      "Ukrainian",
+      "Uzbek",
+      "Vietnamese",
+      "Welsh"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6766316574",
+     "appName": "Aviy – AI Invoice generator",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Stripe",
@@ -14273,7 +15316,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6760205584",
+     "appName": "AnchOps",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Toast POS",
@@ -14429,7 +15480,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6762584499",
+     "appName": "Mays - Operations",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Square",
@@ -15206,7 +16265,15 @@
     ],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6769112354",
+     "appName": "SalonAiX",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google",
@@ -16305,7 +17372,16 @@
     ],
     "claimed": 2,
     "sourceUrl": "https://help.housecallpro.com/en/articles/10553447-using-housecall-pro-mobile-apps-in-spanish",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id692833651",
+     "appName": "Housecall Pro: Field Service",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -16778,7 +17854,15 @@
     ],
     "claimed": 2,
     "sourceUrl": "https://help.getjobber.com/en/articles/spanish-language-in-jobber-faq/",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1014146758",
+     "appName": "Jobber Field Service Software",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -17263,7 +18347,15 @@
     ],
     "claimed": 6,
     "sourceUrl": "https://zenmaid.com/answers/en/articles/1294852-how-to-add-staff-members-and-give-them-access-to-zenmaid",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1357534769",
+     "appName": "ZenMaid Legacy",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Stripe",
@@ -17493,7 +18585,26 @@
     ],
     "claimed": 13,
     "sourceUrl": "https://help.deputy.com/hc/en-au/articles/4621854798223-Manage-different-languages-in-the-workplace-with-Deputy",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "German",
+      "Indonesian",
+      "Italian",
+      "Japanese",
+      "Korean",
+      "Portuguese",
+      "Chinese",
+      "Spanish",
+      "Thai",
+      "Vietnamese"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id477070330",
+     "appName": "Deputy: Shift Schedule Maker",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "ADP",
@@ -17889,7 +19000,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id922995624",
+     "appName": "Sling: Employee Scheduling App",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Toast",
@@ -18275,7 +19394,15 @@
     ],
     "claimed": 5,
     "sourceUrl": "https://www.xenia.team/articles/manage-training-across-multiple-locations",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1605760701",
+     "appName": "Xenia Team",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Workday",
@@ -19327,7 +20454,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1094643426",
+     "appName": "SalonBridge",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Zapier",
@@ -19806,7 +20941,18 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "Portuguese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id665859578",
+     "appName": "Setmore Appointment Scheduling",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Square",
@@ -20146,7 +21292,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1498910745",
+     "appName": "SimplyBook.me admin",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Zapier",
@@ -20371,7 +21525,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/breezeworks/id738494922?see-all=reviews",
+     "appName": "Breezeworks",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -20478,7 +21640,16 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1526947450",
+     "appName": "Contractor+ Invoice & Estimate",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Zapier",
@@ -21414,7 +22585,20 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "French",
+      "German",
+      "Italian",
+      "Japanese",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1488002482",
+     "appName": "Houzz Pro",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks"
@@ -21476,7 +22660,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1610898044",
+     "appName": "EasyCleanApp for HouseCleaners",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Zapier"
@@ -21987,7 +23179,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id1081286979",
+     "appName": "GlossGenius: Booking, Payments",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Reserve with Google"
@@ -22187,7 +23387,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6759999177",
+     "appName": "Beautifyx: Beauty Business App",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Stripe",
@@ -22665,7 +23873,15 @@
     ],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6443745710",
+     "appName": "Avocado POS",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "DoorDash",
@@ -23362,7 +24578,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6470666320",
+     "appName": "Handoff Construction Estimator",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [],
    "caution": null,
@@ -23512,7 +24736,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6780327228",
+     "appName": "Feldy",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [],
    "caution": null,
@@ -25518,7 +26750,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id981780416",
+     "appName": "Simple Salon",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [],
    "caution": null,
@@ -26111,7 +27351,16 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English",
+      "Spanish"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6820324239",
+     "appName": "ServFlo Tech",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Thinkfleet AI"
@@ -27047,7 +28296,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6759870568",
+     "appName": "Fixlify AI: Field Service CRM",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "Google Ads"
@@ -27158,7 +28415,15 @@
     "list": [],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "English"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6782498369",
+     "appName": "Field PM",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [
     "QuickBooks Online",
@@ -27408,7 +28673,23 @@
     ],
     "claimed": 0,
     "sourceUrl": "",
-    "totalClaim": null
+    "totalClaim": null,
+    "store": {
+     "list": [
+      "Danish",
+      "English",
+      "French",
+      "German",
+      "Norwegian",
+      "Polish",
+      "Spanish",
+      "Swedish",
+      "Ukrainian"
+     ],
+     "sourceUrl": "https://apps.apple.com/us/app/id6773744580",
+     "appName": "SweepOS",
+     "checkedAt": "2026-11-23"
+    }
    },
    "integrations": [],
    "caution": null,

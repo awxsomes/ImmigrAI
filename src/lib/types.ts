@@ -11,7 +11,7 @@ export type PricingModel = "free" | "freemium" | "paid" | "trial";
  */
 export type PriceKind = "free" | "free-plan" | "no-monthly-fee" | "you-set-budget" | "per-return" | "monthly";
 
-/** The kind of AI a tool runs. Drives the Environmental Impact estimate. */
+/** The kind of AI a tool runs. Drives the energy use estimate. */
 export type Workload =
   | "none"
   | "background-ml"
@@ -92,16 +92,10 @@ export interface ToolPricing {
   verified: boolean;
 }
 
+/** An estimate of energy use, shown on a tool's own page. Never part of the score. */
 export interface EnvironmentalEstimate {
-  /** 0-100 each. Higher means a lighter footprint. */
-  energy: number;
-  water: number;
-  carbon: number;
-  compute: number;
-  /** Weighted total, 0-100. */
-  score: number;
   workload: Workload;
-  /** Physical estimates per task, shown so the score is not a black box. */
+  /** Physical estimates per task, from the workload class. */
   perTask: { wattHours: number; waterMl: number; co2Grams: number };
 }
 
@@ -120,18 +114,32 @@ export interface ReviewSummary {
   sources: ReviewSource[];
 }
 
+/**
+ * Where one part of the score came from.
+ * person: a person checked it by hand. source: read from a cited page.
+ * estimate: a model's reading or our own rule of thumb, with nothing on a page to confirm it.
+ */
+export type ScoreBasis = "person" | "source" | "estimate";
+
 export interface ToolScores {
   /** How closely it is made for one job, out of 5. */
   focus: number;
+  /** The star rating used in the score: confirmed reviews pulled toward the catalog average. */
+  reviews: number;
   easeOfUse: number;
   affordability: number;
   languageSupport: number;
   compatibility: number;
   /** 0-100 blended score. */
   overall: number;
-  /** False when reviews could not be confirmed, so the score leaves them out. */
+  /** False when reviews could not be confirmed, so the reviews part is the catalog average. */
   overallIncludesReviews: boolean;
+  /** Where each part came from. Missing on tools saved by an earlier version. */
+  basis?: Record<"focus" | "reviews" | "easeOfUse" | "affordability" | "languageSupport" | "compatibility", ScoreBasis>;
 }
+
+/** What a person checked by hand on this tool, which wins over research. */
+export type PersonCheck = "focus" | "price" | "ai";
 
 export interface Tool {
   slug: string;
@@ -152,6 +160,11 @@ export interface Tool {
   pricing: ToolPricing;
   /** Languages confirmed from a cited page. English names. */
   languages: string[];
+  /**
+   * True when a full language list was read, from the company's own language page or an app
+   * store listing. Only then does a missing language mean "not supported" rather than "not checked".
+   */
+  languagesChecked?: boolean;
   languagesSourceUrl?: string;
   /** A stated total such as "130+ languages", when the page gives one. */
   languagesTotal?: string;
@@ -172,6 +185,10 @@ export interface Tool {
   caution?: string;
   /** Nonprofit or government help, which review sites do not measure fairly. */
   publicResource?: boolean;
+  /** Parts a person checked by hand. Empty or missing when every part came from research. */
+  checkedByPerson?: PersonCheck[];
+  /** Other domains the company uses, such as zettle.com for PayPal Zettle. */
+  aliasDomains?: string[];
 }
 
 export interface Category {

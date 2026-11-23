@@ -1,6 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import { ArrowIcon, CheckIcon, StarIcon } from "@/components/icons";
+import { ArrowIcon, CheckIcon, ChevronIcon, StarIcon } from "@/components/icons";
 import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { aiLabel, displayLanguage, nextPlanText, priceConfirmation, priceText } from "@/lib/format";
@@ -11,14 +11,15 @@ import { AdoptionGuide, TeamEstimate } from "./adoption-guide";
 import { AdviceNote } from "./advice-note";
 import { PromptHelper } from "./prompt-helper";
 import { FactLine, RatingText } from "./tool-card";
-import { envLabel, ENV_WEIGHTS, focusScore, OVERALL_WEIGHTS } from "@/lib/scoring";
-import type { Tool } from "@/lib/types";
+import { adjustedRating, energyLevel, focusScore, OVERALL_WEIGHTS, RATING_PRIOR } from "@/lib/scoring";
+import { SITE } from "@/lib/site";
+import type { ScoreBasis, Tool } from "@/lib/types";
 
 /** Every word the tool page uses, so the same page can render on the server or in the browser. */
 export const DETAIL_KEYS = [
-  "card_cost", "card_rating", "card_footprint", "card_language", "card_connects", "card_score", "card_scoreOf",
+  "card_cost", "card_rating", "card_language", "card_connects", "card_score", "card_scoreOf",
   "card_noRating", "card_publicResource", "card_priceUnconfirmed", "card_ratingLine", "card_fromSites", "card_fromSite",
-  "card_reviewCount", "card_new", "card_noConnections", "card_more", "card_worksInLang", "card_notConfirmedLang",
+  "card_reviewCount", "card_foundLive", "card_noConnections", "card_more", "card_worksInLang", "lang_notChecked", "lang_notSupported",
   "card_languageCount", "card_languageOne", "card_seeLanguages", "card_connectsExisting", "card_details", "card_free",
   "card_freePlan", "card_noMonthlyFee", "card_youSetBudget", "card_perReturn",
   "card_aiCore", "card_aiFeature", "card_aiNone", "card_aiDoes", "card_smallTool", "tool_smallNote",
@@ -27,16 +28,17 @@ export const DETAIL_KEYS = [
   "tool_plansTitle", "tool_planName", "tool_planPrice", "tool_planIncludes", "per_business", "per_person", "per_location", "per_use",
   "card_builtFor", "card_generalNote", "trade_restaurant", "trade_salon", "trade_retail", "trade_trades", "trade_cleaning",
   ...ADOPT_KEYS, ...PROMPT_KEYS,
-  "env_light", "env_moderate", "env_heavy",
   "wl_none", "wl_background-ml", "wl_optional-genai", "wl_translation", "wl_llm-every-reply", "wl_speech", "wl_image-video", "wl_voice-agent",
   "wld_none", "wld_background-ml", "wld_optional-genai", "wld_translation", "wld_llm-every-reply", "wld_speech", "wld_image-video", "wld_voice-agent",
-  "tool_helps", "tool_cost", "tool_costNote", "tool_env", "tool_envNote", "tool_envEnergy", "tool_envWater", "tool_envCarbon", "tool_envCompute",
-  "tool_reviews", "tool_score", "tool_languagesAll", "tool_worksWith", "tool_start", "tool_caution", "tool_foundLive",
+  "tool_helps", "tool_cost", "tool_costNote",
+  "tool_reviews", "tool_score", "tool_languagesAll", "tool_worksWith", "tool_start", "tool_caution", "tool_foundLiveFull",
   "tool_whatItUses", "tool_ratingBySite", "tool_site", "tool_stars", "tool_reviewsCol", "tool_notShown", "tool_noReviewsYet", "tool_publicResourceNote",
-  "tool_reviewCheck", "tool_priceSource", "tool_languageSource", "tool_statedTotal", "tool_languagesNote", "tool_perTask", "tool_wattHours", "tool_waterMl",
-  "tool_co2", "tool_howWeCalc", "tool_scoreParts", "tool_scoreNoReviews", "tool_startAlone", "tool_setupAbout", "tool_runsOn", "tool_nothingConfirmed",
+  "tool_reviewCheck", "tool_priceSource", "tool_languageSource", "tool_statedTotal", "tool_languagesFullList", "tool_languagesUnchecked",
+  "tool_howWeCalc", "tool_scoreParts", "tool_scoreAverageNote", "tool_scoreBasisNote", "tool_startAlone", "tool_setupAbout", "tool_runsOn", "tool_nothingConfirmed",
   "tool_checked", "tool_openSite", "tool_leaving", "tool_estimate", "nav_breadcrumb",
-  "score_focus", "score_reviews", "score_ease", "score_cost", "score_languages", "score_connections", "score_footprint",
+  "tool_personChecked", "tool_personCheckedNote", "check_focus", "check_price", "check_ai", "tool_reportMistake", "report_subject", "report_body",
+  "tool_energyTitle", "tool_energyLine", "tool_energyScale", "tool_energyNote", "energy_low", "energy_medium", "energy_high",
+  "score_focus", "score_reviews", "score_ease", "score_cost", "score_languages", "score_connections", "score_reviewsAverage", "basis_confirmed", "basis_estimate",
   ...ADVICE_KEYS,
 ] as const;
 
@@ -72,10 +74,26 @@ export interface Crumb {
   label: string;
 }
 
-function Meter({ label, value, max, display }: { label: string; value: number; max: number; display: string }) {
+type BasisLabels = Pick<Dict, "basis_confirmed" | "basis_estimate">;
+
+/** Says whether a part of the score was confirmed (from a page, or by a person) or is an estimate. */
+function BasisTag({ basis, t }: { basis: ScoreBasis; t: BasisLabels }) {
+  const confirmed = basis !== "estimate";
+  return (
+    <span className={`ml-2 inline-block rounded-full px-2 py-0.5 text-xs font-semibold ${confirmed ? "bg-blue-tint text-blue-dark" : "bg-soft text-muted-ink"}`}>
+      {confirmed ? t.basis_confirmed : t.basis_estimate}
+    </span>
+  );
+}
+
+function Meter({ label, value, max, display, basis, note, t }: { label: string; value: number; max: number; display: string; basis: ScoreBasis; note?: string; t: BasisLabels }) {
   return (
     <div className="grid grid-cols-[1fr_auto] gap-x-3">
-      <dt>{label}</dt>
+      <dt>
+        {label}
+        <BasisTag basis={basis} t={t} />
+        {note && <span className="block text-sm text-muted-ink">{note}</span>}
+      </dt>
       <dd className="font-semibold">{display}</dd>
       <dd className="col-span-2 mt-1 h-2.5 overflow-hidden rounded-full bg-line" aria-hidden="true">
         <div className="h-full rounded-full bg-blue" style={{ width: `${Math.max(2, Math.min(100, (value / max) * 100))}%` }} />
@@ -84,27 +102,39 @@ function Meter({ label, value, max, display }: { label: string; value: number; m
   );
 }
 
-type ScoreLabels = Pick<Dict, "score_focus" | "score_reviews" | "score_ease" | "score_cost" | "score_languages" | "score_connections" | "score_footprint">;
+type ScoreLabels = BasisLabels & Pick<Dict, "score_focus" | "score_reviews" | "score_ease" | "score_cost" | "score_languages" | "score_connections" | "score_reviewsAverage">;
+type ScorePart = "focus" | "reviews" | "easeOfUse" | "affordability" | "languageSupport" | "compatibility";
 
-/** The parts of a tool's score, each with its weight. Used on the tool page and the home page example. */
+/**
+ * The parts of a tool's score, each with its weight and whether it was confirmed or estimated.
+ * Used on the tool page and the home page example.
+ */
 export function ScoreMeters({ tool, t }: { tool: Tool; t: ScoreLabels }) {
   const w = OVERALL_WEIGHTS;
-  const { rating } = tool.reviews;
-  const env = tool.environmental;
+  const s = tool.scores;
   const pct = (weight: number) => Math.round(weight * 100);
-  // A tool saved on this device by an earlier version has no focus score yet.
-  const focus = tool.scores.focus ?? focusScore(tool.focus ?? "task");
+  // A tool saved on this device by an earlier version has none of these yet, so they count as estimates.
+  const focus = s.focus ?? focusScore(tool.focus ?? "task");
+  const reviews = s.reviews ?? adjustedRating(tool.reviews.rating, tool.reviews.reviewCount);
+  const basis: Record<ScorePart, ScoreBasis> = s.basis ?? {
+    focus: "estimate",
+    reviews: tool.reviews.rating === null ? "estimate" : "source",
+    easeOfUse: "estimate",
+    affordability: "estimate",
+    languageSupport: "estimate",
+    compatibility: "estimate",
+  };
+  const part = (label: string, weight: number, value: number, key: ScorePart, note?: string) => (
+    <Meter label={`${label} (${pct(weight)}%)`} value={value} max={5} display={`${value} / 5`} basis={basis[key]} note={note} t={t} />
+  );
   return (
     <dl className="space-y-3">
-      <Meter label={`${t.score_focus} (${pct(w.focus)}%)`} value={focus} max={5} display={`${focus} / 5`} />
-      {tool.scores.overallIncludesReviews && rating !== null && (
-        <Meter label={`${t.score_reviews} (${pct(w.reviews)}%)`} value={rating} max={5} display={`${rating} / 5`} />
-      )}
-      <Meter label={`${t.score_ease} (${pct(w.easeOfUse)}%)`} value={tool.scores.easeOfUse} max={5} display={`${tool.scores.easeOfUse} / 5`} />
-      <Meter label={`${t.score_cost} (${pct(w.affordability)}%)`} value={tool.scores.affordability} max={5} display={`${tool.scores.affordability} / 5`} />
-      <Meter label={`${t.score_languages} (${pct(w.languageSupport)}%)`} value={tool.scores.languageSupport} max={5} display={`${tool.scores.languageSupport} / 5`} />
-      <Meter label={`${t.score_connections} (${pct(w.compatibility)}%)`} value={tool.scores.compatibility} max={5} display={`${tool.scores.compatibility} / 5`} />
-      <Meter label={`${t.score_footprint} (${pct(w.environment)}%)`} value={env.score} max={100} display={`${env.score} / 100`} />
+      {part(t.score_focus, w.focus, focus, "focus")}
+      {part(t.score_reviews, w.reviews, reviews, "reviews", tool.reviews.rating === null ? t.score_reviewsAverage : undefined)}
+      {part(t.score_ease, w.easeOfUse, s.easeOfUse, "easeOfUse")}
+      {part(t.score_cost, w.affordability, s.affordability, "affordability")}
+      {part(t.score_languages, w.languageSupport, s.languageSupport, "languageSupport")}
+      {part(t.score_connections, w.compatibility, s.compatibility, "compatibility")}
     </dl>
   );
 }
@@ -114,6 +144,31 @@ const OUT = { target: "_blank", rel: "noopener noreferrer nofollow" } as const;
 /** Client components get only the words they use, so the page stays light. */
 function only<K extends keyof DetailLabels>(t: DetailLabels, keys: readonly K[]) {
   return Object.fromEntries(keys.map((key) => [key, t[key]])) as Pick<DetailLabels, K>;
+}
+
+/** "Checked by a person: who it is made for and the price." Shown only when a person changed something. */
+function PersonChecked({ tool, lang, t }: { tool: Tool; lang: string; t: DetailLabels }) {
+  const checks = tool.checkedByPerson ?? [];
+  if (checks.length === 0) return null;
+  const items = new Intl.ListFormat(lang, { type: "conjunction" }).format(checks.map((check) => t[`check_${check}`]));
+  return (
+    <p className="mt-3 max-w-3xl text-sm text-muted-ink">
+      <span className="font-semibold text-ink">{fmt(t.tool_personChecked, { items })}</span> {t.tool_personCheckedNote}
+    </p>
+  );
+}
+
+/** A ready-to-send email about this page. Hidden until the site has a contact address. */
+function ReportMistake({ tool, lang, t, className }: { tool: Tool; lang: string; t: DetailLabels; className?: string }) {
+  if (!SITE.contactEmail) return null;
+  const subject = fmt(t.report_subject, { name: tool.name });
+  const body = fmt(t.report_body, { url: `/${lang}/tools/${tool.slug}` });
+  const href = `mailto:${SITE.contactEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  return (
+    <a href={href} className={`inline-block py-1 text-sm underline underline-offset-2 ${className ?? ""}`}>
+      {t.tool_reportMistake}
+    </a>
+  );
 }
 
 function PlanTable({ tool, t }: { tool: Tool; t: DetailLabels }) {
@@ -164,6 +219,7 @@ export function ToolDetail({
   crumbs?: Crumb[];
 }) {
   const env = tool.environmental;
+  const level = energyLevel(env.perTask.wattHours);
   const { rating, sources, reviewCount, summary } = tool.reviews;
   const includesReviews = tool.scores.overallIncludesReviews;
   const languages = [...tool.languages].map((l) => displayLanguage(l, lang)).sort((a, b) => a.localeCompare(b, lang));
@@ -199,7 +255,7 @@ export function ToolDetail({
           <FactLine tool={tool} t={t} className="mt-3 text-lg" />
           <p className="mt-4 flex flex-wrap items-center gap-2">
             <Badge variant={tool.ai.level === "core" ? "warm" : tool.ai.level === "feature" ? "default" : "outline"}>{aiLabel(tool.ai.level, t)}</Badge>
-            {tool.source === "live" && <Badge variant="warm">{t.tool_foundLive}</Badge>}
+            {tool.source === "live" && <Badge variant="warm">{t.tool_foundLiveFull}</Badge>}
             {tool.trades?.map((trade) => (
               <Badge key={trade} variant="warm">
                 {fmt(t.card_builtFor, { trade: t[`trade_${trade}`] })}
@@ -214,6 +270,7 @@ export function ToolDetail({
           )}
           {tool.focus === "general" && <p className="mt-4 max-w-3xl rounded-lg bg-amber-tint p-3 font-medium">{t.card_generalNote}</p>}
           <AdviceNote tool={tool} lang={lang} t={t} className="mt-4 max-w-3xl p-3" />
+          <PersonChecked tool={tool} lang={lang} t={t} />
         </div>
 
         {/* The facts and the next step, together in one card so they are easy to find on any screen. */}
@@ -246,12 +303,6 @@ export function ToolDetail({
                 </a>
               </dd>
             </div>
-            <div className="py-3">
-              <dt className="text-sm text-muted-ink">{t.card_footprint}</dt>
-              <dd className="font-semibold">
-                {env.score}/100, {t[`env_${envLabel(env.score)}`]}
-              </dd>
-            </div>
           </dl>
           <div className="mt-5 grid gap-2">
             {tool.website && (
@@ -263,6 +314,7 @@ export function ToolDetail({
             )}
             {actions}
           </div>
+          <ReportMistake tool={tool} lang={lang} t={t} className="mt-3" />
         </aside>
       </div>
 
@@ -411,7 +463,7 @@ export function ToolDetail({
                 ))}
               </ul>
             )}
-            <p className="mt-3 text-sm text-muted-ink">{t.tool_languagesNote}</p>
+            <p className="mt-3 text-sm text-muted-ink">{tool.languagesChecked ? t.tool_languagesFullList : t.tool_languagesUnchecked}</p>
             {tool.languagesSourceUrl && (
               <a href={tool.languagesSourceUrl} {...OUT} className="mt-1 inline-block py-1 text-sm underline underline-offset-2">
                 {t.tool_languageSource}
@@ -434,36 +486,34 @@ export function ToolDetail({
             )}
           </Section>
 
-          <Section title={t.tool_env}>
-            <p className="text-xl font-semibold">
-              {env.score}/100, {t[`env_${envLabel(env.score)}`]}
-            </p>
-            <p className="mt-1">
-              <span className="font-medium">{t.tool_whatItUses}:</span> {t[`wl_${env.workload}`]}. {t[`wld_${env.workload}`]}
-            </p>
-            <dl className="mt-3 space-y-3">
-              <Meter label={`${t.tool_envEnergy} (${Math.round(ENV_WEIGHTS.energy * 100)}%)`} value={env.energy} max={100} display={String(env.energy)} />
-              <Meter label={`${t.tool_envWater} (${Math.round(ENV_WEIGHTS.water * 100)}%)`} value={env.water} max={100} display={String(env.water)} />
-              <Meter label={`${t.tool_envCarbon} (${Math.round(ENV_WEIGHTS.carbon * 100)}%)`} value={env.carbon} max={100} display={String(env.carbon)} />
-              <Meter label={`${t.tool_envCompute} (${Math.round(ENV_WEIGHTS.compute * 100)}%)`} value={env.compute} max={100} display={String(env.compute)} />
-            </dl>
-            <p className="mt-3 font-medium">{t.tool_perTask}</p>
-            <ul className="text-sm">
-              <li>{fmt(t.tool_wattHours, { n: env.perTask.wattHours })}</li>
-              <li>{fmt(t.tool_waterMl, { n: env.perTask.waterMl })}</li>
-              <li>{fmt(t.tool_co2, { n: env.perTask.co2Grams })}</li>
-            </ul>
-            <p className="mt-2 text-sm text-muted-ink">{t.tool_envNote}</p>
-            <Link href={`/${lang}/methodology`} prefetch={false} className="mt-1 inline-block py-1 text-sm underline underline-offset-2">
-              {t.tool_howWeCalc}
-            </Link>
-          </Section>
-
           <Section id="score" title={t.tool_scoreParts}>
             <ScoreMeters tool={tool} t={t} />
-            {!includesReviews && <p className="mt-3 text-sm">{t.tool_scoreNoReviews}</p>}
+            {!includesReviews && <p className="mt-3 text-sm">{fmt(t.tool_scoreAverageNote, { rating: RATING_PRIOR })}</p>}
+            <p className="mt-3 text-sm text-muted-ink">{t.tool_scoreBasisNote}</p>
             {tool.lastChecked && <p className="mt-3 text-sm text-muted-ink">{fmt(t.tool_checked, { date: tool.lastChecked })}</p>}
+            <ReportMistake tool={tool} lang={lang} t={t} />
           </Section>
+
+          {/* Kept out of the score and closed by default: a rough estimate, shown because some owners care about it. */}
+          <details className="group rounded-lg border border-line bg-surface p-5 sm:p-6">
+            <summary className="flex min-h-11 list-none items-center justify-between gap-3">
+              <h2 className="text-2xl font-bold">
+                {t.tool_energyTitle}: {t[`energy_${level}`]}
+              </h2>
+              <ChevronIcon className="size-5 shrink-0 transition-transform group-open:rotate-180" />
+            </summary>
+            <div className="mt-4 space-y-2">
+              <p>
+                <span className="font-medium">{t.tool_whatItUses}:</span> {t[`wl_${env.workload}`]}. {t[`wld_${env.workload}`]}
+              </p>
+              <p>{fmt(t.tool_energyLine, { n: env.perTask.wattHours })}</p>
+              <p className="text-sm text-muted-ink">{t.tool_energyScale}</p>
+              <p className="text-sm text-muted-ink">{t.tool_energyNote}</p>
+              <Link href={`/${lang}/methodology#energy`} prefetch={false} className="inline-block py-1 text-sm underline underline-offset-2">
+                {t.tool_howWeCalc}
+              </Link>
+            </div>
+          </details>
         </div>
       </div>
       {sidebar}

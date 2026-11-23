@@ -5,6 +5,7 @@ import { CATEGORIES } from "@/data/taxonomy";
 import { DOCS, type Doc, type DocKey } from "@/content/docs";
 import { TAXONOMY_NAMES } from "@/content/taxonomy-names";
 import { TRANSLATIONS, type TranslationSet } from "@/content/translations";
+import { planKeys } from "./translation-check";
 import type { Bundle, Tool } from "./types";
 
 type Translated = "es" | "zh" | "vi";
@@ -23,7 +24,9 @@ export function localizeTool(tool: Tool, lang: string): Tool {
   const x: TranslationSet["tools"][string] | undefined = TRANSLATIONS[lang].tools[tool.slug];
   if (!x) return tool;
   const plans = tool.pricing.plans;
-  const includes = plans && sameLength(x.planIncludes, plans.map((plan) => plan.includes));
+  // By plan name, never by position, so a plan added or reordered keeps its own details.
+  const keys = plans ? planKeys(plans.map((plan) => plan.name)) : [];
+  const includes = plans?.map((plan, i) => x.planIncludes?.[keys[i]] || plan.includes);
   const guide = tool.guide;
   const says = guide && sameLength(x.policySay, guide.policies.map((policy) => policy.say));
   return {

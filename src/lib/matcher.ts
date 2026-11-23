@@ -25,10 +25,18 @@ function stem(word: string) {
   return word.replace(/(ings|ing|ers|er|es|s|ed)$/u, "");
 }
 
-/** Lowercase, drop punctuation and common suffixes: "Employee Schedules!" becomes "employee schedul". */
+/**
+ * Lowercase, drop accents, punctuation and common suffixes: "Employee Schedules!" becomes
+ * "employee schedul", and "nómina" and "nomina" both become "nomina". Many owners type without
+ * accents on a phone, so "dat lich hen" has to find "đặt lịch hẹn". Chinese, Japanese and
+ * Korean keep their characters: they are matched separately.
+ */
 function normalize(text: string) {
   return text
     .toLowerCase()
+    .replace(/đ/g, "d")
+    .normalize("NFD")
+    .replace(/\p{M}/gu, "")
     .normalize("NFC")
     .replace(/[^\p{L}\p{N}\s-]/gu, " ")
     .split(/\s+/)

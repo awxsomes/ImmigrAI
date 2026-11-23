@@ -1,6 +1,6 @@
-import { cleanResearchText, finalizeReviews, isRealConnection } from "@/lib/research-core";
+import { cleanResearchText, finalizeReviews, isProductSite, isRealConnection, officialAddresses } from "@/lib/research-core";
 import { buildScores, environmentalEstimate, inferPriceKind } from "@/lib/scoring";
-import type { AiLevel, BusinessType, PriceKind, PricePlan, PricingModel, Tool, ToolFocus, ToolPolicy, Workload } from "@/lib/types";
+import type { AiLevel, BusinessType, PersonCheck, PriceKind, PricePlan, PricingModel, ScoreBasis, Tool, ToolFocus, ToolPolicy, Workload } from "@/lib/types";
 import discoveredFile from "./seed-discovered.json";
 import researchFile from "./research.json";
 import { SEED_BASE, type SeedBase } from "./seed-base";
@@ -31,7 +31,13 @@ interface ResearchEntry {
     verified: boolean;
     kind?: string;
   };
-  languages: { list: string[]; sourceUrl: string; totalClaim: string | null };
+  languages: {
+    list: string[];
+    sourceUrl: string;
+    totalClaim: string | null;
+    /** The Languages field of the tool's US App Store listing, which Apple fills in from the app. */
+    store?: { list: string[]; sourceUrl: string; appName: string; checkedAt: string };
+  };
   integrations: string[];
   integrationSources?: Record<string, string>;
   caution: string | null;
@@ -53,7 +59,8 @@ interface ResearchEntry {
 
 /**
  * Checked by hand, because a page that mentions restaurants does not make a product a
- * restaurant product. Wins over research.
+ * restaurant product. Wins over research. These are accuracy fixes, and each tool's page says
+ * a person checked it, so the human judgement in the score is out in the open.
  */
 const FOCUS_OVERRIDE: Record<string, { focus: ToolFocus; trades?: BusinessType[] }> = {
   chatgpt: { focus: "general", trades: [] },
@@ -190,7 +197,25 @@ const research = researchFile as unknown as {
 };
 
 export const RESEARCH_DATE = research.generatedAt ? research.generatedAt.slice(0, 10) : "";
-export const NEW_TOOLS: NewToolEntry[] = research.newTools ?? [];
+
+/**
+ * A new tool is only listed with its own website. A directory, a blog or a press release about
+ * it is not that, and a post on its own blog is linked by the site's home page instead.
+ */
+function ownLink(address: string) {
+  try {
+    const url = new URL(address);
+    if (url.protocol !== "https:" || !isProductSite(address)) return "";
+    return /\/(?:blog|news|press|posts?)\//i.test(url.pathname) ? url.origin : address;
+  } catch {
+    return "";
+  }
+}
+
+export const NEW_TOOLS: NewToolEntry[] = (research.newTools ?? []).flatMap((tool) => {
+  const website = ownLink(tool.website);
+  return website ? [{ ...tool, website }] : [];
+});
 
 /** Below this average, a tool is left out. The brief: no atrociously bad ratings. */
 export const MIN_RATING = 3.5;
@@ -219,18 +244,27 @@ function buildTool(base: SeedBase): Tool {
   const researchedKind = r?.pricing.kind as PriceKind | undefined;
   const planKind: PriceKind | undefined = planPrice === 0 && (!researchedKind || researchedKind === "monthly") ? "free-plan" : undefined;
   const priceKind = (override?.kind as PriceKind | undefined) ?? (startingMonthlyUsd > 0 ? "monthly" : (planKind ?? (researchedKind && researchedKind !== "monthly" ? researchedKind : inferPriceKind(startingMonthlyUsd, model))));
-  const languageClaimOk = !!r?.languages.sourceUrl || !SOURCED_LANGUAGES_ONLY.has(base.subcategoryId);
-  const languages = r?.languages.list.length && languageClaimOk
-    ? r.languages.list.includes("English")
-      ? r.languages.list
-      : ["English", ...r.languages.list]
-    : ["English"];
+  const store = r?.languages.store;
+  const languageClaimOk = !!r?.languages.sourceUrl || !!store || !SOURCED_LANGUAGES_ONLY.has(base.subcategoryId);
+  const found = languageClaimOk ? [...new Set([...(r?.languages.list ?? []), ...(store?.list ?? [])])] : [];
+  const languages = found.includes("English") ? found : ["English", ...found];
+  // A list read from the company's own language page, or the App Store's own field. Two or more
+  // names either way: a page that only says "English" is rarely a language list, and an
+  // English-only app is often a companion app, such as an admin app for a web product.
+  const languagesChecked = (store?.list.length ?? 0) >= 2 || Boolean(r?.languages.sourceUrl && languageClaimOk && (r?.languages.list.length ?? 0) >= 2);
   const integrations = (r?.integrations ?? []).filter(isRealConnection);
   // Stored evidence passes through the current rules on every build, so tightening a rule
   // takes effect without paying to research everything again.
-  const finalReviews = r && !base.publicResource ? finalizeReviews(r.reviews.sources, [base.website, r.officialUrl]) : { sources: [], rating: null, reviewCount: 0 };
+  const finalReviews = r && !base.publicResource ? finalizeReviews(r.reviews.sources, officialAddresses(base.website, r.officialUrl, base.aliasDomains)) : { sources: [], rating: null, reviewCount: 0 };
   const rating = finalReviews.rating;
   const caution = r?.caution ? cleanResearchText(r.caution, 240) : "";
+  const checkedByPerson: PersonCheck[] = [
+    ...(focusOverride ? (["focus"] as const) : []),
+    ...(override ? (["price"] as const) : []),
+    ...(base.aiOverride ? (["ai"] as const) : []),
+  ];
+  const verified = override?.verified ?? r?.pricing.verified ?? false;
+  const priceBasis: ScoreBasis = override ? "person" : plans?.length || verified ? "source" : "estimate";
 
   return {
     slug: base.slug,
@@ -254,10 +288,11 @@ function buildTool(base: SeedBase): Tool {
       note: override?.note || (r && cleanResearchText(r.pricing.note)) || base.draftPricing.note,
       extraFees: (r ? (r.pricing.extraFees && cleanResearchText(r.pricing.extraFees)) || undefined : base.draftPricing.extraFees),
       sourceUrl: r?.pricing.sourceUrl || undefined,
-      verified: override?.verified ?? r?.pricing.verified ?? false,
+      verified,
     },
     languages,
-    languagesSourceUrl: r?.languages.sourceUrl || undefined,
+    languagesChecked,
+    languagesSourceUrl: r?.languages.sourceUrl || store?.sourceUrl || undefined,
     languagesTotal: (languageClaimOk && r?.languages.totalClaim) || undefined,
     integrations,
     integrationSources: r?.integrationSources,
@@ -271,15 +306,18 @@ function buildTool(base: SeedBase): Tool {
     environmental,
     scores: buildScores({
       focus,
+      focusChecked: Boolean(focusOverride),
       rating,
+      reviewCount: finalReviews.reviewCount,
       startingMonthlyUsd,
       priceKind,
+      priceBasis,
       languages,
+      languagesChecked,
       integrations,
       setupMinutes: base.setupMinutes,
       platforms: base.platforms,
       selfServe: base.selfServe,
-      environment: environmental.score,
     }),
     setupMinutes: base.setupMinutes,
     selfServe: base.selfServe,
@@ -288,6 +326,8 @@ function buildTool(base: SeedBase): Tool {
     source: "catalog",
     caution: base.caution ?? (caution || undefined),
     publicResource: base.publicResource,
+    checkedByPerson: checkedByPerson.length ? checkedByPerson : undefined,
+    aliasDomains: base.aliasDomains,
   };
 }
 
@@ -319,3 +359,12 @@ export function seedToolsFor(categoryId?: string | null, subcategoryId?: string 
     return t.categoryId === categoryId || (t.secondary ?? []).some((s) => s.startsWith(`${categoryId}/`));
   });
 }
+
+/** How much of the catalog a person checked by hand, for the methodology page. Counted, never typed in. */
+export const PERSON_CHECKS = {
+  tools: SEED_TOOLS.length,
+  focus: SEED_TOOLS.filter((t) => t.checkedByPerson?.includes("focus")).length,
+  price: SEED_TOOLS.filter((t) => t.checkedByPerson?.includes("price")).length,
+  ai: SEED_TOOLS.filter((t) => t.checkedByPerson?.includes("ai")).length,
+  any: SEED_TOOLS.filter((t) => t.checkedByPerson?.length).length,
+};

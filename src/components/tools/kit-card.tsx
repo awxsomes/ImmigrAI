@@ -1,5 +1,4 @@
 import Link from "next/link";
-import type { ReactNode } from "react";
 import { NEW_TOOLS, SEED_BY_SLUG } from "@/data/seed-tools";
 import { displayLanguage, paidMonthly } from "@/lib/format";
 import type { Dict } from "@/lib/i18n";
@@ -64,7 +63,7 @@ function Facts({ rows }: { rows: [string, string][] }) {
   );
 }
 
-export function KitCard({ kit, lang, t, heading: Heading = "h3", art }: { kit: Bundle; lang: string; t: Dict; heading?: "h2" | "h3"; art?: ReactNode }) {
+export function KitCard({ kit, lang, t, heading: Heading = "h3" }: { kit: Bundle; lang: string; t: Dict; heading?: "h2" | "h3" }) {
   const tools = kitTools(kit);
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-blue">
@@ -84,12 +83,11 @@ export function KitCard({ kit, lang, t, heading: Heading = "h3", art }: { kit: B
           ]}
         />
       </div>
-      {art && <div className="flex justify-center bg-blue-tint px-4 pt-4">{art}</div>}
     </article>
   );
 }
 
-export function NewToolsCard({ lang, t, heading: Heading = "h3", art }: { lang: string; t: Dict; heading?: "h2" | "h3"; art?: ReactNode }) {
+export function NewToolsCard({ lang, t, heading: Heading = "h3" }: { lang: string; t: Dict; heading?: "h2" | "h3" }) {
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-blue">
       <div className="flex flex-1 flex-col p-5">
@@ -106,7 +104,6 @@ export function NewToolsCard({ lang, t, heading: Heading = "h3", art }: { lang: 
           ]}
         />
       </div>
-      {art && <div className="flex justify-center bg-blue-tint px-4 pt-4">{art}</div>}
     </article>
   );
 }

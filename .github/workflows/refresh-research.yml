@@ -1,0 +1,83 @@
+name: Refresh research
+
+# Once a week, re-checks catalog tools whose research is more than 30 days old, translates any
+# tool text that changed, and opens a pull request for a person to review. Nothing reaches the
+# site until that pull request is merged.
+#
+# Needs: a repository secret OPENROUTER_API_KEY, and Settings > Actions > General >
+# "Allow GitHub Actions to create and approve pull requests" turned on.
+# Cost: about $0.02 per tool researched (at most 60 a run) plus translation, capped at $1.50.
+
+on:
+  schedule:
+    - cron: "0 14 * * 1" # Mondays, 14:00 UTC
+  workflow_dispatch:
+    inputs:
+      max:
+        description: "Most tools to re-check in this run"
+        default: "60"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: refresh-research
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      MAX_TOOLS: ${{ github.event.inputs.max || '60' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+
+      - name: Stop if there is no API key
+        if: env.OPENROUTER_API_KEY == ''
+        run: |
+          echo "Add the OPENROUTER_API_KEY repository secret to run this workflow."
+          exit 1
+
+      - name: Re-research tools last checked over 30 days ago
+        run: node --no-warnings scripts/research-tools.mts --stale=30 --max=$MAX_TOOLS
+
+      # Free: reads Apple's public lookup, no API key.
+      - name: Read App Store language lists
+        run: node --no-warnings scripts/research-stores.mts
+
+      - name: Translate tool text that changed
+        run: node --no-warnings scripts/translate-content.mts --max-cost=1.50
+
+      - name: Check translations
+        id: i18n
+        continue-on-error: true
+        run: npm run check:i18n
+
+      - name: Open a pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: research/weekly-refresh
+          delete-branch: true
+          commit-message: Refresh research older than 30 days
+          title: Weekly research refresh
+          body: |
+            Automatic re-check of catalog tools whose research was more than 30 days old (at most ${{ env.MAX_TOOLS }} this run), with App Store language lists and translations of any tool text that changed.
+
+            Before merging, look over the diff of `src/data/research.json` for:
+            - prices that moved a lot, or a tool that now shows `"exists": false`
+            - ratings that appeared or disappeared
+            - languages or connections that were dropped
+
+            Translation check: **${{ steps.i18n.outcome }}**. If it failed, run `npm run translate` on this branch.
+          labels: research
+          add-paths: |
+            src/data/research.json
+            src/content/i18n/*.json

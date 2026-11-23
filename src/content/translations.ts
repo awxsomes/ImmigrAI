@@ -20,8 +20,9 @@ export interface TranslationSet {
       extraFees?: string;
       reviewSummary?: string;
       caution?: string;
-      /** Setup steps, rules and plan details. Each list is in the same order as the English. */
-      planIncludes?: string[];
+      /** What each plan includes, keyed by plan name (see planKeys in src/lib/translation-check.ts). */
+      planIncludes?: Record<string, string>;
+      /** Setup steps and rules. Each list is in the same order as the English. */
       accountSteps?: string[];
       connectSteps?: string[];
       trial?: string;
@@ -29,8 +30,8 @@ export interface TranslationSet {
       policySay?: string[];
     }
   >;
-  /** Hashes of the English each translation was made from. See scripts/translate-content.mts. */
-  sources?: { strings?: Record<string, string>; docs?: Record<string, string>; bundles?: Record<string, string> };
+  /** Hashes of the English each translation was made from, tool text field by field. See scripts/translate-content.mts. */
+  sources?: { strings?: Record<string, string>; docs?: Record<string, string>; bundles?: Record<string, string>; tools?: Record<string, Record<string, string>> };
 }
 
 export const TRANSLATIONS = { es, zh, vi } as unknown as Record<"es" | "zh" | "vi", TranslationSet>;

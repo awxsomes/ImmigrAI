@@ -1,26 +1,11 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
-import {
-  ArrowIcon,
-  CalendarIcon,
-  CATEGORY_ICONS,
-  ChatIcon,
-  CheckIcon,
-  ChevronIcon,
-  ChevronRightIcon,
-  LifebuoyIcon,
-  PhoneIcon,
-  ReceiptIcon,
-  SearchIcon,
-  StarOutlineIcon,
-  TranslateIcon,
-  WalletIcon,
-} from "@/components/icons";
+import { ArrowIcon, CheckIcon, ChevronIcon, ChevronRightIcon, SearchIcon } from "@/components/icons";
 import { CheckupForm } from "@/components/checkup/checkup-form";
 import { BUSINESS_QUESTION_KEYS, CHECKUP_FORM_KEYS } from "@/components/checkup/labels";
 import { SmartSearch } from "@/components/search/smart-search";
 import { BusinessQuestion } from "@/components/site/business-question";
-import { HeroArt, KitchenArt, SeedlingArt, StorefrontArt } from "@/components/site/kit-art";
+import { HeroArt } from "@/components/site/kit-art";
 import { KitCard, NewToolsCard } from "@/components/tools/kit-card";
 import { ToolCard } from "@/components/tools/tool-card";
 import { ScoreMeters } from "@/components/tools/tool-detail";
@@ -36,12 +21,12 @@ import { sortTools } from "@/lib/scoring";
 
 /** Six common needs, in an owner's words. Every other need is one tap away above them. */
 const TASKS = [
-  { key: "task_calls", cat: "calls", sub: "phone-ai", Icon: PhoneIcon },
-  { key: "task_schedules", cat: "employees", sub: "scheduling", Icon: CalendarIcon },
-  { key: "task_books", cat: "money", sub: "bookkeeping", Icon: ReceiptIcon },
-  { key: "task_social", cat: "customers", sub: "social", Icon: ChatIcon },
-  { key: "task_reviews", cat: "customers", sub: "reviews", Icon: StarOutlineIcon },
-  { key: "task_translate", cat: "translate", sub: "translators", Icon: TranslateIcon },
+  { key: "task_calls", cat: "calls", sub: "phone-ai" },
+  { key: "task_schedules", cat: "employees", sub: "scheduling" },
+  { key: "task_books", cat: "money", sub: "bookkeeping" },
+  { key: "task_social", cat: "customers", sub: "social" },
+  { key: "task_reviews", cat: "customers", sub: "reviews" },
+  { key: "task_translate", cat: "translate", sub: "translators" },
 ] as const;
 
 /** The order of the row of areas under the search box: the most asked-for first. */
@@ -105,36 +90,31 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
       </section>
 
       <nav aria-label={t.nav_browse} className="border-b border-line">
-        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-1 px-4 py-6 sm:grid-cols-5">
-          {areas.map((area) => {
-            const Icon = CATEGORY_ICONS[area.id];
-            return (
-              <li key={area.id}>
-                <Link
-                  href={searchHref(lang, area.id)}
-                  prefetch={false}
-                  className="flex h-full min-h-24 flex-col items-center justify-start gap-2 rounded-lg px-2 py-3 text-center text-[0.95rem] leading-snug font-semibold no-underline transition-colors hover:bg-blue-tint"
-                >
-                  {Icon && <Icon className="size-9 shrink-0 text-blue" strokeWidth={1.9} />}
-                  {area.name}
-                </Link>
-              </li>
-            );
-          })}
+        <ul className="mx-auto grid max-w-6xl grid-cols-2 gap-2 px-4 py-6 sm:grid-cols-5">
+          {areas.map((area) => (
+            <li key={area.id}>
+              <Link
+                href={searchHref(lang, area.id)}
+                prefetch={false}
+                className="flex h-full min-h-14 items-center justify-center rounded-lg border border-line px-3 py-2 text-center text-[0.95rem] leading-snug font-semibold no-underline transition-colors hover:border-blue hover:bg-blue-tint"
+              >
+                {area.name}
+              </Link>
+            </li>
+          ))}
         </ul>
       </nav>
 
       <section aria-labelledby="board-title" className="mx-auto max-w-6xl px-4 pt-14 pb-6">
         <SectionHead id="board-title" title={t.home_boardTitle} sub={t.home_boardSub} />
         <ul className="mt-6 grid gap-3 md:grid-cols-2 lg:grid-cols-3">
-          {tasks.map(({ key, cat, sub, label, count, Icon }) => (
+          {tasks.map(({ key, cat, sub, label, count }) => (
             <li key={key}>
               <Link
                 href={searchHref(lang, cat, sub)}
                 prefetch={false}
                 className="flex h-full min-h-20 items-center gap-4 rounded-lg border border-line px-5 py-3 no-underline transition-colors hover:border-blue"
               >
-                <Icon className="size-8 shrink-0 text-blue" strokeWidth={1.9} />
                 <span className="flex-1">
                   <span className="block font-semibold">{label}</span>
                   <span className="block text-sm text-muted-ink">{fmt(t.home_taskCount, { n: count })}</span>
@@ -171,13 +151,13 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
         />
         <ul className="mt-6 grid gap-5 md:grid-cols-3">
           <li>
-            <KitCard kit={kit("startup-essentials")} lang={lang} t={t} art={<StorefrontArt />} />
+            <KitCard kit={kit("startup-essentials")} lang={lang} t={t} />
           </li>
           <li>
-            <KitCard kit={kit("restaurant-picks")} lang={lang} t={t} art={<KitchenArt />} />
+            <KitCard kit={kit("restaurant-picks")} lang={lang} t={t} />
           </li>
           <li>
-            <NewToolsCard lang={lang} t={t} art={<SeedlingArt />} />
+            <NewToolsCard lang={lang} t={t} />
           </li>
         </ul>
       </section>
@@ -222,13 +202,10 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
 
       <section className="mx-auto grid max-w-6xl gap-5 px-4 py-14 md:grid-cols-2">
         {[
-          { Icon: WalletIcon, title: t.home_subsTitle, text: t.home_subsD, cta: t.home_subsCta, href: `/${lang}/my-tools#subscriptions` },
-          { Icon: LifebuoyIcon, title: t.home_helpTitle, text: t.home_helpD, cta: t.home_helpCta, href: `/${lang}/free-help` },
-        ].map(({ Icon, title, text, cta, href }) => (
-          <div key={href} className="flex gap-5 rounded-lg border border-line p-6">
-            <span className="flex size-13 shrink-0 items-center justify-center rounded-full bg-blue-tint text-blue">
-              <Icon className="size-7" strokeWidth={1.9} />
-            </span>
+          { title: t.home_subsTitle, text: t.home_subsD, cta: t.home_subsCta, href: `/${lang}/my-tools#subscriptions` },
+          { title: t.home_helpTitle, text: t.home_helpD, cta: t.home_helpCta, href: `/${lang}/free-help` },
+        ].map(({ title, text, cta, href }) => (
+          <div key={href} className="rounded-lg border border-line p-6">
             <div>
               <h2 className="text-2xl font-bold">{title}</h2>
               <p className="mt-2 text-muted-ink">{text}</p>

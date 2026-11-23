@@ -1,14 +1,13 @@
 import { SYSTEM_NAMES } from "@/data/systems";
-import type { BusinessProfile, EnvironmentalEstimate, PriceKind, PricePlan, PricingModel, TeamSize, Tool, ToolFocus, ToolScores, Workload } from "./types";
+import type { BusinessProfile, EnvironmentalEstimate, PriceKind, PricePlan, PricingModel, ScoreBasis, TeamSize, Tool, ToolFocus, ToolScores, Workload } from "./types";
 
 /**
- * Environmental Impact (0-100, higher = lighter footprint).
- * Energy 30%, Water 20%, Carbon 20%, Computational efficiency 30%.
+ * Energy use, shown only on a tool's own page and never part of its score.
  *
- * Vendors do not publish per-task data, so each tool is placed in a workload class
- * and each class has a stated physical estimate. See /methodology for the sources.
+ * Vendors do not publish per-task data, so each tool is placed in a workload class and each
+ * class has a stated physical estimate. Water and carbon follow from energy by fixed factors,
+ * so they are shown as amounts, not as separate scores. See /methodology for the sources.
  */
-export const ENV_WEIGHTS = { energy: 0.3, water: 0.2, carbon: 0.2, compute: 0.3 } as const;
 
 /** Published on-site water use for AI serving is close to 1 mL per Wh (Google, 2025). */
 export const WATER_ML_PER_WH = 1.08;
@@ -19,59 +18,45 @@ export interface WorkloadProfile {
   label: string;
   explain: string;
   wattHours: number;
-  /** Computing resources: tokens processed and model size, scored directly. */
-  compute: number;
 }
 
 export const WORKLOADS: Record<Workload, WorkloadProfile> = {
-  none: { label: "No AI", explain: "Ordinary software or a printable resource. No AI model runs.", wattHours: 0.02, compute: 98 },
-  "background-ml": { label: "Small AI in the background", explain: "Small models sort transactions, block fraud or rank results.", wattHours: 0.05, compute: 90 },
-  "optional-genai": { label: "AI only when you ask", explain: "Normal software, plus a large model about one task in five.", wattHours: 0.08, compute: 72 },
-  translation: { label: "Translation AI", explain: "Specialized translation models, smaller than a chatbot's.", wattHours: 0.1, compute: 66 },
-  "llm-every-reply": { label: "Large AI on every reply", explain: "A large language model runs for each reply.", wattHours: 0.3, compute: 40 },
-  speech: { label: "Voice-making AI", explain: "A speech model generates each audio clip.", wattHours: 0.5, compute: 34 },
-  "image-video": { label: "Image-making AI", explain: "An image model runs for each picture. Video uses far more.", wattHours: 0.63, compute: 25 },
-  "voice-agent": { label: "AI on every phone call", explain: "Speech recognition, a large model and a voice all run for each call.", wattHours: 3, compute: 18 },
+  none: { label: "No AI", explain: "Ordinary software or a printable resource. No AI model runs.", wattHours: 0.02 },
+  "background-ml": { label: "Small AI in the background", explain: "Small models sort transactions, block fraud or rank results.", wattHours: 0.05 },
+  "optional-genai": { label: "AI only when you ask", explain: "Normal software, plus a large model about one task in five.", wattHours: 0.08 },
+  translation: { label: "Translation AI", explain: "Specialized translation models, smaller than a chatbot's.", wattHours: 0.1 },
+  "llm-every-reply": { label: "Large AI on every reply", explain: "A large language model runs for each reply.", wattHours: 0.3 },
+  speech: { label: "Voice-making AI", explain: "A speech model generates each audio clip.", wattHours: 0.5 },
+  "image-video": { label: "Image-making AI", explain: "An image model runs for each picture. Video uses far more.", wattHours: 0.63 },
+  "voice-agent": { label: "AI on every phone call", explain: "Speech recognition, a large model and a voice all run for each call.", wattHours: 3 },
 };
-
-/** Log scale: 0.01 Wh or less scores 100, 10 Wh or more scores 0. */
-function logScore(value: number, best: number, worst: number) {
-  const span = Math.log10(worst / best);
-  const position = Math.log10(Math.max(value, best) / best) / span;
-  return Math.round(Math.max(0, Math.min(1, 1 - position)) * 100);
-}
 
 export function environmentalEstimate(workload: Workload): EnvironmentalEstimate {
   const profile = WORKLOADS[workload] ?? WORKLOADS["optional-genai"];
   const wattHours = profile.wattHours;
   const waterMl = Math.round(wattHours * WATER_ML_PER_WH * 1000) / 1000;
   const co2Grams = Math.round(wattHours * CO2_GRAMS_PER_WH * 1000) / 1000;
-  const energy = logScore(wattHours, 0.01, 10);
-  const water = logScore(waterMl, 0.01 * WATER_ML_PER_WH, 10 * WATER_ML_PER_WH);
-  const carbon = logScore(co2Grams, 0.01 * CO2_GRAMS_PER_WH, 10 * CO2_GRAMS_PER_WH);
-  const compute = profile.compute;
-  const score = Math.round(
-    energy * ENV_WEIGHTS.energy + water * ENV_WEIGHTS.water + carbon * ENV_WEIGHTS.carbon + compute * ENV_WEIGHTS.compute,
-  );
-  return { energy, water, carbon, compute, score, workload, perTask: { wattHours, waterMl, co2Grams } };
+  return { workload, perTask: { wattHours, waterMl, co2Grams } };
 }
 
-export function envLabel(score: number) {
-  if (score >= 75) return "light" as const;
-  if (score >= 45) return "moderate" as const;
-  return "heavy" as const;
+export type EnergyLevel = "low" | "medium" | "high";
+
+/**
+ * A plain word for the estimate, relative to the other tools listed. Even "high", an AI
+ * phone call at about 3 Wh, is small next to a home refrigerator's 1,000 to 2,000 Wh a day.
+ */
+export function energyLevel(wattHours: number): EnergyLevel {
+  if (wattHours <= 0.1) return "low";
+  if (wattHours < 1) return "medium";
+  return "high";
 }
 
 /**
  * ImmigrAI score (0-100). Goes beyond reviews because a five-star tool that is
  * expensive, English-only or impossible to set up is still the wrong tool.
- */
-/** With no confirmed reviews a score stops here. High enough that a new specialist can beat a famous generalist. */
-export const UNRATED_SCORE_CAP = 85;
-
-/**
- * Being made for the job counts for more than being famous. Star ratings are capped at
- * a fifth of the score, and review counts are not used at all.
+ *
+ * Being made for the job counts for more than being famous. Star ratings are a fifth of the
+ * score, and review counts only decide how far a rating moves away from the average.
  */
 export const OVERALL_WEIGHTS = {
   focus: 0.25,
@@ -79,9 +64,27 @@ export const OVERALL_WEIGHTS = {
   easeOfUse: 0.2,
   affordability: 0.15,
   languageSupport: 0.1,
-  compatibility: 0.05,
-  environment: 0.05,
+  compatibility: 0.1,
 } as const;
+
+/** The average confirmed rating of the catalog in November 2026, across 58 rated tools. */
+export const RATING_PRIOR = 4.3;
+/** A rating counts as if this many reviews at the average were added to it. */
+export const PRIOR_REVIEWS = 50;
+/** The fewest reviews a rating can rest on. Kept equal to MIN_REVIEWS_FOR_RATING in research-core.ts. */
+const MIN_REVIEWS = 25;
+
+/**
+ * A Bayesian average: each rating is pulled toward the catalog average, more when it rests on
+ * few reviews. A tool with no confirmed reviews gets the average itself, neither a reward nor a
+ * penalty, so a small new tool is not marked down for being unknown.
+ */
+export function adjustedRating(rating: number | null, reviewCount: number) {
+  if (rating === null || !Number.isFinite(rating)) return RATING_PRIOR;
+  // Two sites that agree but state no counts pass the review check, so they count as the minimum.
+  const n = reviewCount > 0 ? reviewCount : MIN_REVIEWS;
+  return Math.round(((PRIOR_REVIEWS * RATING_PRIOR + n * rating) / (PRIOR_REVIEWS + n)) * 100) / 100;
+}
 
 const fifth = (n: number) => Math.max(0, Math.min(5, Number.isFinite(n) ? n : 0)) / 5;
 
@@ -91,28 +94,17 @@ export function focusScore(focus: ToolFocus) {
   return FOCUS_POINTS[focus];
 }
 
-export function overallScore(input: {
-  focus: number;
-  rating: number | null;
-  easeOfUse: number;
-  affordability: number;
-  languageSupport: number;
-  compatibility: number;
-  environment: number;
-}) {
+export function overallScore(input: { focus: number; reviews: number; easeOfUse: number; affordability: number; languageSupport: number; compatibility: number }) {
   const w = OVERALL_WEIGHTS;
-  const known =
-    fifth(input.focus) * w.focus +
-    fifth(input.easeOfUse) * w.easeOfUse +
-    fifth(input.affordability) * w.affordability +
-    fifth(input.languageSupport) * w.languageSupport +
-    fifth(input.compatibility) * w.compatibility +
-    (Math.max(0, Math.min(100, input.environment)) / 100) * w.environment;
-  if (input.rating === null) {
-    // No confirmed reviews: score only what we know, rather than inventing a neutral rating.
-    return Math.min(UNRATED_SCORE_CAP, Math.round((known / (1 - w.reviews)) * 100));
-  }
-  return Math.round((known + fifth(input.rating) * w.reviews) * 100);
+  return Math.round(
+    (fifth(input.focus) * w.focus +
+      fifth(input.reviews) * w.reviews +
+      fifth(input.easeOfUse) * w.easeOfUse +
+      fifth(input.affordability) * w.affordability +
+      fifth(input.languageSupport) * w.languageSupport +
+      fifth(input.compatibility) * w.compatibility) *
+      100,
+  );
 }
 
 /** What a price means when research did not say. A $0 price on a paid product is not free. */
@@ -168,18 +160,25 @@ export function easeFromSignals(input: { setupMinutes: number; platforms: string
 
 export function buildScores(input: {
   focus: ToolFocus;
+  /** True when a person set who the tool is made for. */
+  focusChecked?: boolean;
   rating: number | null;
+  reviewCount: number;
   startingMonthlyUsd: number;
   priceKind?: PriceKind;
+  /** Where the price came from. */
+  priceBasis: ScoreBasis;
   languages: string[];
+  /** True when a full language list was read. Otherwise a missing language is only unchecked. */
+  languagesChecked: boolean;
   integrations: string[];
   setupMinutes: number;
   platforms: string[];
   selfServe: boolean;
-  environment: number;
 }): ToolScores {
   const parts = {
     focus: focusScore(input.focus),
+    reviews: adjustedRating(input.rating, input.reviewCount),
     easeOfUse: easeFromSignals(input),
     affordability: affordabilityFromPrice(input.startingMonthlyUsd, input.priceKind),
     languageSupport: languageScoreFromList(input.languages),
@@ -187,8 +186,17 @@ export function buildScores(input: {
   };
   return {
     ...parts,
-    overall: overallScore({ rating: input.rating, environment: input.environment, ...parts }),
+    overall: overallScore(parts),
     overallIncludesReviews: input.rating !== null,
+    basis: {
+      focus: input.focusChecked ? "person" : "estimate",
+      reviews: input.rating !== null ? "source" : "estimate",
+      // Setup time, phone apps and whether sales must be involved are a model's reading of the site.
+      easeOfUse: "estimate",
+      affordability: input.priceBasis,
+      languageSupport: input.languagesChecked ? "source" : "estimate",
+      compatibility: input.integrations.length > 0 ? "source" : "estimate",
+    },
   };
 }
 
@@ -275,12 +283,22 @@ export function supportsLanguage(tool: Tool, language: string) {
   });
 }
 
+/**
+ * yes: a cited page names the language. no: a full list was read and it is not on it.
+ * unchecked: no full list was found, so it may still work. Small tools are often here.
+ */
+export type LanguageAnswer = "yes" | "no" | "unchecked";
+
+export function languageAnswer(tool: Tool, language: string): LanguageAnswer {
+  if (supportsLanguage(tool, language)) return "yes";
+  return tool.languagesChecked ? "no" : "unchecked";
+}
+
 // ---------- Filtering ----------
 
 export interface ToolFilters {
   maxPrice: number;
   minRating: number;
-  minEnv: number;
   language: string;
   onlyMyLanguage: boolean;
 }
@@ -288,7 +306,6 @@ export interface ToolFilters {
 export const DEFAULT_FILTERS: ToolFilters = {
   maxPrice: 150,
   minRating: 0,
-  minEnv: 0,
   language: "",
   onlyMyLanguage: false,
 };
@@ -321,13 +338,12 @@ export function planMonthly(plan: PricePlan, size: TeamSize) {
   return seats ? Math.round(plan.monthlyUsd * seats * 100) / 100 : plan.monthlyUsd;
 }
 
-export type SortKey = "overall" | "cheapest" | "rating" | "env" | "easiest";
+export type SortKey = "overall" | "cheapest" | "rating" | "easiest";
 
 export function filterTools(tools: Tool[], f: ToolFilters) {
   return tools.filter((t) => {
     if (t.pricing.startingMonthlyUsd > f.maxPrice) return false;
     if (f.minRating > 0 && (t.reviews.rating === null || t.reviews.rating < f.minRating)) return false;
-    if (t.environmental.score < f.minEnv) return false;
     if (f.onlyMyLanguage && f.language && !supportsLanguage(t, f.language)) return false;
     return true;
   });
@@ -340,8 +356,6 @@ export function sortTools(tools: Tool[], key: SortKey, bonus: (tool: Tool) => nu
       return copy.sort((a, b) => a.pricing.startingMonthlyUsd - b.pricing.startingMonthlyUsd || b.scores.overall - a.scores.overall);
     case "rating":
       return copy.sort((a, b) => (b.reviews.rating ?? -1) - (a.reviews.rating ?? -1));
-    case "env":
-      return copy.sort((a, b) => b.environmental.score - a.environmental.score);
     case "easiest":
       return copy.sort((a, b) => b.scores.easeOfUse - a.scores.easeOfUse || b.scores.overall - a.scores.overall);
     default:
