@@ -15,7 +15,8 @@
     "research:ai": "node --no-warnings --env-file=.env.local scripts/research-ai.mts",
     "research:guide": "node --no-warnings --env-file=.env.local scripts/research-guide.mts",
     "research:stores": "node --no-warnings scripts/research-stores.mts",
-    "eval": "node --no-warnings --env-file=.env.local scripts/eval-match.mts"
+    "eval": "node --no-warnings --env-file=.env.local scripts/eval-match.mts",
+    "app-images": "node --no-warnings scripts/make-app-images.mts"
   },
   "dependencies": {
     "@base-ui/react": "^1.9.0",

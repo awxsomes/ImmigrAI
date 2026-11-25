@@ -30,7 +30,7 @@ export function Header({ lang, t }: { lang: string; t: Dict }) {
 
         <nav aria-label={t.nav_main} className="hidden flex-wrap gap-x-1 md:flex">
           {links.map((link) => (
-            <Link key={link.href} href={link.href} prefetch={false} className="inline-flex min-h-12 items-center rounded-lg px-3 font-semibold underline-offset-4 hover:underline">
+            <Link key={link.href} href={link.href} className="inline-flex min-h-12 items-center rounded-lg px-3 font-semibold underline-offset-4 hover:underline">
               {link.label}
             </Link>
           ))}
@@ -46,13 +46,13 @@ export function Header({ lang, t }: { lang: string; t: Dict }) {
             <ul className="mt-6 gap-8 sm:columns-2 lg:columns-3">
               {taxonomy.map((category) => (
                 <li key={category.id} className="mb-5 break-inside-avoid">
-                  <Link href={searchHref(lang, category.id)} prefetch={false} className="font-bold underline-offset-2 hover:underline">
+                  <Link href={searchHref(lang, category.id)} className="font-bold underline-offset-2 hover:underline">
                     {category.name}
                   </Link>
                   <ul className="mt-1">
                     {category.subs.map((sub) => (
                       <li key={sub.id}>
-                        <Link href={searchHref(lang, category.id, sub.id)} prefetch={false} className="inline-block py-1 text-muted-ink underline-offset-2 hover:text-ink hover:underline">
+                        <Link href={searchHref(lang, category.id, sub.id)} className="inline-block py-1 text-muted-ink underline-offset-2 hover:text-ink hover:underline">
                           {sub.name}
                         </Link>
                       </li>
@@ -64,7 +64,7 @@ export function Header({ lang, t }: { lang: string; t: Dict }) {
             <ul className="mt-2 border-t border-line pt-3 md:hidden">
               {links.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} prefetch={false} className="inline-flex min-h-12 items-center font-semibold underline underline-offset-2">
+                  <Link href={link.href} className="inline-flex min-h-12 items-center font-semibold underline underline-offset-2">
                     {link.label}
                   </Link>
                 </li>
@@ -77,7 +77,7 @@ export function Header({ lang, t }: { lang: string; t: Dict }) {
           <Link
             key={category.id}
             href={searchHref(lang, category.id)}
-            prefetch={false}
+           
             className={`hidden min-h-12 items-center border-b-[3px] border-transparent font-medium whitespace-nowrap no-underline hover:border-line-strong ${index < 3 ? "lg:inline-flex" : "xl:inline-flex"}`}
           >
             {category.name}

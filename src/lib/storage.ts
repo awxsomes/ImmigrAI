@@ -1,6 +1,7 @@
 "use client";
 
 import { useSyncExternalStore } from "react";
+import { removeOfflineCopies } from "./offline";
 import { inferPriceKind } from "./scoring";
 import type { BusinessProfile, Subscription, Tool, UserData } from "./types";
 
@@ -132,7 +133,7 @@ export function reopenConsent() {
   emit();
 }
 
-/** Delete everything this site stored on this device. */
+/** Delete everything this site stored on this device, including the offline copies of pages. */
 export function deleteAllData() {
   try {
     window.localStorage.removeItem(KEY);
@@ -140,6 +141,7 @@ export function deleteAllData() {
   } catch {
     /* blocked */
   }
+  void removeOfflineCopies();
   snapshot = { data: EMPTY, consent: "unknown", ready: true };
   emit();
 }

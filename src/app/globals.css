@@ -30,6 +30,8 @@
   /* 3:1 against paper and soft, for the edges of inputs and buttons (WCAG 1.4.11). */
   --line-strong: #858b94;
   --radius: 0.5rem;
+  /* Height of the tab bar along the bottom of a phone screen, not counting the home bar. */
+  --tab-bar: 3.75rem;
 }
 
 @theme inline {
@@ -81,6 +83,78 @@
   --radius-xl: 0.75rem;
 }
 
+@theme {
+  /* A soft band of light that sweeps across loading placeholders. */
+  --animate-shimmer: shimmer 1.5s ease-in-out infinite;
+  --animate-progress: progress 8s cubic-bezier(0.1, 0.6, 0.2, 1) forwards;
+  --animate-rise: rise 180ms ease-out;
+
+  @keyframes shimmer {
+    from {
+      transform: translateX(-100%);
+    }
+    to {
+      transform: translateX(100%);
+    }
+  }
+  /* Fills fast at first, then slows, and never reaches the end on its own. */
+  @keyframes progress {
+    from {
+      transform: scaleX(0);
+    }
+    to {
+      transform: scaleX(0.92);
+    }
+  }
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(0.5rem);
+    }
+  }
+}
+
+/*
+  Press feedback, like a native app: whatever is tapped shrinks a little while the finger is down,
+  so a tap visibly lands before the next page arrives. Use `tap` in place of `transition-colors`.
+  Scale is drawn by the graphics chip, so it stays smooth on slow phones. Cards set a gentler
+  --tap-scale. Disabled controls do not move.
+*/
+@utility tap {
+  -webkit-tap-highlight-color: transparent;
+  transition-property: color, background-color, border-color, text-decoration-color, box-shadow, opacity, scale;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  transition-duration: 180ms;
+  &:active:not(:disabled, [aria-disabled="true"]) {
+    scale: var(--tap-scale, 0.96);
+    transition-duration: 60ms;
+  }
+}
+
+/* A card that gives under the finger when its title link is pressed. */
+@utility tap-card {
+  transition-property: border-color, box-shadow, scale;
+  transition-timing-function: cubic-bezier(0.2, 0, 0, 1);
+  transition-duration: 180ms;
+  &:has(:is(h2, h3) a:active) {
+    scale: 0.985;
+    transition-duration: 60ms;
+  }
+}
+
+/* Room for the iPhone home bar and the rounded corners, once the page fills the whole screen. */
+@utility pb-safe {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* For bars fixed to the bottom of the screen: on a phone they sit on top of the tab bar. */
+@utility bottom-above-tabs {
+  bottom: 0;
+  @media (width < 48rem) {
+    bottom: calc(var(--tab-bar) + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 @layer base {
   * {
     border-color: var(--line);
@@ -89,6 +163,31 @@
     font-size: 106.25%; /* 17px, easier to read for people new to English */
     -webkit-text-size-adjust: 100%;
     scroll-padding-top: 1rem;
+    /* No gray box flashing over tapped things: each control shows its own press instead. */
+    -webkit-tap-highlight-color: transparent;
+  }
+  /* On a phone the tab bar covers the bottom of the screen, so the page and the keyboard focus stop above it. */
+  @media (width < 48rem) {
+    html {
+      scroll-padding-bottom: calc(var(--tab-bar) + env(safe-area-inset-bottom, 0px) + 1rem);
+    }
+    body {
+      padding-bottom: calc(var(--tab-bar) + env(safe-area-inset-bottom, 0px));
+    }
+    /* While typing, the keyboard needs the room, so the tab bar steps aside, as in phone apps. */
+    body:has(:is(input:not([type="checkbox"], [type="radio"], [type="range"]), textarea):focus) [data-tab-bar] {
+      display: none;
+    }
+  }
+  /* Loading placeholders: set here, under every class, so a class on one can change its shape or color. */
+  [data-slot="skeleton"] {
+    border-radius: var(--radius-md);
+    background-color: color-mix(in srgb, var(--line) 85%, transparent);
+  }
+  /* Plain links and summaries dim while pressed, the way links do in phone apps. */
+  a:not(.tap):active,
+  summary:not(.tap):active {
+    opacity: 0.6;
   }
   body {
     background: var(--paper);

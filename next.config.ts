@@ -37,6 +37,11 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   poweredByHeader: false,
   productionBrowserSourceMaps: false,
+  experimental: {
+    // When the connection drops, a tapped page or prefetch waits and finishes by itself once the
+    // phone is back online, instead of failing. Also gives useOffline() for the offline banner.
+    useOffline: true,
+  },
   turbopack: {
     rules: {
       "*.css": {
@@ -46,7 +51,11 @@ const nextConfig: NextConfig = {
     },
   },
   async headers() {
-    return [{ source: "/:path*", headers: securityHeaders }];
+    return [
+      { source: "/:path*", headers: securityHeaders },
+      // The offline service worker (public/sw.js): always checked for a newer version.
+      { source: "/sw.js", headers: [{ key: "Cache-Control", value: "no-cache, no-store, must-revalidate" }] },
+    ];
   },
 };
 

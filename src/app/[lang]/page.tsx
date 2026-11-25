@@ -95,8 +95,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <li key={area.id}>
               <Link
                 href={searchHref(lang, area.id)}
-                prefetch={false}
-                className="flex h-full min-h-14 items-center justify-center rounded-lg border border-line px-3 py-2 text-center text-[0.95rem] leading-snug font-semibold no-underline transition-colors hover:border-blue hover:bg-blue-tint"
+               
+                className="flex h-full min-h-14 items-center justify-center rounded-lg border border-line px-3 py-2 text-center text-[0.95rem] leading-snug font-semibold no-underline tap hover:border-blue hover:bg-blue-tint"
               >
                 {area.name}
               </Link>
@@ -112,8 +112,8 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <li key={key}>
               <Link
                 href={searchHref(lang, cat, sub)}
-                prefetch={false}
-                className="flex h-full min-h-20 items-center gap-4 rounded-lg border border-line px-5 py-3 no-underline transition-colors hover:border-blue"
+               
+                className="flex h-full min-h-20 items-center gap-4 rounded-lg border border-line px-5 py-3 no-underline tap [--tap-scale:0.98] hover:border-blue"
               >
                 <span className="flex-1">
                   <span className="block font-semibold">{label}</span>
@@ -144,7 +144,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
           title={t.home_bundlesTitle}
           sub={t.kit_sub}
           action={
-            <Link href={`/${lang}/bundles`} prefetch={false} className={outline}>
+            <Link href={`/${lang}/bundles`} className={outline}>
               {t.home_bundlesAll}
             </Link>
           }
@@ -169,7 +169,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
               id="example-title"
               title={t.home_exampleTitle}
               action={
-                <Link href={searchHref(lang, EXAMPLE.cat, EXAMPLE.sub)} prefetch={false} className={outline}>
+                <Link href={searchHref(lang, EXAMPLE.cat, EXAMPLE.sub)} className={`${outline} max-w-full`}>
                   {fmt(t.home_exampleAll, { n: exampleTools.length, name: exampleName })}
                   <ArrowIcon className="size-4" />
                 </Link>
@@ -190,7 +190,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
                 <div className="mt-4">
                   <ScoreMeters tool={top} t={t} />
                 </div>
-                <Link href={`/${lang}/methodology`} prefetch={false} className="mt-4 inline-flex min-h-12 items-center gap-2 font-semibold underline underline-offset-4">
+                <Link href={`/${lang}/methodology`} className="mt-4 inline-flex min-h-12 items-center gap-2 font-semibold underline underline-offset-4">
                   {t.home_scoreLink}
                   <ArrowIcon className="size-4" />
                 </Link>
@@ -209,7 +209,7 @@ export default async function HomePage({ params }: { params: Promise<{ lang: str
             <div>
               <h2 className="text-2xl font-bold">{title}</h2>
               <p className="mt-2 text-muted-ink">{text}</p>
-              <Link href={href} prefetch={false} className={`${outline} mt-4`}>
+              <Link href={href} className={`${outline} mt-4`}>
                 {cta}
               </Link>
             </div>

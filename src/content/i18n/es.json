@@ -487,7 +487,7 @@
       "El texto tiene buen contraste con el fondo, y el color nunca es la única señal.",
       "Los botones y enlaces son lo bastante grandes para tocarlos fácilmente.",
       "Las páginas tienen títulos y etiquetas claras para los lectores de pantalla.",
-      "Nada parpadea ni se mueve solo.",
+      "Nada parpadea. Lo único que se mueve solo es un brillo suave sobre las formas grises mientras carga una página, y se queda quieto si tu dispositivo está configurado para reducir el movimiento.",
       "La interfaz está disponible en inglés, español, chino y vietnamita."
      ]
     },
@@ -723,7 +723,7 @@
   },
   "cookies": {
    "title": "Política de cookies",
-   "intro": "No ponemos ninguna cookie. Solo usamos el almacenamiento local de tu navegador si tú nos dices que sí.",
+   "intro": "No ponemos ninguna cookie. Solo guardamos cosas en tu navegador si tú nos dices que sí.",
    "sections": [
     {
      "h": "Cookies",
@@ -739,6 +739,12 @@
      "ul": [
       "immigrai:consent recuerda tu decisión en el aviso.",
       "immigrai:v1 guarda tus herramientas, calificaciones, notas, cuánto pagas por ellas y cuándo, el tipo de negocio que tienes, el tamaño de tu equipo, los programas que ya usas y tu idioma."
+     ]
+    },
+    {
+     "h": "Copias para usar sin conexión",
+     "p": [
+      "Si dices que sí, también guardamos una copia de cada página que abres, y de los archivos que necesita, en el almacenamiento de caché de tu navegador. Así ImmigrAI se puede abrir con una conexión débil o sin conexión. Las copias solo tienen nuestras páginas públicas, nunca lo que escribes o guardas. Si después dices que no, o borras tus datos, se eliminan."
      ]
     },
     {
@@ -762,7 +768,7 @@
     {
      "h": "Qué se borra",
      "p": [
-      "Esto borra de este navegador tus herramientas guardadas, tus calificaciones, tus notas, lo que pagas por ellas y cuándo lo pagas, los datos de tu negocio, los programas que ya usas, tu idioma y tu elección del banner. No se puede deshacer. Si usas ImmigrAI en otro dispositivo, bórralo también ahí."
+      "Esto borra de este navegador tus herramientas guardadas, tus calificaciones, tus notas, lo que pagas por ellas y cuándo lo pagas, los datos de tu negocio, los programas que ya usas, tu idioma, tu elección del banner y las copias de nuestras páginas para usar sin conexión. No se puede deshacer. Si usas ImmigrAI en otro dispositivo, bórralo también ahí."
      ]
     },
     {
@@ -787,7 +793,7 @@
     {
      "h": "Lo que se queda en tu aparato",
      "p": [
-      "Si dices que sí en nuestro aviso, el almacenamiento local de tu navegador guarda las herramientas que guardaste, tus calificaciones y notas, lo que pagas por ellas y cuándo, el tipo de negocio que tienes, el tamaño de tu equipo, los programas que ya usas y tu idioma. No guardamos una copia de nada de esto. Los detalles solo salen de tu aparato para las búsquedas que se describen abajo. Puedes descargarlo o borrarlo en cualquier momento."
+      "Si dices que sí en nuestro aviso, el almacenamiento local de tu navegador guarda las herramientas que guardaste, tus calificaciones y notas, lo que pagas por ellas y cuándo, el tipo de negocio que tienes, el tamaño de tu equipo, los programas que ya usas y tu idioma. No guardamos una copia de nada de esto. Los detalles solo salen de tu aparato para las búsquedas que se describen abajo. Puedes descargarlo o borrarlo en cualquier momento. Tu navegador también guarda copias de las páginas que abres, para que ImmigrAI se pueda abrir con una conexión débil o sin conexión. Esas copias solo tienen nuestras páginas públicas, nunca lo que escribes o guardas."
      ]
     },
     {
@@ -8620,12 +8626,12 @@
   },
   "docs": {
    "about": "2c33adc0a57e",
-   "accessibility": "54f96fa9e2b9",
+   "accessibility": "e37168aecf8e",
    "terms": "92902aff0925",
    "free-help": "5ffa4f8bc3ff",
-   "cookies": "0f2853d731ef",
-   "data-deletion": "3ab2d652922a",
-   "privacy": "b13ab931c29e",
+   "cookies": "47c24236661c",
+   "data-deletion": "7c4e34de801d",
+   "privacy": "cfaeea1281ae",
    "methodology": "dcff6632dea6"
   },
   "bundles": {

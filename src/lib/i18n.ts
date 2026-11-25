@@ -227,6 +227,13 @@ const en = {
   tool_energyNote: "No company we list publishes this, so it is our estimate from the kind of AI the tool runs. It is not part of the score.",
   method_tableLevel: "Level",
   common_and: "and",
+
+  tab_nav: "Main sections",
+  tab_kits: "Kits",
+  tab_checkup: "Checkup",
+  tab_saved: "My tools",
+  offline_banner: "You are offline. New pages will load when you are back online.",
+  offline_waiting: "No connection. This page will load when you are back online.",
 };
 
 export type Dict = typeof en & typeof strings;
@@ -438,6 +445,13 @@ const es: Partial<Dict> = {
   tool_energyNote: "Ninguna empresa que mostramos publica este dato, así que es nuestra estimación según el tipo de IA que usa la herramienta. No forma parte del puntaje.",
   method_tableLevel: "Nivel",
   common_and: "y",
+
+  tab_nav: "Secciones principales",
+  tab_kits: "Paquetes",
+  tab_checkup: "Revisión",
+  tab_saved: "Guardadas",
+  offline_banner: "Estás sin conexión. Las páginas nuevas se cargarán cuando vuelvas a tener internet.",
+  offline_waiting: "Sin conexión. Esta página se cargará cuando vuelvas a tener internet.",
 };
 
 const zh: Partial<Dict> = {
@@ -646,6 +660,13 @@ const zh: Partial<Dict> = {
   tool_energyNote: "我们列出的公司都没有公布这项数据，所以这是我们根据工具所用 AI 类型做出的估算。它不计入评分。",
   method_tableLevel: "等级",
   common_and: "和",
+
+  tab_nav: "主要栏目",
+  tab_kits: "工具套装",
+  tab_checkup: "体检",
+  tab_saved: "我的工具",
+  offline_banner: "您目前没有网络连接。恢复连接后，新页面会自动加载。",
+  offline_waiting: "没有网络连接。恢复连接后，此页面会自动加载。",
 };
 
 const vi: Partial<Dict> = {
@@ -854,6 +875,13 @@ const vi: Partial<Dict> = {
   tool_energyNote: "Không công ty nào chúng tôi liệt kê công bố số này, nên đây là ước tính của chúng tôi dựa trên loại AI công cụ dùng. Nó không tính vào điểm.",
   method_tableLevel: "Mức",
   common_and: "và",
+
+  tab_nav: "Các mục chính",
+  tab_kits: "Bộ công cụ",
+  tab_checkup: "Kiểm tra",
+  tab_saved: "Đã lưu",
+  offline_banner: "Bạn đang mất kết nối mạng. Các trang mới sẽ tải khi bạn có mạng trở lại.",
+  offline_waiting: "Không có kết nối mạng. Trang này sẽ tải khi bạn có mạng trở lại.",
 };
 
 const DICTS: Record<UiLang, Partial<Dict>> = { en, es, zh, vi };

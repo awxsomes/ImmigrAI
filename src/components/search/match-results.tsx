@@ -159,7 +159,7 @@ export function MatchResults({
 
       {phase === "done" && !paused && data.alreadyUse.length === 0 && tools.length > 0 && (
         <p className="mt-4">
-          <Link href={`/${lang}/my-tools`} prefetch={false} className="inline-block py-1 font-medium underline underline-offset-2">
+          <Link href={`/${lang}/my-tools`} className="inline-block py-1 font-medium underline underline-offset-2">
             {t.match_addSystems}
           </Link>
         </p>
@@ -167,7 +167,7 @@ export function MatchResults({
 
       {brief && moved && (
         <p className="mt-4">
-          <Link href={searchHref(lang, brief.categoryId, brief.subcategoryId || undefined)} prefetch={false} className="inline-block py-1 font-medium underline underline-offset-2">
+          <Link href={searchHref(lang, brief.categoryId, brief.subcategoryId || undefined)} className="inline-block py-1 font-medium underline underline-offset-2">
             {t.match_seeAll}
           </Link>
         </p>

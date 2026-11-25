@@ -66,10 +66,10 @@ function Facts({ rows }: { rows: [string, string][] }) {
 export function KitCard({ kit, lang, t, heading: Heading = "h3" }: { kit: Bundle; lang: string; t: Dict; heading?: "h2" | "h3" }) {
   const tools = kitTools(kit);
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-blue">
+    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface tap-card hover:border-blue">
       <div className="flex flex-1 flex-col p-5">
         <Heading className="text-xl font-bold">
-          <Link href={`/${lang}/bundles/${kit.slug}`} prefetch={false} className="underline-offset-2 hover:underline">
+          <Link href={`/${lang}/bundles/${kit.slug}`} className="underline-offset-2 hover:underline">
             {kit.name}
           </Link>
         </Heading>
@@ -89,10 +89,10 @@ export function KitCard({ kit, lang, t, heading: Heading = "h3" }: { kit: Bundle
 
 export function NewToolsCard({ lang, t, heading: Heading = "h3" }: { lang: string; t: Dict; heading?: "h2" | "h3" }) {
   return (
-    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface transition-colors hover:border-blue">
+    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-line bg-surface tap-card hover:border-blue">
       <div className="flex flex-1 flex-col p-5">
         <Heading className="text-xl font-bold">
-          <Link href={`/${lang}/bundles/new-tools`} prefetch={false} className="underline-offset-2 hover:underline">
+          <Link href={`/${lang}/bundles/new-tools`} className="underline-offset-2 hover:underline">
             {t.home_newTools}
           </Link>
         </Heading>

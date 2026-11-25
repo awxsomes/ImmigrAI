@@ -154,7 +154,7 @@ export default async function KitPage({ params }: Props) {
             </tbody>
           </table>
         </div>
-        <Link href={`/${lang}/methodology`} prefetch={false} className="mt-2 inline-block py-1 text-sm underline underline-offset-2">
+        <Link href={`/${lang}/methodology`} className="mt-2 inline-block py-1 text-sm underline underline-offset-2">
           {t.kit_fitHelp}
         </Link>
       </section>

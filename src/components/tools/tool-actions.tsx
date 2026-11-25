@@ -47,7 +47,7 @@ export function MyRating({
           {[1, 2, 3, 4, 5].map((n) => (
             <label
               key={n}
-              className="flex min-h-12 min-w-12 cursor-pointer items-center justify-center rounded-lg border border-line-strong bg-surface font-medium has-checked:border-blue has-checked:bg-blue has-checked:text-white has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-ink"
+              className="tap flex min-h-12 min-w-12 cursor-pointer items-center justify-center rounded-lg border border-line-strong bg-surface font-medium has-checked:border-blue has-checked:bg-blue has-checked:text-white has-focus-visible:outline-3 has-focus-visible:outline-offset-2 has-focus-visible:outline-ink"
             >
               <input
                 type="radio"

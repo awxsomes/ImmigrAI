@@ -29,7 +29,7 @@ export function Footer1({ brand, notes, linkGroups, extra, navLabel }: { brand: 
               <ul className="mt-2 space-y-1">
                 {group.links.map((link) => (
                   <li key={link.href}>
-                    <Link href={link.href} prefetch={false} className="inline-block py-1 text-[0.95rem] no-underline underline-offset-2 hover:underline">
+                    <Link href={link.href} className="inline-block py-1 text-[0.95rem] no-underline underline-offset-2 hover:underline">
                       {link.label}
                     </Link>
                   </li>

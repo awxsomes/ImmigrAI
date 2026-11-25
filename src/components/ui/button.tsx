@@ -5,9 +5,10 @@ import { cn } from "@/lib/utils";
  * Watermelon Button, adapted: a plain <button> with no headless-library wrapper or variant
  * library, so a server-rendered page ships no JavaScript just to draw a button. Touch
  * targets are at least 48px. Hover darkens instead of fading, so contrast never drops.
+ * Every button and button-styled link shrinks a little while pressed (see `tap` in globals.css).
  */
 const BASE =
-  "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border font-semibold whitespace-normal text-center no-underline transition-colors disabled:cursor-not-allowed disabled:border-line disabled:bg-line disabled:text-muted-ink";
+  "inline-flex shrink-0 items-center justify-center gap-2 rounded-lg border font-semibold whitespace-normal text-center no-underline tap disabled:cursor-not-allowed disabled:border-line disabled:bg-line disabled:text-muted-ink";
 
 const VARIANTS = {
   default: "border-blue bg-blue text-white hover:border-blue-dark hover:bg-blue-dark",

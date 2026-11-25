@@ -2,13 +2,13 @@
 
 import { useRouter } from "next/navigation";
 import { useEffect, useId, useRef, useState, useTransition, type KeyboardEvent } from "react";
-import { SearchIcon } from "@/components/icons";
+import { SearchIcon, Spinner } from "@/components/icons";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { searchFromForm } from "@/lib/form-actions";
 import { fmt, type SearchLabels } from "@/lib/labels";
 import type { Suggestion } from "@/lib/types";
-import { isSpecificNeed, setPendingNeed } from "./pending-need";
+import { isSpecificNeed, setJumpToBestMatch, setPendingNeed } from "./pending-need";
 
 type TaxonomyText = Record<string, { name: string; desc?: string }>;
 
@@ -207,21 +207,10 @@ export function SmartSearch({
       const { matcher, text: names } = await loadLibs();
       const local = matcher.localSuggestions(text);
       if (local[0]) return go(toItems(local, names, false)[0].href);
-      setThinking(true);
-      setOpen(true);
-      try {
-        const res = await fetch("/api/suggest", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ q: text, lang }),
-        });
-        const json = res.ok ? ((await res.json()) as { suggestions: Suggestion[] }) : { suggestions: [] };
-        if (json.suggestions[0]) return go(toItems(json.suggestions, names, true)[0].href);
-      } catch {
-        /* Offline or the AI is down: fall through to the search page. */
-      } finally {
-        setThinking(false);
-      }
+      // The word list cannot place it. Rather than wait here for the AI, open the results page
+      // now: it looks the words up as a tool's name and asks the AI, then goes to the best match.
+      request.current?.abort();
+      setJumpToBestMatch(text);
       go(`/${lang}/search?q=${encodeURIComponent(text)}`);
     } finally {
       setResolving(false);
@@ -288,7 +277,8 @@ export function SmartSearch({
               className={large ? "border-0! bg-transparent! px-0! focus-visible:shadow-none! focus-visible:outline-none!" : "border-line-strong"}
             />
             <Button type="submit" size={large ? "lg" : "default"} className={large ? "rounded-full! px-4! sm:px-6!" : undefined} aria-disabled={pending || undefined}>
-              <SearchIcon className="size-5" />
+              {/* On a phone the button is only an icon, so the icon itself turns into a spinner while the results open. */}
+              {pending ? <Spinner className="size-5" /> : <SearchIcon className="size-5" />}
               <span className={large ? "max-sm:sr-only" : undefined}>{pending ? t.search_opening : t.search_button}</span>
             </Button>
           </div>
@@ -338,12 +328,13 @@ export function SmartSearch({
           {examples.map((example) => (
             <a
               key={example}
+              data-no-progress=""
               href={`/${lang}/search?q=${encodeURIComponent(example)}`}
               onClick={(event) => {
                 event.preventDefault();
                 tryExample(example);
               }}
-              className="inline-flex min-h-11 items-center rounded-full border border-line bg-surface px-4 py-1 text-[0.95rem] no-underline transition-colors hover:border-blue hover:bg-blue-tint"
+              className="inline-flex min-h-11 items-center rounded-full border border-line bg-surface px-4 py-1 text-[0.95rem] no-underline tap hover:border-blue hover:bg-blue-tint"
             >
               {example}
             </a>

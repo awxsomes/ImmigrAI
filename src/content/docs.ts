@@ -301,7 +301,7 @@ export const DOCS = {
       },
       {
         h: "What stays on your device",
-        p: ["If you say yes on our banner, your browser's local storage keeps the tools you saved, your ratings and notes, what you pay for them and when, the kind of business you run, your team size, the software you already use, and your language. We do not keep a copy of any of this. Details only leave your device for the searches described below. You can download it or delete it at any time."],
+        p: ["If you say yes on our banner, your browser's local storage keeps the tools you saved, your ratings and notes, what you pay for them and when, the kind of business you run, your team size, the software you already use, and your language. We do not keep a copy of any of this. Details only leave your device for the searches described below. You can download it or delete it at any time. Your browser also keeps copies of the pages you open, so ImmigrAI still opens with a weak connection or none. The copies hold only our public pages, never what you type or save."],
       },
       {
         h: "What passes through our servers",
@@ -385,7 +385,7 @@ export const DOCS = {
 
   cookies: {
     title: "Cookie policy",
-    intro: "We do not set any cookies. We use your browser's local storage only if you say yes.",
+    intro: "We do not set any cookies. We store things in your browser only if you say yes.",
     sections: [
       {
         h: "Cookies",
@@ -398,6 +398,10 @@ export const DOCS = {
           "immigrai:consent remembers your choice on the banner.",
           "immigrai:v1 holds your saved tools, ratings, notes, what you pay for them and when, the kind of business you run, your team size, the software you already use and your language.",
         ],
+      },
+      {
+        h: "Offline copies",
+        p: ["If you say yes, we also keep a copy of each page you open, and the files it needs, in your browser's cache storage. This lets ImmigrAI open with a weak connection or none. The copies hold only our public pages, never what you type or save. Saying no later, or deleting your data, removes them."],
       },
       {
         h: "If you say no",
@@ -425,7 +429,7 @@ export const DOCS = {
           "Text has strong contrast against its background, and color is never the only signal.",
           "Buttons and links are large enough to tap easily.",
           "Pages have clear headings and labels for screen readers.",
-          "Nothing flashes or moves on its own.",
+          "Nothing flashes. The only thing that moves on its own is a soft shimmer on gray shapes while a page loads, and it stays still if your device is set to reduce motion.",
           "The interface is available in English, Spanish, Chinese and Vietnamese.",
         ],
       },
@@ -449,7 +453,7 @@ export const DOCS = {
     sections: [
       {
         h: "What gets deleted",
-        p: ["This removes your saved tools, ratings, notes, what you pay for them and when, your business details, the software you already use, your language and your banner choice from this browser. It cannot be undone. If you use ImmigrAI on another device, delete it there too."],
+        p: ["This removes your saved tools, ratings, notes, what you pay for them and when, your business details, the software you already use, your language, your banner choice and the offline copies of our pages from this browser. It cannot be undone. If you use ImmigrAI on another device, delete it there too."],
       },
       {
         h: "What we hold on our servers",

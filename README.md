@@ -81,10 +81,13 @@ Only missing text, or text whose English changed since it was translated, is sen
 - Pages are prerendered, so readable HTML arrives before any JavaScript.
 - Translations stay on the server. Each page sends only the words it uses.
 - The search word list downloads only when someone focuses the search box.
-- There are no images, no icon library, no animation library and no third-party scripts.
+- Pages show no images, and there is no icon library, no animation library and no third-party scripts.
 - Fonts are served from this site. Chinese uses the device's own fonts.
 - Dropdowns use the browser's `<details>`, so they open before JavaScript loads.
 - Automatic web search is skipped if the device asks to save data.
+- Every route has a loading screen in the shape of its page. Links fetch only each page's frame ahead of time, a few KB, so a tap shows the next screen at once and the content fills in.
+- With no connection, a tapped page waits and finishes loading by itself once the phone is back online, and a banner says so (`experimental.useOffline`). Visitors who say yes to saving also get copies of the pages they open, kept by `public/sw.js`, so those open offline. Saying no or deleting data removes the copies.
+- On a phone the site can be added to the home screen and opens full screen like an app, with a tab bar along the bottom. `npm run app-images` redraws the home-screen icons and iPhone launch screens from the logo.
 
 ## Scaling up
 

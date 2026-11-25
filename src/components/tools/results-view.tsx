@@ -325,7 +325,7 @@ export function ResultsView({
             {aiTools.length > 0 && toolList(aiTools)}
             {generalTools.length > 0 && (
               <details className="group mt-6" open={aiTools.length === 0}>
-                <summary className="flex min-h-14 list-none items-center justify-between gap-2 rounded-lg border border-line bg-surface px-5 font-semibold transition-colors hover:border-blue">
+                <summary className="flex min-h-14 list-none items-center justify-between gap-2 rounded-lg border border-line bg-surface px-5 font-semibold tap [--tap-scale:0.98] hover:border-blue">
                   {fmt(t.results_generalTools, { n: generalTools.length })}
                   <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
                 </summary>
@@ -336,7 +336,7 @@ export function ResultsView({
             {otherTools.length > 0 &&
               (aiTools.length > 0 ? (
                 <details className="group mt-6">
-                  <summary className="flex min-h-14 list-none items-center justify-between gap-2 rounded-lg border border-line bg-surface px-5 font-semibold transition-colors hover:border-blue">
+                  <summary className="flex min-h-14 list-none items-center justify-between gap-2 rounded-lg border border-line bg-surface px-5 font-semibold tap [--tap-scale:0.98] hover:border-blue">
                     {fmt(t.results_otherTools, { n: otherTools.length })}
                     <ChevronIcon className="size-4 shrink-0 transition-transform group-open:rotate-180" />
                   </summary>
@@ -350,7 +350,7 @@ export function ResultsView({
       </div>
 
       {compare.length > 0 && (
-        <div role="region" aria-label={t.compare_go} className="fixed inset-x-0 bottom-0 z-20 border-t border-line-strong bg-surface px-4 py-3 shadow-[0_-4px_16px_rgb(17_24_39/0.08)]">
+        <div role="region" aria-label={t.compare_go} className="fixed inset-x-0 bottom-above-tabs z-20 border-t border-line-strong bg-surface px-4 py-3 shadow-[0_-4px_16px_rgb(17_24_39/0.08)]">
           <div className="mx-auto flex max-w-6xl flex-wrap items-center justify-between gap-3">
             <p className="font-semibold">
               {compare.length} {t.compare_bar}
@@ -362,7 +362,7 @@ export function ResultsView({
               </Button>
               <Link
                 href={`/${lang}/compare?tools=${compare.join(",")}`}
-                className="inline-flex min-h-12 items-center rounded-lg border border-blue bg-blue px-5 font-semibold text-white hover:border-blue-dark hover:bg-blue-dark"
+                className="tap inline-flex min-h-12 items-center rounded-lg border border-blue bg-blue px-5 font-semibold text-white hover:border-blue-dark hover:bg-blue-dark"
               >
                 {t.compare_go}
               </Link>

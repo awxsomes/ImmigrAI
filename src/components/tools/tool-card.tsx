@@ -122,11 +122,11 @@ export function ToolCard({
   const hasPlans = Boolean(tool.pricing.plans?.length);
 
   return (
-    <article className="rounded-lg border border-line bg-surface p-5 sm:p-6">
+    <article className="tap-card rounded-lg border border-line bg-surface p-5 sm:p-6">
       <div className="flex items-start justify-between gap-4">
         <div className="min-w-0">
           <h3 className="text-xl font-bold">
-            <Link href={href} prefetch={false} className="underline-offset-2 hover:underline">
+            <Link href={href} className="underline-offset-2 hover:underline">
               {tool.name}
             </Link>
           </h3>
@@ -187,7 +187,7 @@ export function ToolCard({
           ) : (
             <span>{tool.languages.length === 1 ? t.card_languageOne : fmt(t.card_languageCount, { n: tool.languages.length })}</span>
           )}
-          <Link href={`${href}#languages`} prefetch={false} className="block w-fit py-1 text-sm font-normal underline underline-offset-2">
+          <Link href={`${href}#languages`} className="block w-fit py-1 text-sm font-normal underline underline-offset-2">
             {t.card_seeLanguages}
           </Link>
         </Fact>
@@ -217,8 +217,8 @@ export function ToolCard({
       <div className="mt-5 flex flex-wrap items-center gap-2">
         <Link
           href={href}
-          prefetch={false}
-          className="inline-flex min-h-12 items-center justify-center rounded-lg border border-blue bg-blue px-5 py-2 font-semibold text-white no-underline transition-colors hover:border-blue-dark hover:bg-blue-dark"
+         
+          className="inline-flex min-h-12 items-center justify-center rounded-lg border border-blue bg-blue px-5 py-2 font-semibold text-white no-underline tap hover:border-blue-dark hover:bg-blue-dark"
         >
           {t.card_details}
           <span className="sr-only">: {tool.name}</span>

@@ -129,7 +129,7 @@ function ProblemCard({ problem, index, lang, t }: { problem: CheckupProblem; ind
           <div>
             <p className="text-sm text-muted-ink">{t.checkup_tool}</p>
             <p className="text-lg font-semibold">
-              <Link href={toolHref(lang, tool.slug)} prefetch={false} className="underline underline-offset-2">
+              <Link href={toolHref(lang, tool.slug)} className="underline underline-offset-2">
                 {tool.name}
               </Link>
             </p>
@@ -189,7 +189,7 @@ function ProblemCard({ problem, index, lang, t }: { problem: CheckupProblem; ind
 
           <div className="flex flex-wrap items-start gap-3">
             <PromptHelper slug={tool.slug} problem={problem.need} lang={lang} t={t} />
-            <Link href={toolHref(lang, tool.slug)} prefetch={false} className={buttonVariants({ variant: "outline" })}>
+            <Link href={toolHref(lang, tool.slug)} className={buttonVariants({ variant: "outline" })}>
               {t.checkup_seeTool}
               <ArrowIcon className="size-4" />
               <span className="sr-only">: {tool.name}</span>
@@ -206,7 +206,7 @@ function StartAgain({ lang, onReset, className, children }: { lang: string; onRe
   return (
     <Link
       href={`/${lang}/checkup`}
-      prefetch={false}
+     
       className={className}
       onClick={(event) => {
         if (!onReset) return;
@@ -246,7 +246,7 @@ function Results({ result, lang, t, onReset }: { result: CheckupResult; lang: st
         {problems.length === 0 ? (
           <div className="mt-2">
             <p>{t.checkup_noProblems}</p>
-            <Link href={`/${lang}`} prefetch={false} className={`${buttonVariants({ variant: "outline" })} mt-3`}>
+            <Link href={`/${lang}`} className={`${buttonVariants({ variant: "outline" })} mt-3`}>
               {t.checkup_describe}
             </Link>
           </div>
@@ -362,7 +362,7 @@ export function CheckupView({ lang, name, city, website, t, onReset }: { lang: s
       <StartAgain lang={lang} onReset={onReset} className={buttonVariants({ variant: "outline" })}>
         {t.checkup_wrong}
       </StartAgain>
-      <Link href={`/${lang}`} prefetch={false} className={buttonVariants({ variant: "outline" })}>
+      <Link href={`/${lang}`} className={buttonVariants({ variant: "outline" })}>
         {t.checkup_describe}
       </Link>
     </div>

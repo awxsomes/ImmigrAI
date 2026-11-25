@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { CompareView } from "@/components/tools/compare-view";
-import { Skeleton } from "@/components/ui/skeleton";
+import { CompareSkeleton } from "@/components/site/skeletons";
 import { SEED_BY_SLUG } from "@/data/seed-tools";
 import { getDict } from "@/lib/i18n";
 import { CARD_KEYS, COMPAT_KEYS, pick } from "@/lib/labels";
@@ -48,13 +48,7 @@ async function Compare({ params, searchParams }: Props) {
 
 export default function ComparePage(props: Props) {
   return (
-    <Suspense
-      fallback={
-        <div className="mx-auto max-w-6xl px-4 py-8">
-          <Skeleton className="h-96 w-full" />
-        </div>
-      }
-    >
+    <Suspense fallback={<CompareSkeleton />}>
       <Compare {...props} />
     </Suspense>
   );

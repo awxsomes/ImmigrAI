@@ -13,6 +13,25 @@ export function peekPendingNeed() {
   return pending;
 }
 
+/**
+ * A word or two the device could not place. The search box opens the results page for it at
+ * once, without waiting for the AI, and the page then goes straight to the AI's best match, as
+ * if the box had waited. Opened from a link instead, the page lists the AI's ideas to choose from.
+ */
+let jumpFor: string | null = null;
+
+export function setJumpToBestMatch(query: string) {
+  jumpFor = query;
+}
+
+export function peekJumpToBestMatch(query: string) {
+  return jumpFor === query;
+}
+
+export function clearJumpToBestMatch() {
+  jumpFor = null;
+}
+
 /** A few words or more is a specific need. One word is a category, and a list answers it faster. */
 export function isSpecificNeed(text: string) {
   const trimmed = text.trim();

@@ -78,3 +78,57 @@ export function ShopMark(props: IconProps) {
     </svg>
   );
 }
+
+/*
+  Tab bar icons. Like the icons in a phone's own apps, each one fills in while its tab is open,
+  so the open tab is shown by shape as well as color.
+*/
+type TabIconProps = IconProps & { filled?: boolean };
+
+export function HomeIcon({ filled, ...props }: TabIconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3.5 10.2 12 3.5l8.5 6.7V19.5a1.5 1.5 0 0 1-1.5 1.5h-4.5v-6h-5v6H5a1.5 1.5 0 0 1-1.5-1.5z" fill={filled ? "currentColor" : "none"} />
+    </svg>
+  );
+}
+
+export function KitsIcon({ filled, ...props }: TabIconProps) {
+  const fill = filled ? "currentColor" : "none";
+  return (
+    <svg {...base} {...props}>
+      <rect x="3.5" y="3.5" width="7" height="7" rx="1.75" fill={fill} />
+      <rect x="13.5" y="3.5" width="7" height="7" rx="1.75" fill={fill} />
+      <rect x="3.5" y="13.5" width="7" height="7" rx="1.75" fill={fill} />
+      <rect x="13.5" y="13.5" width="7" height="7" rx="1.75" fill={fill} />
+    </svg>
+  );
+}
+
+export function CheckupIcon({ filled, ...props }: TabIconProps) {
+  return (
+    <svg {...base} {...props}>
+      <rect x="4.5" y="4" width="15" height="17" rx="2" fill={filled ? "currentColor" : "none"} />
+      <path d="M9 2.75h6v2.5H9z" fill="#ffffff" />
+      <path d="M8.5 13.25l2.5 2.5 4.5-5" stroke={filled ? "#ffffff" : "currentColor"} />
+    </svg>
+  );
+}
+
+export function SavedIcon({ filled, ...props }: TabIconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 3.5h12a.5.5 0 0 1 .5.5v16.5L12 16l-6.5 4.5V4a.5.5 0 0 1 .5-.5z" fill={filled ? "currentColor" : "none"} />
+    </svg>
+  );
+}
+
+/** A ring that turns while something is on its way. It holds still for anyone whose device is set to reduce motion. */
+export function Spinner(props: IconProps) {
+  return (
+    <svg {...base} {...props} className={`animate-spin motion-reduce:animate-none ${props.className ?? ""}`}>
+      <circle cx="12" cy="12" r="8.5" opacity="0.3" />
+      <path d="M20.5 12A8.5 8.5 0 0 0 12 3.5" />
+    </svg>
+  );
+}

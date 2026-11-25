@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { ToolDetailSkeleton } from "@/components/site/skeletons";
 import { useUserData } from "@/lib/storage";
 import type { Tool } from "@/lib/types";
 import { DetailActions, SaveButton, type ExtrasLabels } from "./detail-actions";
@@ -57,11 +58,22 @@ export function LiveToolPage({
       />
     );
   }
+  if (state === "missing") {
+    return (
+      <div className="mx-auto max-w-3xl px-4 py-12">
+        <p role="status" className="text-lg">
+          {labels.notFound}
+        </p>
+      </div>
+    );
+  }
   return (
-    <div className="mx-auto max-w-3xl px-4 py-12">
-      <p role="status" className="text-lg">
-        {state === "missing" ? labels.notFound : labels.loading}
-      </p>
-    </div>
+    <ToolDetailSkeleton
+      status={
+        <p role="status" className="mb-3 text-lg">
+          {labels.loading}
+        </p>
+      }
+    />
   );
 }

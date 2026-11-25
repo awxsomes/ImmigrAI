@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useEffect, useRef, type ReactNode } from "react";
+import { Suspense, useEffect, useRef, type ReactNode, type RefObject } from "react";
 import { ChevronIcon } from "@/components/icons";
 
 /**
@@ -10,7 +10,7 @@ import { ChevronIcon } from "@/components/icons";
  * the expected extras: close on Escape, on an outside click, and after choosing a link.
  */
 const SUMMARY = {
-  button: "rounded-lg border border-line-strong bg-surface px-3 font-semibold transition-colors hover:bg-blue-tint",
+  button: "rounded-lg border border-line-strong bg-surface px-3 font-semibold tap hover:bg-blue-tint",
   /** A tab in the header's row of areas: underlined while open, like the page it leads to. */
   tab: "border-b-[3px] border-transparent font-semibold hover:text-blue-dark group-open:border-blue",
 };
@@ -31,15 +31,6 @@ export function Disclosure({
   children: ReactNode;
 }) {
   const ref = useRef<HTMLDetailsElement>(null);
-  const pathname = usePathname();
-
-  // Close after moving to a new page, but not on first load: on a slow connection someone
-  // may already have opened this menu before the JavaScript arrived.
-  const shownFor = useRef(pathname);
-  useEffect(() => {
-    if (shownFor.current !== pathname && ref.current) ref.current.open = false;
-    shownFor.current = pathname;
-  }, [pathname]);
 
   useEffect(() => {
     function onPointer(event: PointerEvent) {
@@ -75,6 +66,24 @@ export function Disclosure({
       >
         {children}
       </div>
+      {/* Reads the page address, which a page for a tool found by live search only knows in the browser. */}
+      <Suspense fallback={null}>
+        <CloseOnNewPage detailsRef={ref} />
+      </Suspense>
     </details>
   );
+}
+
+/**
+ * Closes the menu after moving to a new page, but not on first load: on a slow connection
+ * someone may already have opened it before the JavaScript arrived.
+ */
+function CloseOnNewPage({ detailsRef }: { detailsRef: RefObject<HTMLDetailsElement | null> }) {
+  const pathname = usePathname();
+  const shownFor = useRef(pathname);
+  useEffect(() => {
+    if (shownFor.current !== pathname && detailsRef.current) detailsRef.current.open = false;
+    shownFor.current = pathname;
+  }, [pathname, detailsRef]);
+  return null;
 }

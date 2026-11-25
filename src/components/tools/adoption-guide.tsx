@@ -106,7 +106,7 @@ export function AdoptionGuide({ tool, lang, t }: { tool: Tool; lang: string; t: 
           {ready && data.alreadyUse.length === 0 && (
             <p>
               {t.adopt_tellUs}{" "}
-              <Link href={`/${lang}/my-tools#already-title`} prefetch={false} className="inline-flex min-h-11 items-center font-medium underline underline-offset-2">
+              <Link href={`/${lang}/my-tools#already-title`} className="inline-flex min-h-11 items-center font-medium underline underline-offset-2">
                 {t.adopt_tellUsLink}
               </Link>
             </p>

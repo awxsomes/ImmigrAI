@@ -487,7 +487,7 @@
       "Chữ có độ tương phản rõ với nền, và màu sắc không phải là cách duy nhất để báo hiệu.",
       "Nút và liên kết đủ lớn để chạm dễ dàng.",
       "Các trang có tiêu đề và nhãn rõ ràng cho trình đọc màn hình.",
-      "Không có gì nhấp nháy hay tự chuyển động.",
+      "Không có gì nhấp nháy. Thứ duy nhất tự chuyển động là một vệt sáng nhẹ trên các khối màu xám khi trang đang tải, và nó sẽ đứng yên nếu thiết bị của bạn được đặt để giảm chuyển động.",
       "Giao diện có sẵn bằng tiếng Anh, tiếng Tây Ban Nha, tiếng Trung và tiếng Việt."
      ]
     },
@@ -605,7 +605,7 @@
   },
   "cookies": {
    "title": "Chính sách cookie",
-   "intro": "Chúng tôi không đặt bất kỳ cookie nào. Chúng tôi chỉ dùng bộ nhớ cục bộ của trình duyệt bạn nếu bạn đồng ý.",
+   "intro": "Chúng tôi không đặt bất kỳ cookie nào. Chúng tôi chỉ lưu dữ liệu trong trình duyệt của bạn nếu bạn đồng ý.",
    "sections": [
     {
      "h": "Cookie",
@@ -621,6 +621,12 @@
      "ul": [
       "immigrai:consent ghi nhớ lựa chọn của bạn trên biểu ngữ.",
       "immigrai:v1 lưu các công cụ đã lưu, đánh giá, ghi chú, số tiền bạn trả cho chúng và thời điểm trả, loại hình kinh doanh bạn làm, quy mô nhóm của bạn, phần mềm bạn đang dùng và ngôn ngữ của bạn."
+     ]
+    },
+    {
+     "h": "Bản sao để dùng khi không có mạng",
+     "p": [
+      "Nếu bạn đồng ý, chúng tôi cũng giữ một bản sao của mỗi trang bạn mở, cùng các tệp trang đó cần, trong bộ nhớ đệm của trình duyệt. Nhờ vậy ImmigrAI vẫn mở được khi mạng yếu hoặc không có mạng. Các bản sao chỉ chứa các trang công khai của chúng tôi, không bao giờ chứa những gì bạn nhập hay lưu. Nếu sau này bạn chọn không, hoặc xóa dữ liệu của mình, các bản sao sẽ bị xóa."
      ]
     },
     {
@@ -650,7 +656,7 @@
     {
      "h": "Những gì ở lại trên thiết bị của bạn",
      "p": [
-      "Nếu bạn đồng ý trên biểu ngữ của chúng tôi, bộ nhớ cục bộ của trình duyệt sẽ giữ các công cụ bạn đã lưu, đánh giá và ghi chú của bạn, số tiền bạn trả cho chúng và thời điểm trả, loại hình kinh doanh bạn làm, quy mô nhóm, phần mềm bạn đang dùng và ngôn ngữ của bạn. Chúng tôi không giữ bản sao nào của những thông tin này. Chi tiết chỉ rời khỏi thiết bị của bạn khi thực hiện các tìm kiếm được mô tả dưới đây. Bạn có thể tải xuống hoặc xóa chúng bất cứ lúc nào."
+      "Nếu bạn đồng ý trên biểu ngữ của chúng tôi, bộ nhớ cục bộ của trình duyệt sẽ giữ các công cụ bạn đã lưu, đánh giá và ghi chú của bạn, số tiền bạn trả cho chúng và thời điểm trả, loại hình kinh doanh bạn làm, quy mô nhóm, phần mềm bạn đang dùng và ngôn ngữ của bạn. Chúng tôi không giữ bản sao nào của những thông tin này. Chi tiết chỉ rời khỏi thiết bị của bạn khi thực hiện các tìm kiếm được mô tả dưới đây. Bạn có thể tải xuống hoặc xóa chúng bất cứ lúc nào. Trình duyệt của bạn cũng giữ bản sao của các trang bạn mở, để ImmigrAI vẫn mở được khi mạng yếu hoặc không có mạng. Các bản sao này chỉ chứa các trang công khai của chúng tôi, không bao giờ chứa những gì bạn nhập hay lưu."
      ]
     },
     {
@@ -704,7 +710,7 @@
     {
      "h": "Những gì sẽ bị xóa",
      "p": [
-      "Việc này xóa khỏi trình duyệt này các công cụ bạn đã lưu, đánh giá, ghi chú, số tiền bạn trả cho chúng và khi nào trả, thông tin doanh nghiệp của bạn, phần mềm bạn đang dùng, ngôn ngữ và lựa chọn biểu ngữ của bạn. Việc này không thể hoàn lại. Nếu bạn dùng ImmigrAI trên thiết bị khác, hãy xóa luôn ở đó."
+      "Việc này xóa khỏi trình duyệt này các công cụ bạn đã lưu, đánh giá, ghi chú, số tiền bạn trả cho chúng và khi nào trả, thông tin doanh nghiệp của bạn, phần mềm bạn đang dùng, ngôn ngữ, lựa chọn biểu ngữ của bạn và các bản sao trang của chúng tôi để dùng khi không có mạng. Việc này không thể hoàn lại. Nếu bạn dùng ImmigrAI trên thiết bị khác, hãy xóa luôn ở đó."
      ]
     },
     {
@@ -8613,11 +8619,11 @@
   },
   "docs": {
    "about": "2c33adc0a57e",
-   "accessibility": "54f96fa9e2b9",
+   "accessibility": "e37168aecf8e",
    "terms": "92902aff0925",
-   "cookies": "0f2853d731ef",
-   "privacy": "b13ab931c29e",
-   "data-deletion": "3ab2d652922a",
+   "cookies": "47c24236661c",
+   "privacy": "cfaeea1281ae",
+   "data-deletion": "7c4e34de801d",
    "methodology": "dcff6632dea6",
    "free-help": "5ffa4f8bc3ff"
   },

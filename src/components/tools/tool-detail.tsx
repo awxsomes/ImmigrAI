@@ -236,7 +236,7 @@ export function ToolDetail({
           <ol className="flex flex-wrap gap-x-2">
             {crumbs.map((crumb) => (
               <li key={crumb.href}>
-                <Link href={crumb.href} prefetch={false} className="inline-block py-1 underline underline-offset-2 hover:text-ink">
+                <Link href={crumb.href} className="inline-block py-1 underline underline-offset-2 hover:text-ink">
                   {crumb.label}
                 </Link>
                 <span aria-hidden="true"> / </span>
@@ -509,7 +509,7 @@ export function ToolDetail({
               <p>{fmt(t.tool_energyLine, { n: env.perTask.wattHours })}</p>
               <p className="text-sm text-muted-ink">{t.tool_energyScale}</p>
               <p className="text-sm text-muted-ink">{t.tool_energyNote}</p>
-              <Link href={`/${lang}/methodology#energy`} prefetch={false} className="inline-block py-1 text-sm underline underline-offset-2">
+              <Link href={`/${lang}/methodology#energy`} className="inline-block py-1 text-sm underline underline-offset-2">
                 {t.tool_howWeCalc}
               </Link>
             </div>

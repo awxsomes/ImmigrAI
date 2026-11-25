@@ -4,14 +4,15 @@ import { permanentRedirect } from "next/navigation";
 import { Suspense } from "react";
 import { AiSuggestions } from "@/components/search/ai-suggestions";
 import { MatchResults } from "@/components/search/match-results";
+import { SmartSearch } from "@/components/search/smart-search";
+import { ResultsSkeleton } from "@/components/site/skeletons";
 import { ResultsView } from "@/components/tools/results-view";
-import { Skeleton } from "@/components/ui/skeleton";
 import { SEED_TOOLS, seedToolsFor } from "@/data/seed-tools";
 import { findCategory, findSubcategory, NO_LIVE_DISCOVERY, RENAMED_SUBCATEGORIES } from "@/data/taxonomy";
 import { FREE_HELP, freeHelpFor } from "@/lib/advice";
 import { searchHref } from "@/lib/format";
 import { getDict } from "@/lib/i18n";
-import { fmt, MATCH_KEYS, pick, RESULTS_KEYS } from "@/lib/labels";
+import { fmt, MATCH_KEYS, pick, RESULTS_KEYS, SEARCH_KEYS } from "@/lib/labels";
 import { localizeTool, localTaxonomy, nameOf, pageLanguageName } from "@/lib/localize";
 import { localSuggestions } from "@/lib/matcher";
 
@@ -24,16 +25,6 @@ interface Props {
 
 function one(value: string | string[] | undefined) {
   return (Array.isArray(value) ? value[0] : value)?.slice(0, 200) ?? "";
-}
-
-function ResultsFallback() {
-  return (
-    <div className="mx-auto max-w-6xl space-y-4 px-4 py-8">
-      <Skeleton className="h-10 w-2/3" />
-      <Skeleton className="h-48 w-full" />
-      <Skeleton className="h-48 w-full" />
-    </div>
-  );
 }
 
 async function Results({ params, searchParams }: Props) {
@@ -75,6 +66,12 @@ async function Results({ params, searchParams }: Props) {
           <MatchResults lang={lang} t={pick(t, MATCH_KEYS)} fallbackTitle={t.results_noCategory} browseTitle={t.match_browseNeeds} defaultLanguage={pageLanguageName(lang)} />
         ) : (
           <h1 className="text-3xl font-bold">{q ? `${t.results_forQuery}: "${q}"` : t.results_noCategory}</h1>
+        )}
+        {/* Opened from the Search tab with nothing chosen yet: the search box first, then every need below it. */}
+        {!q && !matching && (
+          <div className="mt-5 max-w-2xl">
+            <SmartSearch lang={lang} t={pick(t, SEARCH_KEYS)} examples={[t.search_example1, t.search_example2, t.search_example3, t.search_example4]} />
+          </div>
         )}
         {others.length > 0 && (
           <div className="mt-4">
@@ -191,7 +188,7 @@ async function Results({ params, searchParams }: Props) {
         <Link
           href={searchHref(lang, category.id)}
           aria-current={!sub ? "page" : undefined}
-          className={`inline-flex min-h-11 items-center rounded-full border px-4 text-[0.95rem] no-underline ${!sub ? "border-blue bg-blue font-semibold text-white" : "border-line-strong bg-surface font-medium hover:border-blue hover:bg-blue-tint"}`}
+          className={`tap inline-flex min-h-11 items-center rounded-full border px-4 text-[0.95rem] no-underline ${!sub ? "border-blue bg-blue font-semibold text-white" : "border-line-strong bg-surface font-medium hover:border-blue hover:bg-blue-tint"}`}
         >
           {t.results_all}
         </Link>
@@ -200,7 +197,7 @@ async function Results({ params, searchParams }: Props) {
             key={s.id}
             href={searchHref(lang, category.id, s.id)}
             aria-current={sub?.id === s.id ? "page" : undefined}
-            className={`inline-flex min-h-11 items-center rounded-full border px-4 text-[0.95rem] no-underline ${sub?.id === s.id ? "border-blue bg-blue font-semibold text-white" : "border-line-strong bg-surface font-medium hover:border-blue hover:bg-blue-tint"}`}
+            className={`tap inline-flex min-h-11 items-center rounded-full border px-4 text-[0.95rem] no-underline ${sub?.id === s.id ? "border-blue bg-blue font-semibold text-white" : "border-line-strong bg-surface font-medium hover:border-blue hover:bg-blue-tint"}`}
           >
             {nameOf(lang, s.id, s.name)}
           </Link>
@@ -249,7 +246,7 @@ async function Results({ params, searchParams }: Props) {
 
 export default function SearchPage(props: Props) {
   return (
-    <Suspense fallback={<ResultsFallback />}>
+    <Suspense fallback={<ResultsSkeleton />}>
       <Results {...props} />
     </Suspense>
   );
